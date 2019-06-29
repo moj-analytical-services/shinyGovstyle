@@ -1,13 +1,15 @@
-#' Text Area Input Function
+#' Button Function
 #'
-#' This function create a text area input
-#' @param main_text Text that goes in the main
-#' @keywords text area
+#' This function create a gov style button
+#' @inputId The input slot that will be used to access the value.
+#' @label The contents of the button.
+#' @type The type of button.  Options are default, start, secondary and warning.  Defaults to default.
+#' @keywords button
 #' @export
 #' @examples
-#' text_area_input()
+#' button_Input("btn1", "Continue", "default")
 
-gov_button <- function(inputId, text, type = "default"){
+button_Input <- function(inputId, label, type = "default"){
 
   class_input <- "govuk-button"
   if (type == "start")
@@ -17,10 +19,8 @@ gov_button <- function(inputId, text, type = "default"){
   else if (type == "warning")
     class_input <- "govuk-button govuk-button--warning"
 
-  print(class_input)
-
   value <- shiny::restoreInput(id = inputId, default = NULL)
 
-  tags$button(text, id = inputId, class = paste0(class_input, " action-button"), `data-val` = value)
+  tags$button(label, id = inputId, class = paste0(class_input, " action-button"), `data-val` = value)
 
 }
