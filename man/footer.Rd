@@ -4,7 +4,7 @@
 \alias{footer}
 \title{Footer Function}
 \usage{
-footer()
+footer(full = FALSE)
 }
 \description{
 This function create a footer

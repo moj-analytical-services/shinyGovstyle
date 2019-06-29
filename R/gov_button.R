@@ -7,7 +7,7 @@
 #' @examples
 #' text_area_input()
 
-gov_button <- function(input_id, text, type = "default"){
+gov_button <- function(inputId, text, type = "default"){
 
   class_input <- "govuk-button"
   if (type == "start")
@@ -19,8 +19,8 @@ gov_button <- function(input_id, text, type = "default"){
 
   print(class_input)
 
-  value <- shiny::restoreInput(id = input_id, default = NULL)
+  value <- shiny::restoreInput(id = inputId, default = NULL)
 
-  tags$button(text, id = input_id, class = paste0(class_input, " action-button"), `data-val` = value)
+  tags$button(text, id = inputId, class = paste0(class_input, " action-button"), `data-val` = value)
 
 }

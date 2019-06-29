@@ -4,7 +4,7 @@
 \alias{gov_button}
 \title{Text Area Input Function}
 \usage{
-gov_button(input_id, text, type = "default")
+gov_button(inputId, text, type = "default")
 }
 \arguments{
 \item{main_text}{Text that goes in the main}

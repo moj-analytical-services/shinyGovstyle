@@ -7,6 +7,7 @@
 #' load_style()
 
 load_style <- function(){
+
   shiny::addResourcePath('shinyGovstyle', system.file('www', package = 'shinyGovstyle'))
   version <- as.character(packageVersion("shinyWidgets")[[1]])
 

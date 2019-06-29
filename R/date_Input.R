@@ -1,4 +1,4 @@
-#' Date Entry Function
+#' Date Input Function
 #'
 #' This function create a date input that follows gds component
 #' @param input_id Input ID so that you can select the compoenent
@@ -9,9 +9,9 @@
 #' @keywords date
 #' @export
 #' @examples
-#' date_entry("dob_input", Please enter your birthday", ""For example, 12 11 2007")
+#' date_Input("dob_input", Please enter your birthday", ""For example, 12 11 2007")
 
-date_entry <- function(input_id, label_text, hint_text = NULL, error = FALSE, error_message = "Please enter a date"){
+date_Input <- function(input_id, label_text, hint_text = NULL, error = FALSE, error_message = "Please enter a date"){
   tags$div(class="govuk-form-group", id=paste0(input_id,"div"),
     tags$fieldset(class="govuk-fieldset",
       tags$label(label_text, class="govuk-label"),

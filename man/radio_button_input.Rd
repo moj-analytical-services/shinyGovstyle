@@ -5,7 +5,8 @@
 \title{Radio Button Function}
 \usage{
 radio_button_input(input_id, label, choices = NULL, selected = NULL,
-  inline = FALSE, width = NULL, choiceNames = NULL, choiceValues = NULL)
+  inline = FALSE, width = NULL, choiceNames = NULL,
+  choiceValues = NULL)
 }
 \arguments{
 \item{label}{Input label.}
