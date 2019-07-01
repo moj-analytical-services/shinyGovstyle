@@ -7,13 +7,14 @@
 #' @param row_no Size of the text entry box.  Defaults to 5.
 #' @param error Whenever to icnlud error handling  Defaults to FALSE.
 #' @param error_message Message to display on error.  Defaults to NULL
+#' @param error_message Add a word limit to the display.  Defaults to Null.
 #' @keywords text area
 #' @export
 #' @examples
 #' text_area_input()
 
-text_area_input <- function(input_id, label_text, hint_text=NULL, row_no=5, error = FALSE, error_message = NULL){
-  tags$div(class="govuk-form-group", id=paste0(input_id,"div"),
+text_area_Input <- function(input_id, label_text, hint_text=NULL, row_no=5, error = FALSE, error_message = NULL, word_limit=NULL){
+  tags$div(class="govuk-form-group govuk-character-count", id=paste0(input_id,"div"),
     tags$label(label_text, class="govuk-label"),
     tags$span(hint_text ,class="govuk-hint"),
     if (error == TRUE){
@@ -23,9 +24,13 @@ text_area_input <- function(input_id, label_text, hint_text=NULL, row_no=5, erro
                   id= paste0(input_id, "error"),
         tags$span("Error:",
                   class="govuk-visually-hidden")
+        )
       )
-    )
-  },
-    tags$textarea(id=input_id, class="govuk-textarea js-character-count", rows=row_no)
+    },
+    tags$textarea(id=input_id, class="govuk-textarea", rows=row_no),
+    if (!is.null(word_limit)){
+      tags$span(id=paste0(input_id,"wc"), class="govuk-hint govuk-character-count__message",
+                paste("You have used 0", "of the", word_limit, "allowed"))
+    }
   )
 }

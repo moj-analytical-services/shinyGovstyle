@@ -4,8 +4,8 @@
 \alias{text_Input}
 \title{Text Input Function}
 \usage{
-text_Input(input_id, label_text, hint_text = NULL, error = FALSE,
-  error_message = NULL)
+text_Input(input_id, label_text, hint_text = NULL, type = "text",
+  error = FALSE, error_message = NULL)
 }
 \arguments{
 \item{input_id}{Input id for the component}

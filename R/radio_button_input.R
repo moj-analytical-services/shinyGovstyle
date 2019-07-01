@@ -7,18 +7,21 @@
 #'  then that name rather than the value is displayed to the user)
 #' @param selected The initially selected value.
 #' @param inline  If you want the radio inline or not,  Default is FALSE
-#' @param width The width of the input, e.g. '400px', or '100\%'.  Default is NULL
 #' @param choiceNames,choiceValues Same as in \code{\link[shiny]{checkboxGroupInput}}. List of names and values, respectively, that are displayed to
 #'  the user in the app and correspond to the each choice (for this reason,
+#' @param hint_text  Additional hint text you may want to display below the label.  Defaults to NULL
+#' @param error  Whenever you want to include error handle on the component.
+#' @param error_message  If you want a default error message.
 #' @keywords radiobuttons
 #' @export
 #' @examples
 #' radio_button_input()
 
-radio_button_input <- function (input_id, label, choices = NULL,
+radio_button_Input <- function (input_id, label, choices = NULL,
                                 selected = NULL, inline = FALSE,
-                                width = NULL, choiceNames = NULL,
-                                choiceValues = NULL){
+                                choiceNames = NULL,
+                                choiceValues = NULL, hint_text = NULL, error = FALSE,
+                                error_message = NULL){
   args <- shiny:::normalizeChoicesArgs(choices, choiceNames, choiceValues)
   selected <- shiny::restoreInput(id = input_id, default = selected)
   selected <- if (is.null(selected))
@@ -35,9 +38,21 @@ radio_button_input <- function (input_id, label, choices = NULL,
   else {
     divClass <- paste(divClass, "govuk-radios")
   }
-  tags$div(id = input_id, style = if (!is.null(width))
-    paste0("width: ", validateCssUnit(width), ";"), class = divClass,
-    controlLabel2(input_id, label), options)
+  tags$div(id = input_id, class = divClass,
+    tags$div(class="govuk-form-group", id=paste0(input_id,"div"),
+    controlLabel2(input_id, label),
+    tags$span(hint_text ,class="govuk-hint"),
+    if (error == TRUE){
+      shinyjs::hidden(
+        tags$span(error_message,
+                  class="govuk-error-message",
+                  id= paste0(input_id, "error"),
+                  tags$span("Error:",
+                            class="govuk-visually-hidden")
+        )
+      )
+    },
+    options))
 }
 
 controlLabel2 <- function(controlName, label) {

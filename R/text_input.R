@@ -12,7 +12,8 @@
 #' @examples
 #' text_area_input()
 
-text_Input <- function(input_id, label_text, hint_text=NULL, error = FALSE, error_message = NULL){
+text_Input <- function(input_id, label_text, hint_text=NULL, type = "text", error = FALSE, error_message = NULL){
+  # value <- restoreInput(id = input_id, default = value)
   tags$div(class="govuk-form-group", id=paste0(input_id,"div"),
     tags$label(label_text, class="govuk-label"),
     tags$span(hint_text ,class="govuk-hint"),
@@ -26,6 +27,6 @@ text_Input <- function(input_id, label_text, hint_text=NULL, error = FALSE, erro
         )
       )
     },
-    tags$input(id=input_id, class="govuk-input")
+    tags$input(id=input_id, class="govuk-input", type = type)
   )
 }
