@@ -5,7 +5,7 @@
 \title{Text Input Function}
 \usage{
 text_Input(input_id, label_text, hint_text = NULL, type = "text",
-  error = FALSE, error_message = NULL)
+  width = NULL, error = FALSE, error_message = NULL)
 }
 \arguments{
 \item{input_id}{Input id for the component}
@@ -13,6 +13,8 @@ text_Input(input_id, label_text, hint_text = NULL, type = "text",
 \item{label_text}{Main text above the text area input}
 
 \item{hint_text}{Secondary text for the text area box. Defaults to NULL}
+
+\item{width}{control the size of the box based on number of characters required.  Options are 30, 20, 10, 5, 4, 3, 2.  NULL will not limit the size}
 
 \item{error}{Whenever to icnlud error handling  Defaults to FALSE.}
 

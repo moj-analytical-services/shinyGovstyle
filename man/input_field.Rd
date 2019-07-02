@@ -7,7 +7,7 @@
 input_field(text_in, titles, ids, widths = NULL)
 }
 \arguments{
-\item{widths}{Insert optional hint/secondary text.  Options are 30, 20, 10, 5, 4, 3, 2.  NULL will not limit the size}
+\item{widths}{control the size of the box based on number of characters required.  Options are 30, 20, 10, 5, 4, 3, 2.  NULL will not limit the size}
 
 \item{input_id}{Input id for the component}
 

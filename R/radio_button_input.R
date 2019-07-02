@@ -9,7 +9,7 @@
 #' @param inline  If you want the radio inline or not,  Default is FALSE
 #' @param choiceNames,choiceValues Same as in \code{\link[shiny]{checkboxGroupInput}}. List of names and values, respectively, that are displayed to
 #'  the user in the app and correspond to the each choice (for this reason,
-#' @param hint_text  Additional hint text you may want to display below the label.  Defaults to NULL
+#' @param hint_label Additional hint text you may want to display below the label.  Defaults to NULL
 #' @param error  Whenever you want to include error handle on the component.
 #' @param error_message  If you want a default error message.
 #' @keywords radiobuttons
@@ -17,19 +17,19 @@
 #' @examples
 #' radio_button_input()
 
-radio_button_Input <- function (input_id, label, choices = NULL,
+radio_button_Input <- function (inputId, label, choices = NULL,
                                 selected = NULL, inline = FALSE,
                                 choiceNames = NULL,
-                                choiceValues = NULL, hint_text = NULL, error = FALSE,
+                                choiceValues = NULL, hint_label = NULL, error = FALSE,
                                 error_message = NULL){
   args <- shiny:::normalizeChoicesArgs(choices, choiceNames, choiceValues)
-  selected <- shiny::restoreInput(id = input_id, default = selected)
+  selected <- shiny::restoreInput(id = inputId, default = selected)
   selected <- if (is.null(selected))
     args$choiceValues[[1]]
   else as.character(selected)
   if (length(selected) > 1)
     stop("The 'selected' argument must be of length 1")
-  options <- generateOptions2(input_id, selected, inline, "radio",
+  options <- generateOptions2(inputId, selected, inline, "radio",
                               args$choiceNames, args$choiceValues)
   divClass <- "govuk-form-group govuk-radios"
   if (inline){
@@ -38,15 +38,15 @@ radio_button_Input <- function (input_id, label, choices = NULL,
   else {
     divClass <- paste(divClass, "govuk-radios")
   }
-  tags$div(id = input_id, class = divClass,
-    tags$div(class="govuk-form-group", id=paste0(input_id,"div"),
-    controlLabel2(input_id, label),
-    tags$span(hint_text ,class="govuk-hint"),
+  tags$div(id = inputId, class = divClass,
+    tags$div(class="govuk-form-group", id=paste0(inputId,"div"),
+    controlLabel2(inputId, label),
+    tags$span(hint_label ,class="govuk-hint"),
     if (error == TRUE){
       shinyjs::hidden(
         tags$span(error_message,
                   class="govuk-error-message",
-                  id= paste0(input_id, "error"),
+                  id= paste0(inputId, "error"),
                   tags$span("Error:",
                             class="govuk-visually-hidden")
         )
@@ -60,12 +60,12 @@ controlLabel2 <- function(controlName, label) {
                                     `for` = controlName, label)
 }
 
-generateOptions2 <- function (input_id, selected, inline,
+generateOptions2 <- function (inputId, selected, inline,
                               type = "checkbox", choiceNames,
                               choiceValues,
                               session = getDefaultReactiveDomain()){
   options <- mapply(choiceValues, choiceNames, FUN = function(value, name) {
-    inputTag <- tags$input(type = type, name = input_id,
+    inputTag <- tags$input(type = type, name = inputId,
                            value = value, class = "govuk-radios__input")
     pd <- shiny:::processDeps(name, session)
     tags$div(class = "govuk-radios__item",

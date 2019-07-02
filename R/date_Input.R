@@ -1,34 +1,34 @@
 #' Date Input Function
 #'
 #' This function create a date input that follows gds component
-#' @param input_id Input ID so that you can select the compoenent
-#' @param label_text Text to show above the data entry.
-#' @param hint_text Hint text to show below the main text. Defaults to NULL
-#' @param error Whenever to include error components.Defaults to FALSE.
-#' @param error_message Error handling message? Defaults to "Please enter a date"
+#' @param inputId The input slot that will be used to access the value.
+#' @param label Display label for the control, or \code{NULL} for no label.
+#' @param hint_label Display hint label for the control, or \code{NULL} for no hint label.
+#' @param error Whenever to include error components.Defaults to \code{FALSE}.
+#' @param error_message Error handling message? Defaults to \code{NULL}
 #' @keywords date
 #' @export
 #' @examples
 #' date_Input("dob_input", Please enter your birthday", ""For example, 12 11 2007")
 
-date_Input <- function(input_id, label_text, hint_text = NULL, error = FALSE, error_message = "Please enter a date"){
-  tags$div(class="govuk-form-group", id=paste0(input_id,"div"),
+date_Input <- function(inputId, label, hint_label = NULL, error = FALSE, error_message = NULL){
+  tags$div(class="govuk-form-group", id=paste0(inputId,"div"),
     tags$fieldset(class="govuk-fieldset",
-      tags$label(label_text, class="govuk-label"),
+      tags$label(label, class="govuk-label"),
       if (error == TRUE){
         shinyjs::hidden(
-          tags$span(error_message, id = paste0(input_id,"error"), class = "govuk-error-message",
+          tags$span(error_message, id = paste0(inputId,"error"), class = "govuk-error-message",
             tags$span("Error:", class = "govuk-visually-hidden")
           )
         )
       },
-      tags$span(hint_text, class="govuk-hint"),
+      tags$span(hint_label, class="govuk-hint"),
         tags$div(class="govuk-date-input",
           tags$div(class="govuk-date-input__item",
             tags$div(class="govuk-form-group",
               tags$label("Day", class="govuk-label govuk-date-input__label"),
               tags$input(class="govuk-input govuk-date-input__input govuk-input--width-2",
-                         id=paste0(input_id,"_day"), name=paste0(input_id,"_day"),
+                         id=paste0(inputId,"_day"), name=paste0(inputId,"_day"),
                          type="number", pattern="[0-9]*")
             )
           ),
@@ -36,7 +36,7 @@ date_Input <- function(input_id, label_text, hint_text = NULL, error = FALSE, er
           tags$div(class="govuk-form-group",
             tags$label("Month", class="govuk-label govuk-date-input__label"),
             tags$input(class="govuk-input govuk-date-input__input govuk-input--width-2",
-                       id=paste0(input_id,"_month"), name=paste0(input_id,"_month"),
+                       id=paste0(inputId,"_month"), name=paste0(inputId,"_month"),
                        type="number", pattern="[0-9]*")
             )
         ),
@@ -44,7 +44,7 @@ date_Input <- function(input_id, label_text, hint_text = NULL, error = FALSE, er
           tags$div(class="govuk-form-group",
             tags$label("Year", class="govuk-label govuk-date-input__label"),
             tags$input(class="govuk-input govuk-date-input__input govuk-input--width-4",
-                       id=paste0(input_id,"_year"), name=paste0(input_id,"_year"),
+                       id=paste0(inputId,"_year"), name=paste0(inputId,"_year"),
                        type="number", pattern="[0-9]*")
           )
         )

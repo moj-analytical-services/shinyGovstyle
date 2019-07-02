@@ -1,9 +1,9 @@
 #' Back Link Function
 #'
 #' This function adds a back link to the page
-#' @inputId The input slot that will be used to access the value.
+#' @param inputId The input slot that will be used to access the value.
 #' @param link Link for when the button is clicked  Defaults to #
-#' @keywords back link
+#' @keywords backlink
 #' @export
 #' @examples
 #' back_link("backid")

@@ -1,10 +1,11 @@
 #' Footer Function
 #'
-#' This function create a footer
+#' This function create a gov style footer for your page
+#' @param full Whenever you want to have blank footer or official gov version.  Defaults to \code{FALSE}
 #' @keywords footer
 #' @export
 #' @examples
-#' footer()
+#' footer(TRUE)
 
 footer <- function(full = FALSE){
   tags$footer(class = "govuk-footer ",

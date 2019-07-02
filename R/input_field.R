@@ -1,19 +1,18 @@
-#' Checkbox Function
+#' Input Field Function
 #'
-#' This function inserts a label and optional hint
-#' @param input_id Input id for the component
-#' @param cb_labels Add the names of the options that will appear
-#' @param cb_values Add the values that will create the div IDs in the form of paste(cb_,cb_values)
-#' @param text_input Insert the text for the checkbox group.
-#' @param widths Insert optional hint/secondary text.  Options are 30, 20, 10, 5, 4, 3, 2.  NULL will not limit the size
-#' @keywords checkbox
+#' This function inserts number of text inputs. Useful for addresses.
+#' @param legend Lengand that goes above the fieldset
+#' @param labels A list of labels for the text inputs
+#' @param inputIds A list input slots that will be used to access the value.
+#' @param widths control the size of the box based on number of characters required.  Options are 30, 20, 10, 5, 4, 3, 2.  NULL will not limit the size
+#' @keywords input field
 #' @export
 #' @examples
-#' checkbox_input(c("Option 1", "Option 2", "Option 3"), c("op1", "op2", "op3"), "Choice option", "Lets go nuts")
+#' input_field("List of three text boxes", c("Option 1", "Option 2", "Option 3"), c("op1", "op2", "op3"))
 
-input_field <- function(text_in, titles, ids, widths=NULL){
+input_field <- function(legend, labels, inputIds, widths=NULL){
   tags$fieldset(class="govuk-fieldset",
-    tags$legend(text_in, class="govuk-fieldset__legend govuk-fieldset__legend--xl"),
+    tags$legend(legend, class="govuk-fieldset__legend govuk-fieldset__legend--xl"),
     Map(function(x, y, z){
       if (is.null(z)){
         width_class <- "govuk-input"
@@ -25,6 +24,6 @@ input_field <- function(text_in, titles, ids, widths=NULL){
         tags$label(x, class="govuk-label"),
         tags$input(id=y, class=width_class)
       )
-    }, x = titles, y = ids, z = widths)
+    }, x = labels, y = inputIds, z = widths)
   )
 }

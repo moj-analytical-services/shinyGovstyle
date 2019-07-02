@@ -1,17 +1,17 @@
 #' Label with Hint Function
 #'
 #' This function inserts a label and optional hint
-#' @param input_id Input id for the component
-#' @param text_input Insert the main text
-#' @param hint_text Insert optional hint/secondary text.  Defaults to NULL
+#' @param inputId The input slot that will be used to access the value.
+#' @param label Display label for the control, or \code{NULL} for no label.
+#' @param hint_label Display hint label for the control, or \code{NULL} for no hint label.
 #' @keywords label
 #' @export
 #' @examples
 #' label_hint("This is a label", "This is a hint")
 
-label_hint <- function(text_input, hint_input = NULL){
-  tags$div(class="govuk-form-group",
-    tags$label(text_input, class="govuk-label"),
+label_hint <- function(inputId, label, hint_input = NULL){
+  tags$div(class="govuk-form-group", id = inputId,
+    tags$label(label, class="govuk-label"),
     tags$span(hint_input, class="govuk-hint")
   )
 }

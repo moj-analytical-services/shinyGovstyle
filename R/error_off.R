@@ -1,7 +1,7 @@
 #' Error off Function
 #'
-#' This function turns off the the error o the component
-#' @inputId The input id that you to to turn the error on for.
+#' This function turns off the the error o the component, once issues have been sorted.
+#' @inputId The inputId to turn error handling iff for on for.
 #' @keywords error
 #' @export
 #' @examples

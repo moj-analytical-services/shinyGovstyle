@@ -2,7 +2,7 @@
 #'
 #' This function create a gov style button
 #' @inputId The input slot that will be used to access the value.
-#' @label The contents of the button.
+#' @label Display label for the control, or \code{NULL} for no label.
 #' @type The type of button.  Options are default, start, secondary and warning.  Defaults to default.
 #' @keywords button
 #' @export
