@@ -9,7 +9,7 @@
 load_style <- function(){
 
   shiny::addResourcePath('shinyGovstyle', system.file('www', package = 'shinyGovstyle'))
-  version <- as.character(packageVersion("shinyWidgets")[[1]])
+  version <- as.character(packageVersion("shinyGovstyle")[[1]])
 
   htmltools::htmlDependency(
     name = "stylecss",
