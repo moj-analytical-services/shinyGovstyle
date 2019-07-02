@@ -2,12 +2,12 @@
 % Please edit documentation in R/gov_layout.R
 \name{gov_layout}
 \alias{gov_layout}
-\title{Page Layout  Function}
+\title{Page LayoutFunction}
 \usage{
 gov_layout(..., inputID = "main", size = "full")
 }
 \arguments{
-\item{...}{include the components of the UI that you want within the page.}
+\item{...}{include the components of the UI that you want within the main page.}
 
 \item{inputID}{ID of the main div.  Defaults to "main"}
 
@@ -17,6 +17,6 @@ gov_layout(..., inputID = "main", size = "full")
 This function loads the page layout
 }
 \examples{
-load_style()
+gov_layout()
 }
 \keyword{style}

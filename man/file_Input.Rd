@@ -2,15 +2,15 @@
 % Please edit documentation in R/file_Input.R
 \name{file_Input}
 \alias{file_Input}
-\title{File Upload Function}
+\title{File Input Function}
 \usage{
-file_Input(input_id, label_text = "Upload a file", error = FALSE,
+file_Input(inputId, label = NULL, error = FALSE,
   error_message = NULL)
 }
 \arguments{
-\item{input_id}{Input id for the component}
+\item{inputId}{The input slot that will be used to access the value.}
 
-\item{label_text}{Main text.  Defaults to "Upload a file"}
+\item{label}{Display label for the control, or \code{NULL} for no label.}
 
 \item{error}{Whenever to icnlud error handling  Defaults to FALSE.}
 
@@ -20,7 +20,7 @@ file_Input(input_id, label_text = "Upload a file", error = FALSE,
 This function create a file upload component
 }
 \examples{
-text_area_input()
+file_Input("file1", "Upload a file")
 }
 \keyword{area}
 \keyword{text}

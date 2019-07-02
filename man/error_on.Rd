@@ -7,9 +7,9 @@
 error_on(inputId, error_message = NULL)
 }
 \description{
-This function turns on the the error o the component
+This function turns on the the error o the component.  Can be used to validate inputs.
 }
 \examples{
-error_on("inputId")
+error_on("inputId", "You have not inputed a number")
 }
 \keyword{error}

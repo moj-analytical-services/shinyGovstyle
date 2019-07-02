@@ -6,10 +6,13 @@
 \usage{
 footer(full = FALSE)
 }
+\arguments{
+\item{full}{Whenever you want to have blank footer or official gov version.  Defaults to \code{FALSE}}
+}
 \description{
-This function create a footer
+This function create a gov style footer for your page
 }
 \examples{
-footer()
+footer(TRUE)
 }
 \keyword{footer}

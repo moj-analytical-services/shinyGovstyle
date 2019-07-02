@@ -4,19 +4,19 @@
 \alias{date_Input}
 \title{Date Input Function}
 \usage{
-date_Input(input_id, label_text, hint_text = NULL, error = FALSE,
-  error_message = "Please enter a date")
+date_Input(inputId, label, hint_label = NULL, error = FALSE,
+  error_message = NULL)
 }
 \arguments{
-\item{input_id}{Input ID so that you can select the compoenent}
+\item{inputId}{The input slot that will be used to access the value.}
 
-\item{label_text}{Text to show above the data entry.}
+\item{label}{Display label for the control, or \code{NULL} for no label.}
 
-\item{hint_text}{Hint text to show below the main text. Defaults to NULL}
+\item{hint_label}{Display hint label for the control, or \code{NULL} for no hint label.}
 
-\item{error}{Whenever to include error components.Defaults to FALSE.}
+\item{error}{Whenever to include error components.Defaults to \code{FALSE}.}
 
-\item{error_message}{Error handling message? Defaults to "Please enter a date"}
+\item{error_message}{Error handling message? Defaults to \code{NULL}}
 }
 \description{
 This function create a date input that follows gds component

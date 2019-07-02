@@ -7,7 +7,7 @@
 error_off(inputId)
 }
 \description{
-This function turns off the the error o the component
+This function turns off the the error o the component, once issues have been sorted.
 }
 \examples{
 error_off("inputId")

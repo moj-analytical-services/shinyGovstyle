@@ -2,19 +2,19 @@
 % Please edit documentation in R/heading_text.R
 \name{heading_text}
 \alias{heading_text}
-\title{Header Function}
+\title{Heading Text Function}
 \usage{
 heading_text(text_input, size = "xl")
 }
 \arguments{
 \item{text_input}{Text to display}
 
-\item{main_link}{Text size using xl, l, m, s.  Defaults to xl.}
+\item{size}{Text size using xl, l, m, s.  Defaults to xl.}
 }
 \description{
-This function create a header banner
+This function create a heading text
 }
 \examples{
-heading_text()
+heading_text("This is great text", "m")
 }
 \keyword{heading}

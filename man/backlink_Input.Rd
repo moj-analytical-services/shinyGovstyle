@@ -7,6 +7,8 @@
 backlink_Input(inputId, link = "#")
 }
 \arguments{
+\item{inputId}{The input slot that will be used to access the value.}
+
 \item{link}{Link for when the button is clicked  Defaults to #}
 }
 \description{
@@ -15,5 +17,4 @@ This function adds a back link to the page
 \examples{
 back_link("backid")
 }
-\keyword{back}
-\keyword{link}
+\keyword{backlink}

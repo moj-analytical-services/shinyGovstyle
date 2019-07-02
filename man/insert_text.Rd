@@ -4,16 +4,14 @@
 \alias{insert_text}
 \title{Insert Text Function}
 \usage{
-insert_text(text)
+insert_text(inputId, text)
 }
 \arguments{
-\item{text}{text that yuu want to display}
+\item{inputId}{The input slot that will be used to access the value.}
+
+\item{text}{Text that yuu want to display on the insert}
 }
 \description{
-This function loads the insert text component
+This function loads the insert text component to display additional information in a special format.
 }
-\examples{
-insert_text("It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.")
-}
-\keyword{insert}
-\keyword{text}
+\keyword{inserttext}

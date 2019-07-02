@@ -2,24 +2,23 @@
 % Please edit documentation in R/select_Input.R
 \name{select_Input}
 \alias{select_Input}
-\title{Select Box Function}
+\title{Select Function}
 \usage{
-select_Input(input_id, label_text, select_text, select_value)
+select_Input(inputId, label, select_text, select_value)
 }
 \arguments{
-\item{input_id}{Input id for the component}
+\item{inputId}{Input id for the component}
 
-\item{label_text}{Insert the text for the label.}
+\item{label}{Insert the text for the label.}
 
 \item{select_text}{Add the text that will apply in the dropdown as a list}
 
 \item{select_value}{Add the value that will be used for each selection.}
 }
 \description{
-This function inserts a label and optional hint
+This function inserts a select box
 }
 \examples{
 select_input("sorter", "Sort by", c("Recently published", "Recently updated", "Most views", "Most comments"), c("published", "updated", "view", "comments"))
 }
-\keyword{box}
 \keyword{select}

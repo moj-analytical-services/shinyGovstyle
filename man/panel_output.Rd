@@ -4,14 +4,14 @@
 \alias{panel_output}
 \title{Panel output}
 \usage{
-panel_output(input_id, main_text, sub_text)
+panel_output(InputId, main_text, sub_text)
 }
 \arguments{
-\item{input_id}{Input id for the component}
-
 \item{main_text}{Add the header for the panel}
 
 \item{sub_text}{Add the main body of text for the panel}
+
+\item{inputId}{The input slot that will be used to access the value.}
 }
 \description{
 This function inserts a panel.  Normally used for confirmattion screens

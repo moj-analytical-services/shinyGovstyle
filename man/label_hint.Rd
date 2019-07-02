@@ -4,14 +4,14 @@
 \alias{label_hint}
 \title{Label with Hint Function}
 \usage{
-label_hint(text_input, hint_input = NULL)
+label_hint(inputId, label, hint_input = NULL)
 }
 \arguments{
-\item{text_input}{Insert the main text}
+\item{inputId}{The input slot that will be used to access the value.}
 
-\item{input_id}{Input id for the component}
+\item{label}{Display label for the control, or \code{NULL} for no label.}
 
-\item{hint_text}{Insert optional hint/secondary text.  Defaults to NULL}
+\item{hint_label}{Display hint label for the control, or \code{NULL} for no hint label.}
 }
 \description{
 This function inserts a label and optional hint

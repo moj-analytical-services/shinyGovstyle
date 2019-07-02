@@ -2,25 +2,24 @@
 % Please edit documentation in R/input_field.R
 \name{input_field}
 \alias{input_field}
-\title{Checkbox Function}
+\title{Input Field Function}
 \usage{
-input_field(text_in, titles, ids, widths = NULL)
+input_field(legend, labels, inputIds, widths = NULL)
 }
 \arguments{
+\item{legend}{Lengand that goes above the fieldset}
+
+\item{labels}{A list of labels for the text inputs}
+
+\item{inputIds}{A list input slots that will be used to access the value.}
+
 \item{widths}{control the size of the box based on number of characters required.  Options are 30, 20, 10, 5, 4, 3, 2.  NULL will not limit the size}
-
-\item{input_id}{Input id for the component}
-
-\item{cb_labels}{Add the names of the options that will appear}
-
-\item{cb_values}{Add the values that will create the div IDs in the form of paste(cb_,cb_values)}
-
-\item{text_input}{Insert the text for the checkbox group.}
 }
 \description{
-This function inserts a label and optional hint
+This function inserts number of text inputs. Useful for addresses.
 }
 \examples{
-checkbox_input(c("Option 1", "Option 2", "Option 3"), c("op1", "op2", "op3"), "Choice option", "Lets go nuts")
+input_field("List of three text boxes", c("Option 1", "Option 2", "Option 3"), c("op1", "op2", "op3"))
 }
-\keyword{checkbox}
+\keyword{field}
+\keyword{input}

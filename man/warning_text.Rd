@@ -8,6 +8,8 @@ warning_text(text)
 }
 \arguments{
 \item{text}{Text that goes in the main}
+
+\item{inputId}{The input slot that will be used to access the value.}
 }
 \description{
 This function create warning text

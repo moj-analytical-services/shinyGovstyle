@@ -4,11 +4,13 @@
 \alias{radio_button_Input}
 \title{Radio Button Function}
 \usage{
-radio_button_Input(input_id, label, choices = NULL, selected = NULL,
+radio_button_Input(inputId, label, choices = NULL, selected = NULL,
   inline = FALSE, choiceNames = NULL, choiceValues = NULL,
-  hint_text = NULL, error = FALSE, error_message = NULL)
+  hint_label = NULL, error = FALSE, error_message = NULL)
 }
 \arguments{
+\item{inputId}{The \code{input} slot that will be used to access the value.}
+
 \item{label}{Input label.}
 
 \item{choices}{List of values to select from (if elements of the list are named
@@ -21,13 +23,11 @@ then that name rather than the value is displayed to the user)}
 \item{choiceNames, choiceValues}{Same as in \code{\link[shiny]{checkboxGroupInput}}. List of names and values, respectively, that are displayed to
 the user in the app and correspond to the each choice (for this reason,}
 
-\item{hint_text}{Additional hint text you may want to display below the label.  Defaults to NULL}
+\item{hint_label}{Additional hint text you may want to display below the label.  Defaults to NULL}
 
 \item{error}{Whenever you want to include error handle on the component.}
 
 \item{error_message}{If you want a default error message.}
-
-\item{inputId}{The \code{input} slot that will be used to access the value.}
 }
 \description{
 This function create radio buttons

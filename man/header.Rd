@@ -4,23 +4,24 @@
 \alias{header}
 \title{Header Function}
 \usage{
-header(main_text, main_link, secondary_text, secondary_link, logo)
+header(main_text, secondary_text, logo = NULL, main_link = "#",
+  secondary_link = "#")
 }
 \arguments{
 \item{main_text}{Main text that goes in the header}
 
-\item{main_link}{Add a link for clicking on main text}
-
 \item{secondary_text}{Secondary header to supplement the main text}
 
-\item{secondary_link}{Add a link for clicking on secondary header.}
-
 \item{logo}{Add a link to a logo which will apply in the header.}
+
+\item{main_link}{Add a link for clicking on main text}
+
+\item{secondary_link}{Add a link for clicking on secondary header.}
 }
 \description{
 This function create a header banner.  For use at top of the screen
 }
 \examples{
-header("My site", "", "A place to have fun", "", "https://upload.wikimedia.org/wikipedia/commons/c/c4/2-Dice-Icon.svg")
+header("My site", "A place to have fun", "https://upload.wikimedia.org/wikipedia/commons/c/c4/2-Dice-Icon.svg")
 }
 \keyword{header}

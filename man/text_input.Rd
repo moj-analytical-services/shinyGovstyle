@@ -4,15 +4,15 @@
 \alias{text_Input}
 \title{Text Input Function}
 \usage{
-text_Input(input_id, label_text, hint_text = NULL, type = "text",
+text_Input(inputId, label, hint_label = NULL, type = "text",
   width = NULL, error = FALSE, error_message = NULL)
 }
 \arguments{
-\item{input_id}{Input id for the component}
+\item{inputId}{The input slot that will be used to access the value.}
 
-\item{label_text}{Main text above the text area input}
+\item{label}{Display label for the control, or \code{NULL} for no label.}
 
-\item{hint_text}{Secondary text for the text area box. Defaults to NULL}
+\item{hint_label}{Display hint label for the control, or \code{NULL} for no hint label.}
 
 \item{width}{control the size of the box based on number of characters required.  Options are 30, 20, 10, 5, 4, 3, 2.  NULL will not limit the size}
 
@@ -26,7 +26,7 @@ text_Input(input_id, label_text, hint_text = NULL, type = "text",
 This function create a text area input
 }
 \examples{
-text_area_input()
+text_Input("eventId", "Event Name")
 }
-\keyword{area}
+\keyword{input}
 \keyword{text}
