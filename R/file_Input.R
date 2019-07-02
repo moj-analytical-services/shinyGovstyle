@@ -10,7 +10,7 @@
 #' @examples
 #' text_area_input()
 
-file_upload <- function(input_id, label_text = "Upload a file", error = FALSE, error_message = NULL){
+file_Input <- function(input_id, label_text = "Upload a file", error = FALSE, error_message = NULL){
   tags$div(class="govuk-form-group", id=paste0(input_id,"div"),
            tags$label(label_text, class="govuk-label"),
            if (error == TRUE){
