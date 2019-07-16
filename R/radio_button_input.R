@@ -7,6 +7,7 @@
 #'  then that name rather than the value is displayed to the user)
 #' @param selected The initially selected value.
 #' @param inline  If you want the radio inline or not,  Default is FALSE
+#' @param small  If you want the smaller versions of radio buttons,  Default is FALSE
 #' @param choiceNames,choiceValues Same as in \code{\link[shiny]{checkboxGroupInput}}. List of names and values, respectively, that are displayed to
 #'  the user in the app and correspond to the each choice (for this reason,
 #' @param hint_label Additional hint text you may want to display below the label.  Defaults to NULL
@@ -18,7 +19,7 @@
 #' radio_button_input()
 
 radio_button_Input <- function (inputId, label, choices = NULL,
-                                selected = NULL, inline = FALSE,
+                                selected = NULL, inline = FALSE, small = FALSE,
                                 choiceNames = NULL,
                                 choiceValues = NULL, hint_label = NULL, error = FALSE,
                                 error_message = NULL){
@@ -29,15 +30,9 @@ radio_button_Input <- function (inputId, label, choices = NULL,
   else as.character(selected)
   if (length(selected) > 1)
     stop("The 'selected' argument must be of length 1")
-  options <- generateOptions2(inputId, selected, inline, "radio",
+  options <- generateOptions2(inputId, selected, inline, small, "radio",
                               args$choiceNames, args$choiceValues)
   divClass <- "govuk-form-group govuk-radios"
-  if (inline){
-    divClass <- paste(divClass, "govuk-radios--inline")
-  }
-  else {
-    divClass <- paste(divClass, "govuk-radios")
-  }
   tags$div(id = inputId, class = divClass,
     tags$div(class="govuk-form-group", id=paste0(inputId,"div"),
     controlLabel2(inputId, label),
@@ -60,7 +55,7 @@ controlLabel2 <- function(controlName, label) {
                                     `for` = controlName, label)
 }
 
-generateOptions2 <- function (inputId, selected, inline,
+generateOptions2 <- function (inputId, selected, inline, small,
                               type = "checkbox", choiceNames,
                               choiceValues,
                               session = getDefaultReactiveDomain()){
@@ -76,12 +71,18 @@ generateOptions2 <- function (inputId, selected, inline,
 
   },
   SIMPLIFY = FALSE, USE.NAMES = FALSE)
+
+  class_build <- "govuk-radios"
+
   if (inline){
-    div(class = "govuk-radios govuk-radios--inline", options)
+    class_build <- paste(class_build, "govuk-radios--inline")
   }
-  else {
-    div(class = "govuk-radios govuk-radios", options)
+
+  if (small){
+    class_build <- paste(class_build, "govuk-radios--small")
   }
+
+  div(class = class_build, options)
 }
 
 `%AND%` <- function (x, y) {

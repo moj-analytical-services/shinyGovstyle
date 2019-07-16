@@ -4,7 +4,7 @@
 \alias{word_count}
 \title{Word Count Function}
 \usage{
-word_count(inputId)
+word_count(inputId, input)
 }
 \arguments{
 \item{inputId}{The input slot of the text area that you want to affect}

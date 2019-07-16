@@ -6,7 +6,7 @@
 #' @keywords inserttext
 #' @export
 #' @examples
-#' insert_text("note", It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.")
+#' insert_text("note", "It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.")
 
 insert_text <- function(inputId, text) {
   tags$div(text, id = inputId, class="govuk-inset-text")

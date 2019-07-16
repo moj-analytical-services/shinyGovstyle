@@ -14,4 +14,7 @@ insert_text(inputId, text)
 \description{
 This function loads the insert text component to display additional information in a special format.
 }
+\examples{
+insert_text("note", "It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.")
+}
 \keyword{inserttext}

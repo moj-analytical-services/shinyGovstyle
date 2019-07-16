@@ -12,6 +12,6 @@
 panel_output <- function(InputId, main_text, sub_text) {
   tags$div(class="govuk-panel govuk-panel--confirmation", id = InputId,
     tags$h1(main_text, class = "govuk-panel__title"),
-    tags$div(sub_text, class = "govuk-panel__body")
+    tags$div(HTML(sub_text), class = "govuk-panel__body")
   )
 }

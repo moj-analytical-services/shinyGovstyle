@@ -4,12 +4,12 @@
 \alias{warning_text}
 \title{Warning Text Function}
 \usage{
-warning_text(text)
+warning_text(inputId, text)
 }
 \arguments{
-\item{text}{Text that goes in the main}
-
 \item{inputId}{The input slot that will be used to access the value.}
+
+\item{text}{Text that goes in the main}
 }
 \description{
 This function create warning text

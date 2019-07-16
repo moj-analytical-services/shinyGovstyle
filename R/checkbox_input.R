@@ -12,7 +12,7 @@
 #' checkbox_input(c("Option 1", "Option 2", "Option 3"), c("op1", "op2", "op3"), "Choice option", "Lets go nuts")
 
 checkbox_input <- function(cb_labels, inputIds, text_input, hint_input = NULL){
-  tags$div(class="govuk-form-group",
+  tags$div(class="govuk-form-group shiny-input-checkboxgroup", id = "test",
     tags$fieldset(class="govuk-fieldset",
       tags$label(text_input, class="govuk-label"),
       tags$span(hint_input, class="govuk-hint"),

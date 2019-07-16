@@ -6,6 +6,13 @@
 \usage{
 button_Input(inputId, label, type = "default")
 }
+\arguments{
+\item{inputId}{The input slot that will be used to access the value.}
+
+\item{label}{Display label for the control, or \code{NULL} for no label.}
+
+\item{type}{The type of button.  Options are default, start, secondary and warning.  Defaults to default.}
+}
 \description{
 This function create a gov style button
 }
