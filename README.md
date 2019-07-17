@@ -27,7 +27,7 @@ To use you will need to load in the ui:
 You only need the useShinyjs() for when you use error option in compontents.  Likely I will change the load_style() at some point to attach automatically rather than being called.  
 
 
-## Widgets available :
+## Components available :
 
 
   - [Gov style layout](#gov-style-layout)
