@@ -1,4 +1,4 @@
-# shinyWidgets
+# shinyGovstyle
 
 
 > Apply Gov styled components and formats in shiny
