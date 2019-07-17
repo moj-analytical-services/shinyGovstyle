@@ -30,7 +30,7 @@ You only need the useShinyjs() for when you use error option in compontents.  Li
 ## Widgets available :
 
 
-  - [Gov Style Layout](#gov-style-ayout)
+  - [Gov style layout](#gov-style-layout)
   - [Radio button](#radio-button)
   - [Checkbox](#checkbox)
   - [Button](#button)
@@ -40,11 +40,10 @@ You only need the useShinyjs() for when you use error option in compontents.  Li
   - [Text input](#text-input)
   - [Text area input](#text-area-input)
   - [warning](#warning)
-  - [insert](#insert)
+  - [Insert text](#insert-text)
   - [details](#details)
   - [panel](#panel)
   - [error](#error)
-  - [Dropdown button](#dropdown-button)
 
 ### Gov style layout
 
