@@ -2267,9 +2267,9 @@ only screen and (min-resolution:192dpi) {
 
 .govuk-checkboxes--small .govuk-checkboxes__label:after {
     top: 15px;
-    left: 6px;
-    width: 9px;
-    height: 3.5px;
+    left: 5px;
+    width: 15px;
+    height: 7px;
     border-width: 0 0 3px 3px
 }
 
