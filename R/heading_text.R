@@ -9,5 +9,6 @@
 #' heading_text("This is great text", "m")
 
 heading_text <- function(text_input, size = "xl"){
-  tags$h1(text_input, class=paste0("govuk-heading-", size))
+  govHeading <- tags$h1(text_input, class=paste0("govuk-heading-", size))
+  attachDependency(heading_text)
 }

@@ -9,5 +9,6 @@
 #' back_link("backid")
 
 backlink_Input <- function(inputId, link = "#") {
-  tags$a("Back", href=link, class="govuk-back-link")
+  govBacklink <- tags$a("Back", href=link, class="govuk-back-link")
+  attachDependency(govBacklink)
 }

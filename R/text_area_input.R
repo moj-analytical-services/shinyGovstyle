@@ -15,7 +15,7 @@
 #' "Do not include personal or financial information, like your National Insurance number or credit card details.")
 
 text_area_Input <- function(inputId, label, hint_label=NULL, row_no=5, error = FALSE, error_message = NULL, word_limit=NULL){
-  tags$div(class="govuk-form-group govuk-character-count", id=paste0(inputId,"div"),
+  govTextarea <- tags$div(class="govuk-form-group govuk-character-count", id=paste0(inputId,"div"),
     tags$label(label, class="govuk-label"),
     tags$span(hint_label ,class="govuk-hint"),
     if (error == TRUE){
@@ -34,4 +34,5 @@ text_area_Input <- function(inputId, label, hint_label=NULL, row_no=5, error = F
                 paste("You have used 0", "of the", word_limit, "allowed"))
     }
   )
+  attachDependency(govTextarea)
 }

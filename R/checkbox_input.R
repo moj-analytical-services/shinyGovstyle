@@ -19,7 +19,7 @@ checkbox_input <- function(cb_labels, inputIds, text_input, hint_input = NULL, s
     class_build <- "govuk-checkboxes"
   }
 
-  tags$div(class="govuk-form-group shiny-input-checkboxgroup", id = "test",
+  govCheckboxes <- tags$div(class="govuk-form-group shiny-input-checkboxgroup", id = "test",
     tags$fieldset(class="govuk-fieldset",
       tags$label(text_input, class="govuk-label"),
       tags$span(hint_input, class="govuk-hint"),
@@ -38,5 +38,6 @@ checkbox_input <- function(cb_labels, inputIds, text_input, hint_input = NULL, s
       )
     )
   )
+  attachDependency(govCheckboxes)
 }
 

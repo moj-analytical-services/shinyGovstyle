@@ -33,7 +33,7 @@ radio_button_Input <- function (inputId, label, choices = NULL,
   options <- generateOptions2(inputId, selected, inline, small, "radio",
                               args$choiceNames, args$choiceValues)
   divClass <- "govuk-form-group govuk-radios"
-  tags$div(id = inputId, class = divClass,
+  govRadio <- tags$div(id = inputId, class = divClass,
     tags$div(class="govuk-form-group", id=paste0(inputId,"div"),
     controlLabel2(inputId, label),
     tags$span(hint_label ,class="govuk-hint"),
@@ -48,6 +48,8 @@ radio_button_Input <- function (inputId, label, choices = NULL,
       )
     },
     options))
+
+  attachDependency(govRadio, "radio")
 }
 
 controlLabel2 <- function(controlName, label) {

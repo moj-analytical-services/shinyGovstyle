@@ -8,7 +8,7 @@
 #' footer(TRUE)
 
 footer <- function(full = FALSE){
-  tags$footer(class = "govuk-footer ",
+  govFooter <- tags$footer(class = "govuk-footer ",
     role = "contentinfo",
     div(class = "govuk-width-container ",
       div(class = "govuk-footer__meta",
@@ -48,6 +48,7 @@ footer <- function(full = FALSE){
       )
     )
   )
+  attachDependency(govFooter)
 }
 
 

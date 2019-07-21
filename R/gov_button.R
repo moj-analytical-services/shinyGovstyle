@@ -21,6 +21,6 @@ button_Input <- function(inputId, label, type = "default"){
 
   value <- shiny::restoreInput(id = inputId, default = NULL)
 
-  tags$button(label, id = inputId, class = paste0(class_input, " action-button"), `data-val` = value)
-
+  govButton <- tags$button(label, id = inputId, class = paste0(class_input, " action-button"), `data-val` = value)
+  attachDependency(govButton)
 }

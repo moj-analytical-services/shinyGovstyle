@@ -10,8 +10,9 @@
 #' label_hint("This is a label", "This is a hint")
 
 label_hint <- function(inputId, label, hint_input = NULL){
-  tags$div(class="govuk-form-group", id = inputId,
+  govLabel <- tags$div(class="govuk-form-group", id = inputId,
     tags$label(label, class="govuk-label"),
     tags$span(hint_input, class="govuk-hint")
   )
+  attachDependency(govLabel)
 }

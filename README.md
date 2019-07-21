@@ -19,12 +19,10 @@ Installation :
 devtools::install_github("moj-analytical-services/shinyGovstyle")
 ```
 
-To use you will need to load in the ui:
+To use error and word count elements you will need to load useShinyjs from shinyjs in the ui:
 ```r
-  shinyjs::useShinyjs(),
-  shinyGovstyle::load_style(),
+  shinyjs::useShinyjs()
 ```
-You only need the useShinyjs() for when you use error option in compontents.  Likely I will change the load_style() at some point to attach automatically rather than being called.  
 
 
 ## Components available :
@@ -53,8 +51,6 @@ Create a gov style look to the page with a header and footer : <br>
 
 ```r
 ui <- fluidPage(
-  shinyjs::useShinyjs(),
-  load_style(),
   shinyGovstyle::header("Justice", "Prototype", logo="shinyGovstyle/images/moj_logo.png"),
 
   fluidRow(
@@ -176,7 +172,6 @@ You can also add a word count to the options, which requires an addition argueme
 ```r
 ui <- fluidPage(
   shinyjs::useShinyjs(),
-  load_style(),
   shinyGovstyle::header("Justice", "", logo="shinyGovstyle/images/moj_logo.png"),
 
   fluidRow(
@@ -250,7 +245,6 @@ Add errors to copmponents when not filled in correctly.  Most components have an
 ```r
 ui <- fluidPage(
   shinyjs::useShinyjs(),
-  load_style(),
   shinyGovstyle::header("Justice", "", logo="shinyGovstyle/images/moj_logo.png"),
 
   fluidRow(

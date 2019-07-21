@@ -10,7 +10,8 @@
 #' gov_layout()
 
 gov_layout <- function(..., inputID = "main", size="full"){
-  tags$div(id = inputID, class="govuk-width-container  govuk-main-wrapper",
+  govLayout <- tags$div(id = inputID, class="govuk-width-container  govuk-main-wrapper",
     tags$div(id = paste0(inputID,"_sub"), class=paste0("govuk-grid-column-",size), ...)
   )
+  attachDependency(govLayout)
 }
