@@ -4,12 +4,15 @@
 \alias{checkbox_input}
 \title{Checkbox Function}
 \usage{
-checkbox_input(cb_labels, inputIds, text_input, hint_input = NULL)
+checkbox_input(cb_labels, inputIds, text_input, hint_input = NULL,
+  small = FALSE)
 }
 \arguments{
 \item{cb_labels}{Add the names of the options that will appear}
 
 \item{text_input}{Insert the text for the checkbox group.}
+
+\item{small}{change the sizing to a small version of the checkbox.  Defaults to \code{FALSE}}
 
 \item{input_id}{Input id for the component}
 
