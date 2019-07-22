@@ -11,7 +11,7 @@
 #' select_input("sorter", "Sort by", c("Recently published", "Recently updated", "Most views", "Most comments"), c("published", "updated", "view", "comments"))
 
 select_Input <- function(inputId, label, select_text, select_value){
-  tags$div(lass="govuk-form-group",
+  govSelect <- tags$div(lass="govuk-form-group",
     tags$label(label, class="govuk-label"),
     tags$select(id = inputId, class="govuk-select",
       Map(function(x,y){
@@ -20,4 +20,5 @@ select_Input <- function(inputId, label, select_text, select_value){
       )
     )
   )
+  attachDependency(select_Input)
 }

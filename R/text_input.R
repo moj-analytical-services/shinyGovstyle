@@ -20,7 +20,7 @@ text_Input <- function(inputId, label, hint_label=NULL, type = "text", width = N
   else{
     width_class <- paste0("govuk-input govuk-input--width-", width)
   }
-  tags$div(class="govuk-form-group", id=paste0(inputId,"div"),
+  govText <- tags$div(class="govuk-form-group", id=paste0(inputId,"div"),
     tags$label(label, class="govuk-label"),
     tags$span(hint_label ,class="govuk-hint"),
     if (error == TRUE){
@@ -35,4 +35,5 @@ text_Input <- function(inputId, label, hint_label=NULL, type = "text", width = N
     },
     tags$input(id=inputId, class=width_class, type = type)
   )
+  attachDependency(govText)
 }

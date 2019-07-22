@@ -12,7 +12,7 @@
 #' date_Input("dob_input", Please enter your birthday", ""For example, 12 11 2007")
 
 date_Input <- function(inputId, label, hint_label = NULL, error = FALSE, error_message = NULL){
-  tags$div(class="govuk-form-group", id=paste0(inputId,"div"),
+  govDate <- tags$div(class="govuk-form-group", id=paste0(inputId,"div"),
     tags$fieldset(class="govuk-fieldset",
       tags$label(label, class="govuk-label"),
       if (error == TRUE){
@@ -51,4 +51,5 @@ date_Input <- function(inputId, label, hint_label = NULL, error = FALSE, error_m
       )
     )
   )
+  attachDependency(govDate)
 }

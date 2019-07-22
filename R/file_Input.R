@@ -11,7 +11,7 @@
 #' file_Input("file1", "Upload a file")
 
 file_Input <- function(inputId, label = NULL, error = FALSE, error_message = NULL){
-  tags$div(class="govuk-form-group", id=paste0(inputId,"div"),
+  govFile <- tags$div(class="govuk-form-group", id=paste0(inputId,"div"),
            tags$label(label, class="govuk-label"),
            if (error == TRUE){
              shinyjs::hidden(
@@ -25,4 +25,5 @@ file_Input <- function(inputId, label = NULL, error = FALSE, error_message = NUL
            },
            tags$input(id=inputId, class="govuk-file-upload", id = inputId, type="file")
   )
+  attachDependency(govFile)
 }

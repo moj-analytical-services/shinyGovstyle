@@ -12,7 +12,7 @@
 #' header("My site", "A place to have fun", "https://upload.wikimedia.org/wikipedia/commons/c/c4/2-Dice-Icon.svg")
 
 header <- function(main_text, secondary_text, logo = NULL, main_link = "#", secondary_link = "#"){
-  tags$header(class = "govuk-header", role = "banner",
+  govHeader <- tags$header(class = "govuk-header", role = "banner",
     tags$div(class = "govuk-header__container govuk-width-container",
       tags$div(class = "govuk-header__logo",
         tags$a(href = main_link, class="govuk-header__link govuk-header__link--homepage",
@@ -27,4 +27,5 @@ header <- function(main_text, secondary_text, logo = NULL, main_link = "#", seco
       )
     )
   )
+  attachDependency(govHeader)
 }

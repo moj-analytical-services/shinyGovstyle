@@ -10,8 +10,9 @@
 #' panel_output("panel1", "Application Complete", "Thank you for submitting your application.  Your reference is xvsiq")
 
 panel_output <- function(InputId, main_text, sub_text) {
-  tags$div(class="govuk-panel govuk-panel--confirmation", id = InputId,
+  govPanel <- tags$div(class="govuk-panel govuk-panel--confirmation", id = InputId,
     tags$h1(main_text, class = "govuk-panel__title"),
     tags$div(HTML(sub_text), class = "govuk-panel__body")
   )
+  attachDependency(govPanel)
 }

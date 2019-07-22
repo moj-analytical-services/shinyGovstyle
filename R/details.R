@@ -10,10 +10,11 @@
 #' details("help_div", "Help with form", "To complete the form you need to fill it in...")
 
 details <-function(inputId, label, help_text){
-  tags$details(class = "govuk-details", id = inputId,
+  govDetails <- tags$details(class = "govuk-details", id = inputId,
     tags$summary(class = "govuk-details__summary",
       tags$span(class = "govuk-details__summary-text", label)
     ),
     tags$div(class = "govuk-details__text", help_text)
   )
+  attachDependency(govDetails)
 }
