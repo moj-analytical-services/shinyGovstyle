@@ -2,7 +2,7 @@
 
 export(backlink_Input)
 export(button_Input)
-export(checkbox_input)
+export(checkbox_Input)
 export(date_Input)
 export(details)
 export(error_off)
