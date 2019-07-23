@@ -24,23 +24,23 @@ attachDependency <- function(tag, widget = NULL) {
         htmltools::htmlDependency(
           name = "radio_button_Input",
           version = version,
-          src = c(href="shinyWidgets/js"),
+          src = c(href="shinyGovstyle/js"),
           script = "radio_button_input_binding.js"
         )
       )
     }
-    # else if (widget == "awesome") {
-    #   dep <- list(
-    #     dep,
-    #     htmltools::htmlDependency(
-    #       name = "awesome-bootstrap",
-    #       version = "0.2.0",
-    #       src = c(href = "shinyWidgets/awesomeRadioCheckbox"),
-    #       stylesheet = "css/awesome-bootstrap-checkbox-shiny.css"
-    #     ),
-    #     htmltools::findDependencies(shiny::icon("rebel"))[[1]]
-    #   )
-    # }
-  }
+      else if (widget == "date") {
+        dep <- list(
+          dep,
+          htmltools::htmlDependency(
+            name = "date_Input",
+            version = version,
+            src = c(href="shinyGovstyle/js"),
+            script = "date_input_binding.js"
+          )
+        )
+      }
+    }
+
   htmltools::attachDependencies(tag, dep, append = TRUE)
 }

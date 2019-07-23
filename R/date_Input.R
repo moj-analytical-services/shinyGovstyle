@@ -12,6 +12,7 @@
 #' date_Input("dob_input", Please enter your birthday", ""For example, 12 11 2007")
 
 date_Input <- function(inputId, label, hint_label = NULL, error = FALSE, error_message = NULL){
+  value <- restoreInput(id = inputId, default = FALSE)
   govDate <- tags$div(class="govuk-form-group", id=paste0(inputId,"div"),
     tags$fieldset(class="govuk-fieldset",
       tags$label(label, class="govuk-label"),
@@ -23,12 +24,12 @@ date_Input <- function(inputId, label, hint_label = NULL, error = FALSE, error_m
         )
       },
       tags$span(hint_label, class="govuk-hint"),
-        tags$div(class="govuk-date-input",
+        tags$div(class="govuk-date-input", id = inputId,
           tags$div(class="govuk-date-input__item",
             tags$div(class="govuk-form-group",
               tags$label("Day", class="govuk-label govuk-date-input__label"),
               tags$input(class="govuk-input govuk-date-input__input govuk-input--width-2",
-                         id=paste0(inputId,"_day"), name=paste0(inputId,"_day"),
+                         id=paste0(inputId,"_day"), name=inputId,
                          type="number", pattern="[0-9]*")
             )
           ),
@@ -36,7 +37,7 @@ date_Input <- function(inputId, label, hint_label = NULL, error = FALSE, error_m
           tags$div(class="govuk-form-group",
             tags$label("Month", class="govuk-label govuk-date-input__label"),
             tags$input(class="govuk-input govuk-date-input__input govuk-input--width-2",
-                       id=paste0(inputId,"_month"), name=paste0(inputId,"_month"),
+                       id=paste0(inputId,"_month"), name=inputId,
                        type="number", pattern="[0-9]*")
             )
         ),
@@ -44,12 +45,12 @@ date_Input <- function(inputId, label, hint_label = NULL, error = FALSE, error_m
           tags$div(class="govuk-form-group",
             tags$label("Year", class="govuk-label govuk-date-input__label"),
             tags$input(class="govuk-input govuk-date-input__input govuk-input--width-4",
-                       id=paste0(inputId,"_year"), name=paste0(inputId,"_year"),
+                       id=paste0(inputId,"_year"), name=inputId,
                        type="number", pattern="[0-9]*")
           )
         )
       )
     )
   )
-  attachDependency(govDate)
+  attachDependency(govDate, "date")
 }

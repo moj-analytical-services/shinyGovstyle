@@ -20,5 +20,5 @@ select_Input <- function(inputId, label, select_text, select_value){
       )
     )
   )
-  attachDependency(select_Input)
+  attachDependency(govSelect)
 }
