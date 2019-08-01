@@ -29,6 +29,7 @@ To use error and word count elements you will need to load useShinyjs from shiny
 
 
   - [Gov style layout](#gov-style-layout)
+  - [Banner](#banner)
   - [Radio button](#radio-button)
   - [Checkbox](#checkbox)
   - [Button](#button)
@@ -37,11 +38,11 @@ To use error and word count elements you will need to load useShinyjs from shiny
   - [File input](#file-input)
   - [Text input](#text-input)
   - [Text area input](#text-area-input)
-  - [warning](#warning)
+  - [Warning](#warning)
   - [Insert text](#insert-text)
-  - [details](#details)
-  - [panel](#panel)
-  - [error](#error)
+  - [Details](#details)
+  - [Panel](#panel)
+  - [Error](#error)
 
 ### Gov style layout
 
@@ -52,18 +53,36 @@ Create a gov style look to the page with a header and footer : <br>
 ```r
 ui <- fluidPage(
   shinyGovstyle::header("Justice", "Prototype", logo="shinyGovstyle/images/moj_logo.png"),
+  gov_layout(size = "full",
+        tags$br(),
+        tags$br(),
+        tags$br(),
+        tags$br(),
+        tags$br()
+      ),
+  footer(TRUE)
+)
 
-  fluidRow(
-    tags$div(id = "main_page", class="govuk-width-container  govuk-main-wrapper",
-      tags$div(id = "login_div", class="govuk-grid-column-full",
+server <- function(input, output, session) {}
+```
+
+### Gov style layout
+
+Add a banner to the header to state in beta or alpha : <br>
+![banner](man/figures/banner.png)
+
+
+```r
+ui <- fluidPage(
+  shinyGovstyle::header("Justice", "Prototype", logo="shinyGovstyle/images/moj_logo.png"),
+  banner("banner", "beta", 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'),
+  gov_layout(size = "full",
         tags$br(),
         tags$br(),
         tags$br(),
         tags$br(),
-        tags$br(),
-      )
-    )
-  ),
+        tags$br()
+      ),
   footer(TRUE)
 )
 
@@ -88,13 +107,13 @@ Turn checkboxes into gov style ones : <br>
 ![checkbox](man/figures/checkbox.png)
 
 ```r
-checkbox_input(c("Waste from animal carcasses", "Waste from mines or quarries", "Farm or agricultural waste"),
+checkbox_input("checkID", c("Waste from animal carcasses", "Waste from mines or quarries", "Farm or agricultural waste"),
                c("op1", "op2", "op3"),
                "Which types of waste do you transport?",
                "Select all that apply.")
 ```
 
-Note that you currently access the values seperately through the inputIds you supply.
+Note that you currently access the values seperately through the inputIds you supply or all values through the main inputID.
 
 ### Button
 
@@ -131,7 +150,7 @@ select_Input("sorter",
              c("Recently published", "Recently updated", "Most views", "Most comments"),
              c("published", "updated", "view", "comments"))
 ```
-Note that you currently access the values by adding a affix of _day, _month and _year to access the values.
+Note that you currently access the individual values by adding a affix of _day, _month and _year or the full date in dd/mm/yy by using the inputID.
 
 
 ### File input
@@ -173,17 +192,12 @@ You can also add a word count to the options, which requires an addition argueme
 ui <- fluidPage(
   shinyjs::useShinyjs(),
   shinyGovstyle::header("Justice", "", logo="shinyGovstyle/images/moj_logo.png"),
-
-  fluidRow(
-    tags$div(id = "main_page", class="govuk-width-container  govuk-main-wrapper",
-      tags$div(id = "login_div", class="govuk-grid-column-full",
+  gov_layout(size = "full",
         text_area_Input(
           "text_area",
           "Can you provide more detail?",
           "Do not include personal or financial information, like your National Insurance number or credit card details.",
           word_limit = 300),
-      )
-    )
   ),
   footer(TRUE)
 )
@@ -246,10 +260,7 @@ Add errors to copmponents when not filled in correctly.  Most components have an
 ui <- fluidPage(
   shinyjs::useShinyjs(),
   shinyGovstyle::header("Justice", "", logo="shinyGovstyle/images/moj_logo.png"),
-
-  fluidRow(
-    tags$div(id = "main_page", class="govuk-width-container  govuk-main-wrapper",
-      tags$div(id = "login_div", class="govuk-grid-column-full",
+  gov_layout(size = "full",
 
         text_area_Input(
           "text_area",
@@ -258,9 +269,6 @@ ui <- fluidPage(
           word_limit = 300, error = TRUE, error_message = "Error"),
 
         button_Input("btn1", "Toggle error")
-
-      )
-    )
   ),
   footer(TRUE)
 )
@@ -280,7 +288,3 @@ server <- function(input, output, session) {
   )
 }
 ```
-
-
-
-And others !

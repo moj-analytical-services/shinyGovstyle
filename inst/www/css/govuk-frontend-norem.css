@@ -2928,7 +2928,12 @@ only screen and (min-resolution:192dpi) {
     padding-bottom: 15px;
     border-top: 1px solid #a1acb2;
     color: #454a4c;
-    background: #dee0e2
+    background: #dee0e2;
+    display:inline-block;
+    width:100%;
+    bottom:0;
+
+
 }
 
 @media print {
