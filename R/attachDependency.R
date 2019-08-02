@@ -9,7 +9,7 @@
 
 attachDependency <- function(tag, widget = NULL) {
 
-  version <- as.character(packageVersion("shinyWidgets")[[1]])
+  version <- as.character(packageVersion("shinyGovstyle")[[1]])
 
   dep <- htmltools::htmlDependency(
     name = "stylecss", version = version,
