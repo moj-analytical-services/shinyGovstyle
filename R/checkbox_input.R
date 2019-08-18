@@ -7,22 +7,36 @@
 #' @param text_input Insert the text for the checkbox group.
 #' @param hint_text Insert optional hint/secondary text.  Defaults to NULL
 #' @param small change the sizing to a small version of the checkbox.  Defaults to \code{FALSE}
+#' @param error  Whenever you want to include error handle on the component.
+#' @param error_message  If you want a default error message.
 #' @keywords checkbox
 #' @export
 #' @examples
 #' checkbox_input(c("Option 1", "Option 2", "Option 3"), c("op1", "op2", "op3"), "Choice option", "Lets go nuts")
 
-checkbox_Input <- function(inputId, cb_labels, checkboxIds, text_input, hint_input = NULL, small = FALSE){
+checkbox_Input <- function(inputId, cb_labels, checkboxIds, text_input, hint_input = NULL, small = FALSE,
+                           error = FALSE, error_message = NULL){
   if (small){
     class_build <- "govuk-checkboxes govuk-checkboxes--small"
   } else {
     class_build <- "govuk-checkboxes"
   }
 
-  govCheckboxes <- tags$div(class="govuk-form-group shiny-input-checkboxgroup", id = inputId,
+  govCheckboxes <- tags$div(class="shiny-input-checkboxgroup", id = inputId,
+    tags$div(class="govuk-form-group", id=paste0(inputId,"div"),
     tags$fieldset(class="govuk-fieldset",
       tags$label(text_input, class="govuk-label"),
       tags$span(hint_input, class="govuk-hint"),
+      if (error == TRUE){
+        shinyjs::hidden(
+          tags$span(error_message,
+                    class="govuk-error-message",
+                    id= paste0(inputId, "error"),
+                    tags$span("Error:",
+                              class="govuk-visually-hidden")
+          )
+        )
+      },
       tags$div(class=class_build,
         Map(function(x, y) {
           value <- restoreInput(id = y, default = FALSE)
@@ -37,7 +51,7 @@ checkbox_Input <- function(inputId, cb_labels, checkboxIds, text_input, hint_inp
         x=cb_labels, y = checkboxIds)
       )
     )
-  )
+  ))
   attachDependency(govCheckboxes)
 }
 
