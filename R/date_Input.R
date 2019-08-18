@@ -15,7 +15,7 @@ date_Input <- function(inputId, label, hint_label = NULL, error = FALSE, error_m
   value <- restoreInput(id = inputId, default = FALSE)
   govDate <- tags$div(class="govuk-form-group", id=paste0(inputId,"div"),
     tags$fieldset(class="govuk-fieldset",
-      tags$label(label, class="govuk-label"),
+      tags$label(HTML(label), class="govuk-label"),
       if (error == TRUE){
         shinyjs::hidden(
           tags$span(error_message, id = paste0(inputId,"error"), class = "govuk-error-message",

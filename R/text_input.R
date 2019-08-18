@@ -21,7 +21,7 @@ text_Input <- function(inputId, label, hint_label=NULL, type = "text", width = N
     width_class <- paste0("govuk-input govuk-input--width-", width)
   }
   govText <- tags$div(class="govuk-form-group", id=paste0(inputId,"div"),
-    tags$label(label, class="govuk-label"),
+    tags$label(HTML(label), class="govuk-label"),
     tags$span(hint_label ,class="govuk-hint"),
     if (error == TRUE){
       shinyjs::hidden(

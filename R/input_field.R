@@ -21,7 +21,7 @@ input_field <- function(legend, labels, inputIds, widths=NULL){
         width_class <- paste0("govuk-input govuk-input--width-", z)
       }
       tags$div(class="govuk-form-group",
-        tags$label(x, class="govuk-label"),
+        tags$label(HTML(x), class="govuk-label"),
         tags$input(id=y, class=width_class)
       )
     }, x = labels, y = inputIds, z = widths)

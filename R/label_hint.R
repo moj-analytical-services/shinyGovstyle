@@ -11,7 +11,7 @@
 
 label_hint <- function(inputId, label, hint_input = NULL){
   govLabel <- tags$div(class="govuk-form-group", id = inputId,
-    tags$label(label, class="govuk-label"),
+    tags$label(HTML(label), class="govuk-label"),
     tags$span(hint_input, class="govuk-hint")
   )
   attachDependency(govLabel)
