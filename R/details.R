@@ -12,7 +12,7 @@
 details <-function(inputId, label, help_text){
   govDetails <- tags$details(class = "govuk-details", id = inputId,
     tags$summary(class = "govuk-details__summary",
-      tags$span(class = "govuk-details__summary-text", label)
+      tags$span(class = "govuk-details__summary-text", HTML(label))
     ),
     tags$div(class = "govuk-details__text", help_text)
   )

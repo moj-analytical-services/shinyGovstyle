@@ -12,7 +12,7 @@
 
 file_Input <- function(inputId, label = NULL, error = FALSE, error_message = NULL){
   govFile <- tags$div(class="govuk-form-group", id=paste0(inputId,"div"),
-           tags$label(label, class="govuk-label"),
+           tags$label(HTML(label), class="govuk-label"),
            if (error == TRUE){
              shinyjs::hidden(
                tags$span(error_message,

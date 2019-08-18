@@ -12,7 +12,7 @@
 
 select_Input <- function(inputId, label, select_text, select_value){
   govSelect <- tags$div(lass="govuk-form-group",
-    tags$label(label, class="govuk-label"),
+    tags$label(HTML(label), class="govuk-label"),
     tags$select(id = inputId, class="govuk-select",
       Map(function(x,y){
         tags$option(value = y, x)
