@@ -5,7 +5,8 @@
 \title{Checkbox Function}
 \usage{
 checkbox_Input(inputId, cb_labels, checkboxIds, text_input,
-  hint_input = NULL, small = FALSE)
+  hint_input = NULL, small = FALSE, error = FALSE,
+  error_message = NULL)
 }
 \arguments{
 \item{cb_labels}{Add the names of the options that will appear}
@@ -15,6 +16,10 @@ checkbox_Input(inputId, cb_labels, checkboxIds, text_input,
 \item{text_input}{Insert the text for the checkbox group.}
 
 \item{small}{change the sizing to a small version of the checkbox.  Defaults to \code{FALSE}}
+
+\item{error}{Whenever you want to include error handle on the component.}
+
+\item{error_message}{If you want a default error message.}
 
 \item{input_id}{Input id for the group of checkboxes}
 

@@ -7,6 +7,8 @@
 #' @param text_input Insert the text for the checkbox group.
 #' @param hint_text Insert optional hint/secondary text.  Defaults to NULL
 #' @param small change the sizing to a small version of the checkbox.  Defaults to \code{FALSE}
+#' @param error  Whenever you want to include error handle on the component.
+#' @param error_message  If you want a default error message.
 #' @keywords checkbox
 #' @export
 #' @examples
