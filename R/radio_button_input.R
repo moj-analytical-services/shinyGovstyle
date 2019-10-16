@@ -13,6 +13,7 @@
 #' @param hint_label Additional hint text you may want to display below the label.  Defaults to NULL
 #' @param error  Whenever you want to include error handle on the component.
 #' @param error_message  If you want a default error message.
+#' @param custom_class  If you want to add additional classes to the radio buttons
 #' @keywords radiobuttons
 #' @export
 #' @examples
@@ -22,7 +23,7 @@ radio_button_Input <- function (inputId, label, choices = NULL,
                                 selected = NULL, inline = FALSE, small = FALSE,
                                 choiceNames = NULL,
                                 choiceValues = NULL, hint_label = NULL, error = FALSE,
-                                error_message = NULL){
+                                error_message = NULL, custom_class = ""){
   args <- shiny:::normalizeChoicesArgs(choices, choiceNames, choiceValues)
   selected <- shiny::restoreInput(id = inputId, default = selected)
   selected <- if (is.null(selected))
@@ -32,7 +33,7 @@ radio_button_Input <- function (inputId, label, choices = NULL,
     stop("The 'selected' argument must be of length 1")
   options <- generateOptions2(inputId, selected, inline, small, "radio",
                               args$choiceNames, args$choiceValues)
-  divClass <- "govuk-form-group govuk-radios"
+  divClass <- paste("govuk-form-group govuk-radios", custom_class)
   govRadio <- tags$div(id = inputId, class = divClass,
     tags$div(class="govuk-form-group", id=paste0(inputId,"div"),
     controlLabel2(inputId, label),
