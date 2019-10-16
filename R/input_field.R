@@ -5,15 +5,16 @@
 #' @param labels A list of labels for the text inputs
 #' @param inputIds A list input slots that will be used to access the value.
 #' @param widths control the size of the box based on number of characters required.  Options are 30, 20, 10, 5, 4, 3, 2.  NULL will not limit the size
+#' @param types text box types.  Will default to text.
 #' @keywords input field
 #' @export
 #' @examples
 #' input_field("List of three text boxes", c("Option 1", "Option 2", "Option 3"), c("op1", "op2", "op3"))
 
-input_field <- function(legend, labels, inputIds, widths=NULL){
+input_field <- function(legend, labels, inputIds, widths=NULL, types = "text"){
   govInputField <- tags$fieldset(class="govuk-fieldset",
     tags$legend(legend, class="govuk-fieldset__legend govuk-fieldset__legend--xl"),
-    Map(function(x, y, z){
+    Map(function(x, y, z, a){
       if (is.null(z)){
         width_class <- "govuk-input"
       }
@@ -22,9 +23,9 @@ input_field <- function(legend, labels, inputIds, widths=NULL){
       }
       tags$div(class="govuk-form-group",
         tags$label(HTML(x), class="govuk-label"),
-        tags$input(id=y, class=width_class)
+        tags$input(id=y, class=width_class, type = a)
       )
-    }, x = labels, y = inputIds, z = widths)
+    }, x = labels, y = inputIds, z = widths, a = types)
   )
   attachDependency(govInputField)
 }
