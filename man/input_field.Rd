@@ -4,7 +4,7 @@
 \alias{input_field}
 \title{Input Field Function}
 \usage{
-input_field(legend, labels, inputIds, widths = NULL)
+input_field(legend, labels, inputIds, widths = NULL, types = "text")
 }
 \arguments{
 \item{legend}{Lengand that goes above the fieldset}
@@ -14,6 +14,8 @@ input_field(legend, labels, inputIds, widths = NULL)
 \item{inputIds}{A list input slots that will be used to access the value.}
 
 \item{widths}{control the size of the box based on number of characters required.  Options are 30, 20, 10, 5, 4, 3, 2.  NULL will not limit the size}
+
+\item{types}{text box types.  Will default to text.}
 }
 \description{
 This function inserts number of text inputs. Useful for addresses.
