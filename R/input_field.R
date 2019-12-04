@@ -11,7 +11,7 @@
 #' @examples
 #' input_field("List of three text boxes", c("Option 1", "Option 2", "Option 3"), c("op1", "op2", "op3"))
 
-input_field <- function(legend, labels, inputIds, widths=NULL, types = "text", error = FALSE){
+input_field <- function(legend, labels, inputIds, widths=NULL, types = "text", error = FALSE, error_message = NULL){
   govInputField <- tags$fieldset(class="govuk-fieldset",
     tags$legend(legend, class="govuk-fieldset__legend govuk-fieldset__legend--xl"),
     Map(function(x, y, z, a){
@@ -21,13 +21,13 @@ input_field <- function(legend, labels, inputIds, widths=NULL, types = "text", e
       else{
         width_class <- paste0("govuk-input govuk-input--width-", z)
       }
-      tags$div(class="govuk-form-group",
+      tags$div(class="govuk-form-group", id=paste0(y,"div"),
         tags$label(HTML(x), class="govuk-label"),
         if (error){
           shinyjs::hidden(
             tags$span(error_message,
                       class="govuk-error-message",
-                      id= paste0(inputId, "error"),
+                      id= paste0(y, "error"),
                       tags$span("Error:",
                                 class="govuk-visually-hidden")
             )
