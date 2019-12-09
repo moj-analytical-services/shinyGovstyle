@@ -15,8 +15,12 @@ Top view details of gov.uk comnponents please visit https://design-system.servic
 
 Installation :
 ```r
-# install.packages("devtools")
 devtools::install_github("moj-analytical-services/shinyGovstyle")
+```
+
+or install via conda with:
+```r
+conda install -c rosswyatt r-shinygovstyle
 ```
 
 To use error and word count elements you will need to load useShinyjs from shinyjs in the ui:
