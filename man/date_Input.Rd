@@ -4,8 +4,13 @@
 \alias{date_Input}
 \title{Date Input Function}
 \usage{
-date_Input(inputId, label, hint_label = NULL, error = FALSE,
-  error_message = NULL)
+date_Input(
+  inputId,
+  label,
+  hint_label = NULL,
+  error = FALSE,
+  error_message = NULL
+)
 }
 \arguments{
 \item{inputId}{The input slot that will be used to access the value.}

@@ -4,7 +4,15 @@
 \alias{input_field}
 \title{Input Field Function}
 \usage{
-input_field(legend, labels, inputIds, widths = NULL, types = "text")
+input_field(
+  legend,
+  labels,
+  inputIds,
+  widths = NULL,
+  types = "text",
+  error = FALSE,
+  error_message = NULL
+)
 }
 \arguments{
 \item{legend}{Lengand that goes above the fieldset}
