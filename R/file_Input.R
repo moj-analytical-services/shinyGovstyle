@@ -7,7 +7,7 @@
 #' @param label Display label for the control, or \code{NULL} for no label.
 #' @param multiple Whether the user should be allowed to select and upload multiple files at once. Does not work on older browsers, including Internet Explorer 9 and earlier.
 #' @param accept A character vector of MIME types; gives the browser a hint of what kind of files the server is expecting.
-#' @param width	The width of the input, e.g. '400px', or '100%'; see validateCssUnit().
+#' @param width	The width of the input,  e.g. \code{'400px'}, or \code{'100\%'}
 #' @param buttonLabel The label used on the button. Can be text or an HTML tag object.
 #' @param placeholder	The text to show before a file has been uploaded.
 #' @param error Whenever to icnlud error handling  Defaults to FALSE.
@@ -47,7 +47,7 @@ file_Input <- function(inputId, label, multiple = FALSE, accept = NULL,
     inputTag$attribs$accept <- paste(accept, collapse=',')
 
 
-  div(id = paste0(inputId, "div"), class = "govuk-form-group",
+  govFile <- div(id = paste0(inputId, "div"), class = "govuk-form-group",
 
 
       style = if (!is.null(width)) paste0("width: ", validateCssUnit(width), ";"),
