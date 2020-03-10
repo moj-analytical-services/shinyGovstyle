@@ -4,19 +4,36 @@
 \alias{panel_output}
 \title{Panel output}
 \usage{
-panel_output(InputId, main_text, sub_text)
+panel_output(inputId, main_text, sub_text)
 }
 \arguments{
+\item{inputId}{The input slot that will be used to access the value.}
+
 \item{main_text}{Add the header for the panel}
 
 \item{sub_text}{Add the main body of text for the panel}
-
-\item{inputId}{The input slot that will be used to access the value.}
 }
 \description{
 This function inserts a panel.  Normally used for confirmattion screens
 }
 \examples{
-panel_output("panel1", "Application Complete", "Thank you for submitting your application.  Your reference is xvsiq")
+if (interactive()) {
+  ui <- fluidPage(
+    shinyGovstyle::header(
+      main_text = "Example",
+      secondary_text = "User Examples",
+      logo="shinyGovstyle/images/moj_logo.png"),
+    shinyGovstyle::gov_layout(size = "full",
+      shinyGovstyle::panel_output(
+        inputId = "panel1",
+        main_text = "Application Complete",
+        sub_text = "Thank you for submitting your application.  Your reference is xvsiq")
+    ),
+    shinyGovstyle::footer(full = TRUE)
+  )
+
+  server <- function(input, output, session) {}
+  shinyApp(ui = ui, server = server)
+}
 }
 \keyword{panel}

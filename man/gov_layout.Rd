@@ -2,7 +2,7 @@
 % Please edit documentation in R/gov_layout.R
 \name{gov_layout}
 \alias{gov_layout}
-\title{Page LayoutFunction}
+\title{Page Layout Function}
 \usage{
 gov_layout(..., inputID = "main", size = "full")
 }
@@ -17,6 +17,23 @@ gov_layout(..., inputID = "main", size = "full")
 This function loads the page layout
 }
 \examples{
-gov_layout()
+if (interactive()) {
+  ui <- fluidPage(
+    shinyGovstyle::header(
+      main_text = "Example",
+      secondary_text = "User Examples",
+      logo="shinyGovstyle/images/moj_logo.png"),
+    shinyGovstyle::gov_layout(size = "full",
+      shinyGovstyle::panel_output(
+        inputId = "panel1",
+        main_text = "Application Complete",
+        sub_text = "Thank you for submitting your application.  Your reference is xvsiq")
+    ),
+    shinyGovstyle::footer(full = TRUE)
+  )
+
+  server <- function(input, output, session) {}
+  shinyApp(ui = ui, server = server)
+}
 }
 \keyword{style}

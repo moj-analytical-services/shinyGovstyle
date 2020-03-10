@@ -17,6 +17,23 @@ button_Input(inputId, label, type = "default")
 This function create a gov style button
 }
 \examples{
-button_Input("btn1", "Continue", "default")
+if (interactive()) {
+  ui <- fluidPage(
+    shinyGovstyle::header(
+      main_text = "Example",
+      secondary_text = "User Examples",
+      logo="shinyGovstyle/images/moj_logo.png"),
+    shinyGovstyle::gov_layout(size = "two-thirds",
+      shinyGovstyle::button_Input(
+        inputId = "btn1",
+        label = "Continue",
+        type = "default")
+    ),
+    shinyGovstyle::footer(full = TRUE)
+  )
+
+  server <- function(input, output, session) {}
+  shinyApp(ui = ui, server = server)
+}
 }
 \keyword{button}

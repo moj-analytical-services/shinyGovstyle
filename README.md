@@ -50,12 +50,12 @@ To use error and word count elements you will need to load useShinyjs from shiny
 
 ### Gov style layout
 
-Create a gov style look to the page with a header and footer : <br>
+Create a gov style look to the page with a header, footer, font and layout: <br>
 ![gov-style-layout](man/figures/page_layout.png)
-
 
 ```r
 ui <- fluidPage(
+  #font(),
   shinyGovstyle::header("Justice", "Prototype", logo="shinyGovstyle/images/moj_logo.png"),
   gov_layout(size = "full",
         tags$br(),
@@ -69,12 +69,12 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {}
 ```
+Note: You can only use gov.uk font on service.gov.uk (see https://design-system.service.gov.uk/styles/typography/)
 
-### Gov style layout
+### Banner
 
 Add a banner to the header to state in beta or alpha : <br>
 ![banner](man/figures/banner.png)
-
 
 ```r
 ui <- fluidPage(
@@ -111,10 +111,12 @@ Turn checkboxes into gov style ones : <br>
 ![checkbox](man/figures/checkbox.png)
 
 ```r
-checkbox_input("checkID", c("Waste from animal carcasses", "Waste from mines or quarries", "Farm or agricultural waste"),
-               c("op1", "op2", "op3"),
-               "Which types of waste do you transport?",
-               "Select all that apply.")
+checkbox_Input(
+  inputId = "checkID", 
+  cb_labels = c("Waste from animal carcasses", "Waste from mines or quarries", "Farm or agricultural waste"),
+  checkboxIds = c("op1", "op2", "op3"),
+  label = "Which types of waste do you transport?",
+  hint_label = "Select all that apply.")
 ```
 
 Note that you currently access the values seperately through the inputIds you supply or all values through the main inputID.
@@ -125,10 +127,10 @@ Gov style button with different styles :
 ![button](man/figures/buttons.png)
 
 ```r
-shinyGovstyle::button_Input("btn1", "default"),
-shinyGovstyle::button_Input("btn1", "start", "start"),
-shinyGovstyle::button_Input("btn1", "secondary", "secondary"),
-shinyGovstyle::button_Input("btn1", "warning", "warning")
+shinyGovstyle::button_Input(inputId = "btn1", label = "default"),
+shinyGovstyle::button_Input(inputId = "btn1", label = "start", type = "start"),
+shinyGovstyle::button_Input(inputId = "btn1", label = "secondary", type = "secondary"),
+shinyGovstyle::button_Input(inputId = "btn1", label = "warning", type = "warning")
 ```
 
 ### Select
@@ -137,10 +139,11 @@ Gov style dropdown select  :
 ![select](man/figures/select.png)
 
 ```r
-shinyGovstyle::select_Input("sorter",
-                            "Sort by",
-                            c("Recently published", "Recently updated", "Most views", "Most comments"),
-                            c("published", "updated", "view", "comments"))
+shinyGovstyle::select_Input(
+  inputId = "sorter", 
+  label = "Sort by",
+  select_text = c("Recently published", "Recently updated", "Most views", "Most comments"),
+  select_value = c("published", "updated", "view", "comments"))
 ```
 
 ### Date
@@ -149,10 +152,10 @@ Gov style date input  :
 ![date](man/figures/date.png)
 
 ```r
-select_Input("sorter",
-             "Sort by",
-             c("Recently published", "Recently updated", "Most views", "Most comments"),
-             c("published", "updated", "view", "comments"))
+date_Input(
+  inputId = "date1",
+  label = "What is your date of birth?",
+  hint_label = "For example, 31 3 1980")
 ```
 Note that you currently access the individual values by adding a affix of _day, _month and _year or the full date in dd/mm/yy by using the inputID.
 
@@ -163,7 +166,7 @@ Gov style file input component  :
 ![file_input](man/figures/file.png)
 
 ```r
-file_Input("file1", "Upload a file")
+file_Input(inputId = "file1", label = "Upload a file")
 ```
 
 
@@ -173,7 +176,7 @@ Gov style text input component  :
 ![text_input](man/figures/text.png)
 
 ```r
-file_Input("file1", "Upload a file")
+text_Input(inputId = "txt1", label = "Event name")
 ```
 
 ### Text area input
@@ -183,10 +186,9 @@ Gov style text area input component  :
 
 ```r
 text_area_Input(
-  "text_area",
-  "Can you provide more detail?",
-  "Do not include personal or financial information, like your National Insurance number or credit card details.",
-  word_limit = 300)
+  inputId = "text_area",
+  label = "Can you provide more detail?",
+  hint_label = "Do not include personal or financial information, like your National Insurance number or credit card details.")
 ```
 
 You can also add a word count to the options, which requires an addition arguement in the server :
@@ -198,10 +200,11 @@ ui <- fluidPage(
   shinyGovstyle::header("Justice", "", logo="shinyGovstyle/images/moj_logo.png"),
   gov_layout(size = "full",
         text_area_Input(
-          "text_area",
-          "Can you provide more detail?",
-          "Do not include personal or financial information, like your National Insurance number or credit card details.",
-          word_limit = 300),
+          inputId = "text_area",
+          label = "Can you provide more detail?",
+          hint_label =  "Do not include personal or financial information, like 
+                         your National Insurance number or credit card details.",
+          word_limit = 300)
   ),
   footer(TRUE)
 )
@@ -209,7 +212,7 @@ ui <- fluidPage(
 # Define server logic required to draw a histogram
 server <- function(input, output, session) {
   observeEvent(input$text_area,
-    word_count("text_area", input$text_area)
+    word_count(inputId = "text_area", input = input$text_area, word_limit = 300)
   )
 }
 ```
@@ -220,7 +223,7 @@ Gov style warning component  :
 ![text_area](man/figures/warning.png)
 
 ```r
-warning_text("warn", "You can be fined up to £5,000 if you do not register.")
+warning_text(inputId = "warn", text = "You can be fined up to £5,000 if you do not register.")
 ```
 
 ### Insert text
@@ -229,8 +232,9 @@ Gov style insert text component  :
 ![text_area](man/figures/insert.png)
 
 ```r
-insert_text("insertId",
-            "It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.")
+insert_text(inputId = "insertId",
+            text = "It can take up to 8 weeks to register a lasting power of attorney 
+                    if there are no mistakes in the application.")
 ```
 
 
@@ -240,9 +244,12 @@ Gov style details component  :
 ![details](man/figures/details.png)
 
 ```r
- details("detID",
-         "Help with nationality",
-         "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post.")
+ details(
+  inputId = "detID",
+  label = "Help with nationality",
+  help_text = "We need to know your nationality so we can work out which elections you’re 
+              entitled to vote in. If you cannot provide your nationality, you’ll have to 
+              send copies of identity documents through the post.")
 
 ```
 
@@ -252,7 +259,10 @@ Gov style panel component  :
 ![panel](man/figures/panel.png)
 
 ```r
-panel_output("panId", "Application complete", "Your reference number <br> <strong>HDJ2123F</strong>")
+panel_output(
+  inputId = "panId", 
+  main_text = "Application complete", 
+  sub_text = "Your reference number <br> <strong>HDJ2123F</strong>")
 ```
 
 ### Error
@@ -265,7 +275,6 @@ ui <- fluidPage(
   shinyjs::useShinyjs(),
   shinyGovstyle::header("Justice", "", logo="shinyGovstyle/images/moj_logo.png"),
   gov_layout(size = "full",
-
         text_area_Input(
           "text_area",
           "Can you provide more detail?",

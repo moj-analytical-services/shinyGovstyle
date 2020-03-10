@@ -5,7 +5,46 @@
 #' @keywords error
 #' @export
 #' @examples
-#' error_off("inputId")
+#' ## Only run examples in interactive R sessions
+#' if (interactive()) {
+#'
+#'   ui <- fluidPage(
+#'     # Required for error handling function
+#'     shinyjs::useShinyjs(),
+#'     shinyGovstyle::header(
+#'       main_text = "Example",
+#'       secondary_text = "User Examples",
+#'       logo="shinyGovstyle/images/moj_logo.png"),
+#'     shinyGovstyle::banner(inputId = "banner", type = "beta", 'This is a new service'),
+#'     shinyGovstyle::gov_layout(size = "two-thirds",
+#'       # Error text box
+#'       shinyGovstyle::text_Input(
+#'         inputId = "eventId",
+#'         label = "Event Name",
+#'         error = TRUE),
+#'       # Button to trigger error
+#'       shinyGovstyle::button_Input(inputId = "submit", label = "Submit")
+#'     ),
+#'     shinyGovstyle::footer(full = TRUE)
+#'   )
+#'
+#'
+#'   server <- function(input, output, session) {
+#'     #Trigger error on blank submit of eventId2
+#'     observeEvent(input$submit, {
+#'       if (input$eventId != ""){
+#'         shinyGovstyle::error_off(inputId = "eventId")
+#'       } else {
+#'         shinyGovstyle::error_on(
+#'           inputId = "eventId",
+#'           error_message = "Please complete")
+#'       }
+#'     })
+#'   }
+#'
+#'   # Run the application
+#'   shinyApp(ui = ui, server = server)
+#' }
 
 error_off <- function(inputId){
   shinyjs::removeClass(paste0(inputId, "div"), "govuk-form-group--error")

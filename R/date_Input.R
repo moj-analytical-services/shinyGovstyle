@@ -9,7 +9,46 @@
 #' @keywords date
 #' @export
 #' @examples
-#' date_Input("dob_input", Please enter your birthday", ""For example, 12 11 2007")
+#' if (interactive()) {
+#'
+#'   ui <- fluidPage(
+#'     # Required for error handling function.
+#'     shinyjs::useShinyjs(),
+#'     shinyGovstyle::header(
+#'       main_text = "Example",
+#'       secondary_text = "User Examples",
+#'       logo="shinyGovstyle/images/moj_logo.png"),
+#'     shinyGovstyle::banner(inputId = "banner", type = "beta", 'This is a new service'),
+#'     shinyGovstyle::gov_layout(size = "two-thirds",
+#'        # Simple date input
+#'       shinyGovstyle::date_Input(
+#'         inputId = "dob_input",
+#'         label = "Please enter your birthday"),
+#'        # Error date input
+#'        shinyGovstyle::date_Input(
+#'          inputId = "dob_input2",
+#'          label = "Please enter your birthday",
+#'          hint_label = "For example, 12 11 2007",
+#'          error = TRUE),
+#'        # Button to trigger error
+#'        shinyGovstyle::button_Input(inputId = "submit", label = "Submit")
+#'     ),
+#'     shinyGovstyle::footer(full = TRUE)
+#'   )
+#'
+#'   server <- function(input, output, session) {
+#'     #'Trigger error on blank submit of dob_input2
+#'     observeEvent(input$submit, {
+#'       if (input$dob_input2 == "//"){
+#'         shinyGovstyle::error_on(inputId = "dob_input2")
+#'       } else {
+#'         shinyGovstyle::error_off(
+#'           inputId = "dob_input2")
+#'       }
+#'     })
+#'   }
+#'   shinyApp(ui = ui, server = server)
+#' }
 
 date_Input <- function(inputId, label, hint_label = NULL, error = FALSE, error_message = NULL){
   value <- restoreInput(id = inputId, default = FALSE)

@@ -13,6 +13,22 @@ footer(full = FALSE)
 This function create a gov style footer for your page
 }
 \examples{
-footer(TRUE)
+if (interactive()) {
+
+  ui <- fluidPage(
+    shinyGovstyle::header(
+      main_text = "Example",
+      secondary_text = "User Examples",
+      logo="shinyGovstyle/images/moj_logo.png"),
+    shinyGovstyle::banner(inputId = "banner", type = "beta", 'This is a new service'),
+    tags$br(),
+    tags$br(),
+    shinyGovstyle::footer(full = TRUE)
+  )
+
+  server <- function(input, output, session) {}
+
+  shinyApp(ui = ui, server = server)
+}
 }
 \keyword{footer}

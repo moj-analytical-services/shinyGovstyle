@@ -6,7 +6,25 @@
 #' @keywords inserttext
 #' @export
 #' @examples
-#' insert_text("note", "It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.")
+#' if (interactive()) {
+#'   ui <- fluidPage(
+#'     shinyGovstyle::header(
+#'       main_text = "Example",
+#'       secondary_text = "User Examples",
+#'       logo="shinyGovstyle/images/moj_logo.png"),
+#'     shinyGovstyle::gov_layout(size = "two-thirds",
+#'       shinyGovstyle::insert_text(
+#'         inputId = "note",
+#'         text = "It can take up to 8 weeks to register a lasting power of
+#'                 attorney if there are no mistakes in the application."
+#'       )
+#'     ),
+#'     shinyGovstyle::footer(full = TRUE)
+#'   )
+#'
+#'   server <- function(input, output, session) {}
+#'   shinyApp(ui = ui, server = server)
+#' }
 
 insert_text <- function(inputId, text) {
   govInsert <- tags$div(HTML(text), id = inputId, class="govuk-inset-text")

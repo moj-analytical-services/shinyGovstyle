@@ -19,6 +19,25 @@ select_Input(inputId, label, select_text, select_value)
 This function inserts a select box
 }
 \examples{
-select_input("sorter", "Sort by", c("Recently published", "Recently updated", "Most views", "Most comments"), c("published", "updated", "view", "comments"))
+if (interactive()) {
+  ui <- fluidPage(
+    shinyGovstyle::header(
+      main_text = "Example",
+      secondary_text = "User Examples",
+      logo="shinyGovstyle/images/moj_logo.png"),
+    shinyGovstyle::gov_layout(size = "full",
+      select_Input(
+        inputId = "sorter",
+        label = "Sort by",
+        select_text = c("Recently published", "Recently updated", "Most views", "Most comments"),
+        select_value = c("published", "updated", "view", "comments")),
+        tags$br()
+    ),
+    shinyGovstyle::footer(full = TRUE)
+  )
+
+  server <- function(input, output, session) {}
+  shinyApp(ui = ui, server = server)
+}
 }
 \keyword{select}
