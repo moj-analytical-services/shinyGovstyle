@@ -7,9 +7,22 @@
 font()
 }
 \description{
-This function adds rge nta fonts
+This function adds rge nta fonts to the app. See https://design-system.service.gov.uk/styles/typography/ for when they are allowed.
 }
 \examples{
-font()
+if (interactive()) {
+
+  ui <- fluidPage(
+    font(),
+    shinyGovstyle::header(
+      main_text = "Example",
+      secondary_text = "User Examples",
+      logo="shinyGovstyle/images/moj_logo.png")
+  )
+
+  server <- function(input, output, session) {}
+
+  shinyApp(ui = ui, server = server)
+}
 }
 \keyword{font}

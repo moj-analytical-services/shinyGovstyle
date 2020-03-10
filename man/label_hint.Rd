@@ -11,12 +11,29 @@ label_hint(inputId, label, hint_input = NULL)
 
 \item{label}{Display label for the control, or \code{NULL} for no label.}
 
-\item{hint_label}{Display hint label for the control, or \code{NULL} for no hint label.}
+\item{hint_input}{Display hint label for the control, or \code{NULL} for no hint label.}
 }
 \description{
 This function inserts a label and optional hint
 }
 \examples{
-label_hint("This is a label", "This is a hint")
+if (interactive()) {
+  ui <- fluidPage(
+    shinyGovstyle::header(
+      main_text = "Example",
+      secondary_text = "User Examples",
+      logo="shinyGovstyle/images/moj_logo.png"),
+    shinyGovstyle::gov_layout(size = "two-thirds",
+      label_hint(
+        inputId = "label1",
+        label = "This is a label",
+        hint_input = "This is a hint")
+    ),
+    shinyGovstyle::footer(full = TRUE)
+  )
+
+  server <- function(input, output, session) {}
+  shinyApp(ui = ui, server = server)
+}
 }
 \keyword{label}

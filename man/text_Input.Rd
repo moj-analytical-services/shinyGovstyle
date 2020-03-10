@@ -21,19 +21,61 @@ text_Input(
 
 \item{hint_label}{Display hint label for the control, or \code{NULL} for no hint label.}
 
+\item{type}{Type of text input to accept.  Defaults to text.}
+
 \item{width}{control the size of the box based on number of characters required.  Options are 30, 20, 10, 5, 4, 3, 2.  NULL will not limit the size}
 
-\item{error}{Whenever to icnlud error handling  Defaults to FALSE.}
+\item{error}{Whenever to include error handling  Defaults to FALSE.}
 
 \item{error_message}{Message to display on error.  Defaults to NULL}
-
-\item{row_no}{Size of the text entry box.  Defaults to 5.}
 }
 \description{
 This function create a text area input
 }
 \examples{
-text_Input("eventId", "Event Name")
+## Only run examples in interactive R sessions
+if (interactive()) {
+
+  ui <- fluidPage(
+    # Required for error handling function
+    shinyjs::useShinyjs(),
+    shinyGovstyle::header(
+      main_text = "Example",
+      secondary_text = "User Examples",
+      logo="shinyGovstyle/images/moj_logo.png"),
+    shinyGovstyle::banner(inputId = "banner", type = "beta", 'This is a new service'),
+    shinyGovstyle::gov_layout(size = "two-thirds",
+      # Simple text box
+      shinyGovstyle::text_Input(inputId = "eventId", label = "Event Name"),
+      # Error text box
+      shinyGovstyle::text_Input(
+        inputId = "eventId2",
+        label = "Event Name",
+        hint_label = "This can be found on the letter",
+        error = TRUE),
+      # Button to trigger error
+      shinyGovstyle::button_Input(inputId = "submit", label = "Submit")
+    ),
+    shinyGovstyle::footer(full = TRUE)
+  )
+
+
+  server <- function(input, output, session) {
+    #Trigger error on blank submit of eventId2
+    observeEvent(input$submit, {
+      if (input$eventId2 != ""){
+        shinyGovstyle::error_off(inputId = "eventId2")
+      } else {
+        shinyGovstyle::error_on(
+          inputId = "eventId2",
+          error_message = "Please complete")
+      }
+    })
+  }
+
+  # Run the application
+  shinyApp(ui = ui, server = server)
+}
 }
 \keyword{input}
 \keyword{text}

@@ -9,7 +9,19 @@
 #' @keywords header
 #' @export
 #' @examples
-#' header("My site", "A place to have fun", "https://upload.wikimedia.org/wikipedia/commons/c/c4/2-Dice-Icon.svg")
+#' if (interactive()) {
+#'
+#'   ui <- fluidPage(
+#'     shinyGovstyle::header(
+#'       main_text = "Example",
+#'       secondary_text = "User Examples",
+#'       logo="shinyGovstyle/images/moj_logo.png")
+#'   )
+#'
+#'   server <- function(input, output, session) {}
+#'
+#'   shinyApp(ui = ui, server = server)
+#' }
 
 header <- function(main_text, secondary_text, logo = NULL, main_link = "#", secondary_link = "#"){
   govHeader <- tags$header(class = "govuk-header", role = "banner",

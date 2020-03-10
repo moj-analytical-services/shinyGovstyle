@@ -27,6 +27,18 @@ header(
 This function create a header banner.  For use at top of the screen
 }
 \examples{
-header("My site", "A place to have fun", "https://upload.wikimedia.org/wikipedia/commons/c/c4/2-Dice-Icon.svg")
+if (interactive()) {
+
+  ui <- fluidPage(
+    shinyGovstyle::header(
+      main_text = "Example",
+      secondary_text = "User Examples",
+      logo="shinyGovstyle/images/moj_logo.png")
+  )
+
+  server <- function(input, output, session) {}
+
+  shinyApp(ui = ui, server = server)
+}
 }
 \keyword{header}

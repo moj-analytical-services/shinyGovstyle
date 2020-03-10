@@ -41,7 +41,42 @@ adds error onto it.  It doesn't look like the gov.uk style one, although this go
 for example it changes between firefox and chrome
 }
 \examples{
-file_Input("file1", "Upload a file")
+if (interactive()) {
+  ui <- fluidPage(
+    # Required for error handling function
+    shinyjs::useShinyjs(),
+    shinyGovstyle::header(
+      main_text = "Example",
+      secondary_text = "User Examples",
+      logo="shinyGovstyle/images/moj_logo.png"),
+    shinyGovstyle::banner(inputId = "banner", type = "beta", 'This is a new service'),
+    shinyGovstyle::gov_layout(size = "two-thirds",
+      # Simple file input
+      shinyGovstyle::file_Input(inputId = "file1", label = "Upload a file"),
+      # Error file
+      shinyGovstyle::file_Input(
+        inputId = "file2",
+        label = "Upload a file",
+        error = TRUE),
+      # Button to trigger error
+      shinyGovstyle::button_Input(inputId = "submit", label = "Submit")
+    ),
+    shinyGovstyle::footer(full = TRUE)
+  )
+
+  server <- function(input, output, session) {
+    #'Trigger error on blank submit of file2
+    observeEvent(input$submit, {
+      if (is.null(input$file2)){
+        shinyGovstyle::error_on(inputId = "file2")
+      } else {
+        shinyGovstyle::error_off(
+          inputId = "file2")
+      }
+    })
+  }
+  shinyApp(ui = ui, server = server)
+}
 }
 \keyword{file}
 \keyword{input}

@@ -3,11 +3,28 @@
 #' This function create a detail component that you can click for further details.
 #' @param inputId The input slot that will be used to access the value.
 #' @param label Main label text
-#' @param hint_label Additional help information in the component.
+#' @param help_text Additional help information in the component.
 #' @keywords text area
 #' @export
 #' @examples
-#' details("help_div", "Help with form", "To complete the form you need to fill it in...")
+#' if (interactive()) {
+#'   ui <- fluidPage(
+#'     shinyGovstyle::header(
+#'       main_text = "Example",
+#'       secondary_text = "User Examples",
+#'       logo="shinyGovstyle/images/moj_logo.png"),
+#'     shinyGovstyle::gov_layout(size = "two-thirds",
+#'       shinyGovstyle::details(
+#'         inputId = "help_div",
+#'         label = "Help with form",
+#'         help_text = "To complete the form you need to fill it in...")
+#'     ),
+#'     shinyGovstyle::footer(full = TRUE)
+#'   )
+#'
+#'   server <- function(input, output, session) {}
+#'   shinyApp(ui = ui, server = server)
+#' }
 
 details <-function(inputId, label, help_text){
   govDetails <- tags$details(class = "govuk-details", id = inputId,

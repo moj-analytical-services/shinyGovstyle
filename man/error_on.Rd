@@ -15,6 +15,45 @@ error_on(inputId, error_message = NULL)
 This function turns on the the error o the component.  Can be used to validate inputs.
 }
 \examples{
-error_on("inputId", "You have not inputed a number")
+## Only run examples in interactive R sessions
+if (interactive()) {
+
+  ui <- fluidPage(
+    # Required for error handling function
+    shinyjs::useShinyjs(),
+    shinyGovstyle::header(
+      main_text = "Example",
+      secondary_text = "User Examples",
+      logo="shinyGovstyle/images/moj_logo.png"),
+    shinyGovstyle::banner(inputId = "banner", type = "beta", 'This is a new service'),
+    shinyGovstyle::gov_layout(size = "two-thirds",
+      # Error text box
+      shinyGovstyle::text_Input(
+        inputId = "eventId",
+        label = "Event Name",
+        error = TRUE),
+      # Button to trigger error
+      shinyGovstyle::button_Input(inputId = "submit", label = "Submit")
+    ),
+    shinyGovstyle::footer(full = TRUE)
+  )
+
+
+  server <- function(input, output, session) {
+    #Trigger error on blank submit of eventId2
+    observeEvent(input$submit, {
+      if (input$eventId != ""){
+        shinyGovstyle::error_off(inputId = "eventId")
+      } else {
+        shinyGovstyle::error_on(
+          inputId = "eventId",
+          error_message = "Please complete")
+      }
+    })
+  }
+
+  # Run the application
+  shinyApp(ui = ui, server = server)
+}
 }
 \keyword{error}

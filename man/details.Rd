@@ -11,13 +11,30 @@ details(inputId, label, help_text)
 
 \item{label}{Main label text}
 
-\item{hint_label}{Additional help information in the component.}
+\item{help_text}{Additional help information in the component.}
 }
 \description{
 This function create a detail component that you can click for further details.
 }
 \examples{
-details("help_div", "Help with form", "To complete the form you need to fill it in...")
+if (interactive()) {
+  ui <- fluidPage(
+    shinyGovstyle::header(
+      main_text = "Example",
+      secondary_text = "User Examples",
+      logo="shinyGovstyle/images/moj_logo.png"),
+    shinyGovstyle::gov_layout(size = "two-thirds",
+      shinyGovstyle::details(
+        inputId = "help_div",
+        label = "Help with form",
+        help_text = "To complete the form you need to fill it in...")
+    ),
+    shinyGovstyle::footer(full = TRUE)
+  )
+
+  server <- function(input, output, session) {}
+  shinyApp(ui = ui, server = server)
+}
 }
 \keyword{area}
 \keyword{text}

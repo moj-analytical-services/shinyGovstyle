@@ -34,7 +34,10 @@ then that name rather than the value is displayed to the user)}
 \item{small}{If you want the smaller versions of radio buttons,  Default is FALSE}
 
 \item{choiceNames, choiceValues}{Same as in \code{\link[shiny]{checkboxGroupInput}}. List of names and values, respectively, that are displayed to
-the user in the app and correspond to the each choice (for this reason,}
+the user in the app and correspond to the each choice (for this reason they must have the same length).
+If either of these arguments is provided, then the other must be provided and choices must not be provided.
+The advantage of using both of these over a named list for choices is that choiceNames allows any type of UI
+object to be passed through (tag objects, icons, HTML code, ...), instead of just simple text.}
 
 \item{hint_label}{Additional hint text you may want to display below the label.  Defaults to NULL}
 
@@ -48,6 +51,49 @@ the user in the app and correspond to the each choice (for this reason,}
 This function create radio buttons
 }
 \examples{
-radio_button_input()
+if (interactive()) {
+
+  ui <- fluidPage(
+    # Required for error handling function
+    shinyjs::useShinyjs(),
+    shinyGovstyle::header(
+      main_text = "Example",
+      secondary_text = "User Examples",
+      logo="shinyGovstyle/images/moj_logo.png"),
+    shinyGovstyle::banner(inputId = "banner", type = "beta", 'This is a new service'),
+    shinyGovstyle::gov_layout(size = "two-thirds",
+      #Simple radio
+      shinyGovstyle::radio_button_Input(
+        inputId = "radio1",
+        choices = c("Yes", "No", "Maybe"),
+        label = "Choice option"),
+      # Error radio
+      shinyGovstyle::radio_button_Input(
+        inputId = "radio2",
+        choices = c("Yes", "No", "Maybe"),
+        label = "Choice option",
+        hint_label = "Select the best fit",
+        inline = TRUE,
+        error = TRUE,
+        error_message = "Select one"),
+      # Button to trigger error
+      shinyGovstyle::button_Input(inputId = "submit", label = "Submit")
+    ),
+    shinyGovstyle::footer(full = TRUE)
+  )
+
+  server <- function(input, output, session) {
+    #Trigger error on blank submit of eventId2
+    observeEvent(input$submit, {
+      if (is.null(input$radio2)){
+        shinyGovstyle::error_on(inputId = "radio2")
+      } else {
+        shinyGovstyle::error_off(
+          inputId = "radio2")
+      }
+    })
+  }
+  shinyApp(ui = ui, server = server)
+}
 }
 \keyword{radiobuttons}
