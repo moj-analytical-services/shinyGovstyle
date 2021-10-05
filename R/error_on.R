@@ -54,5 +54,6 @@ error_on <- function(inputId, error_message = NULL){
   }
   shinyjs::show(paste0(inputId, "error"))
   shinyjs::addClass(selector = paste0("#", inputId,"div :input"), class = "govuk-textarea--error")
+  shinyjs::addClass(selector = paste0("#", inputId,"div :input"), class = "govuk-input--error")
   shinyjs::addClass(selector = paste0("#", inputId,"file_div"), class = "govuk-input--error")
 }
