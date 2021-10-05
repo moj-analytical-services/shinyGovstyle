@@ -38,6 +38,14 @@ button_Input <- function(inputId, label, type = "default"){
 
   value <- shiny::restoreInput(id = inputId, default = NULL)
 
-  govButton <- tags$button(label, id = inputId, class = paste0(class_input, " action-button"), `data-val` = value)
+  if (type == "start")
+    govButton <- tags$button(label, id = inputId, class = paste0(class_input, " action-button"), `data-val` = value,
+                tag("svg", list(class="govuk-button__start-icon", xmlns="http://www.w3.org/2000/svg",
+                                width="17.5" ,height="19", viewBox="0 0 33 40", `aria-hidden`="true", focusable="false",
+                                tag("path", list(fill="currentColor", d="M0 0h13l20 20-20 20H0l20-20z")))))
+  else
+    govButton <- tags$button(label, id = inputId, class = paste0(class_input, " action-button"), `data-val` = value)
+
+
   attachDependency(govButton)
 }
