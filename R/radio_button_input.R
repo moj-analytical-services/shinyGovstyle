@@ -72,9 +72,11 @@ radio_button_Input <- function (inputId, label, choices = NULL,
                                 error_message = NULL, custom_class = ""){
   args <- shiny:::normalizeChoicesArgs(choices, choiceNames, choiceValues)
   selected <- shiny::restoreInput(id = inputId, default = selected)
-  selected <- if (is.null(selected))
-    args$choiceValues[[1]]
-  else as.character(selected)
+  # selected <- if (is.null(selected))
+  #   args$choiceValues[[1]]
+  # else
+  selected <- as.character(selected)
+  print(selected)
   if (length(selected) > 1)
     stop("The 'selected' argument must be of length 1")
   options <- generateOptions2(inputId, selected, inline, small, "radio",
@@ -111,6 +113,8 @@ generateOptions2 <- function (inputId, selected, inline, small,
   options <- mapply(choiceValues, choiceNames, FUN = function(value, name) {
     inputTag <- tags$input(type = type, name = inputId,
                            value = value, class = "govuk-radios__input")
+    if (is.null(selected) == FALSE & value %in% selected)
+      {inputTag$attribs$checked <- "checked"}
     pd <- shiny:::processDeps(name, session)
     tags$div(class = "govuk-radios__item",
              tags$label(inputTag, tags$span(
