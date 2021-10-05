@@ -55,7 +55,8 @@
 #'   shinyApp(ui = ui, server = server)
 #' }
 
-text_Input <- function(inputId, label, hint_label=NULL, type = "text", width = NULL, error = FALSE, error_message = NULL){
+text_Input <- function(inputId, label, hint_label=NULL, type = "text", width = NULL, error = FALSE, error_message = NULL,
+                       prefix = NULL, suffix = NULL){
   if (is.null(width)){
     width_class <- "govuk-input"
   }
@@ -75,7 +76,21 @@ text_Input <- function(inputId, label, hint_label=NULL, type = "text", width = N
         )
       )
     },
-    tags$input(id=inputId, class=width_class, type = type)
+    if (is.null(prefix) & is.null(suffix))
+      tags$input(id=inputId, class=width_class, type = type)
+    else if (is.null(suffix)) {
+      tags$div(class="govuk-input__wrapper",
+      tags$div(prefix, class="govuk-input__prefix", `aria-hidden`="true"),
+      tags$input(id=inputId, class=width_class, type = type))}
+    else if (is.null(prefix)) {
+      tags$div(class="govuk-input__wrapper",
+               tags$input(id=inputId, class=width_class, type = type),
+               tags$div(suffix, class="govuk-input__suffix", `aria-hidden`="true"))}
+    else {
+      tags$div(class="govuk-input__wrapper",
+               tags$div(prefix, class="govuk-input__prefix", `aria-hidden`="true"),
+               tags$input(id=inputId, class=width_class, type = type),
+               tags$div(suffix, class="govuk-input__suffix", `aria-hidden`="true"))}
   )
   attachDependency(govText)
 }

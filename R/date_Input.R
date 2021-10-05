@@ -6,6 +6,9 @@
 #' @param hint_label Display hint label for the control, or \code{NULL} for no hint label.
 #' @param error Whenever to include error components.Defaults to \code{FALSE}.
 #' @param error_message Error handling message? Defaults to \code{NULL}
+#' @param day Select a default day on start up. Defaults to \code{NULL}
+#' @param month Select a default month on start up. Defaults to \code{NULL}
+#' @param year Select a default year on start up. Defaults to \code{NULL}
 #' @keywords date
 #' @export
 #' @examples
@@ -50,7 +53,8 @@
 #'   shinyApp(ui = ui, server = server)
 #' }
 
-date_Input <- function(inputId, label, hint_label = NULL, error = FALSE, error_message = NULL){
+date_Input <- function(inputId, label, hint_label = NULL, error = FALSE, error_message = NULL,
+                       day = NULL, month = NULL, year = NULL){
   value <- restoreInput(id = inputId, default = FALSE)
   govDate <- tags$div(class="govuk-form-group", id=paste0(inputId,"div"),
     tags$fieldset(class="govuk-fieldset",
@@ -69,7 +73,7 @@ date_Input <- function(inputId, label, hint_label = NULL, error = FALSE, error_m
               tags$label("Day", class="govuk-label govuk-date-input__label"),
               tags$input(class="govuk-input govuk-date-input__input govuk-input--width-2",
                          id=paste0(inputId,"_day"), name=inputId,
-                         type="number", pattern="[0-9]*")
+                         type="number", pattern="[0-9]*", value = day)
             )
           ),
         tags$div(class="govuk-date-input__item",
@@ -77,7 +81,7 @@ date_Input <- function(inputId, label, hint_label = NULL, error = FALSE, error_m
             tags$label("Month", class="govuk-label govuk-date-input__label"),
             tags$input(class="govuk-input govuk-date-input__input govuk-input--width-2",
                        id=paste0(inputId,"_month"), name=inputId,
-                       type="number", pattern="[0-9]*")
+                       type="number", pattern="[0-9]*", value = month)
             )
         ),
         tags$div(class="govuk-date-input__item",
@@ -85,7 +89,7 @@ date_Input <- function(inputId, label, hint_label = NULL, error = FALSE, error_m
             tags$label("Year", class="govuk-label govuk-date-input__label"),
             tags$input(class="govuk-input govuk-date-input__input govuk-input--width-4",
                        id=paste0(inputId,"_year"), name=inputId,
-                       type="number", pattern="[0-9]*")
+                       type="number", pattern="[0-9]*", value = year)
           )
         )
       )
