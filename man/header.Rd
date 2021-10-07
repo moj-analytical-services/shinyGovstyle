@@ -4,13 +4,8 @@
 \alias{header}
 \title{Header Function}
 \usage{
-header(
-  main_text,
-  secondary_text,
-  logo = NULL,
-  main_link = "#",
-  secondary_link = "#"
-)
+header(main_text, secondary_text, logo = NULL, main_link = "#",
+  secondary_link = "#")
 }
 \arguments{
 \item{main_text}{Main text that goes in the header}

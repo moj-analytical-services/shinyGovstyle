@@ -4,20 +4,10 @@
 \alias{radio_button_Input}
 \title{Radio Button Function}
 \usage{
-radio_button_Input(
-  inputId,
-  label,
-  choices = NULL,
-  selected = NULL,
-  inline = FALSE,
-  small = FALSE,
-  choiceNames = NULL,
-  choiceValues = NULL,
-  hint_label = NULL,
-  error = FALSE,
-  error_message = NULL,
-  custom_class = ""
-)
+radio_button_Input(inputId, label, choices = NULL, selected = NULL,
+  inline = FALSE, small = FALSE, choiceNames = NULL,
+  choiceValues = NULL, hint_label = NULL, error = FALSE,
+  error_message = NULL, custom_class = "")
 }
 \arguments{
 \item{inputId}{The \code{input} slot that will be used to access the value.}

@@ -4,15 +4,8 @@
 \alias{text_area_Input}
 \title{Text Area Input Function}
 \usage{
-text_area_Input(
-  inputId,
-  label,
-  hint_label = NULL,
-  row_no = 5,
-  error = FALSE,
-  error_message = NULL,
-  word_limit = NULL
-)
+text_area_Input(inputId, label, hint_label = NULL, row_no = 5,
+  error = FALSE, error_message = NULL, word_limit = NULL)
 }
 \arguments{
 \item{inputId}{The input slot that will be used to access the value.}
@@ -24,6 +17,8 @@ text_area_Input(
 \item{row_no}{Size of the text entry box.  Defaults to 5.}
 
 \item{error}{Whenever to icnlud error handling  Defaults to \code{FALSE}}
+
+\item{error_message}{Message to display on error.  Defaults to \code{NULL}}
 
 \item{error_message}{Add a word limit to the display.  Defaults to \code{NULL}.}
 }

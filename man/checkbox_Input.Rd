@@ -4,16 +4,8 @@
 \alias{checkbox_Input}
 \title{Checkbox Function}
 \usage{
-checkbox_Input(
-  inputId,
-  cb_labels,
-  checkboxIds,
-  label,
-  hint_label = NULL,
-  small = FALSE,
-  error = FALSE,
-  error_message = NULL
-)
+checkbox_Input(inputId, cb_labels, checkboxIds, label, hint_label = NULL,
+  small = FALSE, error = FALSE, error_message = NULL)
 }
 \arguments{
 \item{inputId}{Input id for the group of checkboxes}

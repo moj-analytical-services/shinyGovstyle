@@ -4,13 +4,8 @@
 \alias{date_Input}
 \title{Date Input Function}
 \usage{
-date_Input(
-  inputId,
-  label,
-  hint_label = NULL,
-  error = FALSE,
-  error_message = NULL
-)
+date_Input(inputId, label, hint_label = NULL, error = FALSE,
+  error_message = NULL, day = NULL, month = NULL, year = NULL)
 }
 \arguments{
 \item{inputId}{The input slot that will be used to access the value.}
@@ -22,6 +17,12 @@ date_Input(
 \item{error}{Whenever to include error components.Defaults to \code{FALSE}.}
 
 \item{error_message}{Error handling message? Defaults to \code{NULL}}
+
+\item{day}{Select a default day on start up. Defaults to \code{NULL}}
+
+\item{month}{Select a default month on start up. Defaults to \code{NULL}}
+
+\item{year}{Select a default year on start up. Defaults to \code{NULL}}
 }
 \description{
 This function create a date input that follows gds component

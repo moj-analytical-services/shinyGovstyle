@@ -4,17 +4,10 @@
 \alias{file_Input}
 \title{File Input Function}
 \usage{
-file_Input(
-  inputId,
-  label,
-  multiple = FALSE,
-  accept = NULL,
-  width = NULL,
-  buttonLabel = "Choose file",
-  placeholder = "No file chosen",
-  error = FALSE,
-  error_message = NULL
-)
+file_Input(inputId, label, multiple = FALSE, accept = NULL,
+  width = NULL, buttonLabel = "Choose file",
+  placeholder = "No file chosen", error = FALSE,
+  error_message = NULL)
 }
 \arguments{
 \item{inputId}{The input slot that will be used to access the value.}
