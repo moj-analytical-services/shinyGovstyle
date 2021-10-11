@@ -178,7 +178,7 @@ normalizeChoicesArgs2 <- function (choices, choiceNames, choiceValues, mustExist
     if (length(choiceNames) != length(choiceValues)) {
       stop("`choiceNames` and `choiceValues` must have the same length.")
     }
-    if (anyNamed(choiceNames) || anyNamed(choiceValues)) {
+    if (anyNamed2(choiceNames) || anyNamed2(choiceValues)) {
       stop("`choiceNames` and `choiceValues` must not be named.")
     }
   }
@@ -220,10 +220,20 @@ choicesWithNames2 <- function (choices)
       return(choice)
     if (name == "")
       stop("All sub-lists in \"choices\" must be named.")
-    choicesWithNames(choice)
+    choicesWithNames2(choice)
   }, SIMPLIFY = FALSE)
   missing <- names(choices) == ""
   names(choices)[missing] <- as.character(choices)[missing]
   choices
 }
 
+
+anyNamed2 <- function (x)
+{
+  if (length(x) == 0)
+    return(FALSE)
+  nms <- names(x)
+  if (is.null(nms))
+    return(FALSE)
+  any(nzchar(nms))
+}
