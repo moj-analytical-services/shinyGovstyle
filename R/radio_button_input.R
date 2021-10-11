@@ -70,7 +70,7 @@ radio_button_Input <- function (inputId, label, choices = NULL,
                                 choiceNames = NULL,
                                 choiceValues = NULL, hint_label = NULL, error = FALSE,
                                 error_message = NULL, custom_class = ""){
-  args <- shiny:::normalizeChoicesArgs(choices, choiceNames, choiceValues)
+  args <- normalizeChoicesArgs2(choices, choiceNames, choiceValues)
   selected <- shiny::restoreInput(id = inputId, default = selected)
   # selected <- if (is.null(selected))
   #   args$choiceValues[[1]]
@@ -115,7 +115,7 @@ generateOptions2 <- function (inputId, selected, inline, small,
                            value = value, class = "govuk-radios__input")
     if (is.null(selected) == FALSE & value %in% selected)
       {inputTag$attribs$checked <- "checked"}
-    pd <- shiny:::processDeps(name, session)
+    pd <- processDeps2(name, session)
     shiny::tags$div(class = "govuk-radios__item",
              shiny::tags$label(inputTag, shiny::tags$span(
                pd$html,
@@ -144,3 +144,86 @@ generateOptions2 <- function (inputId, selected, inline, small,
       return(y)
   return(NULL)
 }
+
+processDeps2 <- function (tags, session)
+{
+  ui <- htmltools::takeSingletons(tags, session$singletons, desingleton = FALSE)$ui
+  ui <- htmltools::surroundSingletons(ui)
+  dependencies <- lapply(htmltools::resolveDependencies(htmltools::findDependencies(ui)),
+                         shiny::createWebDependency)
+  names(dependencies) <- NULL
+  list(html = htmltools::doRenderTags(ui), deps = dependencies)
+}
+
+
+
+normalizeChoicesArgs2 <- function (choices, choiceNames, choiceValues, mustExist = TRUE)
+{
+  if (is.null(choices)) {
+    if (is.null(choiceNames) || is.null(choiceValues)) {
+      if (mustExist) {
+        stop("Please specify a non-empty vector for `choices` (or, ",
+             "alternatively, for both `choiceNames` AND `choiceValues`).")
+      }
+      else {
+        if (is.null(choiceNames) && is.null(choiceValues)) {
+          return(list(choiceNames = NULL, choiceValues = NULL))
+        }
+        else {
+          stop("One of `choiceNames` or `choiceValues` was set to ",
+               "NULL, but either both or none should be NULL.")
+        }
+      }
+    }
+    if (length(choiceNames) != length(choiceValues)) {
+      stop("`choiceNames` and `choiceValues` must have the same length.")
+    }
+    if (anyNamed(choiceNames) || anyNamed(choiceValues)) {
+      stop("`choiceNames` and `choiceValues` must not be named.")
+    }
+  }
+  else {
+    if (!is.null(choiceNames) || !is.null(choiceValues)) {
+      warning("Using `choices` argument; ignoring `choiceNames` and `choiceValues`.")
+    }
+    choices <- choicesWithNames2(choices)
+    choiceNames <- names(choices)
+    choiceValues <- unname(choices)
+  }
+  return(list(choiceNames = as.list(choiceNames), choiceValues = as.list(as.character(choiceValues))))
+}
+
+
+choicesWithNames2 <- function (choices)
+{
+  listify <- function(obj) {
+    makeNamed <- function(x) {
+      if (is.null(names(x)))
+        names(x) <- character(length(x))
+      x
+    }
+    res <- lapply(obj, function(val) {
+      if (is.list(val))
+        listify(val)
+      else if (length(val) == 1 && is.null(names(val)))
+        as.character(val)
+      else makeNamed(as.list(val))
+    })
+    makeNamed(res)
+  }
+  choices <- listify(choices)
+  if (length(choices) == 0)
+    return(choices)
+  choices <- mapply(choices, names(choices), FUN = function(choice,
+                                                            name) {
+    if (!is.list(choice))
+      return(choice)
+    if (name == "")
+      stop("All sub-lists in \"choices\" must be named.")
+    choicesWithNames(choice)
+  }, SIMPLIFY = FALSE)
+  missing <- names(choices) == ""
+  names(choices)[missing] <- as.character(choices)[missing]
+  choices
+}
+
