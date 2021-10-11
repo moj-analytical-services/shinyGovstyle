@@ -76,7 +76,6 @@ radio_button_Input <- function (inputId, label, choices = NULL,
   #   args$choiceValues[[1]]
   # else
   selected <- as.character(selected)
-  print(selected)
   if (length(selected) > 1)
     stop("The 'selected' argument must be of length 1")
   options <- generateOptions2(inputId, selected, inline, small, "radio",
