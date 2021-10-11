@@ -8,6 +8,8 @@
 #' @param width control the size of the box based on number of characters required.  Options are 30, 20, 10, 5, 4, 3, 2.  NULL will not limit the size
 #' @param error Whenever to include error handling  Defaults to FALSE.
 #' @param error_message Message to display on error.  Defaults to NULL
+#' @param prefix Add a prefix to the box.  Defaults to NULL
+#' @param suffix Add a suffix to the box.  Defaults to NULL
 #' @keywords text input
 #' @export
 #' @examples
@@ -63,34 +65,34 @@ text_Input <- function(inputId, label, hint_label=NULL, type = "text", width = N
   else{
     width_class <- paste0("govuk-input govuk-input--width-", width)
   }
-  govText <- tags$div(class="govuk-form-group", id=paste0(inputId,"div"),
-    tags$label(HTML(label), class="govuk-label"),
-    tags$span(hint_label ,class="govuk-hint"),
+  govText <- shiny::tags$div(class="govuk-form-group", id=paste0(inputId,"div"),
+    shiny::tags$label(shiny::HTML(label), class="govuk-label"),
+    shiny::tags$span(hint_label ,class="govuk-hint"),
     if (error == TRUE){
       shinyjs::hidden(
-        tags$span(error_message,
+        shiny::tags$span(error_message,
           class="govuk-error-message",
           id= paste0(inputId, "error"),
-          tags$span("Error:",
+          shiny::tags$span("Error:",
           class="govuk-visually-hidden")
         )
       )
     },
     if (is.null(prefix) & is.null(suffix))
-      tags$input(id=inputId, class=width_class, type = type)
+      shiny::tags$input(id=inputId, class=width_class, type = type)
     else if (is.null(suffix)) {
-      tags$div(class="govuk-input__wrapper",
-      tags$div(prefix, class="govuk-input__prefix", `aria-hidden`="true"),
-      tags$input(id=inputId, class=width_class, type = type))}
+      shiny::tags$div(class="govuk-input__wrapper",
+      shiny::tags$div(prefix, class="govuk-input__prefix", `aria-hidden`="true"),
+      shiny::tags$input(id=inputId, class=width_class, type = type))}
     else if (is.null(prefix)) {
-      tags$div(class="govuk-input__wrapper",
-               tags$input(id=inputId, class=width_class, type = type),
-               tags$div(suffix, class="govuk-input__suffix", `aria-hidden`="true"))}
+      shiny::tags$div(class="govuk-input__wrapper",
+               shiny::tags$input(id=inputId, class=width_class, type = type),
+               shiny::tags$div(suffix, class="govuk-input__suffix", `aria-hidden`="true"))}
     else {
-      tags$div(class="govuk-input__wrapper",
-               tags$div(prefix, class="govuk-input__prefix", `aria-hidden`="true"),
-               tags$input(id=inputId, class=width_class, type = type),
-               tags$div(suffix, class="govuk-input__suffix", `aria-hidden`="true"))}
+      shiny::tags$div(class="govuk-input__wrapper",
+               shiny::tags$div(prefix, class="govuk-input__prefix", `aria-hidden`="true"),
+               shiny::tags$input(id=inputId, class=width_class, type = type),
+               shiny::tags$div(suffix, class="govuk-input__suffix", `aria-hidden`="true"))}
   )
   attachDependency(govText)
 }

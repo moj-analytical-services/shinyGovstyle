@@ -82,16 +82,16 @@ radio_button_Input <- function (inputId, label, choices = NULL,
   options <- generateOptions2(inputId, selected, inline, small, "radio",
                               args$choiceNames, args$choiceValues)
   divClass <- paste("govuk-form-group govuk-radios", custom_class)
-  govRadio <- tags$div(id = inputId, class = divClass,
-    tags$div(class="govuk-form-group", id=paste0(inputId,"div"),
+  govRadio <- shiny::tags$div(id = inputId, class = divClass,
+    shiny::tags$div(class="govuk-form-group", id=paste0(inputId,"div"),
     controlLabel2(inputId, label),
-    tags$span(hint_label ,class="govuk-hint"),
+    shiny::tags$span(hint_label ,class="govuk-hint"),
     if (error == TRUE){
       shinyjs::hidden(
-        tags$span(error_message,
+        shiny::tags$span(error_message,
                   class="govuk-error-message",
                   id= paste0(inputId, "error"),
-                  tags$span("Error:",
+                  shiny::tags$span("Error:",
                             class="govuk-visually-hidden")
         )
       )
@@ -109,15 +109,15 @@ controlLabel2 <- function(controlName, label) {
 generateOptions2 <- function (inputId, selected, inline, small,
                               type = "checkbox", choiceNames,
                               choiceValues,
-                              session = getDefaultReactiveDomain()){
+                              session = shiny::getDefaultReactiveDomain()){
   options <- mapply(choiceValues, choiceNames, FUN = function(value, name) {
-    inputTag <- tags$input(type = type, name = inputId,
+    inputTag <- shiny::tags$input(type = type, name = inputId,
                            value = value, class = "govuk-radios__input")
     if (is.null(selected) == FALSE & value %in% selected)
       {inputTag$attribs$checked <- "checked"}
     pd <- shiny:::processDeps(name, session)
-    tags$div(class = "govuk-radios__item",
-             tags$label(inputTag, tags$span(
+    shiny::tags$div(class = "govuk-radios__item",
+             shiny::tags$label(inputTag, shiny::tags$span(
                pd$html,
                pd$deps,
                class = "govuk-label govuk-radios__label")))
@@ -135,7 +135,7 @@ generateOptions2 <- function (inputId, selected, inline, small,
     class_build <- paste(class_build, "govuk-radios--small")
   }
 
-  div(class = class_build, options)
+  shiny::div(class = class_build, options)
 }
 
 `%AND%` <- function (x, y) {

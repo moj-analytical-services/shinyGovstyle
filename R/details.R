@@ -27,11 +27,11 @@
 #' }
 
 details <-function(inputId, label, help_text){
-  govDetails <- tags$details(class = "govuk-details", id = inputId,
-    tags$summary(class = "govuk-details__summary",
-      tags$span(class = "govuk-details__summary-text", HTML(label))
+  govDetails <- shiny::tags$details(class = "govuk-details", id = inputId,
+    shiny::tags$summary(class = "govuk-details__summary",
+      shiny::tags$span(class = "govuk-details__summary-text", shiny::HTML(label))
     ),
-    tags$div(class = "govuk-details__text", help_text)
+    shiny::tags$div(class = "govuk-details__text", help_text)
   )
   attachDependency(govDetails)
 }

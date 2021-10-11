@@ -27,6 +27,6 @@
 #' }
 
 insert_text <- function(inputId, text) {
-  govInsert <- tags$div(HTML(text), id = inputId, class="govuk-inset-text")
+  govInsert <- shiny::tags$div(shiny::HTML(text), id = inputId, class="govuk-inset-text")
   attachDependency(govInsert)
 }

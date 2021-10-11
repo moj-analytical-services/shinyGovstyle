@@ -20,14 +20,15 @@ text_area_Input(inputId, label, hint_label = NULL, row_no = 5,
 
 \item{error_message}{Message to display on error.  Defaults to \code{NULL}}
 
-\item{error_message}{Add a word limit to the display.  Defaults to \code{NULL}.}
+\item{word_limit}{Add a word limit to the display.  Defaults to \code{NULL}.}
 }
 \description{
 This function create a text area input
 }
 \examples{
-text_area_input("taId", "Can you provide more detail?",
-"Do not include personal or financial information, like your National Insurance number or credit card details.")
+text_area_Input("taId", "Can you provide more detail?",
+"Do not include personal or financial information, like your
+National Insurance number or credit card details.")
 }
 \keyword{area}
 \keyword{text}

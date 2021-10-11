@@ -56,7 +56,7 @@ file_Input <- function(inputId, label, multiple = FALSE, accept = NULL,
                       width = NULL, buttonLabel = "Choose file", placeholder = "No file chosen",
                       error = FALSE, error_message = NULL) {
 
-  restoredValue <- restoreInput(id = inputId, default = NULL)
+  restoredValue <- shiny::restoreInput(id = inputId, default = NULL)
 
   # Catch potential edge case - ensure that it's either NULL or a data frame.
   if (!is.null(restoredValue) && !is.data.frame(restoredValue)) {
@@ -65,10 +65,10 @@ file_Input <- function(inputId, label, multiple = FALSE, accept = NULL,
   }
 
   if (!is.null(restoredValue)) {
-    restoredValue <- toJSON(restoredValue, strict_atomic = FALSE)
+    restoredValue <- jsonlite::toJSON(restoredValue, strict_atomic = FALSE)
   }
 
-  inputTag <- tags$input(
+  inputTag <- shiny::tags$input(
     id = inputId,
     name = inputId,
     type = "file",
@@ -82,29 +82,29 @@ file_Input <- function(inputId, label, multiple = FALSE, accept = NULL,
     inputTag$attribs$accept <- paste(accept, collapse=',')
 
 
-  govFile <- div(id = paste0(inputId, "div"), class = "govuk-form-group",
+  govFile <- shiny::div(id = paste0(inputId, "div"), class = "govuk-form-group",
 
 
-      style = if (!is.null(width)) paste0("width: ", validateCssUnit(width), ";"),
-      tags$label(label, class="govuk-label"),
+      style = if (!is.null(width)) paste0("width: ", shiny::validateCssUnit(width), ";"),
+      shiny::tags$label(label, class="govuk-label"),
       if (error == TRUE){
         shinyjs::hidden(
-          tags$span(error_message,
+          shiny::tags$span(error_message,
             class="govuk-error-message",
             id= paste0(inputId, "error"),
-            tags$span("Error:", class="govuk-visually-hidden")
+            shiny::tags$span("Error:", class="govuk-visually-hidden")
           )
         )
       },
 
-      div(id = paste0(inputId,"file_div"), class = "input-group",
-          tags$label(class = "input-group-btn",
-                     span(class = "btn btn-default btn-file",
+      shiny::div(id = paste0(inputId,"file_div"), class = "input-group",
+          shiny::tags$label(class = "input-group-btn",
+                     shiny::span(class = "btn btn-default btn-file",
                           buttonLabel,
                           inputTag
                      )
           ),
-          tags$input(type = "text", class = "form-control",
+          shiny::tags$input(type = "text", class = "form-control",
                      placeholder = placeholder, readonly = "readonly"
           )
       )

@@ -8,13 +8,33 @@ word_count(inputId, input)
 }
 \arguments{
 \item{inputId}{The input slot of the text area that you want to affect}
+
+\item{input}{The text input that is associated with the box.}
 }
 \description{
 This function create tracks the word count and should be used with the text area function
 }
 \examples{
-word_count("inputID")
+ui <- shiny::fluidPage(
+shinyjs::useShinyjs(),
+shinyGovstyle::header("Justice", "", logo="shinyGovstyle/images/moj_logo.png"),
+gov_layout(size = "full",
+           text_area_Input(
+             inputId = "text_area",
+             label = "Can you provide more detail?",
+             hint_label =  "Do not include personal or financial information, like
+                         your National Insurance number or credit card details.",
+             word_limit = 300)
+),
+footer(TRUE)
+)
 
+# Define server logic required to draw a histogram
+server <- function(input, output, session) {
+  shiny::observeEvent(input$text_area,
+               word_count(inputId = "text_area", input = input$text_area, word_limit = 300)
+  )
+}
 }
 \keyword{count}
 \keyword{word}

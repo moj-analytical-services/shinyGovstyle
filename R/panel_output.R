@@ -27,9 +27,9 @@
 #' }
 
 panel_output <- function(inputId, main_text, sub_text) {
-  govPanel <- tags$div(class="govuk-panel govuk-panel--confirmation", id = inputId,
-    tags$h1(main_text, class = "govuk-panel__title"),
-    tags$div(HTML(sub_text), class = "govuk-panel__body")
+  govPanel <- shiny::tags$div(class="govuk-panel govuk-panel--confirmation", id = inputId,
+    shiny::tags$h1(main_text, class = "govuk-panel__title"),
+    shiny::tags$div(shiny::HTML(sub_text), class = "govuk-panel__body")
   )
   attachDependency(govPanel)
 }

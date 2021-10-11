@@ -22,6 +22,10 @@ text_Input(inputId, label, hint_label = NULL, type = "text",
 \item{error}{Whenever to include error handling  Defaults to FALSE.}
 
 \item{error_message}{Message to display on error.  Defaults to NULL}
+
+\item{prefix}{Add a prefix to the box.  Defaults to NULL}
+
+\item{suffix}{Add a suffix to the box.  Defaults to NULL}
 }
 \description{
 This function create a text area input

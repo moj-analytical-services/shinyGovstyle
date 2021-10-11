@@ -5,11 +5,12 @@ Authors@R: person("Ross", "Wyatt", email = "ross.wyatt@justice.gov.uk", role = c
 Description: Collection of 'shiny' application styling that are the based on the GOV.UK Design System.  
   See https://design-system.service.gov.uk/components/ for details.
 Depends: R (>= 3.1.0)
-License: GPL-3 | file LICENSE
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.0.2
 Imports: 
     shiny (>= 0.14),
     htmltools,
-    shinyjs
+    shinyjs,
+    jsonlite
