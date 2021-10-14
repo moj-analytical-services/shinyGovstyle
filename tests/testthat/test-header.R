@@ -1,3 +1,8 @@
 test_that("multiplication works", {
-  expect_equal(2 * 2, 4)
+  header_check <- header("Test", "Again")
+
+  expect_identical(
+    header_check$children[[1]]$attribs$class,
+    "govuk-header__container govuk-width-container"
+  )
 })
