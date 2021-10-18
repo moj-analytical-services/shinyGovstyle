@@ -12,7 +12,8 @@ insert_text(inputId, text)
 \item{text}{Text that you want to display on the insert}
 }
 \description{
-This function loads the insert text component to display additional information in a special format.
+This function loads the insert text component to display additional
+information in a special format.
 }
 \examples{
 if (interactive()) {

@@ -26,7 +26,9 @@
 
 warning_text <- function(inputId, text){
   govWarning <- shiny::tags$div(class="govuk-warning-text", id = inputId,
-    shiny::tags$span("!", class="govuk-warning-text__icon", `aria-hidden`="true"),
+    shiny::tags$span(
+      "!", class="govuk-warning-text__icon", `aria-hidden`="true"
+    ),
     shiny::tags$strong(text, class="govuk-warning-text__text",
       shiny::tags$span("Warning", class="govuk-warning-text__assistive")
     )

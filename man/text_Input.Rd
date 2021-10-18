@@ -13,11 +13,13 @@ text_Input(inputId, label, hint_label = NULL, type = "text",
 
 \item{label}{Display label for the control, or \code{NULL} for no label.}
 
-\item{hint_label}{Display hint label for the control, or \code{NULL} for no hint label.}
+\item{hint_label}{Display hint label for the control, or \code{NULL} for
+no hint label.}
 
 \item{type}{Type of text input to accept.  Defaults to text.}
 
-\item{width}{control the size of the box based on number of characters required.  Options are 30, 20, 10, 5, 4, 3, 2.  NULL will not limit the size}
+\item{width}{control the size of the box based on number of characters
+required.  Options are 30, 20, 10, 5, 4, 3, 2.  NULL will not limit the size}
 
 \item{error}{Whenever to include error handling  Defaults to FALSE.}
 
@@ -41,7 +43,8 @@ if (interactive()) {
       main_text = "Example",
       secondary_text = "User Examples",
       logo="shinyGovstyle/images/moj_logo.png"),
-    shinyGovstyle::banner(inputId = "banner", type = "beta", 'This is a new service'),
+    shinyGovstyle::banner(
+      inputId = "banner", type = "beta", 'This is a new service'),
     shinyGovstyle::gov_layout(size = "two-thirds",
       # Simple text box
       shinyGovstyle::text_Input(inputId = "eventId", label = "Event Name"),

@@ -12,7 +12,8 @@ date_Input(inputId, label, hint_label = NULL, error = FALSE,
 
 \item{label}{Display label for the control, or \code{NULL} for no label.}
 
-\item{hint_label}{Display hint label for the control, or \code{NULL} for no hint label.}
+\item{hint_label}{Display hint label for the control, or \code{NULL} for no
+hint label.}
 
 \item{error}{Whenever to include error components.Defaults to \code{FALSE}.}
 
@@ -37,7 +38,8 @@ if (interactive()) {
       main_text = "Example",
       secondary_text = "User Examples",
       logo="shinyGovstyle/images/moj_logo.png"),
-    shinyGovstyle::banner(inputId = "banner", type = "beta", 'This is a new service'),
+    shinyGovstyle::banner(
+      inputId = "banner", type = "beta", 'This is a new service'),
     shinyGovstyle::gov_layout(size = "two-thirds",
        # Simple date input
       shinyGovstyle::date_Input(

@@ -11,7 +11,8 @@ test_that("Default", {
   choicestag <- cbtag$children[[1]]$children[[1]]$children[[4]]$children[[1]]
   expect_length(choicestag, length(choices))
 
-  checked <- lapply(choicestag, function(x) grepl(pattern = "checked", x = as.character(x)))
+  checked <- lapply(
+    choicestag, function(x) grepl(pattern = "checked", x = as.character(x)))
   checked <- unlist(checked)
   expect_true(all(!checked))
 })
@@ -31,15 +32,17 @@ test_that("Error", {
   choicestag <- cbtag$children[[1]]$children[[1]]$children[[4]]$children[[1]]
   expect_length(choicestag, length(choices))
 
-  checked <- lapply(choicestag, function(x) grepl(pattern = "checked", x = as.character(x)))
+  checked <- lapply(
+    choicestag, function(x) grepl(pattern = "checked", x = as.character(x)))
   checked <- unlist(checked)
   expect_true(all(!checked))
 
   err_msg <- cbtag$children[[1]]$children[[1]]$children[[3]]$children[[1]]
   expect_identical(err_msg, "Error Test")
 
-  err_class <- paste(cbtag$children[[1]]$children[[1]]$children[[3]]$attribs[1]$class,
-                     cbtag$children[[1]]$children[[1]]$children[[3]]$attribs[3]$class)
+  err_class <- paste(
+    cbtag$children[[1]]$children[[1]]$children[[3]]$attribs[1]$class,
+    cbtag$children[[1]]$children[[1]]$children[[3]]$attribs[3]$class)
   expect_identical(err_class, "govuk-error-message shinyjs-hide")
 })
 
@@ -57,7 +60,8 @@ test_that("Small", {
   choicestag <- cbtag$children[[1]]$children[[1]]$children[[4]]$children[[1]]
   expect_length(choicestag, length(choices))
 
-  checked <- lapply(choicestag, function(x) grepl(pattern = "checked", x = as.character(x)))
+  checked <- lapply(
+    choicestag, function(x) grepl(pattern = "checked", x = as.character(x)))
   checked <- unlist(checked)
   expect_true(all(!checked))
 

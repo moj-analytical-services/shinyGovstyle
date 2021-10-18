@@ -4,7 +4,8 @@
 #' @param legend Legend that goes above the fieldset
 #' @param labels A list of labels for the text inputs
 #' @param inputIds A list input slots that will be used to access the value.
-#' @param widths control the size of the box based on number of characters required.  Options are 30, 20, 10, 5, 4, 3, 2.  NULL will not limit the size
+#' @param widths control the size of the box based on number of characters
+#' required.  Options are 30, 20, 10, 5, 4, 3, 2.  NULL will not limit the size
 #' @param types text box types.  Will default to text.
 #' @param error Whenever to icnlud error handling  Defaults to FALSE.
 #' @param error_message Message to display on error.  Defaults to NULL
@@ -20,7 +21,8 @@
 #'       main_text = "Example",
 #'       secondary_text = "User Examples",
 #'       logo="shinyGovstyle/images/moj_logo.png"),
-#'     shinyGovstyle::banner(inputId = "banner", type = "beta", 'This is a new service'),
+#'     shinyGovstyle::banner(
+#'       inputId = "banner", type = "beta", 'This is a new service'),
 #'     shinyGovstyle::gov_layout(size = "two-thirds",
 #'       shinyGovstyle::input_field(
 #'         legend ="List of three text boxes in a field",
@@ -38,7 +40,8 @@
 #'     # Trigger error on blank submit of field2
 #'     observeEvent(input$submit, {
 #'       if (input$field2 == ""){
-#'         shinyGovstyle::error_on(inputId = "field2", error_message = "Please complete")
+#'         shinyGovstyle::error_on(inputId = "field2",
+#'                                 error_message = "Please complete")
 #'       } else {
 #'         shinyGovstyle::error_off(
 #'           inputId = "field2")
@@ -48,12 +51,15 @@
 #'   shinyApp(ui = ui, server = server)
 #' }
 
-input_field <- function(legend, labels, inputIds, widths=NULL, types = "text", error = FALSE, error_message = NULL){
+input_field <- function(legend, labels, inputIds, widths=NULL, types = "text",
+                        error = FALSE, error_message = NULL){
   if (is.null(widths)){
     widths <- rep_len(0,length(inputIds))
   }
   govInputField <- shiny::tags$fieldset(class="govuk-fieldset",
-    shiny::tags$legend(legend, class="govuk-fieldset__legend govuk-fieldset__legend--xl"),
+    shiny::tags$legend(
+      legend, class="govuk-fieldset__legend govuk-fieldset__legend--xl"
+    ),
     Map(function(x, y, z, a){
       if (z == 0){
         width_class <- "govuk-input"

@@ -1,6 +1,7 @@
 #' Details Function
 #'
-#' This function create a detail component that you can click for further details.
+#' This function create a detail component that you can click for further
+#' details.
 #' @param inputId The input slot that will be used to access the value.
 #' @param label Main label text
 #' @param help_text Additional help information in the component.
@@ -29,7 +30,8 @@
 details <-function(inputId, label, help_text){
   govDetails <- shiny::tags$details(class = "govuk-details", id = inputId,
     shiny::tags$summary(class = "govuk-details__summary",
-      shiny::tags$span(class = "govuk-details__summary-text", shiny::HTML(label))
+      shiny::tags$span(class = "govuk-details__summary-text",
+                       shiny::HTML(label))
     ),
     shiny::tags$div(class = "govuk-details__text", help_text)
   )

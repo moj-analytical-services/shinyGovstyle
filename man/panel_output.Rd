@@ -27,7 +27,8 @@ if (interactive()) {
       shinyGovstyle::panel_output(
         inputId = "panel1",
         main_text = "Application Complete",
-        sub_text = "Thank you for submitting your application.  Your reference is xvsiq")
+        sub_text = "Thank you for submitting your application.
+                    Your reference is xvsiq")
     ),
     shinyGovstyle::footer(full = TRUE)
   )

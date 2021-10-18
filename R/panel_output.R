@@ -17,7 +17,8 @@
 #'       shinyGovstyle::panel_output(
 #'         inputId = "panel1",
 #'         main_text = "Application Complete",
-#'         sub_text = "Thank you for submitting your application.  Your reference is xvsiq")
+#'         sub_text = "Thank you for submitting your application.
+#'                     Your reference is xvsiq")
 #'     ),
 #'     shinyGovstyle::footer(full = TRUE)
 #'   )
@@ -27,7 +28,9 @@
 #' }
 
 panel_output <- function(inputId, main_text, sub_text) {
-  govPanel <- shiny::tags$div(class="govuk-panel govuk-panel--confirmation", id = inputId,
+  govPanel <- shiny::tags$div(
+    class="govuk-panel govuk-panel--confirmation",
+    id = inputId,
     shiny::tags$h1(main_text, class = "govuk-panel__title"),
     shiny::tags$div(shiny::HTML(sub_text), class = "govuk-panel__body")
   )

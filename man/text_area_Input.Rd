@@ -12,7 +12,8 @@ text_area_Input(inputId, label, hint_label = NULL, row_no = 5,
 
 \item{label}{Display label for the control, or \code{NULL} for no label.}
 
-\item{hint_label}{Display hint label for the control, or \code{NULL} for no hint label.}
+\item{hint_label}{Display hint label for the control, or \code{NULL} for no
+hint label.}
 
 \item{row_no}{Size of the text entry box.  Defaults to 5.}
 

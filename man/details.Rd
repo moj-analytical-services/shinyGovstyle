@@ -14,7 +14,8 @@ details(inputId, label, help_text)
 \item{help_text}{Additional help information in the component.}
 }
 \description{
-This function create a detail component that you can click for further details.
+This function create a detail component that you can click for further
+details.
 }
 \examples{
 if (interactive()) {

@@ -13,7 +13,8 @@ test_that("Default", {
   choicestag <- rtag$children[[1]]$children[[4]]$children[[1]]
   expect_length(choicestag, length(choices))
 
-  checked <- lapply(choicestag, function(x) grepl(pattern = "checked", x = as.character(x)))
+  checked <- lapply(
+    choicestag, function(x) grepl(pattern = "checked", x = as.character(x)))
   checked <- unlist(checked)
   expect_equal(which(checked), 1)
 })
@@ -33,14 +34,16 @@ test_that("Error", {
   choicestag <- rtag$children[[1]]$children[[4]]$children[[1]]
   expect_length(choicestag, length(choices))
 
-  checked <- lapply(choicestag, function(x) grepl(pattern = "checked", x = as.character(x)))
+  checked <- lapply(
+    choicestag, function(x) grepl(pattern = "checked", x = as.character(x)))
   checked <- unlist(checked)
   expect_equal(which(checked), 1)
 
   err_msg <- rtag$children[[1]]$children[[3]]$children[[1]]
   expect_identical(err_msg, "Error Test")
 
-  err_class <- paste(rtag$children[[1]]$children[[3]]$attribs$class, rtag$children[[1]]$children[[3]]$attribs[3]$class)
+  err_class <- paste(rtag$children[[1]]$children[[3]]$attribs$class,
+                     rtag$children[[1]]$children[[3]]$attribs[3]$class)
   expect_identical(err_class, "govuk-error-message shinyjs-hide")
 })
 
@@ -57,7 +60,8 @@ test_that("Small", {
   choicestag <- rtag$children[[1]]$children[[4]]$children[[1]]
   expect_length(choicestag, length(choices))
 
-  checked <- lapply(choicestag, function(x) grepl(pattern = "checked", x = as.character(x)))
+  checked <- lapply(
+    choicestag, function(x) grepl(pattern = "checked", x = as.character(x)))
   checked <- unlist(checked)
   expect_equal(which(checked), 1)
 
@@ -79,7 +83,8 @@ test_that("Inline", {
   choicestag <- rtag$children[[1]]$children[[4]]$children[[1]]
   expect_length(choicestag, length(choices))
 
-  checked <- lapply(choicestag, function(x) grepl(pattern = "checked", x = as.character(x)))
+  checked <- lapply(
+    choicestag, function(x) grepl(pattern = "checked", x = as.character(x)))
   checked <- unlist(checked)
   expect_equal(which(checked), 1)
 

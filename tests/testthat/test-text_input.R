@@ -22,11 +22,13 @@ test_that("text width change", {
 
 test_that("text box error works", {
 
-  text_check <- text_Input("txtId", "Text test", error = TRUE, error_message = "Error test")
+  text_check <- text_Input(
+    "txtId", "Text test", error = TRUE, error_message = "Error test")
 
   expect_identical(text_check$children[[3]]$children[[1]], "Error test")
 
-  expect_identical(paste(text_check$children[[3]]$attribs$class, text_check$children[[3]]$attribs[3]$class),
+  expect_identical(paste(text_check$children[[3]]$attribs$class,
+                         text_check$children[[3]]$attribs[3]$class),
                    "govuk-error-message shinyjs-hide")
 
 })

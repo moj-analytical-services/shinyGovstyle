@@ -18,7 +18,10 @@
 #'       select_Input(
 #'         inputId = "sorter",
 #'         label = "Sort by",
-#'         select_text = c("Recently published", "Recently updated", "Most views", "Most comments"),
+#'         select_text = c("Recently published",
+#'                         "Recently updated",
+#'                         "Most views",
+#'                         "Most comments"),
 #'         select_value = c("published", "updated", "view", "comments")),
 #'         tags$br()
 #'     ),

@@ -3,7 +3,8 @@
 #' This function inserts a label and optional hint
 #' @param inputId The input slot that will be used to access the value.
 #' @param label Display label for the control, or \code{NULL} for no label.
-#' @param hint_input Display hint label for the control, or \code{NULL} for no hint label.
+#' @param hint_input Display hint label for the control, or \code{NULL} for
+#' no hint label.
 #' @keywords label
 #' @export
 #' @examples

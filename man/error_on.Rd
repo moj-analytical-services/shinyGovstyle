@@ -9,10 +9,12 @@ error_on(inputId, error_message = NULL)
 \arguments{
 \item{inputId}{The input id that you to to turn the error on for.}
 
-\item{error_message}{if you want to add an additional error message.  Defaults to NULL, showing the original designed error message}
+\item{error_message}{if you want to add an additional error message.
+Defaults to NULL, showing the original designed error message}
 }
 \description{
-This function turns on the the error o the component.  Can be used to validate inputs.
+This function turns on the the error o the component.  Can be used to
+validate inputs.
 }
 \examples{
 ## Only run examples in interactive R sessions
@@ -25,7 +27,8 @@ if (interactive()) {
       main_text = "Example",
       secondary_text = "User Examples",
       logo="shinyGovstyle/images/moj_logo.png"),
-    shinyGovstyle::banner(inputId = "banner", type = "beta", 'This is a new service'),
+    shinyGovstyle::banner(
+      inputId = "banner", type = "beta", 'This is a new service'),
     shinyGovstyle::gov_layout(size = "two-thirds",
       # Error text box
       shinyGovstyle::text_Input(

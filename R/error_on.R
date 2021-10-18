@@ -1,8 +1,10 @@
 #' Error on Function
 #'
-#' This function turns on the the error o the component.  Can be used to validate inputs.
+#' This function turns on the the error o the component.  Can be used to
+#' validate inputs.
 #' @param inputId The input id that you to to turn the error on for.
-#' @param error_message if you want to add an additional error message.  Defaults to NULL, showing the original designed error message
+#' @param error_message if you want to add an additional error message.
+#' Defaults to NULL, showing the original designed error message
 #' @keywords error
 #' @export
 #' @examples
@@ -16,7 +18,8 @@
 #'       main_text = "Example",
 #'       secondary_text = "User Examples",
 #'       logo="shinyGovstyle/images/moj_logo.png"),
-#'     shinyGovstyle::banner(inputId = "banner", type = "beta", 'This is a new service'),
+#'     shinyGovstyle::banner(
+#'       inputId = "banner", type = "beta", 'This is a new service'),
 #'     shinyGovstyle::gov_layout(size = "two-thirds",
 #'       # Error text box
 #'       shinyGovstyle::text_Input(
@@ -53,7 +56,8 @@ error_on <- function(inputId, error_message = NULL){
     shinyjs::html(paste0(inputId, "error"), error_message)
   }
   shinyjs::show(paste0(inputId, "error"))
-  # shinyjs::addClass(selector = paste0("#", inputId,"div :input"), class = "govuk-textarea--error")
-  shinyjs::addClass(selector = paste0("#", inputId,"div :input"), class = "govuk-input--error")
-  shinyjs::addClass(selector = paste0("#", inputId,"file_div"), class = "govuk-input--error")
+  shinyjs::addClass(selector = paste0("#", inputId,"div :input"),
+                    class = "govuk-input--error")
+  shinyjs::addClass(selector = paste0("#", inputId,"file_div"),
+                    class = "govuk-input--error")
 }

@@ -12,7 +12,9 @@ run_example <- function(){
     ui = shiny::fluidPage(
       shinyjs::useShinyjs(),
       #font(),
-      shinyGovstyle::header("Justice", "Prototype", logo="shinyGovstyle/images/moj_logo.png"),
+      shinyGovstyle::header("Justice",
+                            "Prototype",
+                            logo="shinyGovstyle/images/moj_logo.png"),
       shinyGovstyle::gov_layout(size = "full",
 
         shinyGovstyle::backlink_Input("backid"),
@@ -24,23 +26,36 @@ run_example <- function(){
 
         shinyGovstyle::checkbox_Input(
           inputId = "checkID",
-          cb_labels = c("Waste from animal carcasses", "Waste from mines or quarries", "Farm or agricultural waste"),
+          cb_labels = c(
+            "Waste from animal carcasses",
+            "Waste from mines or quarries",
+            "Farm or agricultural waste"),
           checkboxIds = c("op1", "op2", "op3"),
           label = "Which types of waste do you transport?",
           hint_label = "Select all that apply."),
 
         shinyGovstyle::button_Input(inputId = "btn1", label = "default"),
 
-        shinyGovstyle::button_Input(inputId = "btn2", label = "start", type = "start"),
+        shinyGovstyle::button_Input(inputId = "btn2",
+                                    label = "start",
+                                    type = "start"),
 
-        shinyGovstyle::button_Input(inputId = "btn3", label = "secondary", type = "secondary"),
+        shinyGovstyle::button_Input(inputId = "btn3",
+                                    label = "secondary",
+                                    type = "secondary"),
 
-        shinyGovstyle::button_Input(inputId = "btn4", label = "warning", type = "warning"),
+        shinyGovstyle::button_Input(inputId = "btn4",
+                                    label = "warning",
+                                    type = "warning"),
 
         shinyGovstyle::select_Input(
           inputId = "sorter",
           label = "Sort by",
-          select_text = c("Recently published", "Recently updated", "Most views", "Most comments"),
+          select_text = c(
+            "Recently published",
+            "Recently updated",
+            "Most views",
+            "Most comments"),
           select_value = c("published", "updated", "view", "comments")),
 
         shiny::tags$br(),
@@ -53,26 +68,31 @@ run_example <- function(){
 
         shinyGovstyle::file_Input(inputId = "file1", label = "Upload a file"),
 
-        shinyGovstyle::text_Input(inputId = "txt1", label = "Event name", prefix = "boo", suffix = "Woo", error = TRUE),
+        shinyGovstyle::text_Input(inputId = "txt1", label = "Event name",
+                                  prefix = "boo", suffix = "Woo", error = TRUE),
 
         shinyGovstyle::text_area_Input(
           inputId = "text_area",
           label = "Can you provide more detail?",
-          hint_label = "Do not include personal or financial information, like your National Insurance number or credit card details.",
+          hint_label = "Do not include personal or financial information, like
+                        your National Insurance number or credit card details.",
           error = TRUE),
 
-        shinyGovstyle::warning_text(inputId = "warn", text = "You can be fined up to \u00A35000 if you do not register."),
+        shinyGovstyle::warning_text(
+          inputId = "warn",
+          text = "You can be fined up to \u00A35000 if you do not register."),
 
         shinyGovstyle::insert_text(
           inputId = "insertId",
-          text = "It can take up to 8 weeks to register a lasting power of attorney
-                  if there are no mistakes in the application."),
+          text = "It can take up to 8 weeks to register a lasting power of
+                  attorney if there are no mistakes in the application."),
 
         shinyGovstyle::details(
           inputId = "detID",
           label = "Help with nationality",
-          help_text = "We need to know your nationality so we can work out which elections you\u0027re
-                       entitled to vote in. If you cannot provide your nationality\u002C you\u0027ll have to
+          help_text = "We need to know your nationality so we can work out
+                       which elections you\u0027re entitled to vote in. If you
+                       cannot provide your nationality\u002C you\u0027ll have to
                        send copies of identity documents through the post."),
 
         shinyGovstyle::panel_output(

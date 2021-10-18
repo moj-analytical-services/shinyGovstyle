@@ -14,7 +14,8 @@ input_field(legend, labels, inputIds, widths = NULL, types = "text",
 
 \item{inputIds}{A list input slots that will be used to access the value.}
 
-\item{widths}{control the size of the box based on number of characters required.  Options are 30, 20, 10, 5, 4, 3, 2.  NULL will not limit the size}
+\item{widths}{control the size of the box based on number of characters
+required.  Options are 30, 20, 10, 5, 4, 3, 2.  NULL will not limit the size}
 
 \item{types}{text box types.  Will default to text.}
 
@@ -35,7 +36,8 @@ if (interactive()) {
       main_text = "Example",
       secondary_text = "User Examples",
       logo="shinyGovstyle/images/moj_logo.png"),
-    shinyGovstyle::banner(inputId = "banner", type = "beta", 'This is a new service'),
+    shinyGovstyle::banner(
+      inputId = "banner", type = "beta", 'This is a new service'),
     shinyGovstyle::gov_layout(size = "two-thirds",
       shinyGovstyle::input_field(
         legend ="List of three text boxes in a field",
@@ -53,7 +55,8 @@ if (interactive()) {
     # Trigger error on blank submit of field2
     observeEvent(input$submit, {
       if (input$field2 == ""){
-        shinyGovstyle::error_on(inputId = "field2", error_message = "Please complete")
+        shinyGovstyle::error_on(inputId = "field2",
+                                error_message = "Please complete")
       } else {
         shinyGovstyle::error_off(
           inputId = "field2")

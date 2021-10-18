@@ -11,7 +11,8 @@ button_Input(inputId, label, type = "default")
 
 \item{label}{Display label for the control, or \code{NULL} for no label.}
 
-\item{type}{The type of button.  Options are default, start, secondary and warning.  Defaults to default.}
+\item{type}{The type of button.  Options are default, start, secondary and
+warning.  Defaults to default.}
 }
 \description{
 This function create a gov style button
