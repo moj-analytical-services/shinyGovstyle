@@ -1,8 +1,8 @@
 #' File Input Function
 #'
 #' This function create a file upload component.  It uses the basis of the shiny fileInput function, but restyles the label and
-#' adds error onto it.  It doesn't look like the gov.uk style one, although this gov.uk doesn't seem to have a settle style as,
-#' for example it changes between firefox and chrome
+#' adds error onto it.  It doesn't look like the www.gov.uk/ style one, although this www.gov.uk/ doesn't seem to have a settle style as,
+#' for example it changes between Firefox and Chrome
 #' @param inputId The input slot that will be used to access the value.
 #' @param label Display label for the control, or \code{NULL} for no label.
 #' @param multiple Whether the user should be allowed to select and upload multiple files at once. Does not work on older browsers, including Internet Explorer 9 and earlier.

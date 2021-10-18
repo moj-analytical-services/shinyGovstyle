@@ -9,7 +9,7 @@ insert_text(inputId, text)
 \arguments{
 \item{inputId}{The input slot that will be used to access the value.}
 
-\item{text}{Text that yuu want to display on the insert}
+\item{text}{Text that you want to display on the insert}
 }
 \description{
 This function loads the insert text component to display additional information in a special format.

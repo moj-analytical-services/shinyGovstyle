@@ -1,6 +1,6 @@
 #' Date Input Function
 #'
-#' This function create a date input that follows gds component
+#' This function create a date input that follows GDS component
 #' @param inputId The input slot that will be used to access the value.
 #' @param label Display label for the control, or \code{NULL} for no label.
 #' @param hint_label Display hint label for the control, or \code{NULL} for no hint label.

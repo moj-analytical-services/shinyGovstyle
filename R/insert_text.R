@@ -2,7 +2,7 @@
 #'
 #' This function loads the insert text component to display additional information in a special format.
 #' @param inputId The input slot that will be used to access the value.
-#' @param text Text that yuu want to display on the insert
+#' @param text Text that you want to display on the insert
 #' @keywords inserttext
 #' @export
 #' @examples

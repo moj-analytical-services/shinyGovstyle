@@ -30,8 +30,8 @@ file_Input(inputId, label, multiple = FALSE, accept = NULL,
 }
 \description{
 This function create a file upload component.  It uses the basis of the shiny fileInput function, but restyles the label and
-adds error onto it.  It doesn't look like the gov.uk style one, although this gov.uk doesn't seem to have a settle style as,
-for example it changes between firefox and chrome
+adds error onto it.  It doesn't look like the www.gov.uk/ style one, although this www.gov.uk/ doesn't seem to have a settle style as,
+for example it changes between Firefox and Chrome
 }
 \examples{
 if (interactive()) {

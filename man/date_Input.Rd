@@ -25,7 +25,7 @@ date_Input(inputId, label, hint_label = NULL, error = FALSE,
 \item{year}{Select a default year on start up. Defaults to \code{NULL}}
 }
 \description{
-This function create a date input that follows gds component
+This function create a date input that follows GDS component
 }
 \examples{
 if (interactive()) {

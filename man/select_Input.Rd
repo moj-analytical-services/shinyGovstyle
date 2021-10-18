@@ -11,7 +11,7 @@ select_Input(inputId, label, select_text, select_value)
 
 \item{label}{Insert the text for the label.}
 
-\item{select_text}{Add the text that will apply in the dropdown as a list}
+\item{select_text}{Add the text that will apply in the drop down as a list}
 
 \item{select_value}{Add the value that will be used for each selection.}
 }

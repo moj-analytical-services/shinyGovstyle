@@ -1,7 +1,7 @@
 #' Input Field Function
 #'
 #' This function inserts number of text inputs. Useful for addresses.
-#' @param legend Lengand that goes above the fieldset
+#' @param legend Legend that goes above the fieldset
 #' @param labels A list of labels for the text inputs
 #' @param inputIds A list input slots that will be used to access the value.
 #' @param widths control the size of the box based on number of characters required.  Options are 30, 20, 10, 5, 4, 3, 2.  NULL will not limit the size

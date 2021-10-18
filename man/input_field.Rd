@@ -8,7 +8,7 @@ input_field(legend, labels, inputIds, widths = NULL, types = "text",
   error = FALSE, error_message = NULL)
 }
 \arguments{
-\item{legend}{Lengand that goes above the fieldset}
+\item{legend}{Legend that goes above the fieldset}
 
 \item{labels}{A list of labels for the text inputs}
 

@@ -11,7 +11,7 @@ gov_layout(..., inputID = "main", size = "full")
 
 \item{inputID}{ID of the main div.  Defaults to "main"}
 
-\item{size}{Layout of the page.  Optional are full, one-half, two-thrids, one-thrid and one-quarter.  Defaults to "full"}
+\item{size}{Layout of the page.  Optional are full, one-half, two-thirds, one-third and one-quarter.  Defaults to "full"}
 }
 \description{
 This function loads the page layout

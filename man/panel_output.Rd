@@ -14,7 +14,7 @@ panel_output(inputId, main_text, sub_text)
 \item{sub_text}{Add the main body of text for the panel}
 }
 \description{
-This function inserts a panel.  Normally used for confirmattion screens
+This function inserts a panel.  Normally used for confirmation screens
 }
 \examples{
 if (interactive()) {
