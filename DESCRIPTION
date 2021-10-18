@@ -13,3 +13,5 @@ Imports:
     htmltools,
     shinyjs,
     jsonlite
+Suggests:
+    testthat
