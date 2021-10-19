@@ -4,4 +4,5 @@
 * Added units test
 * Added an example function
 * Added a `NEWS.md` file to track changes to the package.
+* Added a notification banner function
 * Got ready for CRAN release.

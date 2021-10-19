@@ -29,20 +29,22 @@ noti_banner <- function(inputId, title_txt = "Important", body_txt = NULL,
                         type = "standard"){
 
   if (type == "success") {
-   type_class <- "govuk-notification-banner-success"
+   type_class <- "govuk-notification-banner govuk-notification-banner--success"
+   role_type <- "alert"
   } else {
     type_class <- "govuk-notification-banner"
+    role_type = "region"
   }
 
-  tags$div(class = type_class, role = "region",
+  shiny::tags$div(class = type_class, role = role_type,
            `aria-labelledby` = "govuk-notification-banner-title",
            `data-module` = "govuk-notification-banner",
-    tags$div(class = "govuk-notification-banner__header",
-             tags$h2(class = "govuk-notification-banner__title",
+    shiny::tags$div(class = "govuk-notification-banner__header",
+             shiny::tags$h2(class = "govuk-notification-banner__title",
                      id = inputId, title_txt)
     ),
-    tags$div(class="govuk-notification-banner__content",
-      tags$p(class="govuk-notification-banner__heading", shiny::HTML(body_txt))
+    shiny::tags$div(class="govuk-notification-banner__content",
+      shiny::tags$p(class="govuk-notification-banner__heading", shiny::HTML(body_txt))
 
     )
   )
