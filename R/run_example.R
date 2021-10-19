@@ -76,7 +76,7 @@ run_example <- function(){
           label = "Can you provide more detail?",
           hint_label = "Do not include personal or financial information, like
                         your National Insurance number or credit card details.",
-          error = TRUE),
+          error = TRUE, word_limit = 300),
 
         shinyGovstyle::warning_text(
           inputId = "warn",
