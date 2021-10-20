@@ -4,27 +4,29 @@
 \alias{date_Input}
 \title{Date Input Function}
 \usage{
-date_Input(
-  inputId,
-  label,
-  hint_label = NULL,
-  error = FALSE,
-  error_message = NULL
-)
+date_Input(inputId, label, hint_label = NULL, error = FALSE,
+  error_message = NULL, day = NULL, month = NULL, year = NULL)
 }
 \arguments{
 \item{inputId}{The input slot that will be used to access the value.}
 
 \item{label}{Display label for the control, or \code{NULL} for no label.}
 
-\item{hint_label}{Display hint label for the control, or \code{NULL} for no hint label.}
+\item{hint_label}{Display hint label for the control, or \code{NULL} for no
+hint label.}
 
 \item{error}{Whenever to include error components.Defaults to \code{FALSE}.}
 
 \item{error_message}{Error handling message? Defaults to \code{NULL}}
+
+\item{day}{Select a default day on start up. Defaults to \code{NULL}}
+
+\item{month}{Select a default month on start up. Defaults to \code{NULL}}
+
+\item{year}{Select a default year on start up. Defaults to \code{NULL}}
 }
 \description{
-This function create a date input that follows gds component
+This function create a date input that follows GDS component
 }
 \examples{
 if (interactive()) {
@@ -36,7 +38,8 @@ if (interactive()) {
       main_text = "Example",
       secondary_text = "User Examples",
       logo="shinyGovstyle/images/moj_logo.png"),
-    shinyGovstyle::banner(inputId = "banner", type = "beta", 'This is a new service'),
+    shinyGovstyle::banner(
+      inputId = "banner", type = "beta", 'This is a new service'),
     shinyGovstyle::gov_layout(size = "two-thirds",
        # Simple date input
       shinyGovstyle::date_Input(

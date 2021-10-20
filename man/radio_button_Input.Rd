@@ -4,48 +4,44 @@
 \alias{radio_button_Input}
 \title{Radio Button Function}
 \usage{
-radio_button_Input(
-  inputId,
-  label,
-  choices = NULL,
-  selected = NULL,
-  inline = FALSE,
-  small = FALSE,
-  choiceNames = NULL,
-  choiceValues = NULL,
-  hint_label = NULL,
-  error = FALSE,
-  error_message = NULL,
-  custom_class = ""
-)
+radio_button_Input(inputId, label, choices = NULL, selected = NULL,
+  inline = FALSE, small = FALSE, choiceNames = NULL,
+  choiceValues = NULL, hint_label = NULL, error = FALSE,
+  error_message = NULL, custom_class = "")
 }
 \arguments{
 \item{inputId}{The \code{input} slot that will be used to access the value.}
 
 \item{label}{Input label.}
 
-\item{choices}{List of values to select from (if elements of the list are named
-then that name rather than the value is displayed to the user)}
+\item{choices}{List of values to select from (if elements of the list are
+named then that name rather than the value is displayed to the user)}
 
 \item{selected}{The initially selected value.}
 
 \item{inline}{If you want the radio inline or not,  Default is FALSE}
 
-\item{small}{If you want the smaller versions of radio buttons,  Default is FALSE}
+\item{small}{If you want the smaller versions of radio buttons,  Default
+is FALSE}
 
-\item{choiceNames, choiceValues}{Same as in \code{\link[shiny]{checkboxGroupInput}}. List of names and values, respectively, that are displayed to
-the user in the app and correspond to the each choice (for this reason they must have the same length).
-If either of these arguments is provided, then the other must be provided and choices must not be provided.
-The advantage of using both of these over a named list for choices is that choiceNames allows any type of UI
-object to be passed through (tag objects, icons, HTML code, ...), instead of just simple text.}
+\item{choiceNames, choiceValues}{Same as in
+\code{\link[shiny]{checkboxGroupInput}}. List of names and values,
+respectively, that are displayed to the user in the app and correspond to
+the each choice (for this reason they must have the same length). If either
+of these arguments is provided, then the other must be provided and choices
+must not be provided. The advantage of using both of these over a named list
+for choices is that choiceNames allows any type of UI object to be passed
+through (tag objects, icons, HTML code, ...), instead of just simple text.}
 
-\item{hint_label}{Additional hint text you may want to display below the label.  Defaults to NULL}
+\item{hint_label}{Additional hint text you may want to display below the
+label.  Defaults to NULL}
 
 \item{error}{Whenever you want to include error handle on the component.}
 
 \item{error_message}{If you want a default error message.}
 
-\item{custom_class}{If you want to add additional classes to the radio buttons}
+\item{custom_class}{If you want to add additional classes to the radio
+buttons}
 }
 \description{
 This function create radio buttons
@@ -60,7 +56,8 @@ if (interactive()) {
       main_text = "Example",
       secondary_text = "User Examples",
       logo="shinyGovstyle/images/moj_logo.png"),
-    shinyGovstyle::banner(inputId = "banner", type = "beta", 'This is a new service'),
+    shinyGovstyle::banner(
+      inputId = "banner", type = "beta", 'This is a new service'),
     shinyGovstyle::gov_layout(size = "two-thirds",
       #Simple radio
       shinyGovstyle::radio_button_Input(

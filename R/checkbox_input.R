@@ -6,7 +6,8 @@
 #' @param checkboxIds Add the values for each checkbox
 #' @param label Insert the text for the checkbox group.
 #' @param hint_label Insert optional hint/secondary text.  Defaults to NULL
-#' @param small change the sizing to a small version of the checkbox.  Defaults to \code{FALSE}
+#' @param small change the sizing to a small version of the checkbox.  Defaults
+#' to \code{FALSE}
 #' @param error  Whenever you want to include error handle on the component.
 #' @param error_message  If you want a default error message.
 #' @keywords checkbox
@@ -21,7 +22,8 @@
 #'       main_text = "Example",
 #'       secondary_text = "User Examples",
 #'       logo="shinyGovstyle/images/moj_logo.png"),
-#'     shinyGovstyle::banner(inputId = "banner", type = "beta", 'This is a new service'),
+#'     shinyGovstyle::banner(
+#'       inputId = "banner", type = "beta", 'This is a new service'),
 #'     shinyGovstyle::gov_layout(size = "two-thirds",
 #'       # Simple checkbox
 #'       shinyGovstyle::checkbox_Input(
@@ -58,7 +60,8 @@
 #'   shinyApp(ui = ui, server = server)
 #' }
 
-checkbox_Input <- function(inputId, cb_labels, checkboxIds, label, hint_label = NULL, small = FALSE,
+checkbox_Input <- function(inputId, cb_labels, checkboxIds, label,
+                           hint_label = NULL, small = FALSE,
                            error = FALSE, error_message = NULL){
   if (small){
     class_build <- "govuk-checkboxes govuk-checkboxes--small"
@@ -66,31 +69,33 @@ checkbox_Input <- function(inputId, cb_labels, checkboxIds, label, hint_label = 
     class_build <- "govuk-checkboxes"
   }
 
-  govCheckboxes <- tags$div(class="shiny-input-checkboxgroup", id = inputId,
-    tags$div(class="govuk-form-group", id=paste0(inputId,"div"),
-    tags$fieldset(class="govuk-fieldset",
-      tags$label(label, class="govuk-label"),
-      tags$span(hint_label, class="govuk-hint"),
+  govCheckboxes <- shiny::tags$div(
+    class="shiny-input-checkboxgroup",
+    id = inputId,
+    shiny::tags$div(class="govuk-form-group", id=paste0(inputId,"div"),
+    shiny::tags$fieldset(class="govuk-fieldset",
+      shiny::tags$label(label, class="govuk-label"),
+      shiny::tags$span(hint_label, class="govuk-hint"),
       if (error == TRUE){
         shinyjs::hidden(
-          tags$span(error_message,
+          shiny::tags$span(error_message,
                     class="govuk-error-message",
                     id= paste0(inputId, "error"),
-                    tags$span("Error:",
+                    shiny::tags$span("Error:",
                               class="govuk-visually-hidden")
           )
         )
       },
-      tags$div(class=class_build,
+      shiny::tags$div(class=class_build,
         Map(function(x, y) {
-          value <- restoreInput(id = y, default = FALSE)
-          tags$div(class="govuk-checkboxes__item", id=paste0("div_", y),
-          tags$input(class="govuk-checkboxes__input",
+          value <- shiny::restoreInput(id = y, default = FALSE)
+          shiny::tags$div(class="govuk-checkboxes__item", id=paste0("div_", y),
+          shiny::tags$input(class="govuk-checkboxes__input",
                      id=y,
                      name=inputId,
                      type="checkbox",
                      value=y),
-          tags$label(x, class="govuk-label govuk-checkboxes__label"))
+          shiny::tags$label(x, class="govuk-label govuk-checkboxes__label"))
         },
         x=cb_labels, y = checkboxIds)
       )

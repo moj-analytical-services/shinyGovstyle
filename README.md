@@ -6,10 +6,10 @@
 
 ## Overview
 
-This package provide some custom widgets to style your app like gov.uk.  There are a varity of widgets available, inlcuding select, radio, checkboxes as well as styling for headers and footers.
+This package provide some custom widgets to style your app like gov.uk.  There are a variety of widgets available, including select, radio, checkboxes as well as styling for headers and footers.
 
 
-Top view details of gov.uk comnponents please visit https://design-system.service.gov.uk/.  Most components from https://design-system.service.gov.uk/components/ are available to use through this package.
+Top view details of gov.uk components please visit https://design-system.service.gov.uk/.  Most components from https://design-system.service.gov.uk/components/ are available to use through this package.
 
 
 
@@ -119,7 +119,7 @@ checkbox_Input(
   hint_label = "Select all that apply.")
 ```
 
-Note that you currently access the values seperately through the inputIds you supply or all values through the main inputID.
+Note that you currently access the values separately through the inputIds you supply or all values through the main inputID.
 
 ### Button
 
@@ -135,7 +135,7 @@ shinyGovstyle::button_Input(inputId = "btn1", label = "warning", type = "warning
 
 ### Select
 
-Gov style dropdown select  :
+Gov style drop down select  :
 ![select](man/figures/select.png)
 
 ```r
@@ -191,7 +191,7 @@ text_area_Input(
   hint_label = "Do not include personal or financial information, like your National Insurance number or credit card details.")
 ```
 
-You can also add a word count to the options, which requires an addition arguement in the server :
+You can also add a word count to the options, which requires an addition argument in the server :
 ![text_area](man/figures/word_count.png)
 
 ```r
@@ -267,7 +267,7 @@ panel_output(
 
 ### Error
 
-Add errors to copmponents when not filled in correctly.  Most components have an option to add  :
+Add errors to components when not filled in correctly.  Most components have an option to add  :
 ![error](man/figures/error.png)
 
 ```r

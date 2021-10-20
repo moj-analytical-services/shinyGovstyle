@@ -15,6 +15,6 @@ backlink_Input(inputId, link = "#")
 This function adds a back link to the page
 }
 \examples{
-back_link("backid")
+backlink_Input("backid")
 }
 \keyword{backlink}

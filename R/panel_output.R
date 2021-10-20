@@ -1,6 +1,6 @@
 #' Panel output
 #'
-#' This function inserts a panel.  Normally used for confirmattion screens
+#' This function inserts a panel.  Normally used for confirmation screens
 #' @param inputId The input slot that will be used to access the value.
 #' @param main_text Add the header for the panel
 #' @param sub_text Add the main body of text for the panel
@@ -17,7 +17,8 @@
 #'       shinyGovstyle::panel_output(
 #'         inputId = "panel1",
 #'         main_text = "Application Complete",
-#'         sub_text = "Thank you for submitting your application.  Your reference is xvsiq")
+#'         sub_text = "Thank you for submitting your application.
+#'                     Your reference is xvsiq")
 #'     ),
 #'     shinyGovstyle::footer(full = TRUE)
 #'   )
@@ -27,9 +28,11 @@
 #' }
 
 panel_output <- function(inputId, main_text, sub_text) {
-  govPanel <- tags$div(class="govuk-panel govuk-panel--confirmation", id = inputId,
-    tags$h1(main_text, class = "govuk-panel__title"),
-    tags$div(HTML(sub_text), class = "govuk-panel__body")
+  govPanel <- shiny::tags$div(
+    class="govuk-panel govuk-panel--confirmation",
+    id = inputId,
+    shiny::tags$h1(main_text, class = "govuk-panel__title"),
+    shiny::tags$div(shiny::HTML(sub_text), class = "govuk-panel__body")
   )
   attachDependency(govPanel)
 }

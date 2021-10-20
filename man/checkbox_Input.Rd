@@ -4,16 +4,8 @@
 \alias{checkbox_Input}
 \title{Checkbox Function}
 \usage{
-checkbox_Input(
-  inputId,
-  cb_labels,
-  checkboxIds,
-  label,
-  hint_label = NULL,
-  small = FALSE,
-  error = FALSE,
-  error_message = NULL
-)
+checkbox_Input(inputId, cb_labels, checkboxIds, label, hint_label = NULL,
+  small = FALSE, error = FALSE, error_message = NULL)
 }
 \arguments{
 \item{inputId}{Input id for the group of checkboxes}
@@ -26,7 +18,8 @@ checkbox_Input(
 
 \item{hint_label}{Insert optional hint/secondary text.  Defaults to NULL}
 
-\item{small}{change the sizing to a small version of the checkbox.  Defaults to \code{FALSE}}
+\item{small}{change the sizing to a small version of the checkbox.  Defaults
+to \code{FALSE}}
 
 \item{error}{Whenever you want to include error handle on the component.}
 
@@ -45,7 +38,8 @@ if (interactive()) {
       main_text = "Example",
       secondary_text = "User Examples",
       logo="shinyGovstyle/images/moj_logo.png"),
-    shinyGovstyle::banner(inputId = "banner", type = "beta", 'This is a new service'),
+    shinyGovstyle::banner(
+      inputId = "banner", type = "beta", 'This is a new service'),
     shinyGovstyle::gov_layout(size = "two-thirds",
       # Simple checkbox
       shinyGovstyle::checkbox_Input(

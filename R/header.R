@@ -23,19 +23,27 @@
 #'   shinyApp(ui = ui, server = server)
 #' }
 
-header <- function(main_text, secondary_text, logo = NULL, main_link = "#", secondary_link = "#"){
-  govHeader <- tags$header(class = "govuk-header", role = "banner",
-    tags$div(class = "govuk-header__container govuk-width-container",
-      tags$div(class = "govuk-header__logo",
-        tags$a(href = main_link, class="govuk-header__link govuk-header__link--homepage",
-          tags$span(class = "govuk-header__logotype",
-            tags$img(src = logo, class = "govuk-header__logotype-crown-fallback-image"),
-            tags$span(main_text, class = "govuk-header__logotype-text")
+header <- function(main_text, secondary_text, logo = NULL,
+                   main_link = "#", secondary_link = "#"){
+  govHeader <- shiny::tags$header(class = "govuk-header", role = "banner",
+    shiny::tags$div(class = "govuk-header__container govuk-width-container",
+      shiny::tags$div(class = "govuk-header__logo",
+        shiny::tags$a(href = main_link,
+                      class="govuk-header__link govuk-header__link--homepage",
+          shiny::tags$span(class = "govuk-header__logotype",
+            shiny::tags$img(
+              src = logo,
+              class = "govuk-header__logotype-crown-fallback-image"
+            ),
+            shiny::tags$span(main_text, class = "govuk-header__logotype-text")
           )
         )
       ),
-      tags$div(class = "govuk-header__content",
-        tags$a(href = secondary_link, secondary_text, class = "govuk-header__link govuk-header__link--service-name")
+      shiny::tags$div(class = "govuk-header__content",
+        shiny::tags$a(
+          href = secondary_link, secondary_text,
+          class = "govuk-header__link govuk-header__link--service-name"
+        )
       )
     )
   )

@@ -7,11 +7,13 @@
 gov_layout(..., inputID = "main", size = "full")
 }
 \arguments{
-\item{...}{include the components of the UI that you want within the main page.}
+\item{...}{include the components of the UI that you want within the
+main page.}
 
 \item{inputID}{ID of the main div.  Defaults to "main"}
 
-\item{size}{Layout of the page.  Optional are full, one-half, two-thrids, one-thrid and one-quarter.  Defaults to "full"}
+\item{size}{Layout of the page.  Optional are full, one-half, two-thirds,
+one-third and one-quarter.  Defaults to "full"}
 }
 \description{
 This function loads the page layout
@@ -27,7 +29,8 @@ if (interactive()) {
       shinyGovstyle::panel_output(
         inputId = "panel1",
         main_text = "Application Complete",
-        sub_text = "Thank you for submitting your application.  Your reference is xvsiq")
+        sub_text = "Thank you for submitting your application.
+        Your reference is xvsiq")
     ),
     shinyGovstyle::footer(full = TRUE)
   )

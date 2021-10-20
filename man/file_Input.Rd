@@ -4,30 +4,27 @@
 \alias{file_Input}
 \title{File Input Function}
 \usage{
-file_Input(
-  inputId,
-  label,
-  multiple = FALSE,
-  accept = NULL,
-  width = NULL,
-  buttonLabel = "Choose file",
-  placeholder = "No file chosen",
-  error = FALSE,
-  error_message = NULL
-)
+file_Input(inputId, label, multiple = FALSE, accept = NULL,
+  width = NULL, buttonLabel = "Choose file",
+  placeholder = "No file chosen", error = FALSE,
+  error_message = NULL)
 }
 \arguments{
 \item{inputId}{The input slot that will be used to access the value.}
 
 \item{label}{Display label for the control, or \code{NULL} for no label.}
 
-\item{multiple}{Whether the user should be allowed to select and upload multiple files at once. Does not work on older browsers, including Internet Explorer 9 and earlier.}
+\item{multiple}{Whether the user should be allowed to select and upload
+multiple files at once. Does not work on older browsers, including Internet
+Explorer 9 and earlier.}
 
-\item{accept}{A character vector of MIME types; gives the browser a hint of what kind of files the server is expecting.}
+\item{accept}{A character vector of MIME types; gives the browser a hint of
+what kind of files the server is expecting.}
 
 \item{width}{The width of the input,  e.g. \code{'400px'}, or \code{'100\%'}}
 
-\item{buttonLabel}{The label used on the button. Can be text or an HTML tag object.}
+\item{buttonLabel}{The label used on the button. Can be text or an HTML tag
+object.}
 
 \item{placeholder}{The text to show before a file has been uploaded.}
 
@@ -36,9 +33,11 @@ file_Input(
 \item{error_message}{Message to display on error.  Defaults to NULL}
 }
 \description{
-This function create a file upload component.  It uses the basis of the shiny fileInput function, but restyles the label and
-adds error onto it.  It doesn't look like the gov.uk style one, although this gov.uk doesn't seem to have a settle style as,
-for example it changes between firefox and chrome
+This function create a file upload component.  It uses the basis of the
+shiny fileInput function, but restyles the label and adds error onto it.
+It doesn't look like the www.gov.uk/ style one, although this www.gov.uk/
+doesn't seem to have a settle style as, for example it changes between
+Firefox and Chrome
 }
 \examples{
 if (interactive()) {
@@ -49,7 +48,8 @@ if (interactive()) {
       main_text = "Example",
       secondary_text = "User Examples",
       logo="shinyGovstyle/images/moj_logo.png"),
-    shinyGovstyle::banner(inputId = "banner", type = "beta", 'This is a new service'),
+    shinyGovstyle::banner(
+    inputId = "banner", type = "beta", 'This is a new service'),
     shinyGovstyle::gov_layout(size = "two-thirds",
       # Simple file input
       shinyGovstyle::file_Input(inputId = "file1", label = "Upload a file"),

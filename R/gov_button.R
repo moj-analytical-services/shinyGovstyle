@@ -3,7 +3,8 @@
 #' This function create a gov style button
 #' @param inputId The input slot that will be used to access the value.
 #' @param label Display label for the control, or \code{NULL} for no label.
-#' @param type The type of button.  Options are default, start, secondary and warning.  Defaults to default.
+#' @param type The type of button.  Options are default, start, secondary and
+#' warning.  Defaults to default.
 #' @keywords button
 #' @export
 #' @examples
@@ -39,12 +40,33 @@ button_Input <- function(inputId, label, type = "default"){
   value <- shiny::restoreInput(id = inputId, default = NULL)
 
   if (type == "start")
-    govButton <- tags$button(label, id = inputId, class = paste0(class_input, " action-button"), `data-val` = value,
-                tag("svg", list(class="govuk-button__start-icon", xmlns="http://www.w3.org/2000/svg",
-                                width="17.5" ,height="19", viewBox="0 0 33 40", `aria-hidden`="true", focusable="false",
-                                tag("path", list(fill="currentColor", d="M0 0h13l20 20-20 20H0l20-20z")))))
+    govButton <- shiny::tags$button(
+      label,
+      id = inputId,
+      class = paste0(class_input, " action-button"),
+      `data-val` = value,
+      shiny::tag(
+        "svg",
+        list(class="govuk-button__start-icon",
+             xmlns="http://www.w3.org/2000/svg",
+             width="17.5",
+             height="19",
+             viewBox="0 0 33 40",
+             `aria-hidden`="true",
+             focusable="false",
+             shiny::tag(
+               "path",
+               list(fill="currentColor", d="M0 0h13l20 20-20 20H0l20-20z")
+             )
+        )
+      )
+  )
   else
-    govButton <- tags$button(label, id = inputId, class = paste0(class_input, " action-button"), `data-val` = value)
+    govButton <- shiny::tags$button(label,
+                                    id = inputId,
+                                    class = paste0(class_input,
+                                                   " action-button"),
+                                    `data-val` = value)
 
 
   attachDependency(govButton)
