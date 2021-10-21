@@ -14,6 +14,9 @@ button_Input(inputId, label, type = "default")
 \item{type}{The type of button.  Options are default, start, secondary and
 warning.  Defaults to default.}
 }
+\value{
+a html button shiny object
+}
 \description{
 This function create a gov style button
 }

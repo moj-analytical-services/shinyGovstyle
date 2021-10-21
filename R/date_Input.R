@@ -10,6 +10,7 @@
 #' @param day Select a default day on start up. Defaults to \code{NULL}
 #' @param month Select a default month on start up. Defaults to \code{NULL}
 #' @param year Select a default year on start up. Defaults to \code{NULL}
+#' @return a data input html shiny object
 #' @keywords date
 #' @export
 #' @examples

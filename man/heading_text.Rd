@@ -11,6 +11,9 @@ heading_text(text_input, size = "xl")
 
 \item{size}{Text size using xl, l, m, s.  Defaults to xl.}
 }
+\value{
+a heading text html shiny object
+}
 \description{
 This function create a heading text
 }

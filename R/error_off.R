@@ -3,6 +3,7 @@
 #' This function turns off the the error o the component, once issues have
 #' been sorted.
 #' @param inputId The inputId to turn error handling iff for on for.
+#' @return no return value.  This toggles off error css
 #' @keywords error
 #' @export
 #' @examples

@@ -6,6 +6,9 @@
 \usage{
 run_example()
 }
+\value{
+a shiny app with examples in
+}
 \description{
 This function runs a shiny example using different parts of the package
 }

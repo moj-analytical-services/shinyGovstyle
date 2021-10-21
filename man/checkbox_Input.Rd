@@ -4,8 +4,16 @@
 \alias{checkbox_Input}
 \title{Checkbox Function}
 \usage{
-checkbox_Input(inputId, cb_labels, checkboxIds, label, hint_label = NULL,
-  small = FALSE, error = FALSE, error_message = NULL)
+checkbox_Input(
+  inputId,
+  cb_labels,
+  checkboxIds,
+  label,
+  hint_label = NULL,
+  small = FALSE,
+  error = FALSE,
+  error_message = NULL
+)
 }
 \arguments{
 \item{inputId}{Input id for the group of checkboxes}
@@ -24,6 +32,9 @@ to \code{FALSE}}
 \item{error}{Whenever you want to include error handle on the component.}
 
 \item{error_message}{If you want a default error message.}
+}
+\value{
+a checkbox html shiny object
 }
 \description{
 This function inserts a checkbox group

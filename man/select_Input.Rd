@@ -15,6 +15,9 @@ select_Input(inputId, label, select_text, select_value)
 
 \item{select_value}{Add the value that will be used for each selection.}
 }
+\value{
+a select input html shiny object
+}
 \description{
 This function inserts a select box
 }

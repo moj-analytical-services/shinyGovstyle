@@ -4,9 +4,17 @@
 \alias{text_Input}
 \title{Text Input Function}
 \usage{
-text_Input(inputId, label, hint_label = NULL, type = "text",
-  width = NULL, error = FALSE, error_message = NULL, prefix = NULL,
-  suffix = NULL)
+text_Input(
+  inputId,
+  label,
+  hint_label = NULL,
+  type = "text",
+  width = NULL,
+  error = FALSE,
+  error_message = NULL,
+  prefix = NULL,
+  suffix = NULL
+)
 }
 \arguments{
 \item{inputId}{The input slot that will be used to access the value.}
@@ -28,6 +36,9 @@ required.  Options are 30, 20, 10, 5, 4, 3, 2.  NULL will not limit the size}
 \item{prefix}{Add a prefix to the box.  Defaults to NULL}
 
 \item{suffix}{Add a suffix to the box.  Defaults to NULL}
+}
+\value{
+a text input html shiny object
 }
 \description{
 This function create a text area input

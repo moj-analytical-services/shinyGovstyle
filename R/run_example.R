@@ -1,6 +1,7 @@
 #' Example Function
 #'
 #' This function runs a shiny example using different parts of the package
+#' @return a shiny app with examples in
 #' @keywords example
 #' @export
 #' @examples

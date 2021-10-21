@@ -10,6 +10,9 @@ footer(full = FALSE)
 \item{full}{Whenever you want to have blank footer or official gov version.
 Defaults to \code{FALSE}}
 }
+\value{
+a footer html shiny object
+}
 \description{
 This function create a gov style footer for your page
 }

@@ -4,8 +4,15 @@
 \alias{text_area_Input}
 \title{Text Area Input Function}
 \usage{
-text_area_Input(inputId, label, hint_label = NULL, row_no = 5,
-  error = FALSE, error_message = NULL, word_limit = NULL)
+text_area_Input(
+  inputId,
+  label,
+  hint_label = NULL,
+  row_no = 5,
+  error = FALSE,
+  error_message = NULL,
+  word_limit = NULL
+)
 }
 \arguments{
 \item{inputId}{The input slot that will be used to access the value.}
@@ -22,6 +29,9 @@ hint label.}
 \item{error_message}{Message to display on error.  Defaults to \code{NULL}}
 
 \item{word_limit}{Add a word limit to the display.  Defaults to \code{NULL}.}
+}
+\value{
+a text area box html shiny object
 }
 \description{
 This function create a text area input

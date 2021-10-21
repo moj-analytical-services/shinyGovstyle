@@ -6,6 +6,7 @@
 #' @param logo Add a link to a logo which will apply in the header.
 #' @param main_link Add a link for clicking on main text
 #' @param secondary_link Add a link for clicking on secondary header.
+#' @return a header html shiny object
 #' @keywords header
 #' @export
 #' @examples

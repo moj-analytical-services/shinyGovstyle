@@ -11,6 +11,9 @@ backlink_Input(inputId, link = "#")
 
 \item{link}{Link for when the button is clicked  Defaults to #}
 }
+\value{
+a backlink html shiny object
+}
 \description{
 This function adds a back link to the page
 }

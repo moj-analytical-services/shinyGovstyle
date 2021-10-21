@@ -4,8 +4,12 @@
 \alias{noti_banner}
 \title{Notification Banner Function}
 \usage{
-noti_banner(inputId, title_txt = "Important", body_txt = NULL,
-  type = "standard")
+noti_banner(
+  inputId,
+  title_txt = "Important",
+  body_txt = NULL,
+  type = "standard"
+)
 }
 \arguments{
 \item{inputId}{The input id for the banner}
@@ -16,6 +20,9 @@ noti_banner(inputId, title_txt = "Important", body_txt = NULL,
 
 \item{type}{The type of banner.  Options are standard and success.
 Standard is default}
+}
+\value{
+a notification html shiny object
 }
 \description{
 This function create a notification banner

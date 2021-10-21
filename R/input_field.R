@@ -9,6 +9,7 @@
 #' @param types text box types.  Will default to text.
 #' @param error Whenever to icnlud error handling  Defaults to FALSE.
 #' @param error_message Message to display on error.  Defaults to NULL
+#' @return a input field of html as a shiny object
 #' @keywords input field
 #' @export
 #' @examples

@@ -13,6 +13,9 @@ panel_output(inputId, main_text, sub_text)
 
 \item{sub_text}{Add the main body of text for the panel}
 }
+\value{
+a panel html shiny object
+}
 \description{
 This function inserts a panel.  Normally used for confirmation screens
 }

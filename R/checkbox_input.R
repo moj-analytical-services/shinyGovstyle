@@ -10,6 +10,7 @@
 #' to \code{FALSE}
 #' @param error  Whenever you want to include error handle on the component.
 #' @param error_message  If you want a default error message.
+#' @return a checkbox html shiny object
 #' @keywords checkbox
 #' @export
 #' @examples

@@ -23,6 +23,7 @@
 #' @param error_message  If you want a default error message.
 #' @param custom_class  If you want to add additional classes to the radio
 #' buttons
+#' @return radio buttons html shiny object
 #' @keywords radiobuttons
 #' @export
 #' @examples

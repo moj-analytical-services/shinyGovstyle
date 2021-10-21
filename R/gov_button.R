@@ -5,6 +5,7 @@
 #' @param label Display label for the control, or \code{NULL} for no label.
 #' @param type The type of button.  Options are default, start, secondary and
 #' warning.  Defaults to default.
+#' @return a html button shiny object
 #' @keywords button
 #' @export
 #' @examples

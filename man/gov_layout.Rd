@@ -15,6 +15,9 @@ main page.}
 \item{size}{Layout of the page.  Optional are full, one-half, two-thirds,
 one-third and one-quarter.  Defaults to "full"}
 }
+\value{
+a html shiny layout div
+}
 \description{
 This function loads the page layout
 }

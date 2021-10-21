@@ -12,7 +12,7 @@ Description: Collection of 'shiny' application styling that are the based on
 Depends: R (>= 3.1.0)
 License: GPL-3
 Encoding: UTF-8
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.2
 URL: https://github.com/moj-analytical-services/shinyGovstyle
 BugReports: https://github.com/moj-analytical-services/shinyGovstyle/issues
 Imports: 

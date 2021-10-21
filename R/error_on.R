@@ -5,6 +5,7 @@
 #' @param inputId The input id that you to to turn the error on for.
 #' @param error_message if you want to add an additional error message.
 #' Defaults to NULL, showing the original designed error message
+#' @return no return value.  This toggles on error css
 #' @keywords error
 #' @export
 #' @examples

@@ -3,6 +3,7 @@
 #' This function create warning text
 #' @param inputId The input slot that will be used to access the value.
 #' @param text Text that goes in the main
+#' @return a warning box html shiny object
 #' @keywords warning
 #' @export
 #' @examples

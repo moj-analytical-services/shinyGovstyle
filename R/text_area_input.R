@@ -9,6 +9,7 @@
 #' @param error Whenever to icnlud error handling  Defaults to \code{FALSE}
 #' @param error_message Message to display on error.  Defaults to \code{NULL}
 #' @param word_limit Add a word limit to the display.  Defaults to \code{NULL}.
+#' @return a text area box html shiny object
 #' @keywords text area
 #' @export
 #' @examples

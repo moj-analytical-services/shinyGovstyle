@@ -3,6 +3,7 @@
 #' This function create a heading text
 #' @param text_input Text to display
 #' @param size Text size using xl, l, m, s.  Defaults to xl.
+#' @return a heading text html shiny object
 #' @keywords heading
 #' @export
 #' @examples

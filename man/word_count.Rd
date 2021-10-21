@@ -11,6 +11,9 @@ word_count(inputId, input)
 
 \item{input}{The text input that is associated with the box.}
 }
+\value{
+no value returned. Updates the word count in a shiny app
+}
 \description{
 This function create tracks the word count and should be used with the
 text area function

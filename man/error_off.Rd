@@ -9,6 +9,9 @@ error_off(inputId)
 \arguments{
 \item{inputId}{The inputId to turn error handling iff for on for.}
 }
+\value{
+no return value.  This toggles off error css
+}
 \description{
 This function turns off the the error o the component, once issues have
 been sorted.

@@ -3,6 +3,7 @@
 #' This function create a gov style footer for your page
 #' @param full Whenever you want to have blank footer or official gov version.
 #' Defaults to \code{FALSE}
+#' @return a footer html shiny object
 #' @keywords footer
 #' @export
 #' @examples

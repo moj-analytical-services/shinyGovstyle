@@ -4,6 +4,7 @@
 #' https://design-system.service.gov.uk/styles/typography/ for when they
 #' are allowed.
 #' @keywords font
+#' @return no value returned.  This loads the font css file
 #' @export
 #' @examples
 #' if (interactive()) {
