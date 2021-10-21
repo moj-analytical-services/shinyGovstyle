@@ -4,10 +4,17 @@
 \alias{file_Input}
 \title{File Input Function}
 \usage{
-file_Input(inputId, label, multiple = FALSE, accept = NULL,
-  width = NULL, buttonLabel = "Choose file",
-  placeholder = "No file chosen", error = FALSE,
-  error_message = NULL)
+file_Input(
+  inputId,
+  label,
+  multiple = FALSE,
+  accept = NULL,
+  width = NULL,
+  buttonLabel = "Choose file",
+  placeholder = "No file chosen",
+  error = FALSE,
+  error_message = NULL
+)
 }
 \arguments{
 \item{inputId}{The input slot that will be used to access the value.}
@@ -31,6 +38,9 @@ object.}
 \item{error}{Whenever to icnlud error handling  Defaults to FALSE.}
 
 \item{error_message}{Message to display on error.  Defaults to NULL}
+}
+\value{
+a file input html shiny object
 }
 \description{
 This function create a file upload component.  It uses the basis of the

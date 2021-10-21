@@ -11,6 +11,9 @@ insert_text(inputId, text)
 
 \item{text}{Text that you want to display on the insert}
 }
+\value{
+a insert text html shiny object
+}
 \description{
 This function loads the insert text component to display additional
 information in a special format.

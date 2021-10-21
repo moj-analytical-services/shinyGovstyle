@@ -11,6 +11,9 @@ warning_text(inputId, text)
 
 \item{text}{Text that goes in the main}
 }
+\value{
+a warning box html shiny object
+}
 \description{
 This function create warning text
 }

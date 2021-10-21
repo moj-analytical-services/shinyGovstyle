@@ -5,6 +5,7 @@
 #' @param label Display label for the control, or \code{NULL} for no label.
 #' @param hint_input Display hint label for the control, or \code{NULL} for
 #' no hint label.
+#' @return a label hint html shiny object
 #' @keywords label
 #' @export
 #' @examples

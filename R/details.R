@@ -5,7 +5,8 @@
 #' @param inputId The input slot that will be used to access the value.
 #' @param label Main label text
 #' @param help_text Additional help information in the component.
-#' @keywords text area
+#' @return a details box html shiny object
+#' @keywords details box
 #' @export
 #' @examples
 #' if (interactive()) {

@@ -4,6 +4,7 @@
 #' @param inputId The input slot that will be used to access the value.
 #' @param main_text Add the header for the panel
 #' @param sub_text Add the main body of text for the panel
+#' @return a panel html shiny object
 #' @keywords panel
 #' @export
 #' @examples

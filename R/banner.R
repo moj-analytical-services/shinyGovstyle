@@ -5,6 +5,7 @@
 #' @param inputId The input slot that will be used to access the value.
 #' @param type Main type of label e.g. alpha or beta.  Can be any word.
 #' @param label test to display.
+#' @return a banner html shiny object
 #' @keywords banner
 #' @export
 #' @examples

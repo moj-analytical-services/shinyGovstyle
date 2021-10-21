@@ -4,8 +4,15 @@
 \alias{input_field}
 \title{Input Field Function}
 \usage{
-input_field(legend, labels, inputIds, widths = NULL, types = "text",
-  error = FALSE, error_message = NULL)
+input_field(
+  legend,
+  labels,
+  inputIds,
+  widths = NULL,
+  types = "text",
+  error = FALSE,
+  error_message = NULL
+)
 }
 \arguments{
 \item{legend}{Legend that goes above the fieldset}
@@ -22,6 +29,9 @@ required.  Options are 30, 20, 10, 5, 4, 3, 2.  NULL will not limit the size}
 \item{error}{Whenever to icnlud error handling  Defaults to FALSE.}
 
 \item{error_message}{Message to display on error.  Defaults to NULL}
+}
+\value{
+a input field of html as a shiny object
 }
 \description{
 This function inserts number of text inputs. Useful for addresses.

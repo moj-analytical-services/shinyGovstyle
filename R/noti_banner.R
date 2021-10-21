@@ -6,6 +6,7 @@
 #' @param body_txt The wording that appears in the banner body
 #' @param type The type of banner.  Options are standard and success.
 #' Standard is default
+#' @return a notification html shiny object
 #' @keywords notification banner
 #' @export
 #' @examples

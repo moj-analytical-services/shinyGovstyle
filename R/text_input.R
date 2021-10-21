@@ -12,6 +12,7 @@
 #' @param error_message Message to display on error.  Defaults to NULL
 #' @param prefix Add a prefix to the box.  Defaults to NULL
 #' @param suffix Add a suffix to the box.  Defaults to NULL
+#' @return a text input html shiny object
 #' @keywords text input
 #' @export
 #' @examples

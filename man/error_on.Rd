@@ -12,6 +12,9 @@ error_on(inputId, error_message = NULL)
 \item{error_message}{if you want to add an additional error message.
 Defaults to NULL, showing the original designed error message}
 }
+\value{
+no return value.  This toggles on error css
+}
 \description{
 This function turns on the the error o the component.  Can be used to
 validate inputs.

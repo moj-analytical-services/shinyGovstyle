@@ -18,6 +18,7 @@
 #' @param placeholder	The text to show before a file has been uploaded.
 #' @param error Whenever to icnlud error handling  Defaults to FALSE.
 #' @param error_message Message to display on error.  Defaults to NULL
+#' @return a file input html shiny object
 #' @keywords file input
 #' @export
 #' @examples

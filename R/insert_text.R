@@ -4,6 +4,7 @@
 #' information in a special format.
 #' @param inputId The input slot that will be used to access the value.
 #' @param text Text that you want to display on the insert
+#' @return a insert text html shiny object
 #' @keywords inserttext
 #' @export
 #' @examples

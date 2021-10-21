@@ -6,6 +6,7 @@
 #' one-third and one-quarter.  Defaults to "full"
 #' @param ... include the components of the UI that you want within the
 #' main page.
+#' @return a html shiny layout div
 #' @keywords style
 #' @export
 #' @examples

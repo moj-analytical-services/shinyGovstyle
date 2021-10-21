@@ -6,6 +6,9 @@
 \usage{
 font()
 }
+\value{
+no value returned.  This loads the font css file
+}
 \description{
 This function adds rge nta fonts to the app. See
 https://design-system.service.gov.uk/styles/typography/ for when they

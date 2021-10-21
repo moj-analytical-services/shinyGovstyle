@@ -4,8 +4,13 @@
 \alias{header}
 \title{Header Function}
 \usage{
-header(main_text, secondary_text, logo = NULL, main_link = "#",
-  secondary_link = "#")
+header(
+  main_text,
+  secondary_text,
+  logo = NULL,
+  main_link = "#",
+  secondary_link = "#"
+)
 }
 \arguments{
 \item{main_text}{Main text that goes in the header}
@@ -17,6 +22,9 @@ header(main_text, secondary_text, logo = NULL, main_link = "#",
 \item{main_link}{Add a link for clicking on main text}
 
 \item{secondary_link}{Add a link for clicking on secondary header.}
+}
+\value{
+a header html shiny object
 }
 \description{
 This function create a header banner.  For use at top of the screen

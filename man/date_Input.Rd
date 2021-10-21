@@ -4,8 +4,16 @@
 \alias{date_Input}
 \title{Date Input Function}
 \usage{
-date_Input(inputId, label, hint_label = NULL, error = FALSE,
-  error_message = NULL, day = NULL, month = NULL, year = NULL)
+date_Input(
+  inputId,
+  label,
+  hint_label = NULL,
+  error = FALSE,
+  error_message = NULL,
+  day = NULL,
+  month = NULL,
+  year = NULL
+)
 }
 \arguments{
 \item{inputId}{The input slot that will be used to access the value.}
@@ -24,6 +32,9 @@ hint label.}
 \item{month}{Select a default month on start up. Defaults to \code{NULL}}
 
 \item{year}{Select a default year on start up. Defaults to \code{NULL}}
+}
+\value{
+a data input html shiny object
 }
 \description{
 This function create a date input that follows GDS component

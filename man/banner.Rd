@@ -13,6 +13,9 @@ banner(inputId, type, label)
 
 \item{label}{test to display.}
 }
+\value{
+a banner html shiny object
+}
 \description{
 This function create a detail component that you can click for further
 details.

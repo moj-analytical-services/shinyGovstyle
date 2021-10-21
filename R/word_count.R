@@ -4,6 +4,7 @@
 #' text area function
 #' @param inputId The input slot of the text area that you want to affect
 #' @param input The text input that is associated with the box.
+#' @return no value returned. Updates the word count in a shiny app
 #' @keywords word count
 #' @export
 #' @examples
