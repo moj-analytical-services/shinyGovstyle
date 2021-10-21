@@ -6,4 +6,4 @@
 * Added a `NEWS.md` file to track changes to the package.
 * Added a notification banner function
 * Got ready for CRAN release.
-* Added output value to teh documentation
+* Added output value to the documentation
