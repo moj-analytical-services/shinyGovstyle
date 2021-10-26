@@ -1,4 +1,4 @@
-# shinyGovstyle
+# shinyGovstyle <img src="man/figures/logo.png" align="right" height="139" style="padding-left: 1rem;" />
 
 <!-- badges: start -->
 
@@ -46,7 +46,9 @@ To use error and word count elements you will need to load useShinyjs from shiny
   - [Insert text](#insert-text)
   - [Details](#details)
   - [Panel](#panel)
+  - [Notification Banner](#notification-banner)
   - [Error](#error)
+  - [Example Version](#example-version)
 
 ### Gov style layout
 
@@ -265,6 +267,20 @@ panel_output(
   sub_text = "Your reference number <br> <strong>HDJ2123F</strong>")
 ```
 
+### Notification Banner
+
+Gov style panel component  :
+![Notification Banner](man/figures/noti_banner.png)
+
+```r
+noti_banner(
+  "notId",
+  title_txt = "Important",
+  body_txt = Example text,
+  type = "standard"
+)
+```
+
 ### Error
 
 Add errors to components when not filled in correctly.  Most components have an option to add  :
@@ -301,3 +317,12 @@ server <- function(input, output, session) {
   )
 }
 ```
+### Example Version
+
+You can run an example dashboard.  This is very rough and will be improved.
+![example](man/figures/example.png)
+
+```r
+run_example()
+```
+
