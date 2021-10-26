@@ -6,6 +6,8 @@
 #' @param logo Add a link to a logo which will apply in the header.
 #' @param main_link Add a link for clicking on main text
 #' @param secondary_link Add a link for clicking on secondary header.
+#' @param logo_width Change the logo size width css to improve fit
+#' @param logo_height Change the logo size height css to improve fit
 #' @return a header html shiny object
 #' @keywords header
 #' @export
@@ -25,8 +27,12 @@
 #' }
 
 header <- function(main_text, secondary_text, logo = NULL,
-                   main_link = "#", secondary_link = "#"){
+                   main_link = "#", secondary_link = "#",
+                   logo_width = 36, logo_height = 32){
   govHeader <- shiny::tags$header(class = "govuk-header", role = "banner",
+    shinyjs::inlineCSS(paste0(
+      ".govuk-header__logotype-crown-fallback-image {width: ", logo_width, "px;
+      height: ", logo_height, "px;}")),
     shiny::tags$div(class = "govuk-header__container govuk-width-container",
       shiny::tags$div(class = "govuk-header__logo",
         shiny::tags$a(href = main_link,
