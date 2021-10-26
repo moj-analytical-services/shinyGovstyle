@@ -1,5 +1,10 @@
 # shinyGovstyle
 
+<!-- badges: start -->
+
+[![CRAN status](https://www.r-pkg.org/badges/version/shinyGovstyle)](https://cran.r-project.org/package=shinyGovstyle)
+
+<!-- badges: end -->
 
 > Apply Gov styled components and formats in shiny
 
@@ -15,12 +20,7 @@ Top view details of gov.uk components please visit https://design-system.service
 
 Installation :
 ```r
-devtools::install_github("moj-analytical-services/shinyGovstyle")
-```
-
-or install via conda with:
-```r
-conda install -c rosswyatt r-shinygovstyle
+install.packages("shinyGovstyle")
 ```
 
 To use error and word count elements you will need to load useShinyjs from shinyjs in the ui:
