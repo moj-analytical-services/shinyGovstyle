@@ -34,6 +34,7 @@
 #'                )
 #'   )
 #' }
+#' shinyApp(ui = ui, server = server)
 
 word_count <- function(inputId, input, word_limit = NULL){
   if (input == '') {

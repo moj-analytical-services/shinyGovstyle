@@ -46,6 +46,7 @@ server <- function(input, output, session) {
                )
   )
 }
+shinyApp(ui = ui, server = server)
 }
 \keyword{count}
 \keyword{word}
