@@ -39,7 +39,7 @@ text_area_Input <- function(inputId, label, hint_label=NULL, row_no=5,
       shiny::tags$div(
         class="govuk-hint govuk-character-count__message",
       shiny::tags$span(
-        "You have used "),
+        "You have used"),
       shiny::tags$span(
         id=paste0(inputId,"wc"),
         "0"),
