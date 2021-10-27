@@ -19,7 +19,8 @@ header(
 
 \item{secondary_text}{Secondary header to supplement the main text}
 
-\item{logo}{Add a link to a logo which will apply in the header.}
+\item{logo}{Add a link to a logo which will apply in the header. Use crown to
+use the crown svg version on gov uk.}
 
 \item{main_link}{Add a link for clicking on main text}
 
