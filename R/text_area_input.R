@@ -36,10 +36,16 @@ text_area_Input <- function(inputId, label, hint_label=NULL, row_no=5,
     },
     shiny::tags$textarea(id=inputId, class="govuk-textarea", rows=row_no),
     if (!is.null(word_limit)){
+      shiny::tags$div(
+        class="govuk-hint govuk-character-count__message",
+      shiny::tags$span(
+        "You have used"),
       shiny::tags$span(
         id=paste0(inputId,"wc"),
-        class="govuk-hint govuk-character-count__message",
-        paste("You have used 0", "of the", word_limit, "allowed")
+        "0"),
+      shiny::tags$span(
+        id=paste0(inputId,"wl"),
+        paste("of the", word_limit, "allowed"))
       )
     }
   )
