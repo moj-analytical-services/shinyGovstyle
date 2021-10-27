@@ -9,7 +9,9 @@ header(
   secondary_text,
   logo = NULL,
   main_link = "#",
-  secondary_link = "#"
+  secondary_link = "#",
+  logo_width = 36,
+  logo_height = 32
 )
 }
 \arguments{
@@ -17,11 +19,16 @@ header(
 
 \item{secondary_text}{Secondary header to supplement the main text}
 
-\item{logo}{Add a link to a logo which will apply in the header.}
+\item{logo}{Add a link to a logo which will apply in the header. Use crown to
+use the crown svg version on gov uk.}
 
 \item{main_link}{Add a link for clicking on main text}
 
 \item{secondary_link}{Add a link for clicking on secondary header.}
+
+\item{logo_width}{Change the logo size width css to improve fit}
+
+\item{logo_height}{Change the logo size height css to improve fit}
 }
 \value{
 a header html shiny object
