@@ -4,7 +4,8 @@
 #' text area function
 #' @param inputId The input slot of the text area that you want to affect
 #' @param input The text input that is associated with the box.
-#' @param word_limit Add the word limit
+#' @param word_limit Change the word limit if needed.  Default will keep as
+#' what was used in text area component
 #' @return no value returned. Updates the word count in a shiny app
 #' @keywords word count
 #' @export
@@ -29,8 +30,7 @@
 #' server <- function(input, output, session) {
 #'   shiny::observeEvent(input$text_area,
 #'                word_count(inputId = "text_area",
-#'                           input = input$text_area,
-#'                           word_limit = 300
+#'                           input = input$text_area
 #'                )
 #'   )
 #' }

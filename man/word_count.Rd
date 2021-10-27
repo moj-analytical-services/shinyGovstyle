@@ -4,12 +4,15 @@
 \alias{word_count}
 \title{Word Count Function}
 \usage{
-word_count(inputId, input)
+word_count(inputId, input, word_limit = NULL)
 }
 \arguments{
 \item{inputId}{The input slot of the text area that you want to affect}
 
 \item{input}{The text input that is associated with the box.}
+
+\item{word_limit}{Change the word limit if needed.  Default will keep as
+what was used in text area component}
 }
 \value{
 no value returned. Updates the word count in a shiny app
@@ -39,8 +42,7 @@ footer(TRUE)
 server <- function(input, output, session) {
   shiny::observeEvent(input$text_area,
                word_count(inputId = "text_area",
-                          input = input$text_area,
-                          word_limit = 300
+                          input = input$text_area
                )
   )
 }
