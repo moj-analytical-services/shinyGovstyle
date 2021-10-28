@@ -82,6 +82,7 @@ run_example <- function(){
           value = "panel2",
           gov_layout(
             size = "two-thirds",
+            backlink_Input("back1"),
             heading_text("Page 2", size = "l"),
             label_hint("label2", "These are some examples of the types of user
                    text inputs that you can use"),
@@ -117,6 +118,7 @@ run_example <- function(){
           value = "panel3",
           gov_layout(
             size = "two-thirds",
+            backlink_Input("back2"),
             heading_text("Page 3", size = "l"),
             label_hint("label3", "These are some examples of the types of user
                    feedback inputs that you can use"),
@@ -168,6 +170,17 @@ run_example <- function(){
       shiny::updateTabsetPanel(session, "nav",
                         selected = "panel3")
     })
+
+    shiny::observeEvent(input$back1, {
+      shiny::updateTabsetPanel(session, "nav",
+                               selected = "panel1")
+    })
+
+    shiny::observeEvent(input$back2, {
+      shiny::updateTabsetPanel(session, "nav",
+                               selected = "panel2")
+    })
+
 
     # Need this to use live update the word counter
     shiny::observeEvent(

@@ -1221,6 +1221,9 @@
     margin-top: 15px;
     margin-bottom: 15px;
     padding-left: 14px;
+    border: none;
+    background: white;
+    color: #0b0c0c;
 }
 @media (min-width: 40.0625em) {
     .govuk-back-link {
