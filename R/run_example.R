@@ -120,6 +120,12 @@ run_example <- function(){
             heading_text("Page 3", size = "l"),
             label_hint("label3", "These are some examples of the types of user
                    feedback inputs that you can use"),
+            heading_text("tag_Input", size = "s"),
+            tag_Input("tag1", "NAVY"),
+            tag_Input("tag2", "RED", "red"),
+            tag_Input("tag3", "BLUE", "blue"),
+            tag_Input("tag4", "YELLOW", "yellow"),
+            shiny::tags$br(), shiny::tags$br(),
             heading_text("details", size = "s"),
             details(
               inputId = "detID",
