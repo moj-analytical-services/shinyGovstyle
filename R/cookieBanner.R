@@ -42,11 +42,25 @@
 #'     shinyjs::toggle(id = "cookieDiv")
 #'   })
 #'
+#'   observeEvent(input$cookieLink, {
+#'     #Need to link here to where further info is located.  You can you
+#'     #updateTabsetPanel to have a cookie page for instance
+#'   })
+#'
 #' }
 #' shinyApp(ui = ui, server = server)
 #' }
 
 cookieBanner <- function(service_name) {
+
+  value <- shiny::restoreInput(id = "cookieLink", default = NULL)
+  govCookieLink <- shiny::tags$button(
+    "View cookies",
+    id = "cookieLink",
+    class = paste0("govuk-link", " action-button"),
+    `data-val` = value)
+
+  attachDependency(govCookieLink)
 
   cookieBanner_Input <-
     shiny::tags$div(
@@ -83,7 +97,7 @@ cookieBanner <- function(service_name) {
         class="govuk-button-group",
         button_Input("cookieAccept", "Accept analytics cookies"),
         button_Input("cookieReject", "Reject analytics cookies"),
-        backlink_Input("cookieDetails")
+        govCookieLink
       )
     ),
     shinyjs::hidden(
