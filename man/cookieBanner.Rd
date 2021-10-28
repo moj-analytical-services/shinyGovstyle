@@ -8,14 +8,14 @@ cookieBanner(service_name)
 }
 \arguments{
 \item{service_name}{Name for this service to add to banner}
-
-\item{inputId}{The id to access the cookie banner}
 }
 \value{
 a cookie banner html shiny object.
 }
 \description{
-This function creates a cookie banner
+This function creates a cookie banner. You need to have shinyjs::useShinyjs()
+enabled to work.  All the ids are prenamed.  See example for how to
+structure.
 }
 \examples{
 if (interactive()) {
