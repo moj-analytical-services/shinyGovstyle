@@ -9,6 +9,7 @@
   the package.
 * Change the `backlink_Input` to a button so that you can use server to move
   between panels etc.
+* Added tags thorugh the `tag_Input` function plus added to the `use_example`
 
 # shinyGovstyle 0.0.6
 
