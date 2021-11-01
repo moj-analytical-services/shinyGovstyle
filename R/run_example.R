@@ -12,6 +12,7 @@ run_example <- function(){
   shiny::shinyApp(
     ui = shiny::fluidPage(
       title="ShinyGovstyle",
+      cookieBanner("Run Example"),
       header("MOJ", "ShinyGovstyle Example",
              logo="shinyGovstyle/images/moj_logo.png", logo_height = 38),
       banner(
@@ -35,7 +36,7 @@ run_example <- function(){
         widths = c(2, 10),
         well = FALSE,
 
-        #Create first panel
+        #####################Create first panel################################
         shiny::tabPanel(
           "Select Types",
           value = "panel1",
@@ -76,7 +77,7 @@ run_example <- function(){
         ),
 
 
-        #Create second panel
+        #####################Create second panel################################
         shiny::tabPanel(
           "Text Types",
           value = "panel2",
@@ -112,7 +113,7 @@ run_example <- function(){
           )
         ),
 
-        #Create third panel
+        #####################Create third panel################################
         shiny::tabPanel(
           "Feedback Types",
           value = "panel3",
@@ -159,6 +160,18 @@ run_example <- function(){
               type = "standard"
             )
           )
+        ),
+
+        #####################Create fourth panel################################
+        shiny::tabPanel(
+          "Cookies",
+          value = "panel4",
+          gov_layout(
+            size = "two-thirds",
+            heading_text("Page 3", size = "l"),
+            label_hint("label3", "This an example cookie page that could be
+                       expanded")
+          )
         )),
 
       # Add a full footer
@@ -202,5 +215,30 @@ run_example <- function(){
         error_off("text_area2")
       }
     })
+
+    ##################### Cookie Banner events ################################
+    observeEvent(input$cookieAccept, {
+          shinyjs::show(id = "cookieAcceptDiv")
+          shinyjs::hide(id = "cookieMain")
+        })
+
+        observeEvent(input$cookieReject, {
+          shinyjs::show(id = "cookieRejectDiv")
+          shinyjs::hide(id = "cookieMain")
+        })
+
+        observeEvent(input$hideAccept, {
+          shinyjs::toggle(id = "cookieDiv")
+        })
+
+        observeEvent(input$hideReject, {
+          shinyjs::toggle(id = "cookieDiv")
+        })
+
+        observeEvent(input$cookieLink, {
+          shiny::updateTabsetPanel(session, "nav",
+                                   selected = "panel4")
+        })
+
   }
 )}

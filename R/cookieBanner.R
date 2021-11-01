@@ -112,7 +112,7 @@ cookieBanner <- function(service_name) {
               class = "govuk-cookie-banner__content",
               shiny::tags$p(
                 class = "govuk-body",
-                "you\u0027ve accepted additional cookies. You can change your
+                "You\u0027ve accepted additional cookies. You can change your
                 cookie settings at any time."
               )
             )
@@ -136,7 +136,7 @@ cookieBanner <- function(service_name) {
               class = "govuk-cookie-banner__content",
               shiny::tags$p(
                 class = "govuk-body",
-                "you\u0027ve rejected additional cookies. You can change your
+                "You\u0027ve rejected additional cookies. You can change your
                 cookie settings at any time."
               )
             )
