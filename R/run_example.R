@@ -217,28 +217,28 @@ run_example <- function(){
     })
 
     ##################### Cookie Banner events ################################
-    observeEvent(input$cookieAccept, {
+    shiny::observeEvent(input$cookieAccept, {
           shinyjs::show(id = "cookieAcceptDiv")
           shinyjs::hide(id = "cookieMain")
         })
 
-        observeEvent(input$cookieReject, {
-          shinyjs::show(id = "cookieRejectDiv")
-          shinyjs::hide(id = "cookieMain")
-        })
+    shiny::observeEvent(input$cookieReject, {
+        shinyjs::show(id = "cookieRejectDiv")
+        shinyjs::hide(id = "cookieMain")
+      })
 
-        observeEvent(input$hideAccept, {
-          shinyjs::toggle(id = "cookieDiv")
-        })
+    shiny::observeEvent(input$hideAccept, {
+        shinyjs::toggle(id = "cookieDiv")
+      })
 
-        observeEvent(input$hideReject, {
-          shinyjs::toggle(id = "cookieDiv")
-        })
+      shiny::observeEvent(input$hideReject, {
+        shinyjs::toggle(id = "cookieDiv")
+      })
 
-        observeEvent(input$cookieLink, {
-          shiny::updateTabsetPanel(session, "nav",
-                                   selected = "panel4")
-        })
+    shiny::observeEvent(input$cookieLink, {
+        shiny::updateTabsetPanel(session, "nav",
+                                 selected = "panel4")
+      })
 
   }
 )}

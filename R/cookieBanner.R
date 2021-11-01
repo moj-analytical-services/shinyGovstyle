@@ -1,7 +1,7 @@
 #' Cookie Banner Function
 #'
 #' This function creates a cookie banner. You need to have shinyjs::useShinyjs()
-#' enabled to work.  All the ids are prenamed.  See example for how to
+#' enabled to work.  All the ids are pre set.  See example for how to
 #' structure.
 #' @param service_name Name for this service to add to banner
 #' @return a cookie banner html shiny object.

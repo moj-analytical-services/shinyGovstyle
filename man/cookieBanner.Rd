@@ -14,7 +14,7 @@ a cookie banner html shiny object.
 }
 \description{
 This function creates a cookie banner. You need to have shinyjs::useShinyjs()
-enabled to work.  All the ids are prenamed.  See example for how to
+enabled to work.  All the ids are pre set.  See example for how to
 structure.
 }
 \examples{
@@ -50,6 +50,11 @@ server <- function(input, output, session) {
 
   observeEvent(input$hideReject, {
     shinyjs::toggle(id = "cookieDiv")
+  })
+
+  observeEvent(input$cookieLink, {
+    #Need to link here to where further info is located.  You can you
+    #updateTabsetPanel to have a cookie page for instance
   })
 
 }
