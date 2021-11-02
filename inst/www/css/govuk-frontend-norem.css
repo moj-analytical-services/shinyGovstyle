@@ -3,6 +3,9 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-decoration: underline;
+    border: none;
+    background: none;
+    color: #1d70b8;
 }
 @media print {
     .govuk-link {
