@@ -29,17 +29,29 @@ attachDependency <- function(tag, widget = NULL) {
         )
       )
     }
-      else if (widget == "date") {
-        dep <- list(
-          dep,
-          htmltools::htmlDependency(
-            name = "date_Input",
-            version = version,
-            src = c(href="shinyGovstyle/js"),
-            script = "date_input_binding.js"
-          )
+    else if (widget == "date") {
+      dep <- list(
+        dep,
+        htmltools::htmlDependency(
+          name = "date_Input",
+          version = version,
+          src = c(href="shinyGovstyle/js"),
+          script = "date_input_binding.js"
         )
-      }
+      )
+    }
+    else if (widget == "accordion") {
+      dep <- list(
+        dep,
+        htmltools::htmlDependency(
+          name = "accordion",
+          version = version,
+          src = c(href="shinyGovstyle/js"),
+          script = "accordion.js"
+        )
+      )
+    }
+
     }
 
   htmltools::attachDependencies(tag, dep, append = TRUE)
