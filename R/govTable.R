@@ -3,7 +3,7 @@
 #' This function inserts a gov styled table.  Format is with header looking
 #' rows and columns
 #' @param inputId Input id for the table
-#' @param data expects a dataframe to create a table
+#' @param df expects a dataframe to create a table
 #' @param caption adds a caption to the table as a header
 #' @param caption_size adjust the size of caption.  Options are s, m, l, xl,
 #' with l as the default
@@ -31,8 +31,10 @@
 #'     shinyGovstyle::banner(
 #'       inputId = "banner", type = "beta", 'This is a new service'),
 #'     shinyGovstyle::gov_layout(size = "two-thirds",
-#'     govTable("tab1", example_data, "Test", "l", num_col = c(2,3),
-#'              width_overwrite = c("one-half", "one-quarter", "one-quarter")))
+#'     shinyGovstyle::govTable(
+#'       "tab1", example_data, "Test", "l", num_col = c(2,3),
+#'       width_overwrite = c("one-half", "one-quarter", "one-quarter"))
+#'     ),
 #'
 #'     shinyGovstyle::footer(full = TRUE)
 #'   )
