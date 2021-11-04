@@ -9,7 +9,9 @@
   the package.
 * Change the `backlink_Input` to a button so that you can use server to move
   between panels etc.
-* Added tags through the `tag_Input` function plus added to the `use_example`
+* Added tags through the `tag_Input` function plus added to the `use_example`.
+* Added cookie banner through the `cookieBanner` function.
+* Added accordion through the `accordion` function.
 * Added tables through the `govTable` function.
 
 # shinyGovstyle 0.0.6
