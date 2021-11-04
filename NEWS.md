@@ -1,4 +1,4 @@
-# shinyGovstyle (development version)
+# shinyGovstyle 0.0.7
 
 * Improved the header so that you can adjust the logo size to suit
 * Fix some errors that appeared in the footer
