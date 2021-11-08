@@ -23,6 +23,16 @@ Installation :
 install.packages("shinyGovstyle")
 ```
 
+This is also available on conda
+```
+conda install r-shinygovstyle
+```
+
+If you want to make use or the development then
+```r
+remotes::install_github("moj-analytical-services/shinyGovstyle")
+```
+
 To use error and word count elements you will need to load useShinyjs from shinyjs in the ui:
 ```r
   shinyjs::useShinyjs()
@@ -47,6 +57,10 @@ To use error and word count elements you will need to load useShinyjs from shiny
   - [Details](#details)
   - [Panel](#panel)
   - [Notification Banner](#notification-banner)
+  - [Accordion](#accordion)
+  - [Table](#table)
+  - [Cookie Banner](#cookie-banner)
+  - [Tags](#tags)
   - [Error](#error)
   - [Example Version](#example-version)
 
@@ -279,6 +293,100 @@ noti_banner(
   body_txt = Example text,
   type = "standard"
 )
+```
+
+### Accordion
+
+Gov style accordion component :
+![Accordion](man/figures/accordion.png)
+
+```r
+accordion(
+      "acc1",
+      c("Writing well for the web",
+        "Writing well for specialists",
+        "Know your audience",
+        "How people read"
+       ),
+      c("This is the content for Writing well for the web.",
+        "This is the content for Writing well for specialists.",
+        "This is the content for Know your audience.",
+        "This is the content for How people read."
+       ))
+```
+
+### Table
+
+Gov style table component :
+![Table](man/figures/table.png)
+
+```r
+Months <- c("January", "February", "March")
+Bikes <- c("£85", "£75", "£165")
+Cars <- c("£95", "£55", "£125")
+example_data <- data.frame(Months, Bikes, Cars)
+
+shinyGovstyle::govTable(
+      "tab1", example_data, "Test", "l", num_col = c(2,3),
+      width_overwrite = c("one-half", "one-quarter", "one-quarter"))
+```
+
+### Cookie Banner
+
+Gov style cookie banner :
+![Cookie Banner](man/figures/cookie.png)
+
+```r
+ui <- fluidPage(
+  shinyGovstyle::header(
+    main_text = "Example",
+    secondary_text = "User Examples",
+    logo="shinyGovstyle/images/moj_logo.png"),
+  #Needs shinyjs to work
+  shinyjs::useShinyjs(),
+  shinyGovstyle::cookieBanner("The best thing"),
+  shinyGovstyle::gov_layout(size = "two-thirds"),
+  shinyGovstyle::footer(full = TRUE)
+)
+
+server <- function(input, output, session) {
+
+  #Need these set of observeEvent to create a path through the cookie banner
+  observeEvent(input$cookieAccept, {
+    shinyjs::show(id = "cookieAcceptDiv")
+    shinyjs::hide(id = "cookieMain")
+  })
+
+  observeEvent(input$cookieReject, {
+    shinyjs::show(id = "cookieRejectDiv")
+    shinyjs::hide(id = "cookieMain")
+  })
+
+  observeEvent(input$hideAccept, {
+    shinyjs::toggle(id = "cookieDiv")
+  })
+
+  observeEvent(input$hideReject, {
+    shinyjs::toggle(id = "cookieDiv")
+  })
+
+  observeEvent(input$cookieLink, {
+    #Need to link here to where further info is located.  You can
+    #updateTabsetPanel to have a cookie page for instance
+  })
+
+}
+shinyApp(ui = ui, server = server)
+```
+
+### Tags
+
+Add a gov style tag component :
+![tags](man/figures/tags.png)
+
+```r
+shinyGovstyle::tag_Input("tag1", "COMPLETE"),
+shinyGovstyle::tag_Input("tag2", "INCOMPLETE", "red")
 ```
 
 ### Error
