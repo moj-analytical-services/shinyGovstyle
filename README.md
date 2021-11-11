@@ -59,6 +59,7 @@ To use error and word count elements you will need to load useShinyjs from shiny
   - [Notification Banner](#notification-banner)
   - [Accordion](#accordion)
   - [Table](#table)
+  - [Tabs](#tabs)
   - [Cookie Banner](#cookie-banner)
   - [Tags](#tags)
   - [Error](#error)
@@ -329,6 +330,36 @@ example_data <- data.frame(Months, Bikes, Cars)
 shinyGovstyle::govTable(
       "tab1", example_data, "Test", "l", num_col = c(2,3),
       width_overwrite = c("one-half", "one-quarter", "one-quarter"))
+```
+
+### Tabs
+
+Gov style tabs component :
+![Tabs](man/figures/tabs.png)
+
+```r
+  # Create an example dataset
+  tabs <- c(rep("Past Day", 3),
+            rep("Past Week", 3),
+            rep("Past Month", 3),
+            rep("Past Year", 3))
+  Case_manager <- rep(c("David Francis", "Paul Farmer", "Rita Patel"),4)
+  Cases_open <- c(3, 1, 2, 24, 16, 24, 98, 122, 126, 1380, 1129, 1539)
+  Cases_closed <- c(0, 0, 0, 18, 20, 27, 95, 131, 142, 1472, 1083, 1265)
+  data <- data.frame(tabs, Case_manager, Cases_open, Cases_closed)
+
+  ui <- fluidPage(
+    shinyGovstyle::header(
+      main_text = "Example",
+      secondary_text = "User Examples",
+      logo="shinyGovstyle/images/moj_logo.png"),
+    shinyGovstyle::gov_layout(size = "two-thirds",
+      shinyGovstyle::govTabs("tabsID", data, "tabs")),
+    shinyGovstyle::footer(full = TRUE)
+  )
+
+  server <- function(input, output, session) {}
+  shinyApp(ui = ui, server = server)
 ```
 
 ### Cookie Banner

@@ -1,3 +1,7 @@
+# shinyGovstyle (Development)
+
+* Added tabs as a component using the `govTab` command
+
 # shinyGovstyle 0.0.7
 
 * Improved the header so that you can adjust the logo size to suit

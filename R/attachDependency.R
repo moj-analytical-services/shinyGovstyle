@@ -51,6 +51,17 @@ attachDependency <- function(tag, widget = NULL) {
         )
       )
     }
+    else if (widget == "govTab") {
+      dep <- list(
+        dep,
+        htmltools::htmlDependency(
+          name = "govTab",
+          version = version,
+          src = c(href="shinyGovstyle/js"),
+          script = "govTab.js"
+        )
+      )
+    }
 
     }
 
