@@ -12,39 +12,8 @@ gov_summary <- function(headers, info, action = FALSE, border = TRUE){
     border_class = "govuk-summary-list govuk-summary-list--no-border"
   }
 
-  if (action == TRUE) {
-    gov_sum <- action_summary(headers, info, border_class)
-  } else {
-    gov_sum <- plain_summary(headers, info, border_class)
-  }
-}
-
-
-plain_summary <- function(headers, info, borderClass) {
   shiny::tags$dl(
-    class = borderClass,
-    Map(function(x, y){
-      shiny::tags$div(
-        class = "govuk-summary-list__row",
-        shiny::tags$dt(
-          class = "govuk-summary-list__key",
-          x
-        ),
-        shiny::tags$dd(
-          class = "govuk-summary-list__value",
-          shiny::HTML(y)
-        )
-      )
-    }, x = headers, y = info)
-  )
-}
-
-action_summary <- function(headers, info, borderClass) {
-
-  actions_name <- tolower(gsub(" ", "_", headers))
-
-  shiny::tags$dl(
-    class = borderClass,
+    class = border_class,
     Map(function(x, y, z){
       shiny::tags$div(
         class = "govuk-summary-list__row",
@@ -56,6 +25,7 @@ action_summary <- function(headers, info, borderClass) {
           class = "govuk-summary-list__value",
           shiny::HTML(y)
         ),
+        if (action) {
         shiny::tags$dd(
           class = "govuk-summary-list__actions",
           shiny::tags$button(
@@ -64,9 +34,9 @@ action_summary <- function(headers, info, borderClass) {
             class = "govuk-link action-button",
             `data-val` = shiny::restoreInput(id = z, default = NULL)
           )
-        )
+        )}
       )
-    }, x = headers, y = info, z = actions_name)
+    }, x = headers, y = info, z = action)
   )
 
 }
