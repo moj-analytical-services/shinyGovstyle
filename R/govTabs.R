@@ -27,7 +27,7 @@
 #'       secondary_text = "User Examples",
 #'       logo="shinyGovstyle/images/moj_logo.png"),
 #'     shinyGovstyle::gov_layout(size = "two-thirds",
-#'       shinyGovstyle::govTabs(data, "tags")),
+#'       shinyGovstyle::govTabs(data, "tabs")),
 #'     shinyGovstyle::footer(full = TRUE)
 #'   )
 #'

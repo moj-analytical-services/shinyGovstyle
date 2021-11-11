@@ -4,14 +4,14 @@
 \alias{govTabs}
 \title{Tabs Function}
 \usage{
-govTabs(df, group_col)
+govTabs(inputId, df, group_col)
 }
 \arguments{
+\item{inputId}{The id to access the tag}
+
 \item{df}{A single dataframe with all data.  See example for structure.}
 
 \item{group_col}{The column name with the groups to be used as tabs}
-
-\item{inputId}{The id to access the tag}
 }
 \value{
 a tab table html shiny object.
@@ -39,7 +39,7 @@ if (interactive()) {
       secondary_text = "User Examples",
       logo="shinyGovstyle/images/moj_logo.png"),
     shinyGovstyle::gov_layout(size = "two-thirds",
-      shinyGovstyle::govTabs(data, "tags")),
+      shinyGovstyle::govTabs(data, "tabs")),
     shinyGovstyle::footer(full = TRUE)
   )
 
