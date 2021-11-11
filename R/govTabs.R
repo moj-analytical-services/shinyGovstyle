@@ -35,10 +35,10 @@
 #'   shinyApp(ui = ui, server = server)
 #' }
 
-govTabs <- function(df, group_col) {
+govTabs <- function(inputId, df, group_col) {
 
   tabs <- unique(df[[group_col]])
-  tab_headers <- create_tabs(tabby)
+  tab_headers <- create_tabs(tabs, inputId)
 
   #Select the first tab as the selected one
   tab_headers$children[[1]][[1]]$attribs$class <-
@@ -57,7 +57,7 @@ govTabs <- function(df, group_col) {
       main_row_store <- shiny::tagList(temp_row_store, main_row_store)
     }
 
-    temp_hold <- create_tab_table(temp_table, main_row_store, i)
+    temp_hold <- create_tab_table(temp_table, main_row_store, i, inputId)
     main_temp_hold <- shiny::tagList(main_temp_hold, temp_hold)
 
   }
@@ -73,14 +73,16 @@ govTabs <- function(df, group_col) {
   main_tab_div$children[[3]][[1]][[1]][[1]][[2]][[2]]$class <-
     "govuk-tabs__panel"
 
-  return(main_tab_div)
+  attachDependency(main_tab_div, "govTab")
 
 }
 
 
-create_tab_table <- function(df, rows, tab){
+create_tab_table <- function(df, rows, tab, inputId){
   shiny::tags$div(
-    class = "govuk-tabs__panel--hidden", id = tolower(gsub(" ", "-", tab)),
+    class = "govuk-tabs__panel govuk-tabs__panel--hidden",
+    id = tolower(gsub(" ", "-", tab)),
+    name = paste0(tolower(gsub(" ", "-", tab)), "-", inputId, "-table"),
     shiny::tags$h2(class = "govuk-heading-l", tab),
     shiny::tags$table(
       class = "govuk-table",
@@ -114,15 +116,19 @@ create_tab_row <- function(df_row){
   )
 }
 
-create_tabs <- function(tabs_names) {
+create_tabs <- function(tabs_names, inputId) {
   shiny::tags$ul(
     class = "govuk-tabs__list",
+    id = paste0(inputId, "tab"),
     Map(function(x) {
       shiny::tags$li(
-        name = tolower(gsub(" ", "-", x)),
+        name = paste0(tolower(gsub(" ", "-", x)), "-t"),
+        id = paste0(tolower(gsub(" ", "-", x)), "-test"),
         class = "govuk-tabs__list-item",
         shiny::tags$a(
           class = "govuk-tabs__tab",
+          name = paste0(tolower(gsub(" ", "-", x)), "-l"),
+          id = paste0(tolower(gsub(" ", "-", x)), "-l-test"),
           href=paste0("#", tolower(gsub(" ", "-", x))),
           x)
       )
