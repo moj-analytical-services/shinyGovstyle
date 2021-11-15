@@ -1,6 +1,7 @@
 # shinyGovstyle (Development)
 
 * Added tabs as a component using the `govTab` command
+* Added summary list as a component using the `gov_summary` command
 
 # shinyGovstyle 0.0.7
 

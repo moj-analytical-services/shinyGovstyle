@@ -60,6 +60,7 @@ To use error and word count elements you will need to load useShinyjs from shiny
   - [Accordion](#accordion)
   - [Table](#table)
   - [Tabs](#tabs)
+  - [Summary List](#summary-list)
   - [Cookie Banner](#cookie-banner)
   - [Tags](#tags)
   - [Error](#error)
@@ -355,6 +356,34 @@ Gov style tabs component :
       logo="shinyGovstyle/images/moj_logo.png"),
     shinyGovstyle::gov_layout(size = "two-thirds",
       shinyGovstyle::govTabs("tabsID", data, "tabs")),
+    shinyGovstyle::footer(full = TRUE)
+  )
+
+  server <- function(input, output, session) {}
+  shinyApp(ui = ui, server = server)
+```
+
+### Summary List
+
+Gov style summary list :
+![Summary List](man/figures/summary.png)
+
+```r
+  # Create an example dataset
+  headers <- c("Name", "Date of birth", "Contact information", "Contact details")
+  info <- c(
+    "Sarah Philips",
+    "5 January 1978",
+    "72 Guild Street <br> London <br> SE23 6FH",
+    "07700 900457 <br> sarah.phillips@example.com")
+
+  ui <- fluidPage(
+    shinyGovstyle::header(
+      main_text = "Example",
+      secondary_text = "User Examples",
+      logo="shinyGovstyle/images/moj_logo.png"),
+    shinyGovstyle::gov_layout(size = "two-thirds",
+      shinyGovstyle::gov_summary("sumID", headers, info, action = TRUE)),
     shinyGovstyle::footer(full = TRUE)
   )
 
