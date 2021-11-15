@@ -44,7 +44,7 @@ if (interactive()) {
       secondary_text = "User Examples",
       logo="shinyGovstyle/images/moj_logo.png"),
     shinyGovstyle::gov_layout(size = "two-thirds",
-      shinyGovstyle::gov_summary(headers, info, action = FALSE)),
+      shinyGovstyle::gov_summary("sumID", headers, info, action = FALSE)),
     shinyGovstyle::footer(full = TRUE)
   )
 
