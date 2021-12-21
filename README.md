@@ -1,26 +1,36 @@
-# shinyGovstyle
+# shinyGovstyle <img src="man/figures/logo.png" align="right" height="139" style="padding-left: 1rem;" />
 
+<!-- badges: start -->
+
+[![CRAN status](https://www.r-pkg.org/badges/version/shinyGovstyle)](https://cran.r-project.org/package=shinyGovstyle)
+
+<!-- badges: end -->
 
 > Apply Gov styled components and formats in shiny
 
 
 ## Overview
 
-This package provide some custom widgets to style your app like gov.uk.  There are a varity of widgets available, inlcuding select, radio, checkboxes as well as styling for headers and footers.
+This package provide some custom widgets to style your app like gov.uk.  There are a variety of widgets available, including select, radio, checkboxes as well as styling for headers and footers.
 
 
-Top view details of gov.uk comnponents please visit https://design-system.service.gov.uk/.  Most components from https://design-system.service.gov.uk/components/ are available to use through this package.
+Top view details of gov.uk components please visit https://design-system.service.gov.uk/.  Most components from https://design-system.service.gov.uk/components/ are available to use through this package.
 
 
 
 Installation :
 ```r
-devtools::install_github("moj-analytical-services/shinyGovstyle")
+install.packages("shinyGovstyle")
 ```
 
-or install via conda with:
+This is also available on conda
+```
+conda install r-shinygovstyle
+```
+
+If you want to make use or the development then
 ```r
-conda install -c rosswyatt r-shinygovstyle
+remotes::install_github("moj-analytical-services/shinyGovstyle")
 ```
 
 To use error and word count elements you will need to load useShinyjs from shinyjs in the ui:
@@ -46,7 +56,15 @@ To use error and word count elements you will need to load useShinyjs from shiny
   - [Insert text](#insert-text)
   - [Details](#details)
   - [Panel](#panel)
+  - [Notification Banner](#notification-banner)
+  - [Accordion](#accordion)
+  - [Table](#table)
+  - [Tabs](#tabs)
+  - [Summary List](#summary-list)
+  - [Cookie Banner](#cookie-banner)
+  - [Tags](#tags)
   - [Error](#error)
+  - [Example Version](#example-version)
 
 ### Gov style layout
 
@@ -119,7 +137,7 @@ checkbox_Input(
   hint_label = "Select all that apply.")
 ```
 
-Note that you currently access the values seperately through the inputIds you supply or all values through the main inputID.
+Note that you currently access the values separately through the inputIds you supply or all values through the main inputID.
 
 ### Button
 
@@ -135,7 +153,7 @@ shinyGovstyle::button_Input(inputId = "btn1", label = "warning", type = "warning
 
 ### Select
 
-Gov style dropdown select  :
+Gov style drop down select  :
 ![select](man/figures/select.png)
 
 ```r
@@ -191,7 +209,7 @@ text_area_Input(
   hint_label = "Do not include personal or financial information, like your National Insurance number or credit card details.")
 ```
 
-You can also add a word count to the options, which requires an addition arguement in the server :
+You can also add a word count to the options, which requires an addition argument in the server :
 ![text_area](man/figures/word_count.png)
 
 ```r
@@ -265,9 +283,175 @@ panel_output(
   sub_text = "Your reference number <br> <strong>HDJ2123F</strong>")
 ```
 
+### Notification Banner
+
+Gov style panel component  :
+![Notification Banner](man/figures/noti_banner.png)
+
+```r
+noti_banner(
+  "notId",
+  title_txt = "Important",
+  body_txt = Example text,
+  type = "standard"
+)
+```
+
+### Accordion
+
+Gov style accordion component :
+![Accordion](man/figures/accordion.png)
+
+```r
+accordion(
+      "acc1",
+      c("Writing well for the web",
+        "Writing well for specialists",
+        "Know your audience",
+        "How people read"
+       ),
+      c("This is the content for Writing well for the web.",
+        "This is the content for Writing well for specialists.",
+        "This is the content for Know your audience.",
+        "This is the content for How people read."
+       ))
+```
+
+### Table
+
+Gov style table component :
+![Table](man/figures/table.png)
+
+```r
+Months <- c("January", "February", "March")
+Bikes <- c("£85", "£75", "£165")
+Cars <- c("£95", "£55", "£125")
+example_data <- data.frame(Months, Bikes, Cars)
+
+shinyGovstyle::govTable(
+      "tab1", example_data, "Test", "l", num_col = c(2,3),
+      width_overwrite = c("one-half", "one-quarter", "one-quarter"))
+```
+
+### Tabs
+
+Gov style tabs component :
+![Tabs](man/figures/tabs.png)
+
+```r
+  # Create an example dataset
+  tabs <- c(rep("Past Day", 3),
+            rep("Past Week", 3),
+            rep("Past Month", 3),
+            rep("Past Year", 3))
+  Case_manager <- rep(c("David Francis", "Paul Farmer", "Rita Patel"),4)
+  Cases_open <- c(3, 1, 2, 24, 16, 24, 98, 122, 126, 1380, 1129, 1539)
+  Cases_closed <- c(0, 0, 0, 18, 20, 27, 95, 131, 142, 1472, 1083, 1265)
+  data <- data.frame(tabs, Case_manager, Cases_open, Cases_closed)
+
+  ui <- fluidPage(
+    shinyGovstyle::header(
+      main_text = "Example",
+      secondary_text = "User Examples",
+      logo="shinyGovstyle/images/moj_logo.png"),
+    shinyGovstyle::gov_layout(size = "two-thirds",
+      shinyGovstyle::govTabs("tabsID", data, "tabs")),
+    shinyGovstyle::footer(full = TRUE)
+  )
+
+  server <- function(input, output, session) {}
+  shinyApp(ui = ui, server = server)
+```
+
+### Summary List
+
+Gov style summary list :
+![Summary List](man/figures/summary.png)
+
+```r
+  # Create an example dataset
+  headers <- c("Name", "Date of birth", "Contact information", "Contact details")
+  info <- c(
+    "Sarah Philips",
+    "5 January 1978",
+    "72 Guild Street <br> London <br> SE23 6FH",
+    "07700 900457 <br> sarah.phillips@example.com")
+
+  ui <- fluidPage(
+    shinyGovstyle::header(
+      main_text = "Example",
+      secondary_text = "User Examples",
+      logo="shinyGovstyle/images/moj_logo.png"),
+    shinyGovstyle::gov_layout(size = "two-thirds",
+      shinyGovstyle::gov_summary("sumID", headers, info, action = TRUE)),
+    shinyGovstyle::footer(full = TRUE)
+  )
+
+  server <- function(input, output, session) {}
+  shinyApp(ui = ui, server = server)
+```
+
+### Cookie Banner
+
+Gov style cookie banner :
+![Cookie Banner](man/figures/cookie.png)
+
+```r
+ui <- fluidPage(
+  shinyGovstyle::header(
+    main_text = "Example",
+    secondary_text = "User Examples",
+    logo="shinyGovstyle/images/moj_logo.png"),
+  #Needs shinyjs to work
+  shinyjs::useShinyjs(),
+  shinyGovstyle::cookieBanner("The best thing"),
+  shinyGovstyle::gov_layout(size = "two-thirds"),
+  shinyGovstyle::footer(full = TRUE)
+)
+
+server <- function(input, output, session) {
+
+  #Need these set of observeEvent to create a path through the cookie banner
+  observeEvent(input$cookieAccept, {
+    shinyjs::show(id = "cookieAcceptDiv")
+    shinyjs::hide(id = "cookieMain")
+  })
+
+  observeEvent(input$cookieReject, {
+    shinyjs::show(id = "cookieRejectDiv")
+    shinyjs::hide(id = "cookieMain")
+  })
+
+  observeEvent(input$hideAccept, {
+    shinyjs::toggle(id = "cookieDiv")
+  })
+
+  observeEvent(input$hideReject, {
+    shinyjs::toggle(id = "cookieDiv")
+  })
+
+  observeEvent(input$cookieLink, {
+    #Need to link here to where further info is located.  You can
+    #updateTabsetPanel to have a cookie page for instance
+  })
+
+}
+shinyApp(ui = ui, server = server)
+```
+
+### Tags
+
+Add a gov style tag component :
+![tags](man/figures/tags.png)
+
+```r
+shinyGovstyle::tag_Input("tag1", "COMPLETE"),
+shinyGovstyle::tag_Input("tag2", "INCOMPLETE", "red")
+```
+
 ### Error
 
-Add errors to copmponents when not filled in correctly.  Most components have an option to add  :
+Add errors to components when not filled in correctly.  Most components have an option to add  :
 ![error](man/figures/error.png)
 
 ```r
@@ -301,3 +485,12 @@ server <- function(input, output, session) {
   )
 }
 ```
+### Example Version
+
+You can run an example dashboard.  This is very rough and will be improved.
+![example](man/figures/example.png)
+
+```r
+run_example()
+```
+

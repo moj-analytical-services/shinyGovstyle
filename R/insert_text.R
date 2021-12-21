@@ -1,8 +1,10 @@
 #' Insert Text Function
 #'
-#' This function loads the insert text component to display additional information in a special format.
+#' This function loads the insert text component to display additional
+#' information in a special format.
 #' @param inputId The input slot that will be used to access the value.
-#' @param text Text that yuu want to display on the insert
+#' @param text Text that you want to display on the insert
+#' @return a insert text html shiny object
 #' @keywords inserttext
 #' @export
 #' @examples
@@ -27,6 +29,8 @@
 #' }
 
 insert_text <- function(inputId, text) {
-  govInsert <- tags$div(HTML(text), id = inputId, class="govuk-inset-text")
+  govInsert <- shiny::tags$div(shiny::HTML(text),
+                               id = inputId,
+                               class="govuk-inset-text")
   attachDependency(govInsert)
 }

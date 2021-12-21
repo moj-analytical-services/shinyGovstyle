@@ -11,7 +11,11 @@ label_hint(inputId, label, hint_input = NULL)
 
 \item{label}{Display label for the control, or \code{NULL} for no label.}
 
-\item{hint_input}{Display hint label for the control, or \code{NULL} for no hint label.}
+\item{hint_input}{Display hint label for the control, or \code{NULL} for
+no hint label.}
+}
+\value{
+a label hint html shiny object
 }
 \description{
 This function inserts a label and optional hint

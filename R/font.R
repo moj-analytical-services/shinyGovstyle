@@ -1,7 +1,10 @@
 #' Font Function
 #'
-#' This function adds rge nta fonts to the app. See https://design-system.service.gov.uk/styles/typography/ for when they are allowed.
+#' This function adds rge nta fonts to the app. See
+#' https://design-system.service.gov.uk/styles/typography/ for when they
+#' are allowed.
 #' @keywords font
+#' @return no value returned.  This loads the font css file
 #' @export
 #' @examples
 #' if (interactive()) {

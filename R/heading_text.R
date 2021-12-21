@@ -3,6 +3,7 @@
 #' This function create a heading text
 #' @param text_input Text to display
 #' @param size Text size using xl, l, m, s.  Defaults to xl.
+#' @return a heading text html shiny object
 #' @keywords heading
 #' @export
 #' @examples
@@ -23,6 +24,7 @@
 #' }
 
 heading_text <- function(text_input, size = "xl"){
-  govHeading <- tags$h1(HTML(text_input), class=paste0("govuk-heading-", size))
+  govHeading <- shiny::tags$h1(shiny::HTML(text_input),
+                               class=paste0("govuk-heading-", size))
   attachDependency(govHeading)
 }

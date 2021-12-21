@@ -13,8 +13,12 @@ banner(inputId, type, label)
 
 \item{label}{test to display.}
 }
+\value{
+a banner html shiny object
+}
 \description{
-This function create a detail component that you can click for further details.
+This function create a detail component that you can click for further
+details.
 }
 \examples{
 if (interactive()) {
@@ -24,7 +28,8 @@ if (interactive()) {
       main_text = "Example",
       secondary_text = "User Examples",
       logo="shinyGovstyle/images/moj_logo.png"),
-    shinyGovstyle::banner(inputId = "banner", type = "beta", 'This is a new service')
+    shinyGovstyle::banner(
+      inputId = "banner", type = "beta", 'This is a new service')
   )
 
   server <- function(input, output, session) {}

@@ -26,11 +26,15 @@ checkbox_Input(
 
 \item{hint_label}{Insert optional hint/secondary text.  Defaults to NULL}
 
-\item{small}{change the sizing to a small version of the checkbox.  Defaults to \code{FALSE}}
+\item{small}{change the sizing to a small version of the checkbox.  Defaults
+to \code{FALSE}}
 
 \item{error}{Whenever you want to include error handle on the component.}
 
 \item{error_message}{If you want a default error message.}
+}
+\value{
+a checkbox html shiny object
 }
 \description{
 This function inserts a checkbox group
@@ -45,7 +49,8 @@ if (interactive()) {
       main_text = "Example",
       secondary_text = "User Examples",
       logo="shinyGovstyle/images/moj_logo.png"),
-    shinyGovstyle::banner(inputId = "banner", type = "beta", 'This is a new service'),
+    shinyGovstyle::banner(
+      inputId = "banner", type = "beta", 'This is a new service'),
     shinyGovstyle::gov_layout(size = "two-thirds",
       # Simple checkbox
       shinyGovstyle::checkbox_Input(

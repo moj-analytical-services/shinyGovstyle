@@ -13,8 +13,12 @@ details(inputId, label, help_text)
 
 \item{help_text}{Additional help information in the component.}
 }
+\value{
+a details box html shiny object
+}
 \description{
-This function create a detail component that you can click for further details.
+This function create a detail component that you can click for further
+details.
 }
 \examples{
 if (interactive()) {
@@ -36,5 +40,5 @@ if (interactive()) {
   shinyApp(ui = ui, server = server)
 }
 }
-\keyword{area}
-\keyword{text}
+\keyword{box}
+\keyword{details}

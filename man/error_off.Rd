@@ -9,8 +9,12 @@ error_off(inputId)
 \arguments{
 \item{inputId}{The inputId to turn error handling iff for on for.}
 }
+\value{
+no return value.  This toggles off error css
+}
 \description{
-This function turns off the the error o the component, once issues have been sorted.
+This function turns off the the error o the component, once issues have
+been sorted.
 }
 \examples{
 ## Only run examples in interactive R sessions
@@ -23,7 +27,8 @@ if (interactive()) {
       main_text = "Example",
       secondary_text = "User Examples",
       logo="shinyGovstyle/images/moj_logo.png"),
-    shinyGovstyle::banner(inputId = "banner", type = "beta", 'This is a new service'),
+    shinyGovstyle::banner(
+      inputId = "banner", type = "beta", 'This is a new service'),
     shinyGovstyle::gov_layout(size = "two-thirds",
       # Error text box
       shinyGovstyle::text_Input(
