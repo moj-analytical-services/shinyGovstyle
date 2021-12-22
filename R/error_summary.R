@@ -6,7 +6,7 @@
 #' @param inputId The input slot that will be used to access the value.
 #' @param error_title The title for the error summary.
 #' @param error_list A list of text values to be displayed in the error body.
-#' @return no return value.  This toggles on error css
+#' @return an error_summary html shiny object
 #' @keywords error_summary
 #' @export
 #' @examples

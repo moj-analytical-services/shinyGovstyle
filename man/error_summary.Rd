@@ -14,7 +14,7 @@ error_summary(inputId, error_title, error_list)
 \item{error_list}{A list of text values to be displayed in the error body.}
 }
 \value{
-no return value.  This toggles on error css
+an error_summary html shiny object
 }
 \description{
 This function loads the error summary component to display error text.
