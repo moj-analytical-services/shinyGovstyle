@@ -1,60 +1,55 @@
 #' Error Summary Function
 #'
-#' This function produces an error summary box as can be seen here:
+#' This function loads the error summary component to display error text.
+#' This replicates the gov style error boxes linked below:
 #' https://design-system.service.gov.uk/components/error-summary/
-#' @param inputId The input id that you to to turn the error on for.
-#' @param error_message if you want to add an additional error message.
-#' Defaults to NULL, showing the original designed error message
+#' @param inputId The input slot that will be used to access the value.
+#' @param error_title The title for the error summary.
+#' @param error_list A list of text values to be displayed in the error body.
 #' @return no return value.  This toggles on error css
-#' @keywords error
+#' @keywords error_summary
 #' @export
 #' @examples
 ## Only run examples in interactive R sessions
 # if (interactive()) {
-  # TODO Remove
-  library(shiny)
-  ui <- fluidPage(
-    shinyGovstyle::header(
-      main_text = "Example",
-      secondary_text = "User Examples",
-      logo="shinyGovstyle/images/moj_logo.png"),
-    shinyGovstyle::gov_layout(size = "two-thirds",
-      shinyGovstyle::error_summary(
-        inputId = ,
-        main_text = "main",
-        failed_pages = "list",
-        fail_msg = "failed msg"
-      )
-    ),
-    shinyGovstyle::footer(full = TRUE)
-  )
-
-  server <- function(input, output, session) {}
-  shinyApp(ui = ui, server = server)
+#   ui <- fluidPage(
+#     shinyGovstyle::header(
+#       main_text = "Example",
+#       secondary_text = "User Examples",
+#       logo = "shinyGovstyle/images/moj_logo.png"
+#     ),
+#     shinyGovstyle::gov_layout(
+#       size = "two-thirds",
+#       myerror(
+#         inputId = "errorId",
+#         error_title = "Error title",
+#         error_list = c("error item1", "error item2")
+#       )
+#     ),
+#     shinyGovstyle::footer(full = TRUE)
+#   )
+#
+#   server <- function(input, output, session) {
+#   }
+#   shinyApp(ui = ui, server = server)
 # }
-  
-error_summary <- function(inputId, main_text = "", failed_pages = "", fail_msg = "") {
-  govErrorSummary <-
-    tags$div(
-      id = inputId,
-      class = "govuk-error-summary",
-      tags$h2(main_text, class = "govuk-error-summary__title"),
-      tags$div(class = "govuk-error-summary__body",
-               tags$ul(class = "govuk-list govuk-error-summary__list",
-                       Map(function(x){
-                         tags$li(x)
-                       }, x = failed_pages)
-               ),
-               tags$p(fail_msg)
+
+error_summary <-
+  function(inputId,
+           error_title,
+           error_list) {
+    govErrorSummary <-
+      shiny::tags$div(
+        id = inputId,
+        class = "govuk-error-summary",
+        shiny::tags$h2(error_title, class = "govuk-error-summary__title"),
+        shiny::tags$div(
+          class = "govuk-error-summary__body",
+          shiny::tags$ul(class = "govuk-list govuk-error-summary__list",
+                         Map(function(x) {
+                           shiny::tags$li(x)
+                         }, x = error_list))
+        )
       )
-    )
-  # version <- as.character(packageVersion("shinyGovstyle")[[1]])
-  # 
-  # dep <- htmltools::htmlDependency(
-  #   name = "stylecss", version = version,
-  #   src = c(href="shinyGovstyle/css"),
-  #   stylesheet = "govuk-frontend-norem.css"
-  # )
-  # htmltools::attachDependencies(govErrorSummary, dep, append = TRUE)
-  attachDependency(govErrorSummary)
-}
+    attachDependency(govErrorSummary)
+  }
