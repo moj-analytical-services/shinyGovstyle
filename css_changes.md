@@ -4,3 +4,10 @@ border: none;
 background: white;
 color: #0b0c0c;
 ```
+
+* add 
+```
+.govuk-link {
+    border:none
+}
+```
