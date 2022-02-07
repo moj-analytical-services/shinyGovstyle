@@ -72,7 +72,7 @@ input_field <- function(legend, labels, inputIds, widths=NULL, types = "text",
         shiny::tags$label(shiny::HTML(x), class="govuk-label"),
         if (error){
           shinyjs::hidden(
-            shiny::tags$span(error_message,
+            shiny::tags$p(error_message,
                       class="govuk-error-message",
                       id= paste0(y, "error"),
                       shiny::tags$span("Error:",

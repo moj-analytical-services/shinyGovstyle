@@ -75,7 +75,7 @@ text_Input <- function(inputId, label, hint_label=NULL, type = "text",
     shiny::tags$div(hint_label ,class="govuk-hint"),
     if (error == TRUE){
       shinyjs::hidden(
-        shiny::tags$span(error_message,
+        shiny::tags$p(error_message,
           class="govuk-error-message",
           id= paste0(inputId, "error"),
           shiny::tags$span("Error:",
