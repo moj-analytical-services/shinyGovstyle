@@ -10,29 +10,29 @@
 #' @keywords error_summary
 #' @export
 #' @examples
-## Only run examples in interactive R sessions
-# if (interactive()) {
-#   ui <- fluidPage(
-#     shinyGovstyle::header(
-#       main_text = "Example",
-#       secondary_text = "User Examples",
-#       logo = "shinyGovstyle/images/moj_logo.png"
-#     ),
-#     shinyGovstyle::gov_layout(
-#       size = "two-thirds",
-#       myerror(
-#         inputId = "errorId",
-#         error_title = "Error title",
-#         error_list = c("error item1", "error item2")
-#       )
-#     ),
-#     shinyGovstyle::footer(full = TRUE)
-#   )
-#
-#   server <- function(input, output, session) {
-#   }
-#   shinyApp(ui = ui, server = server)
-# }
+#'# Only run examples in interactive R sessions
+#' if (interactive()) {
+#'   ui <- fluidPage(
+#'     shinyGovstyle::header(
+#'       main_text = "Example",
+#'       secondary_text = "User Examples",
+#'       logo = "shinyGovstyle/images/moj_logo.png"
+#'     ),
+#'     shinyGovstyle::gov_layout(
+#'       size = "two-thirds",
+#'       error_summary(
+#'         inputId = "errorId",
+#'         error_title = "Error title",
+#'         error_list = c("error item1", "error item2")
+#'       )
+#'     ),
+#'     shinyGovstyle::footer(full = TRUE)
+#'   )
+#'
+#'   server <- function(input, output, session) {
+#'   }
+#'   shinyApp(ui = ui, server = server)
+#' }
 
 error_summary <-
   function(inputId,
@@ -44,6 +44,7 @@ error_summary <-
         class = "govuk-error-summary",
         shiny::tags$h2(error_title, class = "govuk-error-summary__title"),
         shiny::tags$div(
+          id = paste0(inputId, "list"),
           class = "govuk-error-summary__body",
           shiny::tags$ul(class = "govuk-list govuk-error-summary__list",
                          Map(function(x) {
