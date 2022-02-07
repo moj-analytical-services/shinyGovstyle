@@ -13,6 +13,6 @@ test_that("accordion works", {
             "This is the content for How people read."
            ))
 
-  expect_equal(length(accordion_check$children[[1]]), 4)
+  expect_equal(length(accordion_check$children[[2]]), 4)
 
 })
