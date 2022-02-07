@@ -54,7 +54,9 @@ accordion <- function(inputId, titles, descriptions){
           class = "govuk-accordion__show-all",
           `aria-expanded` = "false",
           shiny::tags$span(
-            class="govuk-accordion-nav__chevron govuk-accordion-nav__chevron--down",
+            class=paste(
+              "govuk-accordion-nav__chevron",
+              "govuk-accordion-nav__chevron--down"),
           ),
           shiny::tags$span(
             class = "govuk-accordion__show-all-text",
@@ -81,14 +83,18 @@ accordion <- function(inputId, titles, descriptions){
                   )
                 ),
                 shiny::tags$span(
-                  class = "govuk-visually-hidden govuk-accordion__section-heading-divider"
+                  class = paste(
+                    "govuk-visually-hidden",
+                    "govuk-accordion__section-heading-divider")
                 ),
                 shiny::tags$span(
                   class = "govuk-accordion__section-toggle",
                   shiny::tags$span(
                     class = "govuk-accordion__section-toggle-focus",
                     shiny::tags$span(
-                      class = "govuk-accordion-nav__chevron govuk-accordion-nav__chevron--down"
+                      class = paste(
+                        "govuk-accordion-nav__chevron",
+                        "govuk-accordion-nav__chevron--down")
                     ),
                     shiny::tags$span(
                       class = "govuk-accordion__section-toggle-text",
