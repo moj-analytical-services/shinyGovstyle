@@ -99,7 +99,7 @@ file_Input <- function(inputId, label, multiple = FALSE, accept = NULL,
       shiny::tags$label(label, class="govuk-label"),
       if (error == TRUE){
         shinyjs::hidden(
-          shiny::tags$span(error_message,
+          shiny::tags$p(error_message,
             class="govuk-error-message",
             id= paste0(inputId, "error"),
             shiny::tags$span("Error:", class="govuk-visually-hidden")

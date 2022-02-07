@@ -31,7 +31,7 @@
 label_hint <- function(inputId, label, hint_input = NULL){
   govLabel <- shiny::tags$div(class="govuk-form-group", id = inputId,
     shiny::tags$label(shiny::HTML(label), class="govuk-label"),
-    shiny::tags$span(hint_input, class="govuk-hint")
+    shiny::tags$div(hint_input, class="govuk-hint")
   )
   attachDependency(govLabel)
 }

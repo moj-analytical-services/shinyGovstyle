@@ -65,7 +65,7 @@ date_Input <- function(inputId, label, hint_label = NULL,
       shiny::tags$label(shiny::HTML(label), class="govuk-label"),
       if (error == TRUE){
         shinyjs::hidden(
-          shiny::tags$span(
+          shiny::tags$p(
             error_message,
             id = paste0(inputId,"error"),
             class = "govuk-error-message",
@@ -73,7 +73,7 @@ date_Input <- function(inputId, label, hint_label = NULL,
           )
         )
       },
-      shiny::tags$span(hint_label, class="govuk-hint"),
+      shiny::tags$div(hint_label, class="govuk-hint"),
         shiny::tags$div(class="govuk-date-input", id = inputId,
           shiny::tags$div(class="govuk-date-input__item",
             shiny::tags$div(class="govuk-form-group",
