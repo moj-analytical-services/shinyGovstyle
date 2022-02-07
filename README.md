@@ -11,10 +11,10 @@
 
 ## Overview
 
-This package provide some custom widgets to style your app like gov.uk.  There are a variety of widgets available, including select, radio, checkboxes as well as styling for headers and footers.
+This package provides some custom widgets to style your app like gov.uk.  There are a variety of widgets available, including select, radio, checkboxes as well as styling for headers and footers.
 
 
-Top view details of gov.uk components please visit https://design-system.service.gov.uk/.  Most components from https://design-system.service.gov.uk/components/ are available to use through this package.
+To view details of gov.uk components please visit https://design-system.service.gov.uk/.  Most components from https://design-system.service.gov.uk/components/ are available to use through this package.
 
 
 
@@ -28,12 +28,12 @@ This is also available on conda
 conda install r-shinygovstyle
 ```
 
-If you want to make use or the development then
+If you want to make use of the development then
 ```r
 remotes::install_github("moj-analytical-services/shinyGovstyle")
 ```
 
-To use error and word count elements you will need to load useShinyjs from shinyjs in the ui:
+To use error and word count elements you will need to load useShinyjs from shinyjs in the UI:
 ```r
   shinyjs::useShinyjs()
 ```
@@ -175,7 +175,7 @@ date_Input(
   label = "What is your date of birth?",
   hint_label = "For example, 31 3 1980")
 ```
-Note that you currently access the individual values by adding a affix of _day, _month and _year or the full date in dd/mm/yy by using the inputID.
+Note that you currently access the individual values by adding an affix of _day, _month and _year or the full date in dd/mm/yy by using the inputID.
 
 
 ### File input
@@ -209,7 +209,7 @@ text_area_Input(
   hint_label = "Do not include personal or financial information, like your National Insurance number or credit card details.")
 ```
 
-You can also add a word count to the options, which requires an addition argument in the server :
+You can also add a word count to the options, which requires an additional argument in the server :
 ![text_area](man/figures/word_count.png)
 
 ```r
