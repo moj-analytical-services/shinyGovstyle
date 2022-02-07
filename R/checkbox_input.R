@@ -76,7 +76,7 @@ checkbox_Input <- function(inputId, cb_labels, checkboxIds, label,
     shiny::tags$div(class="govuk-form-group", id=paste0(inputId,"div"),
     shiny::tags$fieldset(class="govuk-fieldset",
       shiny::tags$label(label, class="govuk-label"),
-      shiny::tags$span(hint_label, class="govuk-hint"),
+      shiny::tags$div(hint_label, class="govuk-hint"),
       if (error == TRUE){
         shinyjs::hidden(
           shiny::tags$span(error_message,

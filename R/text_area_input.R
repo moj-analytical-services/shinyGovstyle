@@ -23,7 +23,7 @@ text_area_Input <- function(inputId, label, hint_label=NULL, row_no=5,
   govTextarea <- shiny::tags$div(class="govuk-form-group govuk-character-count",
                                  id=paste0(inputId,"div"),
     shiny::tags$label(shiny::HTML(label), class="govuk-label"),
-    shiny::tags$span(hint_label ,class="govuk-hint"),
+    shiny::tags$div(hint_label ,class="govuk-hint"),
     if (error == TRUE){
       shinyjs::hidden(
         shiny::tags$span(error_message,

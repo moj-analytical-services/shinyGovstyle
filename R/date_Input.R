@@ -73,7 +73,7 @@ date_Input <- function(inputId, label, hint_label = NULL,
           )
         )
       },
-      shiny::tags$span(hint_label, class="govuk-hint"),
+      shiny::tags$div(hint_label, class="govuk-hint"),
         shiny::tags$div(class="govuk-date-input", id = inputId,
           shiny::tags$div(class="govuk-date-input__item",
             shiny::tags$div(class="govuk-form-group",

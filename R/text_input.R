@@ -72,7 +72,7 @@ text_Input <- function(inputId, label, hint_label=NULL, type = "text",
   }
   govText <- shiny::tags$div(class="govuk-form-group", id=paste0(inputId,"div"),
     shiny::tags$label(shiny::HTML(label), class="govuk-label"),
-    shiny::tags$span(hint_label ,class="govuk-hint"),
+    shiny::tags$div(hint_label ,class="govuk-hint"),
     if (error == TRUE){
       shinyjs::hidden(
         shiny::tags$span(error_message,
