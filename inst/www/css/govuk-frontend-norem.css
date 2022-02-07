@@ -1293,9 +1293,9 @@
     box-sizing: border-box;
     display: inline-block;
     position: relative;
-    width: 1.25norem;
-    height: 1.25norem;
-    border: .0625norem solid;
+    width: 20px;
+    height: 20px;
+    border: 1px solid;
     border-radius: 50%;
     vertical-align: middle
 }
@@ -1305,15 +1305,15 @@
     box-sizing: border-box;
     display: block;
     position: absolute;
-    bottom: .3125norem;
-    left: .375norem;
-    width: .375norem;
-    height: .375norem;
+    bottom: 5px;
+    left: 6px;
+    width: 6px;
+    height: 6px;
     -webkit-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
-    border-top: .125norem solid;
-    border-right: .125norem solid
+    border-top: 2px solid;
+    border-right: 2px solid
 }
 
 .js-enabled .govuk-accordion-nav__chevron--down {
@@ -1411,7 +1411,8 @@
 .js-enabled .govuk-accordion__section-summary,
 .js-enabled .govuk-accordion__section-toggle {
     display: block;
-    margin-bottom: 13px
+    margin-bottom: 13px;
+    pointer-events: none;
 }
 
 .js-enabled .govuk-accordion__section-heading-text .govuk-accordion__section-heading-text-focus,
