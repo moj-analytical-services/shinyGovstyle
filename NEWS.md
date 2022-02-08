@@ -2,8 +2,11 @@
 
 * Update the css to v4.0.0 and made fixes associated with that.
 * One of the major changes in the css is a change in look for the accordion.
+* Added new functions `gov_main_layout`, `gov_row`, `gov_box` and `gov_text` to 
+give better control over the layouts.
 * Added tabs as a component using the `govTab` command
 * Added summary list as a component using the `gov_summary` command
+
 
 # shinyGovstyle 0.0.7
 
