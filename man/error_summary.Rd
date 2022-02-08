@@ -22,9 +22,9 @@ This replicates the gov style error boxes linked below:
 https://design-system.service.gov.uk/components/error-summary/
 }
 \examples{
-# Only run examples in interactive R sessions
 if (interactive()) {
   ui <- fluidPage(
+    shinyjs::useShinyjs(),
     shinyGovstyle::header(
       main_text = "Example",
       secondary_text = "User Examples",
@@ -38,10 +38,19 @@ if (interactive()) {
         error_list = c("error item1", "error item2")
       )
     ),
+    shinyGovstyle::button_Input("btn1", "Change error summary"),
     shinyGovstyle::footer(full = TRUE)
   )
 
   server <- function(input, output, session) {
+
+    shiny::observeEvent(input$btn1, {
+      error_summary_update(
+        "errorId",
+        c("error item1", "error item2", "error item3")
+      )},
+      ignoreInit = TRUE
+    )
   }
   shinyApp(ui = ui, server = server)
 }

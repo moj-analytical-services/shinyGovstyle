@@ -20,7 +20,6 @@ This function changes the text that displays in the error summary box.
 Requires shinyjs::useShinyjs() to work.
 }
 \examples{
-# Only run examples in interactive R sessions
 if (interactive()) {
   ui <- fluidPage(
     shinyjs::useShinyjs(),

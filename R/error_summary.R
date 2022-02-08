@@ -10,7 +10,6 @@
 #' @keywords error_summary
 #' @export
 #' @examples
-#'# Only run examples in interactive R sessions
 #' if (interactive()) {
 #'   ui <- fluidPage(
 #'     shinyjs::useShinyjs(),
@@ -43,6 +42,7 @@
 #'   }
 #'   shinyApp(ui = ui, server = server)
 #' }
+
 error_summary <-
   function(inputId,
            error_title,

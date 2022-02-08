@@ -1,9 +1,9 @@
 #' Page Layout Functions
 #'
 #' These function loads the page layout in a gov layout.  There is a selection
-#' of components that can sit within each other.  The `gov_main_layout` is the
-#' overarching layout.  The `gov_row` creates a each row and `gov_box` creates
-#' a box within the row.  The `gov_text` is a container for text bodies.
+#' of components that can sit within each other.  The gov_main_layout is the
+#' overarching layout.  The gov_row creates a each row and gov_box creates
+#' a box within the row.  The gov_text is a container for text bodies.
 #' @name layouts
 #' @param inputID ID of the main div.  Defaults to "main"
 #' @param size size of the box in the row.  Optional are full, one-half,
