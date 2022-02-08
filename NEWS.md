@@ -6,6 +6,8 @@
 give better control over the layouts.
 * Added tabs as a component using the `govTab` command
 * Added summary list as a component using the `gov_summary` command
+* Added error summary component (`error_summary`) and error summary 
+update (`error_summary_update`)
 
 
 # shinyGovstyle 0.0.7
