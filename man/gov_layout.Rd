@@ -19,7 +19,9 @@ one-third and one-quarter.  Defaults to "full"}
 a html shiny layout div
 }
 \description{
-This function loads the page layout
+This function loads the page layout, This doesn't work as well as
+the `gov_main_layout` and associated functions.  This is being kept for now
+as a simpler version where grids are not needed.
 }
 \examples{
 if (interactive()) {
