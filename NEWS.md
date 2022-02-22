@@ -1,4 +1,4 @@
-# shinyGovstyle (Development)
+# shinyGovstyle 0.0.8
 
 * Update the css to v4.0.0 and made fixes associated with that.
 * One of the major changes in the css is a change in look for the accordion.
