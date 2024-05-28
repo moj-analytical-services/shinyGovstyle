@@ -17,7 +17,7 @@ run_example <- function(){
              logo="shinyGovstyle/images/moj_logo-1.png", logo_width = 66),
       banner(
         "banner",
-        "beta",
+        "Beta",
         'This is a new service \u002D your <a class="govuk-link" href="#">
         feedback</a> will help us to improve it.'),
 
