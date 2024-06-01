@@ -2,3 +2,7 @@
 ^\.Rproj\.user$
 ^cran-comments\.md$
 ^css_changes\.md$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$
