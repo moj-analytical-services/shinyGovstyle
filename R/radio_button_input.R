@@ -109,8 +109,17 @@ radio_button_Input <- function (inputId, label, choices = NULL,
 }
 
 controlLabel2 <- function(controlName, label) {
-  label %AND% htmltools::tags$label(class = "govuk-label",
-                                    `for` = controlName, label)
+  if (inline){
+    label %AND% htmltools::tags$label(
+      class = "govuk-label--inline",
+      `for` = controlName, label
+      )
+  } else {
+    label %AND% htmltools::tags$label(
+      class = "govuk-label",
+      `for` = controlName, label
+    )
+  }
 }
 
 generateOptions2 <- function (inputId, selected, inline, small,
