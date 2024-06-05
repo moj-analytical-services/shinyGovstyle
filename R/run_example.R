@@ -124,10 +124,22 @@ run_example <- function(){
             label_hint("label3", "These are some examples of the types of user
                    feedback inputs that you can use"),
             heading_text("tag_Input", size = "s"),
-            tag_Input("tag1", "NAVY"),
-            tag_Input("tag2", "RED", "red"),
-            tag_Input("tag3", "BLUE", "blue"),
-            tag_Input("tag4", "YELLOW", "yellow"),
+
+            shinyGovstyle::tag_Input("tag1", "Default"),
+            shinyGovstyle::tag_Input("tag1", "Grey", "grey"),
+            shinyGovstyle::tag_Input("tag1", "Green", "green"),
+            shinyGovstyle::tag_Input("tag1", "Turquoise", "turquoise"),
+            shinyGovstyle::tag_Input("tag1", "Blue", "blue"),
+            shinyGovstyle::tag_Input("tag1", "Light-blue", "light-blue"),
+            shinyGovstyle::tag_Input("tag1", "Purple", "purple"),
+            shinyGovstyle::tag_Input("tag1", "Pink", "pink"),
+            shinyGovstyle::tag_Input("tag1", "Red", "red"),
+            shinyGovstyle::tag_Input("tag1", "Orange", "orange"),
+            shinyGovstyle::tag_Input("tag1", "Yellow", "yellow"),
+            shinyGovstyle::tag_Input("tag1", "Incorrect colour", "violet"),
+
+
+
             shiny::tags$br(), shiny::tags$br(),
             heading_text("details", size = "s"),
             details(
