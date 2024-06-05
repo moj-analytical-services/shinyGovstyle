@@ -16,8 +16,8 @@
 #'       secondary_text = "User Examples",
 #'       logo="shinyGovstyle/images/moj_logo.png"),
 #'     shinyGovstyle::gov_layout(size = "two-thirds",
-#'       shinyGovstyle::tag_Input("tag1", "COMPLETE"),
-#'       shinyGovstyle::tag_Input("tag2", "INCOMPLETE", "red")),
+#'       shinyGovstyle::tag_Input("tag1", "Complete"),
+#'       shinyGovstyle::tag_Input("tag2", "Incomplete", "red")),
 #'     shinyGovstyle::footer(full = TRUE)
 #'   )
 #'
