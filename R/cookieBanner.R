@@ -53,14 +53,10 @@
 
 cookieBanner <- function(service_name) {
 
-  value <- shiny::restoreInput(id = "cookieLink", default = NULL)
   govCookieLink <- shiny::actionLink(
     inputId = "cookieLink",
     label = "View cookies",
-    class = "govuk-link",
-    `data-val` = value)
-
-  attachDependency(govCookieLink)
+    class = "govuk-link")
 
   cookieBanner_Input <-
     shiny::tags$div(
