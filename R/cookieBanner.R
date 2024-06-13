@@ -43,7 +43,7 @@
 #'   })
 #'
 #'   observeEvent(input$cookieLink, {
-#'     #Need to link here to where further info is located.  You can you
+#'     #Need to link here to where further info is located.  You can use
 #'     #updateTabsetPanel to have a cookie page for instance
 #'   })
 #'
@@ -54,11 +54,10 @@
 cookieBanner <- function(service_name) {
 
   value <- shiny::restoreInput(id = "cookieLink", default = NULL)
-  govCookieLink <- shiny::tags$button(
-    "View cookies",
-    id = "cookieLink",
-    class = paste0("govuk-link", " action-button"),
-    `data-val` = value)
+  govCookieLink <- shiny::actionLink(
+    inputId = "cookieLink",
+    label = "View cookies",
+    class = "govuk-link")
 
   attachDependency(govCookieLink)
 
