@@ -24,7 +24,7 @@ color: #0b0c0c;
 ```
 
 * Move fonts css to the font css
-*Change url links
+* Change url links
 
 * For accordion need to fix the norem by:
 ```
@@ -44,5 +44,28 @@ color: #0b0c0c;
 
 .js-enabled .govuk-accordion__section-toggle {
   pointer-events: none;
+}
+```
+
+* Change filepaths for crown copyright logo:
+```
+.govuk-footer__copyright-logo {
+    display: inline-block;
+    min-width: 125px;
+    padding-top: 112px;
+    background-image: url(../images/govuk-crest.png);
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: 125px 102px;
+    text-align: center;
+    white-space: nowrap
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio:2),
+only screen and (min-resolution:192dpi),
+only screen and (min-resolution:2dppx) {
+    .govuk-footer__copyright-logo {
+        background-image: url(../images/govuk-crest-2x.png)
+    }
 }
 ```

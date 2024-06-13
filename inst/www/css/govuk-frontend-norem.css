@@ -3516,7 +3516,7 @@ screen and (forced-colors:active) {
     display: inline-block;
     min-width: 125px;
     padding-top: 112px;
-    background-image: url(/assets/images/govuk-crest.png);
+    background-image: url(../images/govuk-crest.png);
     background-repeat: no-repeat;
     background-position: 50% 0;
     background-size: 125px 102px;
@@ -3528,7 +3528,7 @@ screen and (forced-colors:active) {
 only screen and (min-resolution:192dpi),
 only screen and (min-resolution:2dppx) {
     .govuk-footer__copyright-logo {
-        background-image: url(/assets/images/govuk-crest-2x.png)
+        background-image: url(../images/govuk-crest-2x.png)
     }
 }
 
