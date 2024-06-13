@@ -57,7 +57,8 @@ cookieBanner <- function(service_name) {
   govCookieLink <- shiny::actionLink(
     inputId = "cookieLink",
     label = "View cookies",
-    class = "govuk-link")
+    class = "govuk-link",
+    `data-val` = value)
 
   attachDependency(govCookieLink)
 
