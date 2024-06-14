@@ -69,3 +69,11 @@ only screen and (min-resolution:2dppx) {
     }
 }
 ```
+
+* Add script for centred govuk-labels on radio buttons
+
+```
+.govuk-label--inline {
+    text-align: center;
+}
+```
