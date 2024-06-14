@@ -111,7 +111,7 @@ radio_button_Input <- function (inputId, label, choices = NULL,
 controlLabel2 <- function(controlName, label, inline = FALSE) {
   if (inline){
     label %AND% htmltools::tags$label(
-      class = ".govuk-label--inline",
+      class = "govuk-label--inline",
       `for` = controlName, label
       )
   } else {
