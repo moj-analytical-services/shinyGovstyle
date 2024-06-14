@@ -2247,17 +2247,7 @@
 }
 
 .govuk-label--inline {
-    font-family: GDS Transport, arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-weight: 400;
-    font-size: 16px;
-    font-size: 1norem;
-    line-height: 1.25;
-    color: #4f0f4f;
-    display: inline;
     text-align: center;
-    margin-bottom: 5px
 }
 
 
