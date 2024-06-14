@@ -91,7 +91,7 @@ radio_button_Input <- function (inputId, label, choices = NULL,
   divClass <- paste("govuk-form-group govuk-radios", custom_class)
   govRadio <- shiny::tags$div(id = inputId, class = divClass,
     shiny::tags$div(class="govuk-form-group", id=paste0(inputId,"div"),
-    controlLabel2(inputId, label),
+    controlLabel2(inputId, label, inline = inline),
     shiny::tags$div(hint_label ,class="govuk-hint"),
     if (error == TRUE){
       shinyjs::hidden(
@@ -108,7 +108,7 @@ radio_button_Input <- function (inputId, label, choices = NULL,
   attachDependency(govRadio, "radio")
 }
 
-controlLabel2 <- function(controlName, label) {
+controlLabel2 <- function(controlName, label, inline = FALSE) {
   if (inline){
     label %AND% htmltools::tags$label(
       class = "govuk-label--inline",
