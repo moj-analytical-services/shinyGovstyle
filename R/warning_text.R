@@ -31,7 +31,7 @@ warning_text <- function(inputId, text){
       "!", class="govuk-warning-text__icon", `aria-hidden`="true"
     ),
     shiny::tags$strong(text, class="govuk-warning-text__text",
-      shiny::tags$span("Warning", class="govuk-warning-text__assistive")
+      shiny::tags$span("Warning", class="govuk-visually-hidden")
     )
   )
   attachDependency(govWarning)
