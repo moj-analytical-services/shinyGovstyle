@@ -126,17 +126,17 @@ run_example <- function(){
             heading_text("tag_Input", size = "s"),
 
             shinyGovstyle::tag_Input("tag1", "Default"),
-            shinyGovstyle::tag_Input("tag1", "Grey", "grey"),
-            shinyGovstyle::tag_Input("tag1", "Green", "green"),
-            shinyGovstyle::tag_Input("tag1", "Turquoise", "turquoise"),
-            shinyGovstyle::tag_Input("tag1", "Blue", "blue"),
-            shinyGovstyle::tag_Input("tag1", "Light-blue", "light-blue"),
-            shinyGovstyle::tag_Input("tag1", "Purple", "purple"),
-            shinyGovstyle::tag_Input("tag1", "Pink", "pink"),
-            shinyGovstyle::tag_Input("tag1", "Red", "red"),
-            shinyGovstyle::tag_Input("tag1", "Orange", "orange"),
-            shinyGovstyle::tag_Input("tag1", "Yellow", "yellow"),
-            shinyGovstyle::tag_Input("tag1", "Incorrect colour", "violet"),
+            shinyGovstyle::tag_Input("tag2", "Grey", "grey"),
+            shinyGovstyle::tag_Input("tag3", "Green", "green"),
+            shinyGovstyle::tag_Input("tag4", "Turquoise", "turquoise"),
+            shinyGovstyle::tag_Input("tag5", "Blue", "blue"),
+            shinyGovstyle::tag_Input("tag6", "Light-blue", "light-blue"),
+            shinyGovstyle::tag_Input("tag7", "Purple", "purple"),
+            shinyGovstyle::tag_Input("tag8", "Pink", "pink"),
+            shinyGovstyle::tag_Input("tag9", "Red", "red"),
+            shinyGovstyle::tag_Input("tag10", "Orange", "orange"),
+            shinyGovstyle::tag_Input("tag11", "Yellow", "yellow"),
+            shinyGovstyle::tag_Input("tag12", "Incorrect colour", "violet"),
 
 
 
