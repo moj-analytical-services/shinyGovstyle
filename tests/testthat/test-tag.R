@@ -3,7 +3,7 @@ test_that("tag works", {
   tag_check <- shinyGovstyle::tag_Input("tag1", "Complete")
   expect_identical(
     tag_check$children[[1]],
-    "COMPLETE"
+    "Complete"
   )
 
   expect_identical(
