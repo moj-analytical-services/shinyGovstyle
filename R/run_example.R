@@ -136,7 +136,6 @@ run_example <- function(){
             shinyGovstyle::tag_Input("tag9", "Red", "red"),
             shinyGovstyle::tag_Input("tag10", "Orange", "orange"),
             shinyGovstyle::tag_Input("tag11", "Yellow", "yellow"),
-            shinyGovstyle::tag_Input("tag12", "Incorrect colour", "violet"),
 
 
 
