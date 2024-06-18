@@ -169,7 +169,21 @@ run_example <- function(){
               title_txt = "Important",
               body_txt = "You have 7 days left to send your application.",
               type = "standard"
-            )
+            ),
+            heading_text("gov_summary", size = "s"),
+            shinyGovstyle::gov_summary(
+              "sumID",
+              c("Name", "Date of birth", "Contact information", "Contact details"),
+              c(
+                "Sarah Philips",
+                "5 January 1978",
+                "72 Guild Street <br> London <br> SE23 6FH",
+                "07700 900457 <br> sarah.phillips@example.com"
+              ),
+              action = FALSE
+            ),
+
+
           )
         ),
 
