@@ -69,3 +69,25 @@ only screen and (min-resolution:2dppx) {
     }
 }
 ```
+
+* Fix alignment on the radio button item labels
+```
+.govuk-radios__input {
+    z-index: 1;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    opacity: 0;
+    vertical-align: middle;
+    cursor: pointer
+}
+
+.govuk-radios__label {
+    align-self: center;
+    max-width: calc(100% - 74px);
+    display: inline-block;
+    padding: 7px 15px;
+    cursor: pointer;
+    touch-action: manipulation
+}
+```
