@@ -4850,7 +4850,7 @@ only screen and (min-resolution:2dppx) {
     align-self: center;
     max-width: calc(100% - 74px);
     display: inline-block;
-    padding: 8px 15px 5px;
+    padding: 7px 15px;
     cursor: pointer;
     touch-action: manipulation
 }
