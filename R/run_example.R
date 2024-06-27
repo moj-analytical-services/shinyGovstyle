@@ -45,10 +45,16 @@ run_example <- function(){
             heading_text("Page 1", size = "l"),
             label_hint("label1", "These are some examples of the types of user
                    select type inputs that you can use"),
-            heading_text("radio_button_Input", size = "s"),
+            heading_text("radio_button_Input (inline)", size = "s"),
             radio_button_Input(
               inputId = "name_changed", label = "Have you changed your name?",
               choices = c("Yes", "No"), inline = TRUE,
+              hint_label = "This includes changing your last name or spelling
+                            your name differently."),
+            heading_text("radio_button_Input (stacked)", size = "s"),
+            radio_button_Input(
+              inputId = "name_changed", label = "Have you changed your name?",
+              choices = c("Yes", "No"), inline = FALSE,
               hint_label = "This includes changing your last name or spelling
                             your name differently."),
             heading_text("checkbox_Input", size = "s"),
