@@ -107,17 +107,7 @@ file_Input <- function(inputId, label, multiple = FALSE, accept = NULL,
         )
       },
 
-      shiny::div(id = paste0(inputId,"file_div"), class = "input-group",
-          shiny::tags$label(class = "input-group-btn",
-                     shiny::span(class = "btn btn-default btn-file",
-                          buttonLabel,
-                          inputTag
-                     )
-          ),
-          shiny::tags$input(type = "text", class = "form-control",
-                     placeholder = placeholder, readonly = "readonly"
-          )
-      )
+      shiny::tags$input(class = "govuk-file-upload", id = inputId, type = "file")
   )
   attachDependency(govFile)
 }

@@ -3305,11 +3305,12 @@ screen and (forced-colors:active) {
     -moz-osx-font-smoothing: grayscale;
     font-weight: 400;
     font-size: 1rem;
-    line-height: 1.25;
+    line-height: 1.25 !important;
     color: #0b0c0c;
     max-width: 100%;
     margin-left: -5px;
-    padding: 5px
+    padding: 6px !important;
+    font-size: 14pt;
 }
 
 @media print {
@@ -3340,13 +3341,13 @@ screen and (forced-colors:active) {
 }
 
 .govuk-file-upload:focus {
-    outline: 3px solid #fd0;
-    box-shadow: inset 0 0 0 4px #0b0c0c
+    outline: 3px solid #fd0 !important;
+    box-shadow: inset 0 0 0 5px #0b0c0c !important
 }
 
 .govuk-file-upload:focus-within {
-    outline: 3px solid #fd0;
-    box-shadow: inset 0 0 0 4px #0b0c0c
+    outline: 3px solid #fd0 !important;
+    box-shadow: inset 0 0 0 5px #0b0c0c !important
 }
 
 .govuk-file-upload:disabled {
