@@ -4842,13 +4842,14 @@ only screen and (min-resolution:2dppx) {
     height: 44px;
     margin: 0;
     opacity: 0;
+    vertical-align: middle;
     cursor: pointer
 }
 
 .govuk-radios__label {
     align-self: center;
     max-width: calc(100% - 74px);
-    margin-bottom: 0;
+    display: inline-block;
     padding: 7px 15px;
     cursor: pointer;
     touch-action: manipulation
