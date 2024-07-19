@@ -9,6 +9,19 @@
 #' run_example()
 #'}
 run_example <- function(){
+  Months <- c("January", "February", "March")
+  Bikes <- c("£85", "£75", "£165")
+  Cars <- c("£95", "£55", "£125")
+  example_data <- data.frame(Months, Bikes, Cars)
+  tabs <- c(rep("Past Day", 3),
+            rep("Past Week", 3),
+            rep("Past Month", 3),
+            rep("Past Year", 3))
+  Case_manager <- rep(c("David Francis", "Paul Farmer", "Rita Patel"),4)
+  Cases_open <- c(3, 1, 2, 24, 16, 24, 98, 122, 126, 1380, 1129, 1539)
+  Cases_closed <- c(0, 0, 0, 18, 20, 27, 95, 131, 142, 1472, 1083, 1265)
+  data <- data.frame(tabs, Case_manager, Cases_open, Cases_closed)
+
   shiny::shinyApp(
     ui = shiny::fluidPage(
       title="ShinyGovstyle",
@@ -116,6 +129,25 @@ run_example <- function(){
             heading_text("button_Input", size = "s"),
             button_Input("btn2", "Go to next page"),
             button_Input("btn3", "Check for errors", type = "warning")
+          )
+        ),
+
+        #####################Create third panel################################
+        shiny::tabPanel(
+          "Table",
+          value = "panel3",
+          gov_layout(
+            size = "two-thirds",
+            backlink_Input("back1"),
+            heading_text("Page 3", size = "l"),
+            label_hint("label3", "These are some examples of the types of user
+                   text inputs that you can use"),
+            heading_text("govTable", size = "s"),
+            shinyGovstyle::govTable(
+              "tab1", example_data, "Test", "l", num_col = c(2,3),
+              width_overwrite = c("one-half", "one-quarter", "one-quarter")),
+            heading_text("govTabs", size = "s"),
+            shinyGovstyle::govTabs("tabsID", data, "tabs")
           )
         ),
 
