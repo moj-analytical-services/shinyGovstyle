@@ -134,7 +134,7 @@ run_example <- function(){
 
         #####################Create third panel################################
         shiny::tabPanel(
-          "Table",
+          "Tables and tabs",
           value = "panel3",
           gov_layout(
             size = "two-thirds",
