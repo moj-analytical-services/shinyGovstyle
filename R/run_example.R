@@ -140,8 +140,8 @@ run_example <- function(){
             size = "two-thirds",
             backlink_Input("back1"),
             heading_text("Page 3", size = "l"),
-            label_hint("label3", "These are some examples of the types of user
-                   text inputs that you can use"),
+            label_hint("label3", "These are some examples of using tabs and
+                       tables"),
             heading_text("govTable", size = "s"),
             shinyGovstyle::govTable(
               "tab1", example_data, "Test", "l", num_col = c(2,3),
@@ -151,15 +151,15 @@ run_example <- function(){
           )
         ),
 
-        #####################Create third panel################################
+        #####################Create feedback panel################################
         shiny::tabPanel(
           "Feedback Types",
-          value = "panel3",
+          value = "panel-feedback",
           gov_layout(
             size = "two-thirds",
             backlink_Input("back2"),
-            heading_text("Page 3", size = "l"),
-            label_hint("label3", "These are some examples of the types of user
+            heading_text("Feedback page", size = "l"),
+            label_hint("label-feedback", "These are some examples of the types of user
                    feedback inputs that you can use"),
             heading_text("tag_Input", size = "s"),
 
@@ -225,14 +225,14 @@ run_example <- function(){
           )
         ),
 
-        #####################Create fourth panel################################
+        #####################Create cookie panel################################
         shiny::tabPanel(
           "Cookies",
-          value = "panel4",
+          value = "panel-cookies",
           gov_layout(
             size = "two-thirds",
-            heading_text("Page 3", size = "l"),
-            label_hint("label3", "This an example cookie page that could be
+            heading_text("Cookie page", size = "l"),
+            label_hint("label-cookies", "This an example cookie page that could be
                        expanded")
           )
         )),
