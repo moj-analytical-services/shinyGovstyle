@@ -5650,7 +5650,8 @@ screen and (-ms-high-contrast:active) {
 .govuk-table__caption {
     font-weight: 700;
     display: table-caption;
-    text-align: left
+    text-align: left;
+    color: #000;
 }
 
 .govuk-table__caption--l,
