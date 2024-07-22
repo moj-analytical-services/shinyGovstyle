@@ -10,8 +10,8 @@
 #'}
 run_example <- function(){
   Months <- c("January", "February", "March")
-  Bikes <- c("£85", "£75", "£165")
-  Cars <- c("£95", "£55", "£125")
+  Bikes <- c(85, 75, 165)
+  Cars <- c(95, 55, 125)
   example_data <- data.frame(Months, Bikes, Cars)
   tabs <- c(rep("Past Day", 3),
             rep("Past Week", 3),
