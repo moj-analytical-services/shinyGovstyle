@@ -138,7 +138,7 @@ run_example <- function(){
           value = "panel3",
           gov_layout(
             size = "two-thirds",
-            backlink_Input("back1"),
+            backlink_Input("back2"),
             heading_text("Page 3", size = "l"),
             label_hint("label3", "These are some examples of using tabs and
                        tables"),
@@ -147,7 +147,9 @@ run_example <- function(){
               "tab1", example_data, "Test", "l", num_col = c(2,3),
               width_overwrite = c("one-half", "one-quarter", "one-quarter")),
             heading_text("govTabs", size = "s"),
-            shinyGovstyle::govTabs("tabsID", data, "tabs")
+            shinyGovstyle::govTabs("tabsID", data, "tabs"),
+            heading_text("button_Input", size = "s"),
+            button_Input("btn4", "Go to next page"),
           )
         ),
 
@@ -157,7 +159,7 @@ run_example <- function(){
           value = "panel-feedback",
           gov_layout(
             size = "two-thirds",
-            backlink_Input("back2"),
+            backlink_Input("back3"),
             heading_text("Feedback page", size = "l"),
             label_hint("label-feedback", "These are some examples of the types of user
                    feedback inputs that you can use"),
@@ -253,6 +255,12 @@ run_example <- function(){
                         selected = "panel3")
     })
 
+    # Nav to next tab
+    shiny::observeEvent(input$btn4, {
+      shiny::updateTabsetPanel(session, "nav",
+                               selected = "panel-feedback")
+    })
+
     shiny::observeEvent(input$back1, {
       shiny::updateTabsetPanel(session, "nav",
                                selected = "panel1")
@@ -263,6 +271,10 @@ run_example <- function(){
                                selected = "panel2")
     })
 
+    shiny::observeEvent(input$back3, {
+      shiny::updateTabsetPanel(session, "nav",
+                               selected = "panel3")
+    })
 
     # Need this to use live update the word counter
     shiny::observeEvent(
