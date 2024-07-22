@@ -105,3 +105,13 @@ only screen and (min-resolution:2dppx) {
 }
 ```
 
+* govTable caption colour:
+
+```
+.govuk-table__caption {
+    font-weight: 700;
+    display: table-caption;
+    text-align: left;
+    color: #000;
+}
+```
