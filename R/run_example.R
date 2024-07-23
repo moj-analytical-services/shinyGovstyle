@@ -9,6 +9,19 @@
 #' run_example()
 #'}
 run_example <- function(){
+  Months <- c("January", "February", "March")
+  Bikes <- c(85, 75, 165)
+  Cars <- c(95, 55, 125)
+  example_data <- data.frame(Months, Bikes, Cars)
+  tabs <- c(rep("Past Day", 3),
+            rep("Past Week", 3),
+            rep("Past Month", 3),
+            rep("Past Year", 3))
+  Case_manager <- rep(c("David Francis", "Paul Farmer", "Rita Patel"),4)
+  Cases_open <- c(3, 1, 2, 24, 16, 24, 98, 122, 126, 1380, 1129, 1539)
+  Cases_closed <- c(0, 0, 0, 18, 20, 27, 95, 131, 142, 1472, 1083, 1265)
+  data <- data.frame(tabs, Case_manager, Cases_open, Cases_closed)
+
   shiny::shinyApp(
     ui = shiny::fluidPage(
       title="ShinyGovstyle",
@@ -121,13 +134,34 @@ run_example <- function(){
 
         #####################Create third panel################################
         shiny::tabPanel(
-          "Feedback Types",
+          "Tables and tabs",
           value = "panel3",
           gov_layout(
             size = "two-thirds",
             backlink_Input("back2"),
             heading_text("Page 3", size = "l"),
-            label_hint("label3", "These are some examples of the types of user
+            label_hint("label3", "These are some examples of using tabs and
+                       tables"),
+            heading_text("govTable", size = "s"),
+            shinyGovstyle::govTable(
+              "tab1", example_data, "Test", "l", num_col = c(2,3),
+              width_overwrite = c("one-half", "one-quarter", "one-quarter")),
+            heading_text("govTabs", size = "s"),
+            shinyGovstyle::govTabs("tabsID", data, "tabs"),
+            heading_text("button_Input", size = "s"),
+            button_Input("btn4", "Go to next page"),
+          )
+        ),
+
+        #####################Create feedback panel################################
+        shiny::tabPanel(
+          "Feedback Types",
+          value = "panel-feedback",
+          gov_layout(
+            size = "two-thirds",
+            backlink_Input("back3"),
+            heading_text("Feedback page", size = "l"),
+            label_hint("label-feedback", "These are some examples of the types of user
                    feedback inputs that you can use"),
             heading_text("tag_Input", size = "s"),
 
@@ -193,14 +227,14 @@ run_example <- function(){
           )
         ),
 
-        #####################Create fourth panel################################
+        #####################Create cookie panel################################
         shiny::tabPanel(
           "Cookies",
-          value = "panel4",
+          value = "panel-cookies",
           gov_layout(
             size = "two-thirds",
-            heading_text("Page 3", size = "l"),
-            label_hint("label3", "This an example cookie page that could be
+            heading_text("Cookie page", size = "l"),
+            label_hint("label-cookies", "This an example cookie page that could be
                        expanded")
           )
         )),
@@ -221,6 +255,12 @@ run_example <- function(){
                         selected = "panel3")
     })
 
+    # Nav to next tab
+    shiny::observeEvent(input$btn4, {
+      shiny::updateTabsetPanel(session, "nav",
+                               selected = "panel-feedback")
+    })
+
     shiny::observeEvent(input$back1, {
       shiny::updateTabsetPanel(session, "nav",
                                selected = "panel1")
@@ -231,6 +271,10 @@ run_example <- function(){
                                selected = "panel2")
     })
 
+    shiny::observeEvent(input$back3, {
+      shiny::updateTabsetPanel(session, "nav",
+                               selected = "panel3")
+    })
 
     # Need this to use live update the word counter
     shiny::observeEvent(

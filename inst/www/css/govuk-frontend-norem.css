@@ -5650,7 +5650,8 @@ screen and (-ms-high-contrast:active) {
 .govuk-table__caption {
     font-weight: 700;
     display: table-caption;
-    text-align: left
+    text-align: left;
+    color: #000;
 }
 
 .govuk-table__caption--l,
@@ -5898,10 +5899,10 @@ screen and (-ms-high-contrast:active) {
     .govuk-frontend-supported .govuk-tabs__list-item--selected {
         position: relative;
         margin-top: -5px;
-        margin-bottom: -1px;
+        margin-bottom: -2px;
         padding: 14px 19px 16px;
         border: 1px solid #b1b4b6;
-        border-bottom: 0;
+        border-bottom: none;
         background-color: #fff
     }
 

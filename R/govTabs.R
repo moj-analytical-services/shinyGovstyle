@@ -64,7 +64,7 @@ govTabs <- function(inputId, df, group_col) {
 
 
   #Put the lime with coconut and create the final thing
-  main_tab_div <- shiny::tags$div(class = "js-enabled",
+  main_tab_div <- shiny::tags$div(class = "govuk-frontend-supported",
     shiny::tags$h2(class = "govuk-tabs__title", "Contents"),
     tab_headers,
     main_temp_hold)

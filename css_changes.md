@@ -91,3 +91,27 @@ only screen and (min-resolution:2dppx) {
     touch-action: manipulation
 }
 ```
+
+* Fix selected tab panel border gap
+```
+.govuk-frontend-supported .govuk-tabs__list-item--selected {
+    position: relative;
+    margin-top: -5px;
+    margin-bottom: -2px;
+    padding: 14px 19px 16px;
+    border: 1px solid #b1b4b6;
+    border-bottom: none;
+    background-color: #fff
+}
+```
+
+* govTable caption colour:
+
+```
+.govuk-table__caption {
+    font-weight: 700;
+    display: table-caption;
+    text-align: left;
+    color: #000;
+}
+```
