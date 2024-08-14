@@ -134,7 +134,7 @@ run_example <- function(){
 
         #####################Create third panel################################
         shiny::tabPanel(
-          "Tables and tabs",
+          "Tables, tabs and accordions",
           value = "panel3",
           gov_layout(
             size = "two-thirds",
@@ -148,6 +148,20 @@ run_example <- function(){
               width_overwrite = c("one-half", "one-quarter", "one-quarter")),
             heading_text("govTabs", size = "s"),
             shinyGovstyle::govTabs("tabsID", data, "tabs"),
+            heading_text("accordions", size = "s"),
+            shinyGovstyle::  accordion(
+                    "acc1",
+                    c("Writing well for the web",
+                      "Writing well for specialists",
+                      "Know your audience",
+                      "How people read"
+                     ),
+                    c("This is the content for Writing well for the web.",
+                      "This is the content for Writing well for specialists.",
+                      "This is the content for Know your audience.",
+                      "This is the content for How people read."
+                     )),
+
             heading_text("button_Input", size = "s"),
             button_Input("btn4", "Go to next page"),
           )
