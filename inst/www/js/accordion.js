@@ -39,12 +39,13 @@ for(var i=0; i< sections.length; i++){
   if(show_all_chevron_class != "govuk-accordion-nav__chevron"){
 
       document.getElementsByClassName("govuk-accordion__show-all-text")[0].innerHTML = "Hide all sections";
+      chevrons[0].classList.remove("govuk-accordion-nav__chevron--down");
 
       if(sections[i].classList.value == "govuk-accordion__section") {
       sections[i].classList.add("govuk-accordion__section--expanded");
       chevrons[i+1].classList.remove("govuk-accordion-nav__chevron--down");
 
-      chevrons[0].classList.remove("govuk-accordion-nav__chevron--down");
+
       toggle_text[i].innerHTML = "Hide";
 
     }
@@ -53,12 +54,11 @@ for(var i=0; i< sections.length; i++){
   } else {
 
     document.getElementsByClassName("govuk-accordion__show-all-text")[0].innerHTML = "Show all sections";
+    chevrons[0].classList.add("govuk-accordion-nav__chevron--down");
 
      if(sections[i].classList.value != "govuk-accordion__section") {
       sections[i].classList.remove("govuk-accordion__section--expanded");
       chevrons[i+1].classList.add("govuk-accordion-nav__chevron--down");
-
-      chevrons[0].classList.add("govuk-accordion-nav__chevron--down");
 
       toggle_text[i].innerHTML = "Show";
 
