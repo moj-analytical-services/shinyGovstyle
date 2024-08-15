@@ -20,17 +20,31 @@ $(document).on('click', '.govuk-accordion__show-all', function(e) {
   var sections = document.getElementsByClassName('govuk-accordion__section');
   var chevrons = document.getElementsByClassName('govuk-accordion-nav__chevron');
 
+  var show_all_chevron_class = document.getElementById("show-all-chevron").classList.value;
 
-  for(var i=0; i< sections.length; i++){
-    if(sections[i].classList.value == "govuk-accordion__section") {
+
+for(var i=0; i< sections.length; i++){
+
+  if(show_all_chevron_class != "govuk-accordion-nav__chevron"){
+
+      if(sections[i].classList.value == "govuk-accordion__section") {
       sections[i].classList.add("govuk-accordion__section--expanded");
       chevrons[i].classList.remove("govuk-accordion-nav__chevron--down");
-    } else {
+
+    }
+
+
+  } else {
+
+     if(sections[i].classList.value != "govuk-accordion__section") {
       sections[i].classList.remove("govuk-accordion__section--expanded");
       chevrons[i].classList.add("govuk-accordion-nav__chevron--down");
+
     }
-    console.log(chevrons[i].classList.value);
+
   }
+
+}
 
 
 

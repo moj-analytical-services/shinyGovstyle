@@ -54,6 +54,7 @@ accordion <- function(inputId, titles, descriptions){
           class = "govuk-accordion__show-all",
           `aria-expanded` = "false",
           shiny::tags$span(
+            id="show-all-chevron",
             class=paste(
               "govuk-accordion-nav__chevron",
               "govuk-accordion-nav__chevron--down"),
