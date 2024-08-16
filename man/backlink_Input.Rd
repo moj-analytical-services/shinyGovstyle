@@ -4,10 +4,12 @@
 \alias{backlink_Input}
 \title{Back Link Function}
 \usage{
-backlink_Input(inputId)
+backlink_Input(inputId, label = "Back")
 }
 \arguments{
 \item{inputId}{The input slot that will be used to access the value.}
+
+\item{label}{The link text for the backlink, default is "Back"}
 }
 \value{
 a backlink html shiny object
