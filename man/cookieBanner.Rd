@@ -53,7 +53,7 @@ server <- function(input, output, session) {
   })
 
   observeEvent(input$cookieLink, {
-    #Need to link here to where further info is located.  You can you
+    #Need to link here to where further info is located.  You can use
     #updateTabsetPanel to have a cookie page for instance
   })
 
