@@ -28,6 +28,7 @@ run_example <- function(){
       cookieBanner("Run Example"),
       header("MOJ", "ShinyGovstyle Example",
              logo="shinyGovstyle/images/moj_logo-1.png", logo_width = 66),
+      shinyGovstyle::skip_to_main(),
       banner(
         "banner",
         "Beta",
