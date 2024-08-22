@@ -1,18 +1,43 @@
 Package: shinyGovstyle
 Title: Custom Gov Style Inputs for Shiny
 Version: 0.0.8
-Authors@R: person(
-  given = "Ross", 
-  family = "Wyatt", 
-  email = "ross.wyatt@justice.gov.uk", 
-  role = c("aut", "cre"))
+Authors@R: c(
+  person(
+    given = "Ross", 
+    family = "Wyatt", 
+    email = "ross.wyatt@justice.gov.uk", 
+    role = c("aut", "cre")),
+  person(
+    given = "Cameron", 
+    family = "Race", 
+    email = "cameron.race@education.gov.uk", 
+    role = "ctb"),
+  person(
+    given = "Sarah", 
+    family = "Wong", 
+    role = "ctb"),
+  person(
+    given = "Richard", 
+    family = "Bielby", 
+    email = "richard.bielby@education.gov.uk", 
+    role = "ctb"),
+  person(
+    given = "Charlotte", 
+    family = "Foster", 
+    email = "charlotte.foster@education.gov.uk", 
+    role = "ctb"),
+  person(
+    given = "Jeni", 
+    family = "Martin", 
+    role = "ctb")
+  )
 Description: Collection of 'shiny' application styling that are the based on 
   the GOV.UK Design System.  See 
   <https://design-system.service.gov.uk/components/> for details.
 Depends: R (>= 3.1.0)
 License: GPL-3
 Encoding: UTF-8
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 URL: https://github.com/moj-analytical-services/shinyGovstyle
 BugReports: https://github.com/moj-analytical-services/shinyGovstyle/issues
 Imports: 
