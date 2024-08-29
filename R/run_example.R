@@ -42,20 +42,68 @@ run_example <- function(){
       shiny::markdown(
         "Run ```View(run_example)``` in console to see the code for this app"),
 
+      bslib::layout_columns(
+
+      col_widths = bslib::breakpoints(sm = c(4, 8), md = c(3, 9), lg = c(2, 9)),
+
+      bslib::card(
+        shiny::tags$h2("Contents"),
+
+
+        contents_links("Select Types",
+
+          subcontents_links(
+          c(
+            "radio_button_Input (inline)",
+            "radio_button_Input (stacked)",
+            "checkbox_Input",
+            "select_Input",
+            "file_Input",
+            "button_Input"
+
+          )
+        )),
+
+
+
+
+        contents_links("Text Types",
+                       subcontents_links(c("date_Input",
+                                           "text_Input",
+                                           "text_area_Input"))),
+
+        contents_links("Tables, tabs and accordians",
+                       subcontents_links(c("govTable",
+                                           "govTabs",
+                                           "accordions"))),
+
+        contents_links("Feedback types",
+                       subcontents_links(c(
+                         "tagInput",
+                         "details",
+                         "insert_text",
+                         "warning_text",
+                         "panel_output",
+                         "noti_banner",
+                         "gov_summary"
+                       ))),
+      ),
+
+
       #Set up a nav panel so everything not on single page
-      shiny::navlistPanel(
-        "",
+      bslib::navset_hidden(
+      #  "",
         id="nav",
-        widths = c(2, 10),
-        well = FALSE,
+       # widths = c(2, 10),
+       # well = FALSE,
 
         #####################Create first panel################################
-        shiny::tabPanel(
+       bslib::nav_panel(
           "Select Types",
-          value = "panel1",
+          value = "select_types",
           gov_layout(
             size = "two-thirds",
-            heading_text("Page 1", size = "l"),
+            heading_text("Select Types", size = "l"),
             label_hint("label1", "These are some examples of the types of user
                    select type inputs that you can use"),
             heading_text("radio_button_Input (inline)", size = "s"),
@@ -97,9 +145,9 @@ run_example <- function(){
 
 
         #####################Create second panel################################
-        shiny::tabPanel(
+       bslib::nav_panel(
           "Text Types",
-          value = "panel2",
+          value = "text_types",
           gov_layout(
             size = "two-thirds",
             backlink_Input("back1"),
@@ -126,16 +174,16 @@ run_example <- function(){
               error = T,
               error_message = "Please do not leave blank",
               word_limit = 300),
-            heading_text("button_Input", size = "s"),
+            #heading_text("button_Input", size = "s"),
             button_Input("btn2", "Go to next page"),
             button_Input("btn3", "Check for errors", type = "warning")
           )
         ),
 
         #####################Create third panel################################
-        shiny::tabPanel(
-          "Tables, tabs and accordions",
-          value = "panel3",
+       bslib::nav_panel(
+          "Tables, tabs and accordians",
+          value = "tables_tabs_and_accordians",
           gov_layout(
             size = "two-thirds",
             backlink_Input("back2"),
@@ -162,15 +210,15 @@ run_example <- function(){
                       "This is the content for How people read."
                      )),
 
-            heading_text("button_Input", size = "s"),
+            #heading_text("button_Input", size = "s"),
             button_Input("btn4", "Go to next page"),
           )
         ),
 
         #####################Create feedback panel################################
-        shiny::tabPanel(
+       bslib::nav_panel(
           "Feedback Types",
-          value = "panel-feedback",
+          value = "feedback_types",
           gov_layout(
             size = "two-thirds",
             backlink_Input("back3"),
@@ -251,43 +299,31 @@ run_example <- function(){
             label_hint("label-cookies", "This an example cookie page that could be
                        expanded")
           )
-        )),
+        ))),
 
       # Add a full footer
       footer(TRUE)),
 
   server = function(input, output, session) {
-    # Nav to next tab
-    shiny::observeEvent(input$btn1, {
-      shiny::updateTabsetPanel(session, "nav",
-                        selected = "panel2")
-    })
 
-    # Nav to next tab
-    shiny::observeEvent(input$btn2, {
-      shiny::updateTabsetPanel(session, "nav",
-                        selected = "panel3")
-    })
-
-    # Nav to next tab
-    shiny::observeEvent(input$btn4, {
-      shiny::updateTabsetPanel(session, "nav",
-                               selected = "panel-feedback")
-    })
+    observeEvent(input$select_types, bslib::nav_select("nav", "select_types"))
+    observeEvent(input$text_types, bslib::nav_select("nav", "text_types"))
+    observeEvent(input$tables_tabs_and_accordians, bslib::nav_select("nav", "tables_tabs_and_accordians"))
+    observeEvent(input$feedback_types, bslib::nav_select("nav", "feedback_types"))
 
     shiny::observeEvent(input$back1, {
       shiny::updateTabsetPanel(session, "nav",
-                               selected = "panel1")
+                               selected = "select_types")
     })
 
     shiny::observeEvent(input$back2, {
       shiny::updateTabsetPanel(session, "nav",
-                               selected = "panel2")
+                               selected = "text_types")
     })
 
     shiny::observeEvent(input$back3, {
       shiny::updateTabsetPanel(session, "nav",
-                               selected = "panel3")
+                               selected = "tables_tabs_and_accordians")
     })
 
     # Need this to use live update the word counter

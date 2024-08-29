@@ -7634,4 +7634,31 @@ screen and (-ms-high-contrast:active) {
     }
 }
 
+.govuk-contents {
+  position: sticky;
+  top: 0.5rem;
+  padding: 0.25rem;
+}
+
+.govuk-contents__link {
+  padding-left: 0;
+  font-size: 1rem;
+}
+
+.govuk-subcontents {
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 1rem;
+}
+
+
+.govuk-contents ~ .govuk-contents  > .govuk-subcontents {
+  display: none;
+}
+
+
+/*.govuk-contents__heading > .govuk-subcontents ~ .govuk-subcontents{
+   background:;
+}*/
+
 /*# sourceMappingURL=govuk-frontend-5.4.0.min.css.map */

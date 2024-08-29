@@ -24,7 +24,11 @@
 #' }
 
 heading_text <- function(text_input, size = "xl"){
+
+   id <- clean_heading_text(text_input)
+
   govHeading <- shiny::tags$h1(shiny::HTML(text_input),
-                               class=paste0("govuk-heading-", size))
+                               class=paste0("govuk-heading-", size),
+                               id = id)
   attachDependency(govHeading)
 }
