@@ -19,7 +19,7 @@ subcontents_links <- function(links_list) {
 contents_links <- function(link_text, ...) {
   clean_link_text <- clean_heading_text(link_text)
 
-  shiny::tags$div(
+  contents_div <- shiny::tags$div(
     class = "govuk-contents",
     shiny::actionLink(
       class = "govuk-contents__link",
@@ -38,7 +38,7 @@ contents_links <- function(link_text, ...) {
 
 
 
-
+  attachDependency(contents_div, "contents_links")
 
 
 
