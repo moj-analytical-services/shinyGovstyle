@@ -42,11 +42,16 @@ run_example <- function(){
       shiny::markdown(
         "Run ```View(run_example)``` in console to see the code for this app"),
 
-      bslib::layout_columns(
 
-      col_widths = bslib::breakpoints(sm = c(4, 8), md = c(3, 9), lg = c(2, 9)),
 
-      bslib::card(
+shiny::column(
+
+width = 3,
+id = "nav",
+        shiny::tags$div(
+          id = "govuk-contents-box",
+          class = "govuk-contents-box",
+
         shiny::tags$h2("Contents"),
 
 
@@ -86,19 +91,23 @@ run_example <- function(){
                          "panel_output",
                          "noti_banner",
                          "gov_summary"
-                       ))),
+                       )))
+
+        )
       ),
 
 
+shiny::column( width = 9,
       #Set up a nav panel so everything not on single page
-      bslib::navset_hidden(
+      shiny::tabsetPanel(
+        type = "hidden",
       #  "",
-        id="nav",
+
        # widths = c(2, 10),
-       # well = FALSE,
+        #well = FALSE,
 
         #####################Create first panel################################
-       bslib::nav_panel(
+       shiny::tabPanel(
           "Select Types",
           value = "select_types",
           gov_layout(
@@ -145,7 +154,7 @@ run_example <- function(){
 
 
         #####################Create second panel################################
-       bslib::nav_panel(
+       shiny::tabPanel(
           "Text Types",
           value = "text_types",
           gov_layout(
@@ -181,7 +190,7 @@ run_example <- function(){
         ),
 
         #####################Create third panel################################
-       bslib::nav_panel(
+       shiny::tabPanel(
           "Tables, tabs and accordians",
           value = "tables_tabs_and_accordians",
           gov_layout(
@@ -216,7 +225,7 @@ run_example <- function(){
         ),
 
         #####################Create feedback panel################################
-       bslib::nav_panel(
+       shiny::tabPanel(
           "Feedback Types",
           value = "feedback_types",
           gov_layout(

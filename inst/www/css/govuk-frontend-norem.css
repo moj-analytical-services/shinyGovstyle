@@ -7634,9 +7634,24 @@ screen and (-ms-high-contrast:active) {
     }
 }
 
+
+.govuk-contents-box {
+  z-index: 1;
+ /* background: green;*/
+
+}
+
+.govuk-contents-box_sticky {
+  position: fixed;
+  top: 20px;
+  /*background: red;*/
+}
+
+
+
 .govuk-contents {
-  position: sticky;
-  top: 0.5rem;
+position: sticky;
+ top: 0.5rem;
   padding: 0.25rem;
 }
 
@@ -7657,8 +7672,5 @@ screen and (-ms-high-contrast:active) {
 }
 
 
-/*.govuk-contents__heading > .govuk-subcontents ~ .govuk-subcontents{
-   background:;
-}*/
 
 /*# sourceMappingURL=govuk-frontend-5.4.0.min.css.map */
