@@ -3370,7 +3370,7 @@ screen and (forced-colors:active) {
     padding-bottom: 15px;
     border-top: 1px solid #b1b4b6;
     color: #0b0c0c;
-    background: #f3f2f1
+    background: #f3f2f1;
 }
 
 @media print {
@@ -7628,6 +7628,7 @@ screen and (-ms-high-contrast:active) {
     width: 100% !important
 }
 
+
 @media (min-width:40.0625em) {
     .govuk-\!-width-one-quarter {
         width: 25% !important
@@ -7635,24 +7636,51 @@ screen and (-ms-high-contrast:active) {
 }
 
 
-.govuk-contents-box {
-  z-index: 1;
- /* background: green;*/
+/*Match margin in main-wrapper so "Contents" is level*/
+@media (max-width:40.0625em) {
+    .govuk-contents-box {
+    margin-right: 30px;
+    margin-left: 30px
 
+    }
 }
 
+/*Match margin in main-wrapper so "Contents" is level*/
+@media (min-width:40.0625em) and (max-width:48.0625em) {
+    .govuk-contents-box {
+    margin-right: 45px;
+    margin-left: 45px
+
+    }
+}
+
+
+/*Match margin in main-wrapper so "Contents" is level*/
+@media (min-width:40.0625em) {
+    .govuk-contents-box {
+         margin-top: 40px;
+
+    }
+}
+
+
+/*Do not apply stickyness on smaller screen*/
+@media (min-width:48.0625em) {
 .govuk-contents-box_sticky {
   position: fixed;
-  top: 20px;
-  /*background: red;*/
+  /*Guess? - probably could put exact pixels to make smooth*/
+  top: 26px;
+  /* Margin 0 to stop the contents box bopping around */
+  margin: 0;
+  padding: 0;
+}
 }
 
 
-
+/*Contents link formatting*/
 .govuk-contents {
-position: sticky;
  top: 0.5rem;
-  padding: 0.25rem;
+ padding: 0.25rem;
 }
 
 .govuk-contents__link {
@@ -7666,11 +7694,10 @@ position: sticky;
   font-size: 1rem;
 }
 
-
+/*Only display subcontents for first one - on load*/
 .govuk-contents ~ .govuk-contents  > .govuk-subcontents {
   display: none;
 }
-
 
 
 /*# sourceMappingURL=govuk-frontend-5.4.0.min.css.map */
