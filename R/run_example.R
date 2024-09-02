@@ -80,7 +80,7 @@ run_example <- function(){
 
           contents_links("Feedback types", subcontents_links(
             c(
-              "tagInput",
+              "tag_Input",
               "details",
               "insert_text",
               "warning_text",
