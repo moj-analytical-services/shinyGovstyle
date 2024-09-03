@@ -44,54 +44,77 @@ run_example <- function(){
 
 
 
-
+      # Nav columns
       shiny::column(
+
         width = 3,
         id = "nav",
+
+        # Contents box
         shiny::tags$div(
           id = "govuk-contents-box",
           class = "govuk-contents-box",
 
           shiny::tags$h2("Contents"),
 
+          # Select Types tab
+          contents_links("Select Types",
+                         "select_types_button",
+                         subcontents_links(
+                           c(
+                             "radio_button_Input (inline)",
+                             "radio_button_Input (stacked)",
+                             "checkbox_Input",
+                             "select_Input",
+                             "file_Input",
+                             "button_Input"
 
-          contents_links("Select Types", subcontents_links(
-            c(
-              "radio_button_Input (inline)",
-              "radio_button_Input (stacked)",
-              "checkbox_Input",
-              "select_Input",
-              "file_Input",
-              "button_Input"
+                           )
+                         )
+          ),
 
+
+
+          # Text types tab
+          contents_links(
+            "Text Types",
+            "text_types_button",
+            subcontents_links(
+              c("date_Input", "text_Input", "text_area_Input", "button_Input"),
+              c(NA, NA, NA, "button_input_text_types")
             )
-          )),
+          ),
 
+          # Tables tabs and accordions tab
+          contents_links(
+            "Tables, tabs and accordians",
+            "tables_tabs_and_accordians_button",
+            subcontents_links(
+              c( "govTable", "govTabs", "accordions", "button_Input"),
+              c(NA, NA, NA, "button_input_tables_tabs_accordians"))
+          ),
 
-
-
-          contents_links("Text Types", subcontents_links(
-            c("date_Input", "text_Input", "text_area_Input")
-          )),
-
-          contents_links("Tables, tabs and accordians", subcontents_links(c(
-            "govTable", "govTabs", "accordions"
-          ))),
-
-          contents_links("Feedback types", subcontents_links(
-            c(
-              "tag_Input",
-              "details",
-              "insert_text",
-              "warning_text",
-              "panel_output",
-              "noti_banner",
-              "gov_summary"
+          # Feedback types tab
+          contents_links(
+            "Feedback types",
+            "feedback_types_button",
+            subcontents_links(
+              c(
+                "tag_Input",
+                "details",
+                "insert_text",
+                "warning_text",
+                "panel_output",
+                "noti_banner",
+                "gov_summary"
+              )
             )
-          )),
+          ),
 
 
-          contents_links("Cookies"),
+          contents_links(
+            "Cookies",
+            "cookies_button"),
 
         )
       ),
@@ -183,7 +206,7 @@ shiny::column( width = 9,
               error = T,
               error_message = "Please do not leave blank",
               word_limit = 300),
-            #heading_text("button_Input", size = "s"),
+            heading_text("button_Input", size = "s", id = "button_input_text_types"),
             button_Input("btn2", "Go to next page"),
             button_Input("btn3", "Check for errors", type = "warning")
           )
@@ -219,7 +242,7 @@ shiny::column( width = 9,
                       "This is the content for How people read."
                      )),
 
-            #heading_text("button_Input", size = "s"),
+            heading_text("button_Input", size = "s", id = "button_input_tables_tabs_accordians"),
             button_Input("btn4", "Go to next page"),
           )
         ),
@@ -320,52 +343,52 @@ shiny::column( width = 9,
 
 
     # Tab nav
-    shiny::observeEvent(input$select_types, {
-      bslib::nav_select("tab-container", selected = "select_types")
+    shiny::observeEvent(input$select_types_button, {
+      shiny::updateTabsetPanel(session, "tab-container", selected = "select_types")
     })
 
-    shiny::observeEvent(input$text_types, {
-      bslib::nav_select("tab-container", selected = "text_types")
+    shiny::observeEvent(input$text_types_button, {
+      shiny::updateTabsetPanel(session, "tab-container", selected = "text_types")
     })
 
-    shiny::observeEvent(input$tables_tabs_and_accordians, {
-      bslib::nav_select("tab-container", selected = "tables_tabs_and_accordians")
+    shiny::observeEvent(input$tables_tabs_and_accordians_button, {
+      shiny::updateTabsetPanel(session, "tab-container", selected = "tables_tabs_and_accordians")
     })
 
-    shiny::observeEvent(input$feedback_types, {
-      bslib::nav_select("tab-container", selected = "feedback_types")
+    shiny::observeEvent(input$feedback_types_button, {
+      shiny::updateTabsetPanel(session, "tab-container", selected = "feedback_types")
     })
 
-    shiny::observeEvent(input$cookies, {
-      bslib::nav_select("tab-container", selected = "panel-cookies")
+    shiny::observeEvent(input$cookies_button, {
+      shiny::updateTabsetPanel(session, "tab-container", selected = "panel-cookies")
     })
 
 
     # Back buttons
     shiny::observeEvent(input$back1, {
-      bslib::nav_select("tab-container", selected = "select_types")
+      shiny::updateTabsetPanel(session, "tab-container", selected = "select_types")
     })
 
     shiny::observeEvent(input$back2, {
-      bslib::nav_select("tab-container", selected = "text_types")
+      shiny::updateTabsetPanel(session, "tab-container", selected = "text_types")
     })
 
     shiny::observeEvent(input$back3, {
-      bslib::nav_select("tab-container", selected = "tables_tabs_and_accordians")
+      shiny::updateTabsetPanel(session, "tab-container", selected = "tables_tabs_and_accordians")
     })
 
 
     # Next page buttons
     shiny::observeEvent(input$btn1, {
-      bslib::nav_select("tab-container", selected = "text_types")
+      shiny::updateTabsetPanel(session, "tab-container", selected = "text_types")
     })
 
     shiny::observeEvent(input$btn1, {
-      bslib::nav_select("tab-container", selected = "tables_tabs_and_accordians")
+      shiny::updateTabsetPanel(session, "tab-container", selected = "tables_tabs_and_accordians")
     })
 
     shiny::observeEvent(input$btn1, {
-      bslib::nav_select("tab-container", selected = "feedback_types")
+      shiny::updateTabsetPanel(session, "tab-container", selected = "feedback_types")
     })
 
     # Need this to use live update the word counter

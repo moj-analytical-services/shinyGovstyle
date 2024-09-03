@@ -44,6 +44,9 @@ Imports:
     shiny (>= 0.14),
     htmltools,
     shinyjs,
-    jsonlite
+    jsonlite,
+    magrittr,
+    stringr,
+    purrr
 Suggests:
     testthat
