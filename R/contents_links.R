@@ -162,6 +162,7 @@ contents_links <- function(link_text,
   contents_div <- shiny::tags$div(
     class = "govuk-contents",
     shiny::actionLink(
+      onclick = "window.scrollTo(0, 0);",
       class = "govuk-contents__link",
       inputId = input_id,
       label = link_text
