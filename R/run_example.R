@@ -43,7 +43,7 @@ run_example <- function(){
         "Run ```View(run_example)``` in console to see the code for this app"),
 
 
-
+      gov_row(
       # Nav columns
       shiny::column(
 
@@ -119,7 +119,10 @@ run_example <- function(){
         )
       ),
 
+
+
 shiny::column( width = 9,
+
       #Set up a nav panel so everything not on single page
       shiny::tabsetPanel(
         type = "hidden",
@@ -331,10 +334,12 @@ shiny::column( width = 9,
             label_hint("label-cookies", "This an example cookie page that could be
                        expanded")
           )
-        ))),
+        )))
 
-      # Add a full footer
-      footer(TRUE)
+
+), #end of gov row
+
+    footer(TRUE)
 
 
 ), #end of fluid page
