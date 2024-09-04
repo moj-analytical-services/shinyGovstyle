@@ -79,7 +79,8 @@ subcontents_links <- function(link_text_list, link_id_list = NA) {
       link_id <- clean_heading_text(link_text)
     }
 
-    shiny::tags$li("\u2014 ", shiny::tags$a(link_text, href = stringr::str_c("\u0023", link_id)))
+    shiny::tags$li( "\u2014 ",
+                    shiny::tags$a(class = "govuk-link", link_text, href = stringr::str_c("\u0023", link_id)))
   }
 
 
@@ -163,7 +164,7 @@ contents_links <- function(link_text,
     class = "govuk-contents",
     shiny::actionLink(
       onclick = "window.scrollTo(0, 0);",
-      class = "govuk-contents__link",
+      class = "govuk-contents__link govuk-link",
       inputId = input_id,
       label = link_text
     ),
