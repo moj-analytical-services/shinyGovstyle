@@ -1,11 +1,9 @@
 #' Subcontents links function
-
-#' This function creates links to headings within pages. Requires nesting in shinygovstyle::contents_links
-#' @param link_text_list vector of link text for subcontents
-#' @param link_id_list vector of link ids for subcontents. pass NA for automatic matching to id in shinygovstyle::heading_text
-#' Defaults to NA
+#' This function is used internally within contents_links to create links to headings within pages.
+#' @param subcontents_text_list vector of link text for subcontents
+#' @param subcontents_id_list vector of link ids for subcontents. pass NAs for automatic matching to id in shinygovstyle::heading_text
 #' @return a ol html shiny object
-#' @export
+#' @keywords internal
 #' @examples
 #' if (interactive()) {
 #'   ui <- shiny::fluidPage(
@@ -17,60 +15,35 @@
 #'     shiny::column(
 #'       width = 3,
 #'       id = "nav",
-#'       shiny::tags$div(
-#'         id = "govuk-contents-box",
-#'         class = "govuk-contents-box",
+#'
+#'      shiny::tags$div(
 #'         shiny::tags$h2("Contents"),
-#'         contents_links("Select Types", "select_types_button", subcontents_links(
-#'           c("radio_button_Input (inline)", "button_Input")
-#'         )),
-#'         contents_links("Text Types", "text_types_button", subcontents_links(
+#'         subcontents_links(
+#'          c("radio_button_Input (inline)", "button_Input"),
+#'          c(NA, NA)
+#'         ),
+#'         subcontents_links(
 #'           c("date_Input", "button_Input"),
 #'           c(NA, "button_input_text_types")
-#'         ))
-#'       )),
-#'
-#'     shiny::column(
-#'       width = 9,
-#'       shiny::tabsetPanel(
-#'         type = "hidden",
-#'         id = "tab-container",
-#'         shiny::tabPanel(
-#'           "Select Types",
-#'           value = "select_types",
-#'           gov_layout(
-#'             size = "two-thirds",
-#'             heading_text("Select Types", size = "l"),
-#'             heading_text("radio_button_Input (inline)", size = "s"),
-#'             heading_text("button_Input", size = "s"),
-#'           )
-#'         ),
-#'         shiny::tabPanel(
-#'           "Text Types",
-#'           value = "text_types",
-#'           gov_layout(
-#'             size = "two-thirds",
-#'             heading_text("Page 2", size = "l"),
-#'             heading_text("date_Input", size = "s"),
-#'             heading_text("button_Input", size = "s", id = "button_input_text_types"),
-#'           )))))
+#'         ))))
 #'
 #'   server <- function(input, output, session) {
 #'   }
 #'   shiny::shinyApp(ui = ui, server = server)
 #' }
 
-subcontents_links <- function(link_text_list, link_id_list = NA) {
+subcontents_links <- function(subcontents_text_list,
+                              subcontents_id_list) {
 
-  if (!missing(link_id_list)) {
-    # check if custom link_id_list is of equal length to links list
-    if (length(link_text_list) != length(link_id_list)) {
-      message(
-        "custom`link_ids_list` arg must be of equal length to `link_ids_list` in subcontents_links()"
-      )
-    }
-
+if (!missing(subcontents_id_list)) {
+  # check if custom link_id_list is of equal length to links list
+  if (length(subcontents_text_list) != length(subcontents_id_list)) {
+    message(
+      "`subcontents_id_list` must be equal length to `subcontents_text_list`"
+    )
   }
+
+}
 
   # create sidelink
   create_sidelink <- function(link_text, link_id) {
@@ -85,7 +58,7 @@ subcontents_links <- function(link_text_list, link_id_list = NA) {
 
 
   # create <li></li> tags
-  list_tags <- purrr::map2(link_text_list, link_id_list, create_sidelink)
+  list_tags <- purrr::map2(subcontents_text_list, subcontents_id_list, create_sidelink)
 
 
   # return <ol> output
@@ -97,9 +70,10 @@ subcontents_links <- function(link_text_list, link_id_list = NA) {
 #' Contents link function
 #'
 #' This function creates an action link to nav between tabs.
-#' @param link_text vector of link text for subcontents
-#' @param input_id button id
-#' @param ... arg to pass shinygovstyle::subcontents_links
+#' @param link_text vector of link text for contents
+#' @param input_id contents button id
+#' @param subcontents_text_list vector of link text for subcontents
+#' @param subcontents_id_list vector of link ids for subcontents. if missing automatically matches to id in shinygovstyle::heading_text
 #' @return an action button html shiny object
 #' @export
 #' @examples
@@ -108,57 +82,46 @@ subcontents_links <- function(link_text_list, link_id_list = NA) {
 #'     shinyGovstyle::header(
 #'       main_text = "Example",
 #'       secondary_text = "User Examples",
-#'       logo = "shinyGovstyle/images/moj_logo.png"
+#'      logo = "shinyGovstyle/images/moj_logo.png"
 #'     ),
 #'     shiny::column(
 #'       width = 3,
 #'       id = "nav",
-#'       shiny::tags$div(
-#'         id = "govuk-contents-box",
-#'         class = "govuk-contents-box",
-#'         shiny::tags$h2("Contents"),
-#'         contents_links("Select Types", "select_types_button", subcontents_links(
-#'           c("radio_button_Input (inline)", "button_Input")
-#'         )),
-#'         contents_links("Text Types", "text_types_button", subcontents_links(
-#'           c("date_Input", "button_Input"),
-#'           c(NA, "button_input_text_types")
-#'         ))
-#'       )),
 #'
-#'     shiny::column(
-#'       width = 9,
-#'       shiny::tabsetPanel(
-#'         type = "hidden",
-#'         id = "tab-container",
-#'         shiny::tabPanel(
-#'           "Select Types",
-#'           value = "select_types",
-#'           gov_layout(
-#'             size = "two-thirds",
-#'             heading_text("Select Types", size = "l"),
-#'             heading_text("radio_button_Input (inline)", size = "s"),
-#'             heading_text("button_Input", size = "s"),
-#'           )
+#'       shiny::tags$div(
+#'         shiny::tags$h2("Contents"),
+#'         contents_links(
+#'           "Feedback types",
+#'           "feedback_types_button",
+#'           subcontents_text_list =  c("tag_Input", "details")
 #'         ),
-#'         shiny::tabPanel(
-#'           "Text Types",
-#'           value = "text_types",
-#'           gov_layout(
-#'             size = "two-thirds",
-#'             heading_text("Page 2", size = "l"),
-#'             heading_text("date_Input", size = "s"),
-#'             heading_text("button_Input", size = "s", id = "button_input_text_types"),
-#'           )))))
+#'
+#'         contents_links(
+#'           "Tables, tabs and accordians",
+#'           "tables_tabs_and_accordians_button",
+#'           subcontents_text_list = c("govTable", "govTabs", "button_Input"),
+#'           subcontents_id_list = c(NA, NA, "button_input_tables_tabs_accordians")
+#'         ),
+#'         contents_links("Cookies", "cookies_button")
+#'       )
+#'     )
+#'   )
 #'
 #'   server <- function(input, output, session) {
+#'
 #'   }
 #'   shiny::shinyApp(ui = ui, server = server)
 #' }
 
+
 contents_links <- function(link_text,
                            input_id,
-                           ...) {
+                           subcontents_text_list,
+                           subcontents_id_list) {
+
+  if(missing(subcontents_id_list) & !missing(subcontents_text_list)){
+    subcontents_id_list <- rep(NA, length(subcontents_text_list))
+  }
 
   contents_div <- shiny::tags$div(
     class = "govuk-contents",
@@ -170,7 +133,9 @@ contents_links <- function(link_text,
     ),
 
     # add subcontents links if required
-    ...
+    if(!missing(subcontents_text_list)){
+      subcontents_links(subcontents_text_list, subcontents_id_list)
+    }
 
 
   )
@@ -178,3 +143,4 @@ contents_links <- function(link_text,
   attachDependency(contents_div, "contents_links")
 
 }
+

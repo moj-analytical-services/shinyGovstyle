@@ -3,22 +3,21 @@
 \name{subcontents_links}
 \alias{subcontents_links}
 \title{Subcontents links function
-This function creates links to headings within pages. Requires nesting in shinygovstyle::contents_links}
+This function is used internally within contents_links to create links to headings within pages.}
 \usage{
-subcontents_links(link_text_list, link_id_list = NA)
+subcontents_links(subcontents_text_list, subcontents_id_list)
 }
 \arguments{
-\item{link_text_list}{vector of link text for subcontents}
+\item{subcontents_text_list}{vector of link text for subcontents}
 
-\item{link_id_list}{vector of link ids for subcontents. pass NA for automatic matching to id in shinygovstyle::heading_text
-Defaults to NA}
+\item{subcontents_id_list}{vector of link ids for subcontents. pass NAs for automatic matching to id in shinygovstyle::heading_text}
 }
 \value{
 a ol html shiny object
 }
 \description{
 Subcontents links function
-This function creates links to headings within pages. Requires nesting in shinygovstyle::contents_links
+This function is used internally within contents_links to create links to headings within pages.
 }
 \examples{
 if (interactive()) {
@@ -31,46 +30,21 @@ if (interactive()) {
     shiny::column(
       width = 3,
       id = "nav",
-      shiny::tags$div(
-        id = "govuk-contents-box",
-        class = "govuk-contents-box",
+
+     shiny::tags$div(
         shiny::tags$h2("Contents"),
-        contents_links("Select Types", "select_types_button", subcontents_links(
-          c("radio_button_Input (inline)", "button_Input")
-        )),
-        contents_links("Text Types", "text_types_button", subcontents_links(
+        subcontents_links(
+         c("radio_button_Input (inline)", "button_Input"),
+         c(NA, NA)
+        ),
+        subcontents_links(
           c("date_Input", "button_Input"),
           c(NA, "button_input_text_types")
-        ))
-      )),
-
-    shiny::column(
-      width = 9,
-      shiny::tabsetPanel(
-        type = "hidden",
-        id = "tab-container",
-        shiny::tabPanel(
-          "Select Types",
-          value = "select_types",
-          gov_layout(
-            size = "two-thirds",
-            heading_text("Select Types", size = "l"),
-            heading_text("radio_button_Input (inline)", size = "s"),
-            heading_text("button_Input", size = "s"),
-          )
-        ),
-        shiny::tabPanel(
-          "Text Types",
-          value = "text_types",
-          gov_layout(
-            size = "two-thirds",
-            heading_text("Page 2", size = "l"),
-            heading_text("date_Input", size = "s"),
-            heading_text("button_Input", size = "s", id = "button_input_text_types"),
-          )))))
+        ))))
 
   server <- function(input, output, session) {
   }
   shiny::shinyApp(ui = ui, server = server)
 }
 }
+\keyword{internal}

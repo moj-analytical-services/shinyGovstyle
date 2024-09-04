@@ -58,19 +58,20 @@ run_example <- function(){
           shiny::tags$h2("Contents"),
 
           # Select Types tab
-          contents_links("Select Types",
-                         "select_types_button",
-                         subcontents_links(
-                           c(
-                             "radio_button_Input (inline)",
-                             "radio_button_Input (stacked)",
-                             "checkbox_Input",
-                             "select_Input",
-                             "file_Input",
-                             "button_Input"
+          contents_links(
+            "Select Types",
+            "select_types_button",
+            subcontents_text_list =
+              c(
+                "radio_button_Input (inline)",
+                "radio_button_Input (stacked)",
+                "checkbox_Input",
+                "select_Input",
+                "file_Input",
+                "button_Input"
 
-                           )
-                         )
+              )
+
           ),
 
 
@@ -79,35 +80,30 @@ run_example <- function(){
           contents_links(
             "Text Types",
             "text_types_button",
-            subcontents_links(
-              c("date_Input", "text_Input", "text_area_Input", "button_Input"),
-              c(NA, NA, NA, "button_input_text_types")
-            )
+            subcontents_text_list = c("date_Input", "text_Input", "text_area_Input", "button_Input"),
+            subcontents_id_list = c(NA, NA, NA, "button_input_text_types")
           ),
 
           # Tables tabs and accordions tab
           contents_links(
             "Tables, tabs and accordians",
             "tables_tabs_and_accordians_button",
-            subcontents_links(
-              c( "govTable", "govTabs", "accordions", "button_Input"),
-              c(NA, NA, NA, "button_input_tables_tabs_accordians"))
+            subcontents_text_list = c("govTable", "govTabs", "accordions", "button_Input"),
+            subcontents_id_list = c(NA, NA, NA, "button_input_tables_tabs_accordians")
           ),
 
           # Feedback types tab
           contents_links(
             "Feedback types",
             "feedback_types_button",
-            subcontents_links(
-              c(
-                "tag_Input",
-                "details",
-                "insert_text",
-                "warning_text",
-                "panel_output",
-                "noti_banner",
-                "gov_summary"
-              )
+            subcontents_text_list =  c(
+              "tag_Input",
+              "details",
+              "insert_text",
+              "warning_text",
+              "panel_output",
+              "noti_banner",
+              "gov_summary"
             )
           ),
 

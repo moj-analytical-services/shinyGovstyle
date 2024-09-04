@@ -106,3 +106,70 @@ only screen and (min-resolution:2dppx) {
     color: #000;
 }
 ```
+
+* contents box:
+
+```
+/*Match margin in main-wrapper so "Contents" is level*/
+@media (max-width:40.0625em) {
+    .govuk-contents-box {
+    margin-right: 30px;
+    margin-left: 30px
+
+    }
+}
+
+/*Match margin in main-wrapper so "Contents" is level*/
+@media (min-width:40.0625em) and (max-width:48.0625em) {
+    .govuk-contents-box {
+    margin-right: 45px;
+    margin-left: 45px
+
+    }
+}
+
+
+/*Match margin in main-wrapper so "Contents" is level*/
+@media (min-width:40.0625em) {
+    .govuk-contents-box {
+         margin-top: 40px;
+
+    }
+}
+
+
+/*Do not apply stickyness on smaller screen*/
+@media (min-width:48.0625em) {
+.govuk-contents-box_sticky {
+  position: fixed;
+  /*Guess? - probably could put exact pixels to make smooth*/
+  top: 26px;
+  /* Margin 0 to stop the contents box bopping around */
+  margin: 0;
+  padding: 0;
+}
+}
+
+
+/*Contents link formatting*/
+.govuk-contents {
+ top: 0.5rem;
+ padding: 0.25rem;
+}
+
+.govuk-contents__link {
+  padding-left: 0;
+  font-size: 1rem;
+}
+
+.govuk-subcontents {
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 1rem;
+}
+
+/*Only display subcontents for first one - on load*/
+.govuk-contents ~ .govuk-contents  > .govuk-subcontents {
+  display: none;
+}
+```
