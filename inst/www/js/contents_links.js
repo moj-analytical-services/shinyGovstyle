@@ -45,10 +45,19 @@ function set_contents_box_width(){
    var new_width = $('#nav').width();
   $('#govuk-contents-box').width(new_width);
 }
+
 $(document).scroll(function () {
  set_contents_box_width();
 });
 
 $(window).resize(function () {
  set_contents_box_width();
+});
+
+
+// Scroll to top of main col
+$(document).on('click', '.govuk-contents__link', function(e) {
+
+ document.getElementById("main_col").scrollIntoView()
+
 });

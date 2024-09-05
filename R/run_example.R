@@ -119,6 +119,8 @@ run_example <- function(){
 
 shiny::column( width = 9,
 
+      id = "main_col", #do not remove
+
       #Set up a nav panel so everything not on single page
       shiny::tabsetPanel(
         type = "hidden",
