@@ -30,17 +30,19 @@ if (interactive()) {
     shiny::column(
       width = 3,
       id = "nav",
-
-     shiny::tags$div(
+      shiny::tags$div(
         shiny::tags$h2("Contents"),
         subcontents_links(
-         c("radio_button_Input (inline)", "button_Input"),
-         c(NA, NA)
+          c("radio_button_Input (inline)", "button_Input"),
+          c(NA, NA)
         ),
         subcontents_links(
           c("date_Input", "button_Input"),
           c(NA, "button_input_text_types")
-        ))))
+        )
+      )
+    )
+  )
 
   server <- function(input, output, session) {
   }

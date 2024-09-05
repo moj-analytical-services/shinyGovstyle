@@ -28,7 +28,7 @@ color: #0b0c0c;
 
 * For accordion need to fix the css by:
 
- Finding and replacing all `.govuk-frontend-supported .govuk-accordion` with `.js-enabled .govuk-accordion` 
+ Finding and replacing all `.govuk-frontend-supported .govuk-accordion` with `.js-enabled .govuk-accordion`
  
  and adding this chunk to the accordion section of css:
  
@@ -171,5 +171,27 @@ only screen and (min-resolution:2dppx) {
 /*Only display subcontents for first one - on load*/
 .govuk-contents ~ .govuk-contents  > .govuk-subcontents {
   display: none;
+}
+```
+
+* Updated govuk-link--no-visited-state to still have a clear focus highlight (copied from the govuk-link formatting)
+
+```
+.govuk-link--no-visited-state:focus {
+    outline: 3px solid transparent;
+    background-color: #fd0;
+    box-shadow: 0 -2px #fd0, 0 4px #0b0c0c;
+    text-decoration: none;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone
+}
+
+.govuk-link--no-visited-state:hover {
+    text-decoration-thickness: max(3px, .1875rem, .12em);
+    -webkit-text-decoration-skip-ink: none;
+    text-decoration-skip-ink: none;
+    -webkit-text-decoration-skip: none;
+    text-decoration-skip: none;
+    color: #003078
 }
 ```

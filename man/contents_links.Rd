@@ -27,66 +27,66 @@ if (interactive()) {
     shinyGovstyle::header(
       main_text = "Example",
       secondary_text = "User Examples",
-     logo = "shinyGovstyle/images/moj_logo.png"
+      logo = "shinyGovstyle/images/moj_logo.png"
     ),
-   gov_row(
-    shiny::column(
-      width = 3,
-      id = "nav",
+    gov_row(
+      shiny::column(
+        width = 3,
+        id = "nav",
+        shiny::tags$div(
+          shiny::tags$h2("Contents"),
+          contents_links(
+            "Tables, tabs and accordions",
+            "tables_tabs_and_accordions_button",
+            subcontents_text_list = c("govTable", "govTabs", "button_Input"),
+            subcontents_id_list = c(NA, NA, "button_input_tables_tabs_accordions")
+          ),
+          contents_links(
+            "Feedback types",
+            "feedback_types_button",
+            subcontents_text_list = c("tag_Input", "details")
+          ),
+          contents_links("Cookies", "cookies_button")
+        )
+      ),
+      shiny::column(
+        width = 9,
+        shiny::tabsetPanel(
+          type = "hidden",
+          id = "tab-container",
+          shiny::tabPanel(
+            "Tables, tabs and accordions",
+            value = "tables_tabs_and_accordions",
+            gov_layout(
+              size = "two-thirds",
+              heading_text("govTable", size = "s"),
+              heading_text("govTabs", size = "s"),
+              heading_text("button_Input", size = "s", id = "button_input_tables_tabs_accordions"),
+            )
+          ),
+          shiny::tabPanel(
+            "Feedback Types",
+            value = "feedback_types",
+            gov_layout(
+              size = "two-thirds",
+              heading_text("Feedback page", size = "l"),
+              heading_text("tag_Input", size = "s"),
+              heading_text("details", size = "s"),
+            )
+          ),
 
-      shiny::tags$div(
-        shiny::tags$h2("Contents"),
-        contents_links(
-          "Tables, tabs and accordions",
-          "tables_tabs_and_accordions_button",
-          subcontents_text_list = c("govTable", "govTabs", "button_Input"),
-          subcontents_id_list = c(NA, NA, "button_input_tables_tabs_accordions")
-        ),
-        contents_links(
-          "Feedback types",
-          "feedback_types_button",
-          subcontents_text_list =  c("tag_Input", "details")
-        ),
-        contents_links("Cookies", "cookies_button")
+          ##################### Create cookie panel################################
+          shiny::tabPanel(
+            "Cookies",
+            value = "panel-cookies",
+            gov_layout(
+              size = "two-thirds",
+              heading_text("Cookie page", size = "l"),
+            )
+          )
+        )
       )
-    ),
-    shiny::column( width = 9,
-       shiny::tabsetPanel(
-         type = "hidden",
-         id = "tab-container",
-
-         shiny::tabPanel(
-           "Tables, tabs and accordions",
-           value = "tables_tabs_and_accordions",
-           gov_layout(
-             size = "two-thirds",
-             heading_text("govTable", size = "s"),
-             heading_text("govTabs", size = "s"),
-             heading_text("button_Input", size = "s", id = "button_input_tables_tabs_accordions"),
-           )
-         ),
-
-         shiny::tabPanel(
-           "Feedback Types",
-           value = "feedback_types",
-           gov_layout(
-             size = "two-thirds",
-             heading_text("Feedback page", size = "l"),
-             heading_text("tag_Input", size = "s"),
-            heading_text("details", size = "s"),
-
-           )),
-
-         #####################Create cookie panel################################
-         shiny::tabPanel(
-           "Cookies",
-           value = "panel-cookies",
-           gov_layout(
-             size = "two-thirds",
-             heading_text("Cookie page", size = "l"),
-           )
-         )))
-  )
+    )
   )
 
   server <- function(input, output, session) {
