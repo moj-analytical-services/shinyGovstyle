@@ -86,10 +86,10 @@ run_example <- function(){
 
           # Tables tabs and accordions tab
           contents_links(
-            "Tables, tabs and accordians",
-            "tables_tabs_and_accordians_button",
+            "Tables, tabs and accordions",
+            "tables_tabs_and_accordions_button",
             subcontents_text_list = c("govTable", "govTabs", "accordions", "button_Input"),
-            subcontents_id_list = c(NA, NA, NA, "button_input_tables_tabs_accordians")
+            subcontents_id_list = c(NA, NA, NA, "button_input_tables_tabs_accordions")
           ),
 
           # Feedback types tab
@@ -122,10 +122,7 @@ shiny::column( width = 9,
       #Set up a nav panel so everything not on single page
       shiny::tabsetPanel(
         type = "hidden",
-      #  "",
-      id = "tab-container",
-       # widths = c(2, 10),
-        #well = FALSE,
+        id = "tab-container",
 
         #####################Create first panel################################
        shiny::tabPanel(
@@ -213,8 +210,8 @@ shiny::column( width = 9,
 
         #####################Create third panel################################
        shiny::tabPanel(
-          "Tables, tabs and accordians",
-          value = "tables_tabs_and_accordians",
+          "Tables, tabs and accordions",
+          value = "tables_tabs_and_accordions",
           gov_layout(
             size = "two-thirds",
            backlink_Input("back2"),
@@ -241,7 +238,7 @@ shiny::column( width = 9,
                       "This is the content for How people read."
                      )),
 
-            heading_text("button_Input", size = "s", id = "button_input_tables_tabs_accordians"),
+            heading_text("button_Input", size = "s", id = "button_input_tables_tabs_accordions"),
             button_Input("btn4", "Go to next page"),
           )
         ),
@@ -352,8 +349,8 @@ shiny::column( width = 9,
       shiny::updateTabsetPanel(session, "tab-container", selected = "text_types")
     })
 
-    shiny::observeEvent(input$tables_tabs_and_accordians_button, {
-      shiny::updateTabsetPanel(session, "tab-container", selected = "tables_tabs_and_accordians")
+    shiny::observeEvent(input$tables_tabs_and_accordions_button, {
+      shiny::updateTabsetPanel(session, "tab-container", selected = "tables_tabs_and_accordions")
     })
 
     shiny::observeEvent(input$feedback_types_button, {
@@ -375,7 +372,7 @@ shiny::column( width = 9,
     })
 
     shiny::observeEvent(input$back3, {
-      shiny::updateTabsetPanel(session, "tab-container", selected = "tables_tabs_and_accordians")
+      shiny::updateTabsetPanel(session, "tab-container", selected = "tables_tabs_and_accordions")
     })
 
 
@@ -385,7 +382,7 @@ shiny::column( width = 9,
     })
 
     shiny::observeEvent(input$btn1, {
-      shiny::updateTabsetPanel(session, "tab-container", selected = "tables_tabs_and_accordians")
+      shiny::updateTabsetPanel(session, "tab-container", selected = "tables_tabs_and_accordions")
     })
 
     shiny::observeEvent(input$btn1, {

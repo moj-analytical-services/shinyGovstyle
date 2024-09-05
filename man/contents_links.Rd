@@ -42,10 +42,10 @@ if (interactive()) {
         ),
 
         contents_links(
-          "Tables, tabs and accordians",
-          "tables_tabs_and_accordians_button",
+          "Tables, tabs and accordions",
+          "tables_tabs_and_accordions_button",
           subcontents_text_list = c("govTable", "govTabs", "button_Input"),
-          subcontents_id_list = c(NA, NA, "button_input_tables_tabs_accordians")
+          subcontents_id_list = c(NA, NA, "button_input_tables_tabs_accordions")
         ),
         contents_links("Cookies", "cookies_button")
       )
