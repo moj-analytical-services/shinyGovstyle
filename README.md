@@ -117,9 +117,9 @@ server <- function(input, output, session) {}
 
 Create contents and subcontents links to sidebar to navigate page. 
 
-![](man/figures/contents_links.png)
+![](man/figures/contents_link.png)
 
-Important: `contents_links()` requires the following UI structure to enable the js to work. This can also be found in `run_example()`:
+Important: `contents_link()` requires the following UI structure to enable the js to work. This can also be found in `run_example()`:
 
 ```
 shiny::fluidpage(
@@ -157,7 +157,7 @@ shiny::fluidpage(
 You can create a content links without subcontents links: 
 
 ```
-contents_links(
+contents_link(
   link_text = "Cookies",
   input_id = "cookies_button") 
 ```
@@ -165,7 +165,7 @@ contents_links(
 Or with subcontents links: 
 
 ```
-contents_links(
+contents_link(
   link_text = "Feedback types",
   input_id = "feedback_types_button",
   subcontents_text_list =  c("tag_Input", "details"))
@@ -178,7 +178,7 @@ Use `subcontents_id_list` to link a subcontents link to a `shinyGovstyle::headin
 Add as a `NA` to your vector any subcontents links where you still want to use the automatic link id for. 
 
 ```
-contents_links(
+contents_link(
   link_text = "Tables, tabs and accordions",
   input_id = "tables_tabs_and_accordions_button",
   subcontents_text_list = c("govTable", "govTabs", "button_Input"),
@@ -202,11 +202,11 @@ ui <- shiny::fluidPage(
       
       shiny::tags$div( # DO NOT REMOVE DIV
         shiny::tags$h2("Contents"),
-        contents_links(
+        contents_link(
           "Tables, tabs and accordions",
           "tables_tabs_and_accordions_button",
         ),
-        contents_links("Feedback types", "feedback_types_button"),
+        contents_link("Feedback types", "feedback_types_button"),
       )
     ),
     shiny::column(
@@ -266,7 +266,7 @@ heading_text(text_input = "I am medium text", size = "m"),
 heading_text(text_input = "I am small text", size = "s")
 ```
 
-You can use `id` to create a custom id to link with `subcontents_id_list` from `shinyGovstyle::contents_links`. This can be helpful when you have identically named headings.
+You can use `id` to create a custom id to link with `subcontents_id_list` from `shinyGovstyle::contents_link`. This can be helpful when you have identically named headings.
 
 ```
 heading_text(text_input = "I am the default extra large text", id = "custom_id")

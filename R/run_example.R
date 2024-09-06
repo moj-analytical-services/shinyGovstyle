@@ -58,7 +58,7 @@ run_example <- function(){
           shiny::tags$h2("Contents"),
 
           # Select Types tab
-          contents_links(
+          contents_link(
             "Select Types",
             "select_types_button",
             subcontents_text_list =
@@ -77,7 +77,7 @@ run_example <- function(){
 
 
           # Text types tab
-          contents_links(
+          contents_link(
             "Text Types",
             "text_types_button",
             subcontents_text_list = c("date_Input", "text_Input", "text_area_Input", "button_Input"),
@@ -85,7 +85,7 @@ run_example <- function(){
           ),
 
           # Tables tabs and accordions tab
-          contents_links(
+          contents_link(
             "Tables, tabs and accordions",
             "tables_tabs_and_accordions_button",
             subcontents_text_list = c("govTable", "govTabs", "accordions", "button_Input"),
@@ -93,7 +93,7 @@ run_example <- function(){
           ),
 
           # Feedback types tab
-          contents_links(
+          contents_link(
             "Feedback types",
             "feedback_types_button",
             subcontents_text_list =  c(
@@ -108,7 +108,7 @@ run_example <- function(){
           ),
 
 
-          contents_links(
+          contents_link(
             "Cookies",
             "cookies_button"),
 

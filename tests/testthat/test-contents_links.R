@@ -1,6 +1,6 @@
 # Check contents link
 test_that("contents_link", {
-  contents_check <- contents_links("Test content link", "test_content_link")
+  contents_check <- contents_link("Test content link", "test_content_link")
 
   expect_equal("test_content_link", contents_check$children[[1]]$attribs$id)
 })
@@ -8,7 +8,7 @@ test_that("contents_link", {
 
 # Check subcontents in contents link
 test_that("subcontents in contents_link", {
-  contents_check <- contents_links("Test content link",
+  contents_check <- contents_link("Test content link",
                                    "test_content_link",
                                    c("My test", "Subcontents", "Links"))
 
@@ -18,7 +18,7 @@ test_that("subcontents in contents_link", {
 
 # Check custom subcontents links
 test_that("custom subcontents in contents_link", {
-  contents_check <- contents_links("Test content link",
+  contents_check <- contents_link("Test content link",
                                    "test_content_link",
                                    c("My test", "Subcontents", "Links"),
                                    c(NA, NA, "my_custom_link"))

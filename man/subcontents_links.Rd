@@ -3,7 +3,7 @@
 \name{subcontents_links}
 \alias{subcontents_links}
 \title{Subcontents links function
-This function is used internally within contents_links to create links to headings within pages.}
+This function is used internally within contents_link to create links to headings within pages.}
 \usage{
 subcontents_links(subcontents_text_list, subcontents_id_list)
 }
@@ -17,7 +17,7 @@ a ol html shiny object
 }
 \description{
 Subcontents links function
-This function is used internally within contents_links to create links to headings within pages.
+This function is used internally within contents_link to create links to headings within pages.
 }
 \examples{
 if (interactive()) {

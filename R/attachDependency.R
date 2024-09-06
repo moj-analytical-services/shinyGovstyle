@@ -63,14 +63,14 @@ attachDependency <- function(tag, widget = NULL) {
       )
     }
 
-    else if (widget == "contents_links") {
+    else if (widget == "contents_link") {
       dep <- list(
         dep,
         htmltools::htmlDependency(
-          name = "contents_links",
+          name = "contents_link",
           version = version,
           src = c(href="shinyGovstyle/js"),
-          script = "contents_links.js"
+          script = "contents_link.js"
         )
       )
     }

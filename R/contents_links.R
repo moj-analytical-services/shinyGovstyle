@@ -1,5 +1,5 @@
 #' Subcontents links function
-#' This function is used internally within contents_links to create links to headings within pages.
+#' This function is used internally within contents_link to create links to headings within pages.
 #' @param subcontents_text_list vector of link text for subcontents
 #' @param subcontents_id_list vector of link ids for subcontents. pass NAs for automatic matching to id in shinygovstyle::heading_text
 #' @return a ol html shiny object
@@ -69,7 +69,7 @@ subcontents_links <- function(subcontents_text_list,
 
 #' Contents link function
 #'
-#' This function creates an action link to nav between tabs.
+#' This function creates an action link to nav between tabs and optionally link to subcontents headers.
 #' @param link_text vector of link text for contents
 #' @param input_id contents button id
 #' @param subcontents_text_list vector of link text for subcontents
@@ -113,7 +113,7 @@ subcontents_links <- function(subcontents_text_list,
 #'              shiny::tags$h2("Contents"),
 #'
 #'              # Text types tab
-#'              contents_links(
+#'              contents_link(
 #'                "Text Types",
 #'                "text_types_button",
 #'                subcontents_text_list = c("date_Input",
@@ -124,7 +124,7 @@ subcontents_links <- function(subcontents_text_list,
 #'              ),
 #'
 #'              # Tables tabs and accordions tab
-#'              contents_links(
+#'              contents_link(
 #'                "Tables, tabs and accordions",
 #'                "tables_tabs_and_accordions_button",
 #'                subcontents_text_list = c("govTable", "govTabs", "accordions", "button_Input"),
@@ -132,7 +132,7 @@ subcontents_links <- function(subcontents_text_list,
 #'              ),
 #'
 #'
-#'              contents_links(
+#'              contents_link(
 #'                "Cookies",
 #'                "cookies_button"),
 #'
@@ -259,7 +259,7 @@ subcontents_links <- function(subcontents_text_list,
 #'
 #'   shiny::shinyApp(ui = ui, server = server)
 #' }
-contents_links <- function(link_text,
+contents_link <- function(link_text,
                            input_id,
                            subcontents_text_list,
                            subcontents_id_list) {
@@ -281,5 +281,5 @@ contents_links <- function(link_text,
     }
   )
 
-  attachDependency(contents_div, "contents_links")
+  attachDependency(contents_div, "contents_link")
 }
