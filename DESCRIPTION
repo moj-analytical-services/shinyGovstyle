@@ -1,6 +1,6 @@
 Package: shinyGovstyle
 Title: Custom Gov Style Inputs for Shiny
-Version: 0.0.8
+Version: 0.1.0
 Authors@R: c(
   person(
     given = "Ross", 

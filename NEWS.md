@@ -5,6 +5,7 @@
 * One of the major changes in the css is a change in look and functionality for the accordion. Show/hide all works as expected now.
 * Another major change to how the radio buttons look and feel, in line with the v5.4.0 design examples.
 * Added additional functions to the `run_example` for ease of testing
+* Added the contents_links() function as a helper for getting the styling and behaviour for left navigation
 
 
 # shinyGovstyle 0.0.8
