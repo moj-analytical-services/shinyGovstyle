@@ -119,7 +119,7 @@ Create contents and subcontents links to sidebar to navigate page.
 
 ![](man/figures/contents_link.png)
 
-Important: `contents_link()` requires the following UI structure to enable the js to work. This can also be found in `run_example()`:
+Important: `contents_link()` requires the following UI structure to enable the js to work as it relies on the IDs for each section to then point a users focus to. This can also be found in `run_example()`:
 
 ```
 shiny::fluidpage(
@@ -133,8 +133,8 @@ shiny::fluidpage(
       width = 3,
       id = "nav", # DO NOT REMOVE ID
       shiny::tags$div(
-        id = "govuk-contents-box", #DO NOT REMOVE ID 
-       class = "govuk-contents-box",  #DO NOT REMOVE CLASS
+        id = "govuk-contents-box", # DO NOT REMOVE ID 
+       class = "govuk-contents-box",  # DO NOT REMOVE CLASS
         shiny::tags$h2("contents"), 
         
         # CONTENTS LINKS GO HERE
