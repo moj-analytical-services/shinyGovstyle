@@ -48,12 +48,12 @@ run_example <- function(){
       shiny::column(
 
         width = 3,
-        id = "nav",
+        id = "nav", # DO NOT REMOVE ID
 
         # Contents box
         shiny::tags$div(
-          id = "govuk-contents-box",
-          class = "govuk-contents-box",
+          id = "govuk-contents-box", #DO NOT REMOVE ID
+          class = "govuk-contents-box",  #DO NOT REMOVE CLASS
 
           shiny::tags$h2("Contents"),
 
@@ -119,12 +119,12 @@ run_example <- function(){
 
 shiny::column( width = 9,
 
-      id = "main_col", #do not remove
+      id = "main_col", # DO NOT REMOVE ID
 
       #Set up a nav panel so everything not on single page
       shiny::tabsetPanel(
         type = "hidden",
-        id = "tab-container",
+        id = "tab-container", # DO NOT REMOVE ID
 
         #####################Create first panel################################
        shiny::tabPanel(

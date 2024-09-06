@@ -119,6 +119,41 @@ Create contents and subcontents links to sidebar to navigate page.
 
 ![](man/figures/contents_links.png)
 
+Important: `contents_links()` requires the following UI structure to enable the js to work. This can also be found in `run_example()`:
+
+```
+shiny::fluidpage(
+  shinygovstyle::header(
+    main_text = "example",
+    secondary_text = "user examples",
+    logo = "shinygovstyle/images/moj_logo.png"
+  ),
+  gov_row(
+    shiny::column(
+      width = 3,
+      id = "nav", # DO NOT REMOVE ID
+      shiny::tags$div(
+        id = "govuk-contents-box", #DO NOT REMOVE ID 
+       class = "govuk-contents-box",  #DO NOT REMOVE CLASS
+        shiny::tags$h2("contents"), 
+        
+        # CONTENTS LINKS GO HERE
+        )
+      ),
+      shiny::column(
+        width = 9,
+        id = "main-col", # DO NOT REMOVE ID
+        shiny::tabsetpanel(
+        type = "hidden",
+        id = "tab-container", # DO NOT REMOVE ID 
+                           
+        # TAB PANELS GO HERE 
+        )
+      )
+  )
+)
+```
+
 You can create a content links without subcontents links: 
 
 ```
@@ -163,9 +198,9 @@ ui <- shiny::fluidPage(
   gov_row(
     shiny::column(
       width = 3,
-      id = "nav",
+      id = "nav", # DO NOT REMOVE ID 
       
-      shiny::tags$div(
+      shiny::tags$div( # DO NOT REMOVE DIV
         shiny::tags$h2("Contents"),
         contents_links(
           "Tables, tabs and accordions",
@@ -176,9 +211,10 @@ ui <- shiny::fluidPage(
     ),
     shiny::column(
       width = 9,
+      id = "main_col", # DO NOT REMOVE ID 
       shiny::tabsetPanel(
         type = "hidden",
-        id = "tab-container",
+        id = "tab-container", # DO NOT REMOVE ID 
         
         shiny::tabPanel(
           "Tables, tabs and accordions",
@@ -213,7 +249,7 @@ shiny::shinyApp(ui = ui, server = server)
 }
 ```
 
-Subcontents links work automatically and do not need to a `shiny::observeEvent()` in the server 
+Subcontents links work automatically and do not need to a `shiny::observeEvent()` in the server.
 
 ### Heading text
 
