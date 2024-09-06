@@ -42,20 +42,98 @@ run_example <- function(){
       shiny::markdown(
         "Run ```View(run_example)``` in console to see the code for this app"),
 
+
+      gov_row(
+      # Nav columns
+      shiny::column(
+
+        width = 3,
+        id = "nav", # DO NOT REMOVE ID
+
+        # Contents box
+        shiny::tags$div(
+          id = "govuk-contents-box", #DO NOT REMOVE ID
+          class = "govuk-contents-box",  #DO NOT REMOVE CLASS
+
+          shiny::tags$h2("Contents"),
+
+          # Select Types tab
+          contents_link(
+            "Select Types",
+            "select_types_button",
+            subcontents_text_list =
+              c(
+                "radio_button_Input (inline)",
+                "radio_button_Input (stacked)",
+                "checkbox_Input",
+                "select_Input",
+                "file_Input",
+                "button_Input"
+
+              )
+
+          ),
+
+
+
+          # Text types tab
+          contents_link(
+            "Text Types",
+            "text_types_button",
+            subcontents_text_list = c("date_Input", "text_Input", "text_area_Input", "button_Input"),
+            subcontents_id_list = c(NA, NA, NA, "button_input_text_types")
+          ),
+
+          # Tables tabs and accordions tab
+          contents_link(
+            "Tables, tabs and accordions",
+            "tables_tabs_and_accordions_button",
+            subcontents_text_list = c("govTable", "govTabs", "accordions", "button_Input"),
+            subcontents_id_list = c(NA, NA, NA, "button_input_tables_tabs_accordions")
+          ),
+
+          # Feedback types tab
+          contents_link(
+            "Feedback types",
+            "feedback_types_button",
+            subcontents_text_list =  c(
+              "tag_Input",
+              "details",
+              "insert_text",
+              "warning_text",
+              "panel_output",
+              "noti_banner",
+              "gov_summary"
+            )
+          ),
+
+
+          contents_link(
+            "Cookies",
+            "cookies_button"),
+
+        )
+      ),
+
+
+
+shiny::column( width = 9,
+
+      id = "main_col", # DO NOT REMOVE ID
+
       #Set up a nav panel so everything not on single page
-      shiny::navlistPanel(
-        "",
-        id="nav",
-        widths = c(2, 10),
-        well = FALSE,
+      shiny::tabsetPanel(
+        type = "hidden",
+        id = "tab-container", # DO NOT REMOVE ID
 
         #####################Create first panel################################
-        shiny::tabPanel(
+       shiny::tabPanel(
           "Select Types",
-          value = "panel1",
+          value = "select_types",
           gov_layout(
             size = "two-thirds",
-            heading_text("Page 1", size = "l"),
+
+            heading_text("Select Types", size = "l"),
             label_hint("label1", "These are some examples of the types of user
                    select type inputs that you can use"),
             heading_text("radio_button_Input (inline)", size = "s"),
@@ -97,9 +175,9 @@ run_example <- function(){
 
 
         #####################Create second panel################################
-        shiny::tabPanel(
+       shiny::tabPanel(
           "Text Types",
-          value = "panel2",
+          value = "text_types",
           gov_layout(
             size = "two-thirds",
             backlink_Input("back1"),
@@ -126,19 +204,19 @@ run_example <- function(){
               error = T,
               error_message = "Please do not leave blank",
               word_limit = 300),
-            heading_text("button_Input", size = "s"),
+            heading_text("button_Input", size = "s", id = "button_input_text_types"),
             button_Input("btn2", "Go to next page"),
             button_Input("btn3", "Check for errors", type = "warning")
           )
         ),
 
         #####################Create third panel################################
-        shiny::tabPanel(
+       shiny::tabPanel(
           "Tables, tabs and accordions",
-          value = "panel3",
+          value = "tables_tabs_and_accordions",
           gov_layout(
             size = "two-thirds",
-            backlink_Input("back2"),
+           backlink_Input("back2"),
             heading_text("Page 3", size = "l"),
             label_hint("label3", "These are some examples of using tabs and
                        tables"),
@@ -162,15 +240,15 @@ run_example <- function(){
                       "This is the content for How people read."
                      )),
 
-            heading_text("button_Input", size = "s"),
+            heading_text("button_Input", size = "s", id = "button_input_tables_tabs_accordions"),
             button_Input("btn4", "Go to next page"),
           )
         ),
 
         #####################Create feedback panel################################
-        shiny::tabPanel(
+       shiny::tabPanel(
           "Feedback Types",
-          value = "panel-feedback",
+          value = "feedback_types",
           gov_layout(
             size = "two-thirds",
             backlink_Input("back3"),
@@ -251,43 +329,66 @@ run_example <- function(){
             label_hint("label-cookies", "This an example cookie page that could be
                        expanded")
           )
-        )),
+        )))
 
-      # Add a full footer
-      footer(TRUE)),
+
+), #end of gov row
+
+    footer(TRUE)
+
+
+), #end of fluid page
 
   server = function(input, output, session) {
-    # Nav to next tab
-    shiny::observeEvent(input$btn1, {
-      shiny::updateTabsetPanel(session, "nav",
-                        selected = "panel2")
+
+
+    # Tab nav
+    shiny::observeEvent(input$select_types_button, {
+      shiny::updateTabsetPanel(session, "tab-container", selected = "select_types")
     })
 
-    # Nav to next tab
-    shiny::observeEvent(input$btn2, {
-      shiny::updateTabsetPanel(session, "nav",
-                        selected = "panel3")
+    shiny::observeEvent(input$text_types_button, {
+      shiny::updateTabsetPanel(session, "tab-container", selected = "text_types")
     })
 
-    # Nav to next tab
-    shiny::observeEvent(input$btn4, {
-      shiny::updateTabsetPanel(session, "nav",
-                               selected = "panel-feedback")
+    shiny::observeEvent(input$tables_tabs_and_accordions_button, {
+      shiny::updateTabsetPanel(session, "tab-container", selected = "tables_tabs_and_accordions")
     })
 
+    shiny::observeEvent(input$feedback_types_button, {
+      shiny::updateTabsetPanel(session, "tab-container", selected = "feedback_types")
+    })
+
+    shiny::observeEvent(input$cookies_button, {
+      shiny::updateTabsetPanel(session, "tab-container", selected = "panel-cookies")
+    })
+
+
+    # Back buttons
     shiny::observeEvent(input$back1, {
-      shiny::updateTabsetPanel(session, "nav",
-                               selected = "panel1")
+      shiny::updateTabsetPanel(session, "tab-container", selected = "select_types")
     })
 
     shiny::observeEvent(input$back2, {
-      shiny::updateTabsetPanel(session, "nav",
-                               selected = "panel2")
+      shiny::updateTabsetPanel(session, "tab-container", selected = "text_types")
     })
 
     shiny::observeEvent(input$back3, {
-      shiny::updateTabsetPanel(session, "nav",
-                               selected = "panel3")
+      shiny::updateTabsetPanel(session, "tab-container", selected = "tables_tabs_and_accordions")
+    })
+
+
+    # Next page buttons
+    shiny::observeEvent(input$btn1, {
+      shiny::updateTabsetPanel(session, "tab-container", selected = "text_types")
+    })
+
+    shiny::observeEvent(input$btn1, {
+      shiny::updateTabsetPanel(session, "tab-container", selected = "tables_tabs_and_accordions")
+    })
+
+    shiny::observeEvent(input$btn1, {
+      shiny::updateTabsetPanel(session, "tab-container", selected = "feedback_types")
     })
 
     # Need this to use live update the word counter

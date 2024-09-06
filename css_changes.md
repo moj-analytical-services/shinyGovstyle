@@ -28,7 +28,7 @@ color: #0b0c0c;
 
 * For accordion need to fix the css by:
 
- Finding and replacing all `.govuk-frontend-supported .govuk-accordion` with `.js-enabled .govuk-accordion` 
+ Finding and replacing all `.govuk-frontend-supported .govuk-accordion` with `.js-enabled .govuk-accordion`
  
  and adding this chunk to the accordion section of css:
  
@@ -104,5 +104,94 @@ only screen and (min-resolution:2dppx) {
     display: table-caption;
     text-align: left;
     color: #000;
+}
+```
+
+* contents box:
+
+```
+/*Match margin in main-wrapper so "Contents" is level*/
+@media (max-width:40.0625em) {
+    .govuk-contents-box {
+    margin-right: 30px;
+    margin-left: 30px
+
+    }
+}
+
+/*Match margin in main-wrapper so "Contents" is level*/
+@media (min-width:40.0625em) and (max-width:48.0625em) {
+    .govuk-contents-box {
+    margin-right: 45px;
+    margin-left: 45px
+
+    }
+}
+
+
+/*Match margin in main-wrapper so "Contents" is level*/
+@media (min-width:40.0625em) {
+    .govuk-contents-box {
+         margin-top: 40px;
+
+    }
+}
+
+
+/*Do not apply stickyness on smaller screen*/
+@media (min-width:48.0625em) {
+.govuk-contents-box_sticky {
+  position: fixed;
+  /*Guess? - probably could put exact pixels to make smooth*/
+  top: 26px;
+  /* Margin 0 to stop the contents box bopping around */
+  margin: 0;
+  padding: 0;
+}
+}
+
+
+/*Contents link formatting*/
+.govuk-contents {
+ top: 0.5rem;
+ padding: 0.25rem;
+}
+
+.govuk-contents__link {
+  padding-left: 0;
+  font-size: 1rem;
+}
+
+.govuk-subcontents {
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 1rem;
+}
+
+/*Only display subcontents for first one - on load*/
+.govuk-contents ~ .govuk-contents  > .govuk-subcontents {
+  display: none;
+}
+```
+
+* Updated govuk-link--no-visited-state to still have a clear focus highlight (copied from the govuk-link formatting)
+
+```
+.govuk-link--no-visited-state:focus {
+    outline: 3px solid transparent;
+    background-color: #fd0;
+    box-shadow: 0 -2px #fd0, 0 4px #0b0c0c;
+    text-decoration: none;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone
+}
+
+.govuk-link--no-visited-state:hover {
+    text-decoration-thickness: max(3px, .1875rem, .12em);
+    -webkit-text-decoration-skip-ink: none;
+    text-decoration-skip-ink: none;
+    -webkit-text-decoration-skip: none;
+    text-decoration-skip: none;
+    color: #003078
 }
 ```
