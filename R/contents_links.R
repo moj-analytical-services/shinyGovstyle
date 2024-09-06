@@ -116,7 +116,10 @@ subcontents_links <- function(subcontents_text_list,
 #'              contents_links(
 #'                "Text Types",
 #'                "text_types_button",
-#'                subcontents_text_list = c("date_Input", "text_Input", "text_area_Input", "button_Input"),
+#'                subcontents_text_list = c("date_Input",
+#'                "text_Input",
+#'                "text_area_Input",
+#'                "button_Input"),
 #'                subcontents_id_list = c(NA, NA, NA, "button_input_text_types")
 #'              ),
 #'
@@ -175,7 +178,9 @@ subcontents_links <- function(subcontents_text_list,
 #'                                 error = T,
 #'                                 error_message = "Please do not leave blank",
 #'                                 word_limit = 300),
-#'                               heading_text("button_Input", size = "s", id = "button_input_text_types"),
+#'                               heading_text(
+#'                               "button_Input", size = "s",
+#'                               id = "button_input_text_types"),
 #'                               button_Input("btn2", "Go to next page"),
 #'                               button_Input("btn3", "Check for errors", type = "warning")
 #'                             )
@@ -206,7 +211,9 @@ subcontents_links <- function(subcontents_text_list,
 #'                                   "This is the content for How people read."
 #'                                 )),
 #'
-#'                               heading_text("button_Input", size = "s", id = "button_input_tables_tabs_accordions"),
+#'                               heading_text(
+#'                               "button_Input", size = "s",
+#'                                id = "button_input_tables_tabs_accordions"),
 #'                               button_Input("btn4", "Go to next page"),
 #'                             )
 #'                           ),
