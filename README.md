@@ -612,6 +612,7 @@ Important: your main column will need an id of "main_col" for this to work
 This feature is generally positioned after the cookie banner and below the header. See example below: 
 
 
+
 ```
 ui <- fluidPage(
   cookieBanner("Run Example"),
