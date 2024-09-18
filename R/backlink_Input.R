@@ -2,6 +2,7 @@
 #'
 #' This function adds a back link to the page
 #' @param inputId The input slot that will be used to access the value.
+#' @param label The link text for the backlink, default is "Back"
 #' @return a backlink html shiny object
 #' @keywords backlink
 #' @export
@@ -42,13 +43,12 @@
 #'   shinyApp(ui = ui, server = server)
 #' }
 
-backlink_Input <- function(inputId) {
+backlink_Input <- function(inputId, label = "Back") {
 
   value <- shiny::restoreInput(id = inputId, default = NULL)
-  govBacklink <- shiny::tags$button("Back",
-                   id = inputId,
-                   class = paste0("govuk-back-link",
-                                  " action-button"),
+  govBacklink <- shiny::actionLink(label = label,
+                   inputId = inputId,
+                   class = paste0("govuk-back-link"),
                    `data-val` = value)
   attachDependency(govBacklink)
 

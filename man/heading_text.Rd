@@ -4,12 +4,14 @@
 \alias{heading_text}
 \title{Heading Text Function}
 \usage{
-heading_text(text_input, size = "xl")
+heading_text(text_input, size = "xl", id)
 }
 \arguments{
 \item{text_input}{Text to display}
 
 \item{size}{Text size using xl, l, m, s.  Defaults to xl.}
+
+\item{id}{Custom header id}
 }
 \value{
 a heading text html shiny object

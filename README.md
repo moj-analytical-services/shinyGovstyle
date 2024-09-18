@@ -3,7 +3,7 @@
 <!-- badges: start -->
 
 [![CRAN status](https://www.r-pkg.org/badges/version/shinyGovstyle)](https://cran.r-project.org/package=shinyGovstyle)
-
+[![R-CMD-check](https://github.com/moj-analytical-services/shinyGovstyle/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/moj-analytical-services/shinyGovstyle/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 > Apply Gov styled components and formats in shiny
@@ -44,6 +44,8 @@ To use error and word count elements you will need to load useShinyjs from shiny
 
   - [Gov style layout](#gov-style-layout)
   - [Banner](#banner)
+  - [Contents links](#contents-links)
+  - [Header text](#header-text)
   - [Radio button](#radio-button)
   - [Checkbox](#checkbox)
   - [Button](#button)
@@ -111,6 +113,165 @@ ui <- fluidPage(
 server <- function(input, output, session) {}
 ```
 
+### Contents links
+
+Create contents and subcontents links to sidebar to navigate page. 
+
+![](man/figures/contents_link.png)
+
+Important: `contents_link()` requires the following UI structure to enable the js to work as it relies on the IDs for each section to then point a users focus to. This can also be found in `run_example()`:
+
+```
+shiny::fluidpage(
+  shinygovstyle::header(
+    main_text = "example",
+    secondary_text = "user examples",
+    logo = "shinygovstyle/images/moj_logo.png"
+  ),
+  gov_row(
+    shiny::column(
+      width = 3,
+      id = "nav", # DO NOT REMOVE ID
+      shiny::tags$div(
+        id = "govuk-contents-box", # DO NOT REMOVE ID 
+       class = "govuk-contents-box",  # DO NOT REMOVE CLASS
+        shiny::tags$h2("contents"), 
+        
+        # CONTENTS LINKS GO HERE
+        )
+      ),
+      shiny::column(
+        width = 9,
+        id = "main-col", # DO NOT REMOVE ID
+        shiny::tabsetpanel(
+        type = "hidden",
+        id = "tab-container", # DO NOT REMOVE ID 
+                           
+        # TAB PANELS GO HERE 
+        )
+      )
+  )
+)
+```
+
+You can create a content links without subcontents links: 
+
+```
+contents_link(
+  link_text = "Cookies",
+  input_id = "cookies_button") 
+```
+
+Or with subcontents links: 
+
+```
+contents_link(
+  link_text = "Feedback types",
+  input_id = "feedback_types_button",
+  subcontents_text_list =  c("tag_Input", "details"))
+```      
+
+If you use `subcontents_text_list` without specifying `subcontents_id_list` then the subcontents links will automatically link to `shinyGovstyle::heading_text()` elements where the header label matches the `subcontents_text_list` label. 
+
+Use `subcontents_id_list` to link a subcontents link to a `shinyGovstyle::heading_text()` with a custom `id` argument. The order needs to match that of `subcontents_text_list`. 
+
+Add as a `NA` to your vector any subcontents links where you still want to use the automatic link id for. 
+
+```
+contents_link(
+  link_text = "Tables, tabs and accordions",
+  input_id = "tables_tabs_and_accordions_button",
+  subcontents_text_list = c("govTable", "govTabs", "button_Input"),
+  subcontents_id_list = c(NA, NA, "button_input_tables_tabs_accordions")
+)
+```
+
+Contents links will need a `shiny::observeEvent()` in the server to switch between tabset panels. 
+
+```
+ui <- shiny::fluidPage(
+  shinyGovstyle::header(
+    main_text = "Example",
+    secondary_text = "User Examples",
+    logo = "shinyGovstyle/images/moj_logo.png"
+  ),
+  gov_row(
+    shiny::column(
+      width = 3,
+      id = "nav", # DO NOT REMOVE ID 
+      
+      shiny::tags$div( # DO NOT REMOVE DIV
+        shiny::tags$h2("Contents"),
+        contents_link(
+          "Tables, tabs and accordions",
+          "tables_tabs_and_accordions_button",
+        ),
+        contents_link("Feedback types", "feedback_types_button"),
+      )
+    ),
+    shiny::column(
+      width = 9,
+      id = "main_col", # DO NOT REMOVE ID 
+      shiny::tabsetPanel(
+        type = "hidden",
+        id = "tab-container", # DO NOT REMOVE ID 
+        
+        shiny::tabPanel(
+          "Tables, tabs and accordions",
+          value = "tables_tabs_and_accordions",
+          gov_layout(size = "Tables, tabs and accordions", 
+                     heading_text("Tables, tabs and accordions", size = "l"))
+        ),
+        
+        shiny::tabPanel(
+          "Feedback Types",
+          value = "feedback_types",
+          gov_layout(size = "two-thirds", 
+                     heading_text("Feedback types", size = "l"))
+        ),
+      )
+      
+    )
+  )
+)
+
+server <- function(input, output, session) {
+  shiny::observeEvent(input$tables_tabs_and_accordions_button, {
+    shiny::updateTabsetPanel(session, "tab-container", selected = "tables_tabs_and_accordions")
+  })
+  
+  shiny::observeEvent(input$feedback_types_button, {
+    shiny::updateTabsetPanel(session, "tab-container", selected = "feedback_types")
+  })
+  
+}
+shiny::shinyApp(ui = ui, server = server)
+}
+```
+
+Subcontents links work automatically and do not need to a `shiny::observeEvent()` in the server.
+
+### Heading text
+
+Use heading text to create headings. 
+
+![](man/figures/header_text.png)
+
+You can adjust the text size by setting `size` to 'xl', 'l', 'm', or 's'. `size` defaults to 'xl'. 
+
+```
+heading_text(text_input = "I am the default extra large text", size = "xl"),
+heading_text(text_input = "I am large text", size = "l"),
+heading_text(text_input = "I am medium text", size = "m"),
+heading_text(text_input = "I am small text", size = "s")
+```
+
+You can use `id` to create a custom id to link with `subcontents_id_list` from `shinyGovstyle::contents_link`. This can be helpful when you have identically named headings.
+
+```
+heading_text(text_input = "I am the default extra large text", id = "custom_id")
+```
+
 ### Radio button
 
 Create a gov style radio button : <br>
@@ -118,7 +279,7 @@ Create a gov style radio button : <br>
 
 ```r
 radio_button_Input(inputId = "name_changed", label = "Have you changed your name?",
-                   choices = c("Yes", "No"), inline = TRUE,
+                   choices= c("Yes", "No"), inline = TRUE,
                    hint_label = "This includes changing your last name or spelling your name differently.")
 ```
 
@@ -445,8 +606,17 @@ Add a gov style tag component :
 ![tags](man/figures/tags.png)
 
 ```r
-shinyGovstyle::tag_Input("tag1", "COMPLETE"),
-shinyGovstyle::tag_Input("tag2", "INCOMPLETE", "red")
+tag_Input(inputId = "tag1", text = "Default"),
+tag_Input(inputId = "tag2", text = "Grey", colour = "grey"),
+tag_Input(inputId = "tag3", text = "Green", colour = "green"),
+tag_Input(inputId = "tag4", text = "Turquoise", colour = "turquoise"),
+tag_Input(inputId = "tag5", text = "Blue", colour = "blue"),
+tag_Input(inputId = "tag6", text = "Light-blue", colour = "light-blue"),
+tag_Input(inputId = "tag7", text = "Purple", colour = "purple"),
+tag_Input(inputId = "tag8", text = "Pink", colour = "pink"),
+tag_Input(inputId = "tag9", text = "Red", colour = "red"),
+tag_Input(inputId = "tag10", text = "Orange", colour = "orange"),
+tag_Input(inputId = "tag11", text = "Yellow", colour = "yellow")
 ```
 
 ### Error

@@ -70,7 +70,7 @@ header <- function(main_text, secondary_text, logo = NULL,
       shiny::tags$div(class = "govuk-header__content",
         shiny::tags$a(
           href = secondary_link, secondary_text,
-          class = "govuk-header__link govuk-header__link--service-name"
+          class = "govuk-header__link govuk-header__service-name"
         )
       )
     )
