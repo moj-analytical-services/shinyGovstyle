@@ -7714,4 +7714,21 @@ screen and (-ms-high-contrast:active) {
 }
 
 
+/*Skip link*/
+.govuk-skip {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+
+.govuk-skip:focus {
+  position: static;
+  width: auto;
+  height: auto;
+}
+
 /*# sourceMappingURL=govuk-frontend-5.4.0.min.css.map */

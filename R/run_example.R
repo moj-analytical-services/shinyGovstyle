@@ -26,6 +26,7 @@ run_example <- function(){
     ui = shiny::fluidPage(
       title="ShinyGovstyle",
       cookieBanner("Run Example"),
+      skip_to_main(),
       header("MOJ", "ShinyGovstyle Example",
              logo="shinyGovstyle/images/moj_logo-1.png", logo_width = 66),
       banner(

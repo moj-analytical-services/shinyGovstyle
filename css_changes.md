@@ -195,3 +195,24 @@ only screen and (min-resolution:2dppx) {
     color: #003078
 }
 ```
+
+
+* skip link
+```
+/*Skip link*/
+.govuk-skip {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+
+.govuk-skip:focus {
+  position: static;
+  width: auto;
+  height: auto;
+}
+```
