@@ -101,6 +101,7 @@ run_example <- function(){
               "details",
               "insert_text",
               "warning_text",
+              "value_box",
               "panel_output",
               "noti_banner",
               "gov_summary"
@@ -290,6 +291,26 @@ shiny::column( width = 9,
               inputId = "warn",
               text = "You can be fined up to \u00A35\u002C000 if you do
               not register."),
+
+
+            heading_text("value_box", size = "s"),
+            value_box(
+              inputId = "value1",
+              value = "Default (no description included)"
+            ),
+            value_box(
+              inputId = "value2",
+              value = "£1,000,000",
+              text = "This is an example value box in purple.",
+              colour = "purple"
+            ),
+            value_box(
+              inputId = "value3",
+              value = "58.3%",
+              text = "This is another example value box in red. More colours are available.",
+              colour = "red"
+            ),
+
             heading_text("panel_output", size = "s"),
             panel_output(
               inputId = "panId",
