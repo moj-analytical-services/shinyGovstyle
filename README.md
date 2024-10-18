@@ -64,6 +64,7 @@ To use error and word count elements you will need to load useShinyjs from shiny
   - [Tabs](#tabs)
   - [Summary List](#summary-list)
   - [Cookie Banner](#cookie-banner)
+  - [Skip to main](#skip-to-main)
   - [Tags](#tags)
   - [Error](#error)
   - [Example Version](#example-version)
@@ -596,6 +597,68 @@ server <- function(input, output, session) {
     #updateTabsetPanel to have a cookie page for instance
   })
 
+}
+shinyApp(ui = ui, server = server)
+```
+
+### Skip to main
+
+Add an accessible 'Skip to main content' link which is typically used by keyboard-only users to bypass content and navigate directly to the main content of a page. It is only visible to users 'tabbing' over the feature, otherwise it is hidden: 
+
+![](man/figures/skip-to-main-visible.png)
+
+Important: your main column will need an id of "main_col" for this to work
+
+This feature is generally positioned after the cookie banner and below the header. See example below: 
+
+
+
+```
+ui <- fluidPage(
+  cookieBanner("Run Example"),
+  skip_to_main(),
+  shinyGovstyle::header(
+    main_text = "Example",
+    secondary_text = "User Examples",
+    logo="shinyGovstyle/images/moj_logo.png"
+  ),
+  shinyjs::useShinyjs(),  # shinyjs is needed to manage visibility of elements
+  gov_row(
+    shiny::column(
+      width = 3,
+      id = "nav",
+      
+      # Contents box
+      shiny::tags$div(
+        id = "govuk-contents-box", #DO NOT REMOVE ID
+        class = "govuk-contents-box",  #DO NOT REMOVE CLASS
+        shiny::tags$h2("Contents"),
+        p("Your contents links go here"),
+      )
+    ),
+    
+    shiny::column(
+      width = 9,
+      id = "main_col",
+      shiny::tabsetPanel(
+        type = "hidden",
+        id = "tab-container", # DO NOT REMOVE ID
+        shiny::tabPanel(
+          "Your main content",
+          value = "your_main_content",
+          gov_layout(
+            size = "two-thirds",
+            heading_text("Your main content", size = "l"),
+            p("Your main content goes here")
+            
+          )
+        )
+      )
+    )
+    
+  )
+)
+server <- function(input, output, session){
 }
 shinyApp(ui = ui, server = server)
 ```
