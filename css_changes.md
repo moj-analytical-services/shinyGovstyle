@@ -195,3 +195,49 @@ only screen and (min-resolution:2dppx) {
     color: #003078
 }
 ```
+
+
+* Container for the value_box
+```
+.value-box-container {
+    font-family: GDS Transport, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1;
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: left;
+    margin-bottom: 15px;
+}
+```
+
+* Larger screens styling for value_box
+```
+@media (min-width: 40.0625em) {
+    .value-box-container {
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+}
+```
+
+* Styling for the value in value_box
+```
+.value-box-value {
+    font-size: 1.5rem;
+    line-height: 1;
+    font-weight: 700;
+    margin: 0;
+    display: block;
+}
+```
+
+* Styling for the optional description in value_box
+```
+.value-box-description {
+    font-size: 1rem;
+    line-height: 1;
+    margin-top: 10px;
+    font-weight: 400;
+}
+```

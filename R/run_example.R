@@ -300,7 +300,7 @@ shiny::column( width = 9,
             ),
             value_box(
               inputId = "value2",
-              value = "£1,000,000",
+              value = "1,000,000",
               text = "This is an example value box in purple.",
               colour = "purple"
             ),

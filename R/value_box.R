@@ -16,7 +16,7 @@
 #'   ui <- fluidPage(
 #'     value_text(
 #'       inputId = "value1",
-#'       value = "£1,000,000",
+#'       value = "1,000,000",
 #'       text = "This is the latest value for the selected inputs.",
 #'       colour = "purple"
 #'     )
@@ -24,7 +24,7 @@
 #'   server <- function(input, output, session) {}
 #'   shinyApp(ui = ui, server = server)
 #' }
-value_box <- function(inputId, value = "your value goes here", text = NA, colour = "turquoise") {
+value_box <- function(inputId, value = "your value goes here", text = NA, colour = "blue") {
 
   # Use the govuk-tag--<colour> class for coloring
   class_colour <- paste0("govuk-tag--", colour)
