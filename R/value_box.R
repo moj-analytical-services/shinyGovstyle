@@ -6,7 +6,7 @@
 #' @param inputId Character. A unique identifier for the value box element.
 #' @param value Character. The primary value to display in the value box. Defaults to "your value goes here".
 #' @param text Character or NA. An optional description to appear below the value. If not provided (default is NA), the description will not be displayed..
-#' @param colour Character. A colour to apply to the value box. Defaults to "turquoise". Choose from the following: "grey", "purple", "turquoise", "blue", "light-blue", "yellow", "orange", "red", "pink", or "green".
+#' @param colour Character. A colour to apply to the value box. Defaults to "blue". Choose from the following: "grey", "purple", "turquoise", "blue", "light-blue", "yellow", "orange", "red", "pink", or "green".
 #'
 #' @return A Shiny `div` tag representing the value box, styled according to the specified parameters.
 #' @export

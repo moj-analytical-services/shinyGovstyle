@@ -13,7 +13,7 @@ value_box(inputId, value = "your value goes here", text = NA, colour = "blue")
 
 \item{text}{Character or NA. An optional description to appear below the value. If not provided (default is NA), the description will not be displayed..}
 
-\item{colour}{Character. A colour to apply to the value box. Defaults to "turquoise". Choose from the following: "grey", "purple", "turquoise", "blue", "light-blue", "yellow", "orange", "red", "pink", or "green".}
+\item{colour}{Character. A colour to apply to the value box. Defaults to "blue". Choose from the following: "grey", "purple", "turquoise", "blue", "light-blue", "yellow", "orange", "red", "pink", or "green".}
 }
 \value{
 A Shiny `div` tag representing the value box, styled according to the specified parameters.
