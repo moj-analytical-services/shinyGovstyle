@@ -89,8 +89,8 @@ run_example <- function(){
           contents_link(
             "Tables, tabs and accordions",
             "tables_tabs_and_accordions_button",
-            subcontents_text_list = c("govTable", "govTabs", "accordions", "button_Input"),
-            subcontents_id_list = c(NA, NA, NA, "button_input_tables_tabs_accordions")
+            subcontents_text_list = c("govTable", "govTabs", "button_Input", "accordions"),
+            subcontents_id_list = c(NA, NA, "button_input_tables_tabs_accordions", NA)
           ),
 
           # Feedback types tab
@@ -227,22 +227,37 @@ shiny::column( width = 9,
               width_overwrite = c("one-half", "one-quarter", "one-quarter")),
             heading_text("govTabs", size = "s"),
             shinyGovstyle::govTabs("tabsID", data, "tabs"),
+           heading_text("button_Input", size = "s", id = "button_input_tables_tabs_accordions"),
+           button_Input("btn4", "Go to next page"),
             heading_text("accordions", size = "s"),
             shinyGovstyle::  accordion(
                     "acc1",
                     c("Writing well for the web",
                       "Writing well for specialists",
                       "Know your audience",
-                      "How people read"
+                      "How people read",
+                      "Accordian title 5",
+                      "Accordion title 6",
+                      "Accordion title 7",
+                      "Accordion title 8",
+                      "Accordion title 9",
+                      "Accordion title 10",
+                      "Accordion title 11"
                      ),
                     c("This is the content for Writing well for the web.",
                       "This is the content for Writing well for specialists.",
                       "This is the content for Know your audience.",
-                      "This is the content for How people read."
+                      "This is the content for How people read.",
+                      "Accordian content 5",
+                      "Accordion content 6",
+                      "Accordion content 7",
+                      "Accordion content 8",
+                      "Accordion content 9",
+                      "Accordion content 10",
+                      "Accordion content 11"
                      )),
 
-            heading_text("button_Input", size = "s", id = "button_input_tables_tabs_accordions"),
-            button_Input("btn4", "Go to next page"),
+
           )
         ),
 
