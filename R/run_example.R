@@ -89,8 +89,8 @@ run_example <- function(){
           contents_link(
             "Tables, tabs and accordions",
             "tables_tabs_and_accordions_button",
-            subcontents_text_list = c("govTable", "govTabs", "accordions", "button_Input"),
-            subcontents_id_list = c(NA, NA, NA, "button_input_tables_tabs_accordions")
+            subcontents_text_list = c("govTable", "govTabs", "button_Input", "accordions"),
+            subcontents_id_list = c(NA, NA, "button_input_tables_tabs_accordions", NA)
           ),
 
           # Feedback types tab
@@ -228,6 +228,8 @@ shiny::column( width = 9,
               width_overwrite = c("one-half", "one-quarter", "one-quarter")),
             heading_text("govTabs", size = "s"),
             shinyGovstyle::govTabs("tabsID", data, "tabs"),
+           heading_text("button_Input", size = "s", id = "button_input_tables_tabs_accordions"),
+           button_Input("btn4", "Go to next page"),
             heading_text("accordions", size = "s"),
             shinyGovstyle::  accordion(
                     "acc1",
@@ -242,8 +244,7 @@ shiny::column( width = 9,
                       "This is the content for How people read."
                      )),
 
-            heading_text("button_Input", size = "s", id = "button_input_tables_tabs_accordions"),
-            button_Input("btn4", "Go to next page"),
+
           )
         ),
 
