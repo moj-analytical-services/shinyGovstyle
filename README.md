@@ -56,6 +56,7 @@ To use error and word count elements you will need to load useShinyjs from shiny
   - [Text area input](#text-area-input)
   - [Warning](#warning)
   - [Insert text](#insert-text)
+  - [Value box](#value-box)
   - [Details](#details)
   - [Panel](#panel)
   - [Notification Banner](#notification-banner)
@@ -415,6 +416,20 @@ Gov style insert text component  :
 insert_text(inputId = "insertId",
             text = "It can take up to 8 weeks to register a lasting power of attorney 
                     if there are no mistakes in the application.")
+```
+
+### Value box
+
+Gov style value box component  :
+![value_box](man/figures/value_box.png)
+
+```r
+value_text(
+  inputId = "valueId",
+  value = "1,000,000",
+  text = "This is the latest value for the selected inputs.",
+  colour = "purple"
+)
 ```
 
 
