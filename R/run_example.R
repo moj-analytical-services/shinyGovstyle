@@ -235,26 +235,12 @@ shiny::column( width = 9,
                     c("Writing well for the web",
                       "Writing well for specialists",
                       "Know your audience",
-                      "How people read",
-                      "Accordian title 5",
-                      "Accordion title 6",
-                      "Accordion title 7",
-                      "Accordion title 8",
-                      "Accordion title 9",
-                      "Accordion title 10",
-                      "Accordion title 11"
+                      "How people read"
                      ),
                     c("This is the content for Writing well for the web.",
                       "This is the content for Writing well for specialists.",
                       "This is the content for Know your audience.",
-                      "This is the content for How people read.",
-                      "Accordian content 5",
-                      "Accordion content 6",
-                      "Accordion content 7",
-                      "Accordion content 8",
-                      "Accordion content 9",
-                      "Accordion content 10",
-                      "Accordion content 11"
+                      "This is the content for How people read."
                      )),
 
 
