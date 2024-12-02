@@ -14,8 +14,8 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Custom Gov Style Inputs for Shiny">
 <meta name="description" content="Collection of shiny application styling that are the based on the GOV.UK Design System. See &lt;https://design-system.service.gov.uk/components/&gt; for details.">
 <meta property="og:description" content="Collection of shiny application styling that are the based on the GOV.UK Design System. See &lt;https://design-system.service.gov.uk/components/&gt; for details.">
@@ -29,7 +29,7 @@
 
     <a class="navbar-brand me-2" href="index.html">shinyGovstyle</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -98,6 +98,7 @@
 <li><a href="#text-area-input">Text area input</a></li>
 <li><a href="#warning">Warning</a></li>
 <li><a href="#insert-text">Insert text</a></li>
+<li><a href="#value-box">Value box</a></li>
 <li><a href="#details">Details</a></li>
 <li><a href="#panel">Panel</a></li>
 <li><a href="#notification-banner">Notification Banner</a></li>
@@ -106,6 +107,7 @@
 <li><a href="#tabs">Tabs</a></li>
 <li><a href="#summary-list">Summary List</a></li>
 <li><a href="#cookie-banner">Cookie Banner</a></li>
+<li><a href="#skip-to-main">Skip to main</a></li>
 <li><a href="#tags">Tags</a></li>
 <li><a href="#error">Error</a></li>
 <li><a href="#example-version">Example Version</a></li>
@@ -395,10 +397,22 @@ heading_text(text_input = "I am small text", size = "s")</code></pre>
 <span><span class="st">                    if there are no mistakes in the application."</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
+<h3 id="value-box">Value box<a class="anchor" aria-label="anchor" href="#value-box"></a>
+</h3>
+<p>Gov style value box component : <img src="reference/figures/value_box.png" alt="value_box"></p>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">value_text</span><span class="op">(</span></span>
+<span>  inputId <span class="op">=</span> <span class="st">"valueId"</span>,</span>
+<span>  value <span class="op">=</span> <span class="st">"1,000,000"</span>,</span>
+<span>  text <span class="op">=</span> <span class="st">"This is the latest value for the selected inputs."</span>,</span>
+<span>  colour <span class="op">=</span> <span class="st">"purple"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
 <h3 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a>
 </h3>
 <p>Gov style details component : <img src="reference/figures/details.png" alt="details"></p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span> <span class="fu"><a href="reference/details.html">details</a></span><span class="op">(</span></span>
 <span>  inputId <span class="op">=</span> <span class="st">"detID"</span>,</span>
 <span>  label <span class="op">=</span> <span class="st">"Help with nationality"</span>,</span>
@@ -410,7 +424,7 @@ heading_text(text_input = "I am small text", size = "s")</code></pre>
 <h3 id="panel">Panel<a class="anchor" aria-label="anchor" href="#panel"></a>
 </h3>
 <p>Gov style panel component : <img src="reference/figures/panel.png" alt="panel"></p>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/panel_output.html">panel_output</a></span><span class="op">(</span></span>
 <span>  inputId <span class="op">=</span> <span class="st">"panId"</span>, </span>
 <span>  main_text <span class="op">=</span> <span class="st">"Application complete"</span>, </span>
@@ -420,18 +434,18 @@ heading_text(text_input = "I am small text", size = "s")</code></pre>
 <h3 id="notification-banner">Notification Banner<a class="anchor" aria-label="anchor" href="#notification-banner"></a>
 </h3>
 <p>Gov style panel component : <img src="reference/figures/noti_banner.png" alt="Notification Banner"></p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="fu">noti_banner</span>(</span>
-<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a>  <span class="st">"notId"</span>,</span>
-<span id="cb27-3"><a href="#cb27-3" tabindex="-1"></a>  <span class="at">title_txt =</span> <span class="st">"Important"</span>,</span>
-<span id="cb27-4"><a href="#cb27-4" tabindex="-1"></a>  <span class="at">body_txt =</span> Example text,</span>
-<span id="cb27-5"><a href="#cb27-5" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"standard"</span></span>
-<span id="cb27-6"><a href="#cb27-6" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a><span class="fu">noti_banner</span>(</span>
+<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a>  <span class="st">"notId"</span>,</span>
+<span id="cb28-3"><a href="#cb28-3" tabindex="-1"></a>  <span class="at">title_txt =</span> <span class="st">"Important"</span>,</span>
+<span id="cb28-4"><a href="#cb28-4" tabindex="-1"></a>  <span class="at">body_txt =</span> Example text,</span>
+<span id="cb28-5"><a href="#cb28-5" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"standard"</span></span>
+<span id="cb28-6"><a href="#cb28-6" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="accordion">Accordion<a class="anchor" aria-label="anchor" href="#accordion"></a>
 </h3>
 <p>Gov style accordion component : <img src="reference/figures/accordion.png" alt="Accordion"></p>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/accordion.html">accordion</a></span><span class="op">(</span></span>
 <span>      <span class="st">"acc1"</span>,</span>
 <span>      <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Writing well for the web"</span>,</span>
@@ -449,7 +463,7 @@ heading_text(text_input = "I am small text", size = "s")</code></pre>
 <h3 id="table">Table<a class="anchor" aria-label="anchor" href="#table"></a>
 </h3>
 <p>Gov style table component : <img src="reference/figures/table.png" alt="Table"></p>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Months</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"January"</span>, <span class="st">"February"</span>, <span class="st">"March"</span><span class="op">)</span></span>
 <span><span class="va">Bikes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"£85"</span>, <span class="st">"£75"</span>, <span class="st">"£165"</span><span class="op">)</span></span>
 <span><span class="va">Cars</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"£95"</span>, <span class="st">"£55"</span>, <span class="st">"£125"</span><span class="op">)</span></span>
@@ -463,7 +477,7 @@ heading_text(text_input = "I am small text", size = "s")</code></pre>
 <h3 id="tabs">Tabs<a class="anchor" aria-label="anchor" href="#tabs"></a>
 </h3>
 <p>Gov style tabs component : <img src="reference/figures/tabs.png" alt="Tabs"></p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span>  <span class="co"># Create an example dataset</span></span>
 <span>  <span class="va">tabs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="st">"Past Day"</span>, <span class="fl">3</span><span class="op">)</span>,</span>
 <span>            <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="st">"Past Week"</span>, <span class="fl">3</span><span class="op">)</span>,</span>
@@ -491,7 +505,7 @@ heading_text(text_input = "I am small text", size = "s")</code></pre>
 <h3 id="summary-list">Summary List<a class="anchor" aria-label="anchor" href="#summary-list"></a>
 </h3>
 <p>Gov style summary list : <img src="reference/figures/summary.png" alt="Summary List"></p>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span>  <span class="co"># Create an example dataset</span></span>
 <span>  <span class="va">headers</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Name"</span>, <span class="st">"Date of birth"</span>, <span class="st">"Contact information"</span>, <span class="st">"Contact details"</span><span class="op">)</span></span>
 <span>  <span class="va">info</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
@@ -517,7 +531,7 @@ heading_text(text_input = "I am small text", size = "s")</code></pre>
 <h3 id="cookie-banner">Cookie Banner<a class="anchor" aria-label="anchor" href="#cookie-banner"></a>
 </h3>
 <p>Gov style cookie banner : <img src="reference/figures/cookie.png" alt="Cookie Banner"></p>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu">fluidPage</span><span class="op">(</span></span>
 <span>  <span class="fu">shinyGovstyle</span><span class="fu">::</span><span class="fu"><a href="reference/header.html">header</a></span><span class="op">(</span></span>
 <span>    main_text <span class="op">=</span> <span class="st">"Example"</span>,</span>
@@ -560,26 +574,81 @@ heading_text(text_input = "I am small text", size = "s")</code></pre>
 <span><span class="fu">shinyApp</span><span class="op">(</span>ui <span class="op">=</span> <span class="va">ui</span>, server <span class="op">=</span> <span class="va">server</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
+<h3 id="skip-to-main">Skip to main<a class="anchor" aria-label="anchor" href="#skip-to-main"></a>
+</h3>
+<p>Add an accessible ‘Skip to main content’ link which is typically used by keyboard-only users to bypass content and navigate directly to the main content of a page. It is only visible to users ‘tabbing’ over the feature, otherwise it is hidden:</p>
+<p><img src="reference/figures/skip-to-main-visible.png"></p>
+<p>Important: your main column will need an id of “main_col” for this to work</p>
+<p>This feature is generally positioned after the cookie banner and below the header. See example below:</p>
+<pre><code><span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu">fluidPage</span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="reference/cookieBanner.html">cookieBanner</a></span><span class="op">(</span><span class="st">"Run Example"</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="reference/skip_to_main.html">skip_to_main</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  <span class="fu">shinyGovstyle</span><span class="fu">::</span><span class="fu"><a href="reference/header.html">header</a></span><span class="op">(</span></span>
+<span>    main_text <span class="op">=</span> <span class="st">"Example"</span>,</span>
+<span>    secondary_text <span class="op">=</span> <span class="st">"User Examples"</span>,</span>
+<span>    logo<span class="op">=</span><span class="st">"shinyGovstyle/images/moj_logo.png"</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  <span class="fu">shinyjs</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shinyjs/man/useShinyjs.html" class="external-link">useShinyjs</a></span><span class="op">(</span><span class="op">)</span>,  <span class="co"># shinyjs is needed to manage visibility of elements</span></span>
+<span>  <span class="fu"><a href="reference/layouts.html">gov_row</a></span><span class="op">(</span></span>
+<span>    <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/column.html" class="external-link">column</a></span><span class="op">(</span></span>
+<span>      width <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>      id <span class="op">=</span> <span class="st">"nav"</span>,</span>
+<span></span>
+<span>      <span class="co"># Contents box</span></span>
+<span>      <span class="fu">shiny</span><span class="fu">::</span><span class="va"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">tags</a></span><span class="op">$</span><span class="fu">div</span><span class="op">(</span></span>
+<span>        id <span class="op">=</span> <span class="st">"govuk-contents-box"</span>, <span class="co">#DO NOT REMOVE ID</span></span>
+<span>        class <span class="op">=</span> <span class="st">"govuk-contents-box"</span>,  <span class="co">#DO NOT REMOVE CLASS</span></span>
+<span>        <span class="fu">shiny</span><span class="fu">::</span><span class="va"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">tags</a></span><span class="op">$</span><span class="fu">h2</span><span class="op">(</span><span class="st">"Contents"</span><span class="op">)</span>,</span>
+<span>        <span class="fu">p</span><span class="op">(</span><span class="st">"Your contents links go here"</span><span class="op">)</span>,</span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span>,</span>
+<span></span>
+<span>    <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/column.html" class="external-link">column</a></span><span class="op">(</span></span>
+<span>      width <span class="op">=</span> <span class="fl">9</span>,</span>
+<span>      id <span class="op">=</span> <span class="st">"main_col"</span>,</span>
+<span>      <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/tabsetPanel.html" class="external-link">tabsetPanel</a></span><span class="op">(</span></span>
+<span>        type <span class="op">=</span> <span class="st">"hidden"</span>,</span>
+<span>        id <span class="op">=</span> <span class="st">"tab-container"</span>, <span class="co"># DO NOT REMOVE ID</span></span>
+<span>        <span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/tabPanel.html" class="external-link">tabPanel</a></span><span class="op">(</span></span>
+<span>          <span class="st">"Your main content"</span>,</span>
+<span>          value <span class="op">=</span> <span class="st">"your_main_content"</span>,</span>
+<span>          <span class="fu"><a href="reference/gov_layout.html">gov_layout</a></span><span class="op">(</span></span>
+<span>            size <span class="op">=</span> <span class="st">"two-thirds"</span>,</span>
+<span>            <span class="fu"><a href="reference/heading_text.html">heading_text</a></span><span class="op">(</span><span class="st">"Your main content"</span>, size <span class="op">=</span> <span class="st">"l"</span><span class="op">)</span>,</span>
+<span>            <span class="fu">p</span><span class="op">(</span><span class="st">"Your main content goes here"</span><span class="op">)</span></span>
+<span></span>
+<span>          <span class="op">)</span></span>
+<span>        <span class="op">)</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span><span class="op">{</span></span>
+<span><span class="op">}</span></span>
+<span><span class="fu">shinyApp</span><span class="op">(</span>ui <span class="op">=</span> <span class="va">ui</span>, server <span class="op">=</span> <span class="va">server</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="section level3">
 <h3 id="tags">Tags<a class="anchor" aria-label="anchor" href="#tags"></a>
 </h3>
 <p>Add a gov style tag component : <img src="reference/figures/tags.png" alt="tags"></p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a><span class="fu">tag_Input</span>(<span class="at">inputId =</span> <span class="st">"tag1"</span>, <span class="at">text =</span> <span class="st">"Default"</span>),</span>
-<span id="cb33-2"><a href="#cb33-2" tabindex="-1"></a><span class="fu">tag_Input</span>(<span class="at">inputId =</span> <span class="st">"tag2"</span>, <span class="at">text =</span> <span class="st">"Grey"</span>, <span class="at">colour =</span> <span class="st">"grey"</span>),</span>
-<span id="cb33-3"><a href="#cb33-3" tabindex="-1"></a><span class="fu">tag_Input</span>(<span class="at">inputId =</span> <span class="st">"tag3"</span>, <span class="at">text =</span> <span class="st">"Green"</span>, <span class="at">colour =</span> <span class="st">"green"</span>),</span>
-<span id="cb33-4"><a href="#cb33-4" tabindex="-1"></a><span class="fu">tag_Input</span>(<span class="at">inputId =</span> <span class="st">"tag4"</span>, <span class="at">text =</span> <span class="st">"Turquoise"</span>, <span class="at">colour =</span> <span class="st">"turquoise"</span>),</span>
-<span id="cb33-5"><a href="#cb33-5" tabindex="-1"></a><span class="fu">tag_Input</span>(<span class="at">inputId =</span> <span class="st">"tag5"</span>, <span class="at">text =</span> <span class="st">"Blue"</span>, <span class="at">colour =</span> <span class="st">"blue"</span>),</span>
-<span id="cb33-6"><a href="#cb33-6" tabindex="-1"></a><span class="fu">tag_Input</span>(<span class="at">inputId =</span> <span class="st">"tag6"</span>, <span class="at">text =</span> <span class="st">"Light-blue"</span>, <span class="at">colour =</span> <span class="st">"light-blue"</span>),</span>
-<span id="cb33-7"><a href="#cb33-7" tabindex="-1"></a><span class="fu">tag_Input</span>(<span class="at">inputId =</span> <span class="st">"tag7"</span>, <span class="at">text =</span> <span class="st">"Purple"</span>, <span class="at">colour =</span> <span class="st">"purple"</span>),</span>
-<span id="cb33-8"><a href="#cb33-8" tabindex="-1"></a><span class="fu">tag_Input</span>(<span class="at">inputId =</span> <span class="st">"tag8"</span>, <span class="at">text =</span> <span class="st">"Pink"</span>, <span class="at">colour =</span> <span class="st">"pink"</span>),</span>
-<span id="cb33-9"><a href="#cb33-9" tabindex="-1"></a><span class="fu">tag_Input</span>(<span class="at">inputId =</span> <span class="st">"tag9"</span>, <span class="at">text =</span> <span class="st">"Red"</span>, <span class="at">colour =</span> <span class="st">"red"</span>),</span>
-<span id="cb33-10"><a href="#cb33-10" tabindex="-1"></a><span class="fu">tag_Input</span>(<span class="at">inputId =</span> <span class="st">"tag10"</span>, <span class="at">text =</span> <span class="st">"Orange"</span>, <span class="at">colour =</span> <span class="st">"orange"</span>),</span>
-<span id="cb33-11"><a href="#cb33-11" tabindex="-1"></a><span class="fu">tag_Input</span>(<span class="at">inputId =</span> <span class="st">"tag11"</span>, <span class="at">text =</span> <span class="st">"Yellow"</span>, <span class="at">colour =</span> <span class="st">"yellow"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" tabindex="-1"></a><span class="fu">tag_Input</span>(<span class="at">inputId =</span> <span class="st">"tag1"</span>, <span class="at">text =</span> <span class="st">"Default"</span>),</span>
+<span id="cb35-2"><a href="#cb35-2" tabindex="-1"></a><span class="fu">tag_Input</span>(<span class="at">inputId =</span> <span class="st">"tag2"</span>, <span class="at">text =</span> <span class="st">"Grey"</span>, <span class="at">colour =</span> <span class="st">"grey"</span>),</span>
+<span id="cb35-3"><a href="#cb35-3" tabindex="-1"></a><span class="fu">tag_Input</span>(<span class="at">inputId =</span> <span class="st">"tag3"</span>, <span class="at">text =</span> <span class="st">"Green"</span>, <span class="at">colour =</span> <span class="st">"green"</span>),</span>
+<span id="cb35-4"><a href="#cb35-4" tabindex="-1"></a><span class="fu">tag_Input</span>(<span class="at">inputId =</span> <span class="st">"tag4"</span>, <span class="at">text =</span> <span class="st">"Turquoise"</span>, <span class="at">colour =</span> <span class="st">"turquoise"</span>),</span>
+<span id="cb35-5"><a href="#cb35-5" tabindex="-1"></a><span class="fu">tag_Input</span>(<span class="at">inputId =</span> <span class="st">"tag5"</span>, <span class="at">text =</span> <span class="st">"Blue"</span>, <span class="at">colour =</span> <span class="st">"blue"</span>),</span>
+<span id="cb35-6"><a href="#cb35-6" tabindex="-1"></a><span class="fu">tag_Input</span>(<span class="at">inputId =</span> <span class="st">"tag6"</span>, <span class="at">text =</span> <span class="st">"Light-blue"</span>, <span class="at">colour =</span> <span class="st">"light-blue"</span>),</span>
+<span id="cb35-7"><a href="#cb35-7" tabindex="-1"></a><span class="fu">tag_Input</span>(<span class="at">inputId =</span> <span class="st">"tag7"</span>, <span class="at">text =</span> <span class="st">"Purple"</span>, <span class="at">colour =</span> <span class="st">"purple"</span>),</span>
+<span id="cb35-8"><a href="#cb35-8" tabindex="-1"></a><span class="fu">tag_Input</span>(<span class="at">inputId =</span> <span class="st">"tag8"</span>, <span class="at">text =</span> <span class="st">"Pink"</span>, <span class="at">colour =</span> <span class="st">"pink"</span>),</span>
+<span id="cb35-9"><a href="#cb35-9" tabindex="-1"></a><span class="fu">tag_Input</span>(<span class="at">inputId =</span> <span class="st">"tag9"</span>, <span class="at">text =</span> <span class="st">"Red"</span>, <span class="at">colour =</span> <span class="st">"red"</span>),</span>
+<span id="cb35-10"><a href="#cb35-10" tabindex="-1"></a><span class="fu">tag_Input</span>(<span class="at">inputId =</span> <span class="st">"tag10"</span>, <span class="at">text =</span> <span class="st">"Orange"</span>, <span class="at">colour =</span> <span class="st">"orange"</span>),</span>
+<span id="cb35-11"><a href="#cb35-11" tabindex="-1"></a><span class="fu">tag_Input</span>(<span class="at">inputId =</span> <span class="st">"tag11"</span>, <span class="at">text =</span> <span class="st">"Yellow"</span>, <span class="at">colour =</span> <span class="st">"yellow"</span>)</span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="error">Error<a class="anchor" aria-label="anchor" href="#error"></a>
 </h3>
 <p>Add errors to components when not filled in correctly. Most components have an option to add : <img src="reference/figures/error.png" alt="error"></p>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu">fluidPage</span><span class="op">(</span></span>
 <span>  <span class="fu">shinyjs</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shinyjs/man/useShinyjs.html" class="external-link">useShinyjs</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  <span class="fu">shinyGovstyle</span><span class="fu">::</span><span class="fu"><a href="reference/header.html">header</a></span><span class="op">(</span><span class="st">"Justice"</span>, <span class="st">""</span>, logo<span class="op">=</span><span class="st">"shinyGovstyle/images/moj_logo.png"</span><span class="op">)</span>,</span>
@@ -614,7 +683,7 @@ heading_text(text_input = "I am small text", size = "s")</code></pre>
 <h3 id="example-version">Example Version<a class="anchor" aria-label="anchor" href="#example-version"></a>
 </h3>
 <p>You can run an example dashboard. This is very rough and will be improved. <img src="reference/figures/example.png" alt="example"></p>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/run_example.html">run_example</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
