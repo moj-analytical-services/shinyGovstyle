@@ -26,6 +26,7 @@ run_example <- function(){
     ui = shiny::fluidPage(
       title="ShinyGovstyle",
       cookieBanner("Run Example"),
+      skip_to_main(),
       header("MOJ", "ShinyGovstyle Example",
              logo="shinyGovstyle/images/moj_logo-1.png", logo_width = 66),
       banner(
@@ -88,8 +89,8 @@ run_example <- function(){
           contents_link(
             "Tables, tabs and accordions",
             "tables_tabs_and_accordions_button",
-            subcontents_text_list = c("govTable", "govTabs", "accordions", "button_Input"),
-            subcontents_id_list = c(NA, NA, NA, "button_input_tables_tabs_accordions")
+            subcontents_text_list = c("govTable", "govTabs", "button_Input", "accordions"),
+            subcontents_id_list = c(NA, NA, "button_input_tables_tabs_accordions", NA)
           ),
 
           # Feedback types tab
@@ -101,6 +102,7 @@ run_example <- function(){
               "details",
               "insert_text",
               "warning_text",
+              "value_box",
               "panel_output",
               "noti_banner",
               "gov_summary"
@@ -226,6 +228,8 @@ shiny::column( width = 9,
               width_overwrite = c("one-half", "one-quarter", "one-quarter")),
             heading_text("govTabs", size = "s"),
             shinyGovstyle::govTabs("tabsID", data, "tabs"),
+           heading_text("button_Input", size = "s", id = "button_input_tables_tabs_accordions"),
+           button_Input("btn4", "Go to next page"),
             heading_text("accordions", size = "s"),
             shinyGovstyle::  accordion(
                     "acc1",
@@ -240,8 +244,7 @@ shiny::column( width = 9,
                       "This is the content for How people read."
                      )),
 
-            heading_text("button_Input", size = "s", id = "button_input_tables_tabs_accordions"),
-            button_Input("btn4", "Go to next page"),
+
           )
         ),
 
@@ -290,6 +293,26 @@ shiny::column( width = 9,
               inputId = "warn",
               text = "You can be fined up to \u00A35\u002C000 if you do
               not register."),
+
+
+            heading_text("value_box", size = "s"),
+            value_box(
+              inputId = "value1",
+              value = "Default (no description included)"
+            ),
+            value_box(
+              inputId = "value2",
+              value = "1,000,000",
+              text = "This is an example value box in purple.",
+              colour = "purple"
+            ),
+            value_box(
+              inputId = "value3",
+              value = "58.3%",
+              text = "This is another example value box in red. More colours are available.",
+              colour = "red"
+            ),
+
             heading_text("panel_output", size = "s"),
             panel_output(
               inputId = "panId",

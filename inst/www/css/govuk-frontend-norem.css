@@ -7714,4 +7714,59 @@ screen and (-ms-high-contrast:active) {
 }
 
 
+/*Skip link*/
+.govuk-skip {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+
+.govuk-skip:focus {
+  position: static;
+  width: auto;
+  height: auto;
+}
+
 /*# sourceMappingURL=govuk-frontend-5.4.0.min.css.map */
+
+
+/* Container for the value box */
+.value-box-container {
+    font-family: GDS Transport, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1;
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+/* Larger screens styling */
+@media (min-width: 40.0625em) {
+    .value-box-container {
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+}
+
+/* Styling for the value inside the box */
+.value-box-value {
+    font-size: 1.5rem;
+    line-height: 1;
+    font-weight: 700;
+    margin: 0;
+    display: block;
+}
+
+/* Styling for the optional description */
+.value-box-description {
+    font-size: 1rem;
+    line-height: 1;
+    margin-top: 10px;
+    font-weight: 400;
+}
