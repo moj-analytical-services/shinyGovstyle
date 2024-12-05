@@ -47,4 +47,24 @@ test_that("table works", {
   )
 
 
+  # and if the argument isn't mentioned at all
+  table_check3 <- govTable(
+    "tab2", example_data, "Test", "l", num_col = c(2,3))
+
+  expect_identical(
+    table_check3$children[[2]]$children[[1]][[3]][[1]][[1]]$attribs$class,
+    "govuk-table__header"
+  )
+
+  expect_identical(
+    table_check3$children[[2]]$children[[1]][[3]][[1]][[2]]$attribs$class,
+    "govuk-table__header govuk-table__header--numeric"
+  )
+
+  expect_equal(
+    length(table_check3$children[[3]]),
+    3
+  )
+
+
 })
