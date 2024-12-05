@@ -11,16 +11,20 @@
 
 ## Overview
 
-This package provides some custom widgets to style your app like gov.uk.  There are a variety of widgets available, including select, radio, checkboxes as well as styling for headers and footers.
+This package provides custom widgets to style R Shiny apps using the GOV.UK design system.
 
+To view details and advice on how to use the GOV.UK components please visit https://design-system.service.gov.uk/components/, most components should be available to use through this package.
 
-To view details of gov.uk components please visit https://design-system.service.gov.uk/.  Most components from https://design-system.service.gov.uk/components/ are available to use through this package.
+### Installation
 
-
-
-Installation :
+You can install the latest stable version from CRAN
 ```r
 install.packages("shinyGovstyle")
+```
+
+If you want to make use of the development version then install directly from GitHub.
+```r
+remotes::install_github("moj-analytical-services/shinyGovstyle")
 ```
 
 This is also available on conda
@@ -28,19 +32,28 @@ This is also available on conda
 conda install r-shinygovstyle
 ```
 
-If you want to make use of the development then
-```r
-remotes::install_github("moj-analytical-services/shinyGovstyle")
-```
-
-To use error and word count elements you will need to load useShinyjs from shinyjs in the UI:
+To use error and word count elements you will need to load useShinyjs from shinyjs in your ui.R file
 ```r
   shinyjs::useShinyjs()
 ```
 
+### Contributing
 
-## Components available :
+Ideas, bug reports, and requests for new components should be [raised as GitHub issue](https://github.com/moj-analytical-services/shinyGovstyle/issues/new). It's often worth checking the existing [issues log](https://github.com/moj-analytical-services/shinyGovstyle/issues) incase there is already an existing discussion you can conrtibute to.
 
+More details on contributing can be found in the [CONTRIBUTING.md](.github/CONTRIBUTING.md) file.
+
+This package is also released with a [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.
+
+### Available components
+
+The package contains an example dashboard you can run yourself, showcasing available components
+
+```r
+shinyGovstyle::run_example()
+```
+
+Full list of available components:
 
   - [Gov style layout](#gov-style-layout)
   - [Banner](#banner)
@@ -67,10 +80,9 @@ To use error and word count elements you will need to load useShinyjs from shiny
   - [Cookie Banner](#cookie-banner)
   - [Skip to main](#skip-to-main)
   - [Tags](#tags)
-  - [Error](#error)
-  - [Example Version](#example-version)
+  - [Errors](#errors)
 
-### Gov style layout
+#### Gov style layout
 
 Create a gov style look to the page with a header, footer, font and layout: <br>
 ![gov-style-layout](man/figures/page_layout.png)
@@ -93,7 +105,7 @@ server <- function(input, output, session) {}
 ```
 Note: You can only use gov.uk font on service.gov.uk (see https://design-system.service.gov.uk/styles/typography/)
 
-### Banner
+#### Banner
 
 Add a banner to the header to state in beta or alpha : <br>
 ![banner](man/figures/banner.png)
@@ -115,7 +127,7 @@ ui <- fluidPage(
 server <- function(input, output, session) {}
 ```
 
-### Contents links
+#### Contents links
 
 Create contents and subcontents links to sidebar to navigate page. 
 
@@ -253,7 +265,7 @@ shiny::shinyApp(ui = ui, server = server)
 
 Subcontents links work automatically and do not need to a `shiny::observeEvent()` in the server.
 
-### Heading text
+#### Heading text
 
 Use heading text to create headings. 
 
@@ -274,7 +286,7 @@ You can use `id` to create a custom id to link with `subcontents_id_list` from `
 heading_text(text_input = "I am the default extra large text", id = "custom_id")
 ```
 
-### Radio button
+#### Radio button
 
 Create a gov style radio button : <br>
 ![radio_button](man/figures/radio_button_Input.png)
@@ -286,7 +298,7 @@ radio_button_Input(inputId = "name_changed", label = "Have you changed your name
 ```
 
 
-### Checkbox
+#### Checkbox
 
 Turn checkboxes into gov style ones : <br>
 ![checkbox](man/figures/checkbox.png)
@@ -302,7 +314,7 @@ checkbox_Input(
 
 Note that you currently access the values separately through the inputIds you supply or all values through the main inputID.
 
-### Button
+#### Button
 
 Gov style button with different styles :
 ![button](man/figures/buttons.png)
@@ -314,7 +326,7 @@ shinyGovstyle::button_Input(inputId = "btn1", label = "secondary", type = "secon
 shinyGovstyle::button_Input(inputId = "btn1", label = "warning", type = "warning")
 ```
 
-### Select
+#### Select
 
 Gov style drop down select  :
 ![select](man/figures/select.png)
@@ -327,9 +339,9 @@ shinyGovstyle::select_Input(
   select_value = c("published", "updated", "view", "comments"))
 ```
 
-### Date
+#### Date
 
-Gov style date input  :
+Gov style date input
 ![date](man/figures/date.png)
 
 ```r
@@ -341,9 +353,9 @@ date_Input(
 Note that you currently access the individual values by adding an affix of _day, _month and _year or the full date in dd/mm/yy by using the inputID.
 
 
-### File input
+#### File input
 
-Gov style file input component  :
+Gov style file input component
 ![file_input](man/figures/file.png)
 
 ```r
@@ -351,18 +363,18 @@ file_Input(inputId = "file1", label = "Upload a file")
 ```
 
 
-### Text input
+#### Text input
 
-Gov style text input component  :
+Gov style text input component
 ![text_input](man/figures/text.png)
 
 ```r
 text_Input(inputId = "txt1", label = "Event name")
 ```
 
-### Text area input
+#### Text area input
 
-Gov style text area input component  :
+Gov style text area input component
 ![text_area](man/figures/text_area.png)
 
 ```r
@@ -398,18 +410,18 @@ server <- function(input, output, session) {
 }
 ```
 
-### Warning
+#### Warning
 
-Gov style warning component  :
+Gov style warning component
 ![text_area](man/figures/warning.png)
 
 ```r
 warning_text(inputId = "warn", text = "You can be fined up to £5,000 if you do not register.")
 ```
 
-### Insert text
+#### Insert text
 
-Gov style insert text component  :
+Gov style insert text component
 ![text_area](man/figures/insert.png)
 
 ```r
@@ -418,9 +430,9 @@ insert_text(inputId = "insertId",
                     if there are no mistakes in the application.")
 ```
 
-### Value box
+#### Value box
 
-Gov style value box component  :
+Gov style value box component
 ![value_box](man/figures/value_box.png)
 
 ```r
@@ -433,9 +445,9 @@ value_text(
 ```
 
 
-### Details
+#### Details
 
-Gov style details component  :
+Gov style details component
 ![details](man/figures/details.png)
 
 ```r
@@ -448,9 +460,9 @@ Gov style details component  :
 
 ```
 
-### Panel
+#### Panel
 
-Gov style panel component  :
+Gov style panel component
 ![panel](man/figures/panel.png)
 
 ```r
@@ -460,9 +472,9 @@ panel_output(
   sub_text = "Your reference number <br> <strong>HDJ2123F</strong>")
 ```
 
-### Notification Banner
+#### Notification Banner
 
-Gov style panel component  :
+Gov style panel component
 ![Notification Banner](man/figures/noti_banner.png)
 
 ```r
@@ -474,9 +486,9 @@ noti_banner(
 )
 ```
 
-### Accordion
+#### Accordion
 
-Gov style accordion component :
+Gov style accordion component
 ![Accordion](man/figures/accordion.png)
 
 ```r
@@ -494,9 +506,9 @@ accordion(
        ))
 ```
 
-### Table
+#### Table
 
-Gov style table component :
+Gov style table component
 ![Table](man/figures/table.png)
 
 ```r
@@ -510,9 +522,9 @@ shinyGovstyle::govTable(
       width_overwrite = c("one-half", "one-quarter", "one-quarter"))
 ```
 
-### Tabs
+#### Tabs
 
-Gov style tabs component :
+Gov style tabs component
 ![Tabs](man/figures/tabs.png)
 
 ```r
@@ -540,9 +552,9 @@ Gov style tabs component :
   shinyApp(ui = ui, server = server)
 ```
 
-### Summary List
+#### Summary List
 
-Gov style summary list :
+Gov style summary list
 ![Summary List](man/figures/summary.png)
 
 ```r
@@ -568,9 +580,9 @@ Gov style summary list :
   shinyApp(ui = ui, server = server)
 ```
 
-### Cookie Banner
+#### Cookie Banner
 
-Gov style cookie banner :
+Gov style cookie banner
 ![Cookie Banner](man/figures/cookie.png)
 
 ```r
@@ -616,7 +628,7 @@ server <- function(input, output, session) {
 shinyApp(ui = ui, server = server)
 ```
 
-### Skip to main
+#### Skip to main
 
 Add an accessible 'Skip to main content' link which is typically used by keyboard-only users to bypass content and navigate directly to the main content of a page. It is only visible to users 'tabbing' over the feature, otherwise it is hidden: 
 
@@ -625,8 +637,6 @@ Add an accessible 'Skip to main content' link which is typically used by keyboar
 Important: your main column will need an id of "main_col" for this to work
 
 This feature is generally positioned after the cookie banner and below the header. See example below: 
-
-
 
 ```
 ui <- fluidPage(
@@ -678,9 +688,9 @@ server <- function(input, output, session){
 shinyApp(ui = ui, server = server)
 ```
 
-### Tags
+#### Tags
 
-Add a gov style tag component :
+Add a gov style tag component
 ![tags](man/figures/tags.png)
 
 ```r
@@ -697,9 +707,9 @@ tag_Input(inputId = "tag10", text = "Orange", colour = "orange"),
 tag_Input(inputId = "tag11", text = "Yellow", colour = "yellow")
 ```
 
-### Error
+#### Errors
 
-Add errors to components when not filled in correctly.  Most components have an option to add  :
+Add errors to components when not filled in correctly. Most input components have this as an option to add
 ![error](man/figures/error.png)
 
 ```r
@@ -733,12 +743,3 @@ server <- function(input, output, session) {
   )
 }
 ```
-### Example Version
-
-You can run an example dashboard.  This is very rough and will be improved.
-![example](man/figures/example.png)
-
-```r
-run_example()
-```
-
