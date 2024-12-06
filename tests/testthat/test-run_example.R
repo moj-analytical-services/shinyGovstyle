@@ -1,4 +1,3 @@
-
 test_that("shiny example loads", {
   shiny::testServer(
     app = run_example(), {

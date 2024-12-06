@@ -357,7 +357,7 @@ shiny::column( width = 9,
 
 ), #end of gov row
 
-    footer(TRUE)
+    footer(TRUE, links = c("Cookies"))
 
 
 ), #end of fluid page
@@ -386,6 +386,9 @@ shiny::column( width = 9,
       shiny::updateTabsetPanel(session, "tab-container", selected = "panel-cookies")
     })
 
+    shiny::observeEvent(input$cookies, {
+      shiny::updateTabsetPanel(session, "tab-container", selected = "panel-cookies")
+    })
 
     # Back buttons
     shiny::observeEvent(input$back1, {
