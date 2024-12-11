@@ -212,8 +212,7 @@ run_example <- function() {
                   word_limit = 300
                 ),
                 heading_text("button_Input", size = "s", id = "button_input_text_types"),
-                button_Input("btn2", "Go to next page"),
-                button_Input("btn3", "Check for errors", type = "warning")
+                button_Input("btn_error", "Check for errors", type = "warning")
               )
             ),
 
@@ -236,7 +235,6 @@ run_example <- function() {
                 heading_text("govTabs", size = "s"),
                 shinyGovstyle::govTabs("tabsID", data, "tabs"),
                 heading_text("button_Input", size = "s", id = "button_input_tables_tabs_accordions"),
-                button_Input("btn4", "Go to next page"),
                 heading_text("accordions", size = "s"),
                 shinyGovstyle::accordion(
                   "acc1",
@@ -406,14 +404,6 @@ run_example <- function() {
         shiny::updateTabsetPanel(session, "tab-container", selected = "text_types")
       })
 
-      shiny::observeEvent(input$btn1, {
-        shiny::updateTabsetPanel(session, "tab-container", selected = "tables_tabs_and_accordions")
-      })
-
-      shiny::observeEvent(input$btn1, {
-        shiny::updateTabsetPanel(session, "tab-container", selected = "feedback_types")
-      })
-
       # Need this to use live update the word counter
       shiny::observeEvent(
         input$text_area2,
@@ -421,7 +411,7 @@ run_example <- function() {
       )
 
       # Trigger error if text_are2 is blank
-      shiny::observeEvent(input$btn3, {
+      shiny::observeEvent(input$btn_error, {
         if (input$text_area2 == "") {
           error_on("text_area2")
         } else {
