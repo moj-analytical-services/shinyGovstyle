@@ -27,7 +27,8 @@ Imports:
     shinyjs,
     stringr
 Suggests:
-    testthat
+    testthat,
+    shinytest2
 Encoding: UTF-8
 RoxygenNote: 7.3.2
 LazyData: true
