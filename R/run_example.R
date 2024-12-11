@@ -1,14 +1,15 @@
 #' Example Function
 #'
 #' This function runs a shiny example showcasing different parts of the package
+#'
 #' @return a shiny app with examples in
 #' @keywords example
 #' @export
 #' @examples
 #' if (interactive()) {
-#' run_example()
-#'}
-run_example <- function(){
+#'   run_example()
+#' }
+run_example <- function() {
   Months <- c("January", "February", "March")
   Bikes <- c(85, 75, 165)
   Cars <- c(95, 55, 125)
@@ -27,26 +28,20 @@ run_example <- function(){
   shiny::shinyApp(
     ui = shiny::fluidPage(
       title = "ShinyGovstyle",
-      cookieBanner("Run Example"),
+      cookieBanner("shinyGovstyle showcase"),
       skip_to_main(),
-      header("MOJ", "ShinyGovstyle Example",
-             logo = "shinyGovstyle/images/moj_logo-1.png", logo_width = 66
+      header("MoJ", "shinyGovstyle showcase",
+        logo = "shinyGovstyle/images/moj_logo-1.png", logo_width = 66
       ),
       banner(
         "banner",
         "Beta",
-        'This is a new service \u002D your <a class="govuk-link" href="#">
+        'This is a new service \u002D your <a class="govuk-link" href="https://github.com/dfe-analytical-services/shinyGovstyle/issues/new/choose">
         feedback</a> will help us to improve it.'
       ),
 
       # Need this to make the error and word count work
       shinyjs::useShinyjs(),
-
-      # Add a message to show users how to see this code
-      shiny::tags$br(),
-      shiny::tags$p(
-        "Code for this app can be found in the /inst/showcase/ folder."
-      ),
       gov_row(
         # Nav columns
         shiny::column(
@@ -117,6 +112,11 @@ run_example <- function(){
         shiny::column(
           width = 9,
           id = "main_col", # DO NOT REMOVE ID
+
+          shiny::tags$br(),
+          shiny::markdown(
+            "If running locally, run ```View(run_example)``` in console to see the code for this app. Otherwise, you can see the <a href='https://github.com/dfe-analytical-services/shinyGovstyle/blob/master/R/run_example.R/'>latest version of the code on GitHub</a>."
+          ),
 
           # Set up a nav panel so everything not on single page
           shiny::tabsetPanel(
@@ -450,7 +450,7 @@ run_example <- function(){
 
       shiny::observeEvent(input$cookieLink, {
         shiny::updateTabsetPanel(session, "nav",
-                                 selected = "panel4"
+          selected = "panel4"
         )
       })
     }
