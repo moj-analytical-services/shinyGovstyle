@@ -27,9 +27,16 @@
 #'   shinyApp(ui = ui, server = server)
 #' }
 
-header <- function(main_text, secondary_text, logo = NULL,
-                   main_link = "#", secondary_link = "#",
-                   logo_width = 36, logo_height = 32){
+header <- function(main_text,
+                   secondary_text,
+                   logo = NULL,
+                   main_link = "#",
+                   secondary_link = "#",
+                   logo_width = 36,
+                   logo_height = 32,
+                   logo_alt_text = NULL,
+                   main_alt_text= NULL,
+                   secondary_alt_text=NULL){
 
   if (is.null(logo)) {
     logo_src <- "null"
@@ -37,13 +44,30 @@ header <- function(main_text, secondary_text, logo = NULL,
     logo_src <- logo
   }
 
+  #check for missing alt text
+
+  if(is.null(logo_alt_text)){
+    stop("Please use logo_alt_text to provide alternative text for the logo.")
+  }
+
+  if(is.null(main_alt_text)){
+    stop("Please use main_alt_text to provide alternative text for the main link.")
+  }
+
+  if(is.null(secondary_alt_text)){
+    stop("Please use secondary_alt_text to provide alternative text for the secondary link.")
+  }
+
   govHeader <- shiny::tags$header(class = "govuk-header", role = "banner",
     shinyjs::inlineCSS(paste0(
       ".govuk-header__logotype-crown-fallback-image {width: ", logo_width, "px;
-      height: ", logo_height, "px;}")),
+      height: ", logo_height, "px;}",
+      ".govuk-header__link:focus .govuk-header__logotype-crown-fallback-image,
+       .govuk-header__link:active .govuk-header__logotype-crown-fallback-image {filter: invert(1);}")),
     shiny::tags$div(class = "govuk-header__container govuk-width-container",
       shiny::tags$div(class = "govuk-header__logo",
         shiny::tags$a(href = main_link,
+                      `aria-label` = main_alt_text,
                       class="govuk-header__link govuk-header__link--homepage",
           shiny::tags$span(class = "govuk-header__logotype",
 
@@ -58,7 +82,8 @@ header <- function(main_text, secondary_text, logo = NULL,
           } else {
             shiny::tags$img(
               src = logo,
-              class = "govuk-header__logotype-crown-fallback-image"
+              class = "govuk-header__logotype-crown-fallback-image",
+              alt_text= logo_alt_text
             )
           },
 
@@ -70,6 +95,7 @@ header <- function(main_text, secondary_text, logo = NULL,
       shiny::tags$div(class = "govuk-header__content",
         shiny::tags$a(
           href = secondary_link, secondary_text,
+          `aria-label` = main_alt_text,
           class = "govuk-header__link govuk-header__service-name"
         )
       )
