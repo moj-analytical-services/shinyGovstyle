@@ -1,14 +1,17 @@
 #' Header Function
 #'
 #' This function create a header banner.  For use at top of the screen
-#' @param main_text Main text that goes in the header
-#' @param secondary_text Secondary header to supplement the main text
+#' @param main_text Main text that goes in the header.
+#' @param secondary_text Secondary header to supplement the main text.
 #' @param logo Add a link to a logo which will apply in the header. Use crown to
 #' use the crown svg version on gov uk.
-#' @param main_link Add a link for clicking on main text
+#' @param main_link Add a link for clicking on main text.
 #' @param secondary_link Add a link for clicking on secondary header.
-#' @param logo_width Change the logo size width css to improve fit
-#' @param logo_height Change the logo size height css to improve fit
+#' @param logo_alt_text Add altnerative text for the logo.
+#' @param main_alt_text= Add altnerative text for the main link.
+#' @param secondary_alt_text Add altnerative text for the secondary link.
+#' @param logo_width Change the logo size width css to improve fit.
+#' @param logo_height Change the logo size height css to improve fit.
 #' @return a header html shiny object
 #' @keywords header
 #' @export
@@ -32,11 +35,11 @@ header <- function(main_text,
                    logo = NULL,
                    main_link = "#",
                    secondary_link = "#",
-                   logo_width = 36,
-                   logo_height = 32,
                    logo_alt_text = NULL,
                    main_alt_text= NULL,
-                   secondary_alt_text=NULL){
+                   secondary_alt_text=NULL,
+                   logo_width = 36,
+                   logo_height = 32 ){
 
   if (is.null(logo)) {
     logo_src <- "null"
@@ -44,19 +47,6 @@ header <- function(main_text,
     logo_src <- logo
   }
 
-  #check for missing alt text
-
-  if(is.null(logo_alt_text)){
-    stop("Please use logo_alt_text to provide alternative text for the logo.")
-  }
-
-  if(is.null(main_alt_text)){
-    stop("Please use main_alt_text to provide alternative text for the main link.")
-  }
-
-  if(is.null(secondary_alt_text)){
-    stop("Please use secondary_alt_text to provide alternative text for the secondary link.")
-  }
 
   govHeader <- shiny::tags$header(class = "govuk-header", role = "banner",
     shinyjs::inlineCSS(paste0(
