@@ -20,20 +20,19 @@ jobs:
         with:
           use-public-rspm: true
 
-      - name: Load package
+      - name: Load packages
         shell: Rscript {0}
         run: |
-          devtools::load_all()
-
-      - name: Install rsconnect
-        shell: Rscript {0}
-        run: |
+          if (!requireNamespace("devtools", quietly = TRUE)) install.packages("devtools")
           if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
+          renv::install("shinyjs")
+          devtools::build()
+          devtools::load_all()
           renv::install("rsconnect")
 
       - name: Push to shinyapps.io
-        run: >
-          Rscript
-          -e "rsconnect::setAccountInfo(name = 'department-for-education', token = '${{secrets.SHINYAPPS_TOKEN}}', secret = '${{secrets.SHINYAPPS_SECRET}}')"
-          -e "shiny_app <- run_example()"
-          -e "rsconnect::deployApp(shiny_app, forceUpdate = TRUE)"
+        shell: Rscript {0}
+        run: |
+          rsconnect::setAccountInfo(name = 'department-for-education', token = '${{secrets.SHINYAPPS_TOKEN}}', secret = '${{secrets.SHINYAPPS_SECRET}}')
+          shiny_app <- run_example()
+          rsconnect::deployApp(shiny_app, forceUpdate = TRUE)
