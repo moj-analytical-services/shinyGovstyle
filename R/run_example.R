@@ -1,6 +1,7 @@
 #' Example Function
 #'
-#' This function runs a shiny example using different parts of the package
+#' This function runs a shiny example showcasing different parts of the package
+#'
 #' @return a shiny app with examples in
 #' @keywords example
 #' @export
@@ -27,6 +28,7 @@ run_example <- function() {
   shiny::shinyApp(
     ui = shiny::fluidPage(
       title = "ShinyGovstyle",
+
       cookieBanner("Run Example"),
       skip_to_main(),
       header("MOJ", "ShinyGovstyle Example",
@@ -36,18 +38,13 @@ run_example <- function() {
       banner(
         "banner",
         "Beta",
-        'This is a new service \u002D your <a class="govuk-link" href="#">
+
+        'This is a new service \u002D your <a class="govuk-link" href="https://github.com/dfe-analytical-services/shinyGovstyle/issues/new/choose">
         feedback</a> will help us to improve it.'
       ),
 
       # Need this to make the error and word count work
       shinyjs::useShinyjs(),
-
-      # Add a message to show users how to see this code
-      shiny::tags$br(),
-      shiny::markdown(
-        "Run ```View(run_example)``` in console to see the code for this app"
-      ),
       gov_row(
         # Nav columns
         shiny::column(
@@ -119,6 +116,12 @@ run_example <- function() {
           width = 9,
           id = "main_col", # DO NOT REMOVE ID
 
+          shiny::tags$br(),
+          shiny::markdown(
+            "If running locally, run ```View(run_example)``` in console to see the code for this app. Otherwise, you can see the <a href='https://github.com/dfe-analytical-services/shinyGovstyle/blob/master/R/run_example.R/'>latest version of the code on GitHub</a>."
+          ),
+
+
           # Set up a nav panel so everything not on single page
           shiny::tabsetPanel(
             type = "hidden",
@@ -142,7 +145,7 @@ run_example <- function() {
                 ),
                 heading_text("radio_button_Input (stacked)", size = "s"),
                 radio_button_Input(
-                  inputId = "name_changed", label = "Have you changed your name?",
+                  inputId = "name_changed_stacked", label = "Have you changed your name?",
                   choices = c("Yes", "No"), inline = FALSE,
                   hint_label = "This includes changing your last name or spelling
                             your name differently."
@@ -213,8 +216,8 @@ run_example <- function() {
                   word_limit = 300
                 ),
                 heading_text("button_Input", size = "s", id = "button_input_text_types"),
-                button_Input("btn2", "Go to next page"),
-                button_Input("btn3", "Check for errors", type = "warning")
+                button_Input("btn_error", "Check for errors", type = "warning")
+
               )
             ),
 
@@ -237,7 +240,6 @@ run_example <- function() {
                 heading_text("govTabs", size = "s"),
                 shinyGovstyle::govTabs("tabsID", data, "tabs"),
                 heading_text("button_Input", size = "s", id = "button_input_tables_tabs_accordions"),
-                button_Input("btn4", "Go to next page"),
                 heading_text("accordions", size = "s"),
                 shinyGovstyle::accordion(
                   "acc1",
@@ -407,14 +409,6 @@ run_example <- function() {
         shiny::updateTabsetPanel(session, "tab-container", selected = "text_types")
       })
 
-      shiny::observeEvent(input$btn1, {
-        shiny::updateTabsetPanel(session, "tab-container", selected = "tables_tabs_and_accordions")
-      })
-
-      shiny::observeEvent(input$btn1, {
-        shiny::updateTabsetPanel(session, "tab-container", selected = "feedback_types")
-      })
-
       # Need this to use live update the word counter
       shiny::observeEvent(
         input$text_area2,
@@ -422,7 +416,7 @@ run_example <- function() {
       )
 
       # Trigger error if text_are2 is blank
-      shiny::observeEvent(input$btn3, {
+      shiny::observeEvent(input$btn_error, {
         if (input$text_area2 == "") {
           error_on("text_area2")
         } else {
