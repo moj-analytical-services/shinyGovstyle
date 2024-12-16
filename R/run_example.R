@@ -28,14 +28,17 @@ run_example <- function() {
   shiny::shinyApp(
     ui = shiny::fluidPage(
       title = "ShinyGovstyle",
-      cookieBanner("shinyGovstyle showcase"),
+
+      cookieBanner("Run Example"),
       skip_to_main(),
-      header("MoJ", "shinyGovstyle showcase",
-        logo = "shinyGovstyle/images/moj_logo-1.png", logo_width = 66
+      header("MOJ", "ShinyGovstyle Example",
+        logo = "shinyGovstyle/images/moj_logo-1.png", logo_width = 66,
+        logo_alt_text = "Ministry of justice logo"
       ),
       banner(
         "banner",
         "Beta",
+
         'This is a new service \u002D your <a class="govuk-link" href="https://github.com/dfe-analytical-services/shinyGovstyle/issues/new/choose">
         feedback</a> will help us to improve it.'
       ),
@@ -117,6 +120,7 @@ run_example <- function() {
           shiny::markdown(
             "If running locally, run ```View(run_example)``` in console to see the code for this app. Otherwise, you can see the <a href='https://github.com/dfe-analytical-services/shinyGovstyle/blob/master/R/run_example.R/'>latest version of the code on GitHub</a>."
           ),
+
 
           # Set up a nav panel so everything not on single page
           shiny::tabsetPanel(
@@ -213,6 +217,7 @@ run_example <- function() {
                 ),
                 heading_text("button_Input", size = "s", id = "button_input_text_types"),
                 button_Input("btn_error", "Check for errors", type = "warning")
+
               )
             ),
 
