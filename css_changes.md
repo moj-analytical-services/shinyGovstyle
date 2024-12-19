@@ -8,6 +8,10 @@ color: #0b0c0c;
 ```
 
 * Move fonts css to the font css
+
+* Add `font-size: 16px;` to root at top of file underneath `--govuk-frontend-version: VERSION NUMBER;`
+
+
 * Change url links
 
 * For accordion need to fix the css by:
